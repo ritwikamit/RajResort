@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Sun, Moon, Send, Sparkles, MapPin, PhoneCall, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, Sun, Moon, Send } from 'lucide-react';
 import { RajResortLogo } from './RajResortLogo';
 import { HeaderEnquiryModal } from './HeaderEnquiryModal';
 import { useTheme } from '@/context/ThemeContext';
@@ -37,32 +37,11 @@ export const Header: React.FC = () => {
     { label: 'Gallery', href: '/gallery' },
   ];
 
-  // Secondary menus in the redesigned "More" dropdown (Book via Partners removed)
+  // Secondary menus in the minimal "More" dropdown
   const moreLinks = [
-    { 
-      label: 'Resort Facilities', 
-      href: '/facilities', 
-      desc: '24/7 power backup, valet & lawn spaces',
-      icon: Sparkles,
-      iconColor: 'text-amber-300',
-      iconBg: 'bg-amber-400/15 border-amber-400/30 text-amber-300'
-    },
-    { 
-      label: 'Location & Travel', 
-      href: '/location', 
-      desc: 'Kurji Mor Gate 62 & Google Maps directions',
-      icon: MapPin,
-      iconColor: 'text-rose-300',
-      iconBg: 'bg-rose-500/15 border-rose-500/30 text-rose-300'
-    },
-    { 
-      label: 'Contact Reception', 
-      href: '/contact', 
-      desc: 'Call 24/7 desk & instant WhatsApp enquiry',
-      icon: PhoneCall,
-      iconColor: 'text-emerald-300',
-      iconBg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-300'
-    },
+    { label: 'Resort Facilities', href: '/facilities' },
+    { label: 'Location & Travel', href: '/location' },
+    { label: 'Contact Reception', href: '/contact' },
   ];
 
   return (
@@ -107,51 +86,24 @@ export const Header: React.FC = () => {
               </button>
 
               {moreDropdownOpen && (
-                <div className="absolute top-full right-0 mt-3.5 w-80 p-2.5 bg-[#4F070B]/98 dark:bg-stone-900/98 backdrop-blur-xl border border-amber-400/35 dark:border-stone-700/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] animate-in fade-in zoom-in-95 duration-150 z-50">
-                  {/* Subtle Top Accent Header */}
-                  <div className="px-3 py-2 flex items-center justify-between border-b border-white/10 mb-1.5">
-                    <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-amber-300">
-                      Resort Guide
-                    </span>
-                    <span className="text-[10px] text-white/60">Kurji Mor · Patna</span>
-                  </div>
-
-                  {/* Menu Items */}
-                  <div className="space-y-1">
-                    {moreLinks.map((item) => {
-                      const Icon = item.icon;
-                      return (
-                        <Link
-                          key={item.label}
-                          href={item.href}
-                          onClick={() => setMoreDropdownOpen(false)}
-                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/10 dark:hover:bg-stone-800 transition-colors group cursor-pointer touch-manipulation"
-                        >
-                          <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border ${item.iconBg}`}>
-                            <Icon className={`w-4 h-4 ${item.iconColor} group-hover:scale-110 transition-transform`} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="font-semibold text-xs text-white group-hover:text-amber-300 transition-colors flex items-center justify-between">
-                              <span>{item.label}</span>
-                              <ArrowRight className="w-3.5 h-3.5 text-amber-300 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0" />
-                            </div>
-                            <div className="text-[11px] text-white/70 dark:text-stone-400 font-normal truncate mt-0.5 normal-case">
-                              {item.desc}
-                            </div>
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
-
-                  {/* Bottom Quick Badge */}
-                  <div className="mt-2 pt-2 px-3 pb-1 border-t border-white/10 flex items-center justify-between text-[11px] text-white/70">
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      Front Desk 24/7
-                    </span>
-                    <span className="text-amber-300 font-semibold">Near Gate 62</span>
-                  </div>
+                <div className="absolute top-full right-0 mt-3 w-52 py-1.5 bg-[#5A0A0E] dark:bg-stone-900 border border-white/20 dark:border-stone-800 rounded-xl shadow-2xl animate-in fade-in zoom-in-95 duration-150 z-50 overflow-hidden">
+                  {moreLinks.map((item) => {
+                    const isActive = pathname === item.href;
+                    return (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        onClick={() => setMoreDropdownOpen(false)}
+                        className={`block px-4 py-2.5 text-xs font-semibold tracking-wider uppercase transition-colors cursor-pointer touch-manipulation ${
+                          isActive
+                            ? 'bg-white/15 text-amber-300 font-bold'
+                            : 'text-white/90 hover:text-amber-300 hover:bg-white/10'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -215,30 +167,21 @@ export const Header: React.FC = () => {
                 </Link>
               ))}
 
-              <div className="pt-3 pb-1 text-[10px] text-amber-300/90 font-bold tracking-wider flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                <span>MORE DESTINATIONS</span>
+              <div className="pt-2 text-[10px] text-amber-300/80 font-bold tracking-wider">
+                MORE
               </div>
 
-              {moreLinks.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 px-2 rounded-lg hover:bg-white/10 hover:text-amber-300 transition-colors flex items-center gap-3 touch-manipulation"
-                  >
-                    <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border ${item.iconBg}`}>
-                      <Icon className={`w-3.5 h-3.5 ${item.iconColor}`} />
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold text-xs">{item.label}</div>
-                      <div className="text-[10px] text-white/70 dark:text-stone-400 normal-case">{item.desc}</div>
-                    </div>
-                  </Link>
-                );
-              })}
+              {moreLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2.5 px-2 rounded-lg border-b border-white/10 hover:bg-white/10 hover:text-amber-300 transition-colors flex items-center justify-between touch-manipulation"
+                >
+                  <span>{item.label}</span>
+                  {pathname === item.href && <span className="w-2 h-2 rounded-full bg-amber-400" />}
+                </Link>
+              ))}
             </div>
 
             <div className="pt-3">
