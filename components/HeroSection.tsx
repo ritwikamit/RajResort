@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Users, Zap, Car, ShieldCheck, MessageSquare, ArrowRight } from 'lucide-react';
 import { VisualArt } from './VisualArt';
 import { RESORT_DATA } from '@/data/resort-data';
+import { MakeMyTripOfficialLogo, AgodaOfficialLogo, GuestReservationsOfficialLogo } from './PartnerLogos';
 
 export const HeroSection: React.FC = () => {
   const [imageError, setImageError] = useState(false);
@@ -93,6 +94,44 @@ export const HeroSection: React.FC = () => {
                 <span>Explore Wedding Lawns</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
+            </div>
+
+            {/* Official Booking Partners Verified Strip */}
+            <div className="mt-6 pt-5 border-t border-white/20 w-full flex flex-col items-center">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-amber-200/95 mb-2.5">
+                Also Bookable via Certified Partner Portals
+              </span>
+              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
+                <a
+                  href="https://www.makemytrip.com/hotels/raj_resort-details-patna.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Book Raj Resort on MakeMyTrip"
+                  className="px-3 py-1.5 rounded-xl bg-white/95 hover:bg-white shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center border border-white/40 cursor-pointer"
+                >
+                  <MakeMyTripOfficialLogo className="h-5 sm:h-6 w-auto" />
+                </a>
+
+                <a
+                  href="https://www.agoda.com/en-in/raj-resort-h61899892/hotel/patna-in.html?cid=1844104&ds=CoIYbg82AadUMg3C"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Book Raj Resort on Agoda"
+                  className="px-3 py-1.5 rounded-xl bg-white/95 hover:bg-white shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center border border-white/40 cursor-pointer"
+                >
+                  <AgodaOfficialLogo className="h-5 sm:h-6 w-auto" variant="light" />
+                </a>
+
+                <a
+                  href="https://www.guestreservations.com/raj-resort-patna/booking?A=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Book Raj Resort on Guest Reservations"
+                  className="px-3 py-1.5 rounded-xl bg-white/95 hover:bg-white shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center border border-white/40 cursor-pointer"
+                >
+                  <GuestReservationsOfficialLogo className="h-5 sm:h-6 w-auto" variant="light" />
+                </a>
+              </div>
             </div>
 
             {/* Simple Minimal Highlights */}
