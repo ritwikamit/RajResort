@@ -1,0 +1,6 @@
+{
+  "name": "Raj Resort Patna",
+  "description": "Official website for Raj Resort Patna, located at Kurji Mor, Patliputra. Explore guest rooms, grand wedding lawns, banquet facilities, location directions, and verified booking partners.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

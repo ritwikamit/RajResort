@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+/* Enforce class-based dark mode so website defaults to light mode instead of OS prefers-color-scheme */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    background-color: #FAF7F2;
+    color: #1C1917;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .dark body {
+    background-color: #080D0B;
+    color: #FAF6F0;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif), "Times New Roman", Times, Georgia, serif;
+  }
+
+  /* Instant tap responsiveness eliminating 300ms mobile touch delay */
+  html, body, button, a, [role="button"], input, select, textarea {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Red Gradient Button Styles */
+.btn-red-gradient {
+  background: linear-gradient(135deg, #B81D24 0%, #99141A 50%, #750B10 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(153, 20, 26, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-red-gradient:hover {
+  background: linear-gradient(135deg, #CF242C 0%, #A8161D 50%, #850E14 100%);
+  box-shadow: 0 6px 24px rgba(153, 20, 26, 0.48);
+  transform: translateY(-1px);
+}
+
+.btn-red-gradient-outline {
+  background: transparent;
+  border: 1.5px solid #99141A;
+  color: #99141A;
+  transition: all 0.25s ease;
+}
+
+.dark .btn-red-gradient-outline {
+  border-color: #E11D48;
+  color: #FDA4AF;
+}
+
+.btn-red-gradient-outline:hover {
+  background: linear-gradient(135deg, #B81D24 0%, #99141A 100%);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* Translucent Glassmorphic Surfaces */
+.glass-translucent {
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 16px 40px -10px rgba(153, 20, 26, 0.08), 0 4px 16px -2px rgba(0, 0, 0, 0.04);
+}
+
+.dark .glass-translucent {
+  background: rgba(14, 21, 18, 0.65);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(153, 20, 26, 0.12);
+}
+
+/* Animated Glowing Golden Border with a vivid red line moving along the edges */
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rotateBorderAngle {
+  0% {
+    --border-angle: 0deg;
+  }
+  100% {
+    --border-angle: 360deg;
+  }
+}
+
+.animated-golden-border {
+  position: relative;
+  border-radius: 1.5rem;
+  z-index: 1;
+}
+
+/* Golden base border */
+.animated-golden-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2.5px;
+  background: linear-gradient(135deg, #D4AF37 0%, #FFF099 25%, #F59E0B 50%, #EAB308 75%, #D4AF37 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+  z-index: 1;
+}
+
+/* Vivid glowing red line moving along the edges of the golden border */
+.animated-golden-border::after {
+  content: '';
+  position: absolute;
+  inset: -0.5px;
+  border-radius: inherit;
+  padding: 3px;
+  background: conic-gradient(
+    from var(--border-angle) at 50% 50%,
+    transparent 0deg,
+    transparent 280deg,
+    rgba(153, 20, 26, 0.3) 305deg,
+    #99141A 325deg,
+    #DC2626 342deg,
+    #FF4D57 352deg,
+    #DC2626 358deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: rotateBorderAngle 4s linear infinite;
+  filter: drop-shadow(0 0 7px rgba(239, 68, 68, 0.95));
+  z-index: 2;
+}
+
+.animated-moving-border {
+  position: relative;
+  border-radius: 1.5rem;
+  z-index: 1;
+}
+
+.animated-moving-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #D4AF37 0%, #F59E0B 50%, #D4AF37 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.3);
+  z-index: 1;
+}
+
+.animated-moving-border::after {
+  content: '';
+  position: absolute;
+  inset: -0.5px;
+  border-radius: inherit;
+  padding: 2.5px;
+  background: conic-gradient(
+    from var(--border-angle) at 50% 50%,
+    transparent 0deg,
+    transparent 280deg,
+    rgba(153, 20, 26, 0.3) 305deg,
+    #99141A 325deg,
+    #DC2626 342deg,
+    #FF4D57 352deg,
+    #DC2626 358deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: rotateBorderAngle 4s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.95));
+  z-index: 2;
+}
+
+/* Continuous moving text marquee going right to left */
+@keyframes marqueeScrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollLeft 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-left:hover {
+  animation-play-state: paused;
+}
+
+/* Red Gradient theme header styling */
+.header-red-gradient {
+  background: linear-gradient(135deg, #7A0C11 0%, #99141A 50%, #600A0E 100%);
+}
