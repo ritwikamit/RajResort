@@ -21,6 +21,14 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: 'Raj Resort Patna | Grand Weddings, Stays & Banquets',
   description: 'Official website for Raj Resort Patna, located at Kurji Mor, Patliputra. Explore guest rooms, grand wedding lawns, banquet facilities, location directions, and verified booking partners.',
+  icons: {
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/favicon.ico' },
+    ],
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
   openGraph: {
     title: 'Raj Resort Patna | Grand Weddings, Stays & Banquets',
     description: 'Official website for Raj Resort Patna, located at Kurji Mor, Patliputra. Explore guest rooms, grand wedding lawns, banquet facilities, location directions, and verified booking partners.',
