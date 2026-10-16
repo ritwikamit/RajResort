@@ -1,19 +1,10 @@
+'use client';
+
 import React from 'react';
 import { ExternalLink as ExternalLinkIcon, ShieldCheck, Info } from 'lucide-react';
 import { RESORT_DATA } from '@/data/resort-data';
-import { MakeMyTripOfficialLogo, AgodaOfficialLogo, GuestReservationsOfficialLogo } from './PartnerLogos';
 
 export const BookingProvidersSection: React.FC = () => {
-  const renderOfficialLogo = (title: string) => {
-    if (title === 'MakeMyTrip') {
-      return <MakeMyTripOfficialLogo className="h-9 w-auto" />;
-    }
-    if (title === 'Agoda') {
-      return <AgodaOfficialLogo className="h-9 w-auto" />;
-    }
-    return <GuestReservationsOfficialLogo className="h-9 w-auto" />;
-  };
-
   return (
     <section id="book-a-stay" className="py-20 bg-[#FAF7F2] dark:bg-[#080D0B] text-stone-900 dark:text-stone-100 border-t border-stone-200/80 dark:border-stone-800/80 relative transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +32,7 @@ export const BookingProvidersSection: React.FC = () => {
             >
               <div className="flex-1 flex flex-col justify-between p-6 sm:p-7 bg-white/95 dark:bg-stone-900/95 backdrop-blur-xl rounded-2xl">
                 <div>
-                  <div className="flex items-center justify-between pb-3 border-b border-stone-200 dark:border-stone-800 mb-4 font-sans">
+                  <div className="flex items-center justify-between pb-3 border-b border-stone-200 dark:border-stone-800 mb-5 font-sans">
                     <span className="text-xs font-bold tracking-wider uppercase text-[#99141A] dark:text-rose-400">
                       {provider.badge}
                     </span>
@@ -50,16 +41,11 @@ export const BookingProvidersSection: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Official Partner Brand Logo Badge */}
-                  <div className="py-3 px-4 mb-4 rounded-xl bg-stone-50 dark:bg-stone-800/80 border border-stone-200/80 dark:border-stone-700/80 flex items-center justify-center min-h-[58px]">
-                    {renderOfficialLogo(provider.title)}
-                  </div>
-
                   <h3 className="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100 hover:text-[#99141A] dark:hover:text-rose-400 transition-colors">
                     {provider.title}
                   </h3>
 
-                  <p className="mt-2.5 text-stone-600 dark:text-stone-300 text-sm leading-relaxed font-sans">
+                  <p className="mt-3 text-stone-600 dark:text-stone-300 text-sm leading-relaxed font-sans">
                     {provider.description}
                   </p>
                 </div>
