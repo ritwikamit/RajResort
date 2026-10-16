@@ -47,10 +47,10 @@ export const Header: React.FC = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-40 bg-[#7A0C11] md:bg-gradient-to-r md:from-[#7A0C11] md:via-[#99141A] md:to-[#600A0E] text-white border-b border-white/20 shadow-[0_4px_30px_rgba(90,10,15,0.45)] backdrop-blur-md transition-all duration-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
           
           {/* Zone 1: Brand Lockup with Royal Emblem in High Contrast White & Gold */}
-          <Link href="/" className="flex items-center gap-3 shrink-0 focus-visible:outline-none touch-manipulation">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 shrink-0 focus-visible:outline-none touch-manipulation">
             <RajResortLogo variant="horizontal" size={46} showSubtitle={true} inverted={true} />
           </Link>
 
@@ -110,15 +110,15 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Zone 3: Enquire Button + Dark Mode Toggle + Mobile Menu */}
-          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             
             {/* Enquire Form Button - Opens WhatsApp Enquiry Modal */}
             <button
               type="button"
               onClick={() => setEnquiryModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 text-stone-950 font-bold text-xs uppercase tracking-wider shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer touch-manipulation"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 text-stone-950 font-bold text-[11px] sm:text-xs uppercase tracking-wider shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer touch-manipulation"
             >
-              <Send className="w-3.5 h-3.5" />
+              <Send className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               <span>Enquire</span>
             </button>
 
@@ -128,7 +128,7 @@ export const Header: React.FC = () => {
               onClick={toggleTheme}
               aria-label={`Switch to ${mounted && theme === 'dark' ? 'light' : 'dark'} mode`}
               title={`Switch to ${mounted && theme === 'dark' ? 'light' : 'dark'} mode`}
-              className="p-2.5 rounded-xl border border-white/25 bg-white/10 hover:bg-white/20 text-white hover:text-amber-300 transition-all cursor-pointer shadow-xs touch-manipulation"
+              className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl border border-white/25 bg-white/10 hover:bg-white/20 text-white hover:text-amber-300 transition-all cursor-pointer shadow-xs touch-manipulation"
             >
               {mounted && theme === 'dark' ? (
                 <Sun className="w-4 h-4 text-amber-300 animate-in spin-in-180 duration-300" />
@@ -142,9 +142,9 @@ export const Header: React.FC = () => {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
-              className="md:hidden p-2.5 border border-white/25 bg-white/10 text-white rounded-xl cursor-pointer touch-manipulation"
+              className="md:hidden p-2 sm:p-2.5 border border-white/25 bg-white/10 text-white rounded-lg sm:rounded-xl cursor-pointer touch-manipulation"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
             </button>
 
           </div>
@@ -153,7 +153,7 @@ export const Header: React.FC = () => {
 
         {/* Mobile Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#58080C]/98 dark:bg-stone-900/98 border-b border-white/20 px-5 py-6 space-y-4 shadow-2xl animate-in slide-in-from-top-2 duration-150">
+          <div className="md:hidden bg-[#58080C]/98 dark:bg-stone-900/98 border-b border-white/20 px-5 py-5 space-y-3.5 shadow-2xl animate-in slide-in-from-top-2 duration-150 max-h-[calc(100vh-4rem)] overflow-y-auto">
             <div className="flex flex-col space-y-2 text-xs uppercase tracking-widest font-semibold text-white">
               {primaryLinks.map((link) => (
                 <Link

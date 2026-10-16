@@ -153,7 +153,7 @@ export const ContactEnquirySection: React.FC = () => {
 
           {/* Right Column: Interactive Quote Request Form in Animated Moving Border */}
           <div className="lg:col-span-7 animated-moving-border p-[2px] rounded-2xl shadow-[0_12px_36px_rgba(153,20,26,0.06)]">
-            <div className="bg-white/95 dark:bg-stone-900/95 backdrop-blur-xl p-6 sm:p-8 rounded-2xl">
+            <div className="bg-white/95 dark:bg-stone-900/95 backdrop-blur-xl p-4 sm:p-8 rounded-2xl">
               {submitted ? (
                 <div className="py-8 text-center space-y-4 font-sans">
                   <div className="inline-flex p-3 bg-emerald-100 dark:bg-emerald-950/60 border border-emerald-400 dark:border-emerald-600 text-emerald-800 dark:text-emerald-200 rounded-2xl">
@@ -223,7 +223,7 @@ export const ContactEnquirySection: React.FC = () => {
                         placeholder="e.g. Ramesh Kumar"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-sm rounded-xl"
+                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-base sm:text-sm rounded-xl"
                       />
                     </div>
 
@@ -237,7 +237,7 @@ export const ContactEnquirySection: React.FC = () => {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-sm font-sans rounded-xl"
+                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-base sm:text-sm font-sans rounded-xl"
                       />
                     </div>
                   </div>
@@ -250,7 +250,7 @@ export const ContactEnquirySection: React.FC = () => {
                       <select
                         value={formData.enquiryType}
                         onChange={(e) => setFormData({ ...formData, enquiryType: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-sm rounded-xl"
+                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-base sm:text-sm rounded-xl"
                       >
                         <option value="Wedding & Grand Lawn">Wedding & Grand Lawn</option>
                         <option value="Shahi Darbar Indoor Banquet">Shahi Darbar Indoor Banquet</option>
@@ -268,7 +268,7 @@ export const ContactEnquirySection: React.FC = () => {
                         type="date"
                         value={formData.date}
                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-sm rounded-xl"
+                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-base sm:text-sm rounded-xl"
                       />
                     </div>
                   </div>
@@ -283,7 +283,7 @@ export const ContactEnquirySection: React.FC = () => {
                         placeholder="e.g. 200 - 500 guests"
                         value={formData.guests}
                         onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-sm rounded-xl"
+                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-base sm:text-sm rounded-xl"
                       />
                     </div>
 
@@ -296,7 +296,7 @@ export const ContactEnquirySection: React.FC = () => {
                         placeholder="your.email@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-sm rounded-xl"
+                        className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-base sm:text-sm rounded-xl"
                       />
                     </div>
                   </div>
@@ -310,7 +310,7 @@ export const ContactEnquirySection: React.FC = () => {
                       placeholder="Tell us about food preferences, number of rooms needed, or any special requests..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-sm rounded-xl"
+                      className="w-full px-3.5 py-2.5 bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 focus:border-[#99141A] dark:focus:border-rose-400 focus:outline-none text-stone-900 dark:text-stone-100 text-base sm:text-sm rounded-xl"
                     />
                   </div>
 

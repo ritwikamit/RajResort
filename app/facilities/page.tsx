@@ -19,7 +19,7 @@ export default function FacilitiesPage() {
       <Header />
       
       {/* Page Hero Banner */}
-      <section className="pt-32 pb-16 bg-[#F5EFEB] dark:bg-[#0D1411] border-b border-stone-200/80 dark:border-stone-800/80 transition-colors">
+      <section className="pt-24 sm:pt-32 pb-10 sm:pb-16 bg-[#F5EFEB] dark:bg-[#0D1411] border-b border-stone-200/80 dark:border-stone-800/80 transition-colors">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#99141A] dark:text-rose-400 uppercase mb-4">
             <ShieldCheck className="w-4 h-4 text-[#99141A] dark:text-rose-400" />

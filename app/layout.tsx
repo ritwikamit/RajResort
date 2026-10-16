@@ -1,8 +1,18 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { AnimatedBackgroundCanvas } from '@/components/AnimatedBackgroundCanvas';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#7A0C11' },
+    { media: '(prefers-color-scheme: dark)', color: '#080D0B' },
+  ],
+};
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],

@@ -38,7 +38,7 @@ const WhatsAppOfficialIcon = ({ className = 'w-5 h-5' }: { className?: string })
 
 export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) => {
   return (
-    <footer className="bg-[#EDE5DA] dark:bg-[#060A08] text-stone-700 dark:text-stone-300 border-t border-stone-300/80 dark:border-stone-800/80 pt-14 pb-24 md:pb-12 font-sans transition-colors duration-300">
+    <footer className="bg-[#EDE5DA] dark:bg-[#060A08] text-stone-700 dark:text-stone-300 border-t border-stone-300/80 dark:border-stone-800/80 pt-12 sm:pt-14 pb-32 md:pb-12 font-sans transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Smartphone-Optimized Quick Navigation Grid (Visible on mobile screens) */}

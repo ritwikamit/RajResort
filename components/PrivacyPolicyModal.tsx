@@ -28,13 +28,13 @@ export const PrivacyPolicyModal: React.FC<PrivacyPolicyModalProps> = ({ isOpen, 
       aria-labelledby="privacy-title"
       className="fixed inset-0 z-50 flex items-center justify-center bg-stone-950/80 p-4 sm:p-6 backdrop-blur-md"
     >
-      <div className="relative max-w-2xl w-full bg-white/95 dark:bg-stone-900/95 backdrop-blur-2xl border border-white/90 dark:border-stone-700 p-6 sm:p-8 text-stone-800 dark:text-stone-200 shadow-2xl rounded-2xl max-h-[85vh] overflow-y-auto">
+      <div className="relative max-w-2xl w-full bg-white/95 dark:bg-stone-900/95 backdrop-blur-2xl border border-white/90 dark:border-stone-700 p-4 sm:p-8 text-stone-800 dark:text-stone-200 shadow-2xl rounded-2xl max-h-[88vh] overflow-y-auto">
         
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close privacy policy"
-          className="absolute top-5 right-5 p-2 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:text-[#99141A] dark:hover:text-rose-400 rounded-xl transition-colors cursor-pointer"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:text-[#99141A] dark:hover:text-rose-400 rounded-xl transition-colors cursor-pointer"
         >
           <X className="w-4 h-4" />
         </button>

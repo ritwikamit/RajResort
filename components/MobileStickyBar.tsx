@@ -28,12 +28,12 @@ export const MobileStickyBar: React.FC = () => {
       {/* Mobile Sticky Bottom Navigation Bar (md:hidden) */}
       <nav 
         aria-label="Mobile Navigation Bar"
-        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 dark:bg-[#0D1411]/95 backdrop-blur-xl border-t border-stone-200 dark:border-stone-800 shadow-[0_-4px_25px_rgba(0,0,0,0.1)] px-3 py-2 flex items-center justify-around gap-1"
+        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 dark:bg-[#0D1411]/95 backdrop-blur-xl border-t border-stone-200 dark:border-stone-800 shadow-[0_-4px_25px_rgba(0,0,0,0.15)] px-2 sm:px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] flex items-center justify-around gap-1 select-none"
       >
         {/* Home */}
         <Link 
           href="/" 
-          className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${
+          className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors touch-manipulation ${
             pathname === '/' 
               ? 'text-[#99141A] dark:text-rose-400 font-bold' 
               : 'text-stone-600 dark:text-stone-400'

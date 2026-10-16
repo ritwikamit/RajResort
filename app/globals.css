@@ -20,10 +20,25 @@
   }
 
   /* Instant tap responsiveness eliminating 300ms mobile touch delay */
-  html, body, button, a, [role="button"], input, select, textarea {
+  html, body {
+    overflow-x: hidden;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
+
+  button, a, [role="button"], input, select, textarea {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Hide scrollbar utility for clean horizontal swipe on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Red Gradient Button Styles */

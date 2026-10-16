@@ -79,8 +79,8 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
         </div>
 
         {/* Form Body */}
-        <form onSubmit={handleSubmit} className="p-6 sm:p-7 space-y-4 max-h-[75vh] overflow-y-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-7 space-y-3.5 sm:space-y-4 max-h-[75vh] overflow-y-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {/* Full Name */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5">
@@ -92,7 +92,7 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
                 placeholder="e.g. Rahul Sharma"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
               />
             </div>
 
@@ -107,12 +107,12 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
                 placeholder="10-digit Mobile number"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {/* Service Type */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5">
@@ -121,7 +121,7 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
               <select
                 value={formData.serviceType}
                 onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
               >
                 <option value="Grand Wedding & Lawn Celebration">Grand Wedding & Lawn (300-1200+ guests)</option>
                 <option value="AC Guest Room / Executive Suite">AC Guest Room / Suite Stay</option>
@@ -142,7 +142,7 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
                 type="date"
                 value={formData.date}
                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
               />
             </div>
           </div>
@@ -181,7 +181,7 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
               placeholder="e.g. Catering preference, stage setup, extra bridal room, generator power backup requirement..."
               value={formData.requirements}
               onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all resize-none"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all resize-none"
             />
           </div>
 
