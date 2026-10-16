@@ -38,12 +38,12 @@ export const WeddingVenuesSection: React.FC = () => {
               <span>Patliputra Celebrations · Lawns & Halls</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-              Your Dream Wedding at Raj Resort
+              Weddings Celebrated with Family Warmth & Grand Tradition
             </h2>
           </div>
           <p className="text-stone-700 dark:text-stone-300 text-sm max-w-md leading-relaxed font-sans font-medium">
-            From your grand entry under hanging chandeliers to a festive varmala on the lotus stage, 
-            we have the space and setup ready for your big celebration.
+            From your grand Baraat entry along the illuminated pergola to the sacred Varmala on our lotus stage, 
+            we have every setup ready so your family can celebrate without worry.
           </p>
         </div>
 

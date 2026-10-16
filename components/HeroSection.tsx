@@ -58,15 +58,16 @@ export const HeroSection: React.FC = () => {
               <span className="h-px w-4 sm:w-12 bg-gradient-to-l from-transparent to-amber-300/80" />
             </div>
 
-            {/* Headline with High Contrast over Clear Photo */}
-            <h1 className="font-serif text-2xl sm:text-4xl md:text-6xl font-bold tracking-tight text-white max-w-2xl text-balance leading-tight drop-shadow-md">
-              Grand Celebrations & Peaceful Stays in Patna
+            {/* Emotionally Highlighted Headline */}
+            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-3xl text-balance leading-tight drop-shadow-md">
+              Where Patna Celebrates Love, Family & <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-amber-400 font-normal italic">Sacred Beginnings</span>
             </h1>
 
-            {/* Simple, Minimal Story */}
-            <p className="mt-3 sm:mt-4 text-stone-100 text-xs sm:text-base md:text-lg max-w-xl text-balance leading-relaxed font-sans font-medium drop-shadow-sm">
-              Welcome to <strong className="text-amber-300 font-bold">Raj Resort</strong>. 
-              An open-air celebration lawn for up to 1,200 guests, air-conditioned banquet halls, and quiet executive suites with 24/7 generator backup.
+            {/* Heartfelt, Culturally Grounded Family Story */}
+            <p className="mt-3 sm:mt-4 text-stone-100 text-xs sm:text-base md:text-lg max-w-2xl text-balance leading-relaxed font-sans font-medium drop-shadow-sm">
+              From your daughter’s emotional Varmala under the open starlit sky to welcoming relatives with genuine warmth, 
+              <strong className="text-amber-300 font-bold"> Raj Resort</strong> turns lifelong family dreams into treasured memories. 
+              Featuring our 1,200-guest celebration lawn, air-conditioned Shahi Darbar hall, and quiet guest suites with 24/7 power backup near Kurji Mor, Patliputra.
             </p>
 
             {/* Simple, Minimal Action Buttons */}

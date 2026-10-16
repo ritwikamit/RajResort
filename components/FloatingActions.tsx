@@ -25,7 +25,7 @@ export const FloatingActions: React.FC = () => {
     {
       id: '1',
       sender: 'bot',
-      text: 'Namaste! Welcome to Raj Resort Patna. I am your concierge assistant. How can I help you today?',
+      text: 'Namaste! Welcome to Raj Resort Patna. How can we assist with your wedding plans or room reservation today?',
       time: 'Just now',
     },
   ]);
@@ -64,19 +64,19 @@ export const FloatingActions: React.FC = () => {
 
     // Instant helpful assistant responses without exposing raw mobile number
     setTimeout(() => {
-      let reply = "Thank you for reaching out! You can tap the 'Call Desk' button below or connect with our WhatsApp concierge for immediate booking assistance.";
+      let reply = "Thank you for reaching out! You can tap 'Call Desk' or message our WhatsApp team below for instant date availability and packages.";
       const lower = query.toLowerCase();
 
       if (lower.includes('capacity') || lower.includes('guest') || lower.includes('lawn') || lower.includes('wedding')) {
-        reply = "Our Grand Royal Lawn accommodates between 300 and 1,200+ guests with a signature floral entrance canopy, heart walkway, and cold fireworks stage. We also have the indoor Shahi Darbar AC Hall for 150 to 450 guests!";
+        reply = "Our Grand Royal Lawn accommodates from 300 to 1,200+ guests, featuring an illuminated entrance pergola, red-carpet aisle, and Varmala stage with cold fireworks. We also have the air-conditioned Shahi Darbar hall for 150 to 450 guests!";
       } else if (lower.includes('room') || lower.includes('stay') || lower.includes('book') || lower.includes('rate') || lower.includes('price')) {
-        reply = "You can view live room rates and book instantly via our WhatsApp booking desk or explore certified partner portals (MakeMyTrip, Agoda, Guest Reservations) in our 'Book a Stay' section.";
+        reply = "You can view live room rates and book instantly via our WhatsApp booking desk or explore verified partner portals (MakeMyTrip, Agoda, Guest Reservations) in our 'Book a Stay' section.";
       } else if (lower.includes('location') || lower.includes('address') || lower.includes('where') || lower.includes('reach') || lower.includes('kurji')) {
         reply = "Raj Resort is located near Gate No. 62, Kurji Mor, Patliputra, Patna (Bihar 800010). We are just 150m from Kurji Mor, 3.8 km from Patliputra Junction, and 9.2 km from Patna Airport.";
       } else if (lower.includes('power') || lower.includes('generator') || lower.includes('electricity') || lower.includes('ac')) {
-        reply = "Yes! We have 24/7 heavy-duty generator power backup to ensure lights, split ACs, and stage music run smoothly without any interruption.";
+        reply = "Yes, we run heavy-duty industrial generator backup 24/7 so your lights, stage sound, and split ACs continue without interruption.";
       } else if (lower.includes('visit') || lower.includes('see') || lower.includes('timing')) {
-        reply = "You are warmly welcome to visit! Venue viewing hours are 10:00 AM to 8:00 PM daily. Please tap WhatsApp Desk below so our duty manager can greet you upon arrival.";
+        reply = "You are warmly welcome to visit! Venue viewing hours are 10:00 AM to 8:00 PM daily. Tap WhatsApp Desk below so our duty manager can personally show you around.";
       }
 
       setMessages((prev) => [

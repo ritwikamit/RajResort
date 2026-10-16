@@ -69,7 +69,7 @@ export const CookiePolicyModal: React.FC<CookiePolicyModalProps> = ({
           </h3>
           <p>
             Cookies and browser local storage are small data files saved on your device when you visit our website. 
-            They allow the website to remember your device preferences and ensure fast, seamless navigation across your visits.
+            They allow the website to remember your device preferences and ensure fast, responsive page navigation across your visits.
           </p>
 
           <h3 className="font-serif text-base font-semibold text-stone-900 dark:text-stone-100 pt-2">

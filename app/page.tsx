@@ -92,13 +92,12 @@ export default function Home() {
                     <span>Welcome to Raj Resort</span>
                   </div>
                   <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-                    Where Patna Celebrates with Heart & Hospitality
+                    Where Patna Celebrates with Heart & Family Hospitality
                   </h2>
                   <p className="text-stone-700 dark:text-stone-300 text-sm sm:text-base leading-relaxed font-sans">
-                    Located right by Gate No. 62 at Kurji Mor, Raj Resort brings together the beauty of 
-                    an open green wedding garden with modern hotel comfort. Whether you are hosting a wedding with 
-                    hundreds of family and friends, celebrating a ring ceremony in our AC banquet hall, or needing 
-                    peaceful rooms for out-of-town guests, we take care of every detail.
+                    Located right by Gate No. 62 at Kurji Mor, Raj Resort brings together an open green celebration lawn with air-conditioned hotel comfort. 
+                    Whether you are hosting a wedding with your extended family, a sacred Haldi and Sangeet, or accommodating relatives traveling into Patna, 
+                    our team takes care of every arrangement so you can enjoy your family's biggest day.
                   </p>
 
                   {/* Highlights in Simple Human Words */}

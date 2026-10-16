@@ -18,8 +18,8 @@ export const DirectionsSection: React.FC = () => {
             How to Reach Raj Resort
           </h2>
           <p className="mt-3 text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed">
-            Raj Resort is right next to Kurji Mor Gate 62 in northern Patna. 
-            It is easy to reach from Patliputra Junction, Patna Railway Station, and the Airport.
+            Raj Resort is situated right next to Gate No. 62 at Kurji Mor, Patliputra. 
+            Convenient for family cars and wedding guests traveling from Patliputra Junction (3.8 km), Patna Junction (7.5 km), and Jay Prakash Narayan Airport (9.2 km).
           </p>
         </div>
 

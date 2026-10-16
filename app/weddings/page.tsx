@@ -30,8 +30,8 @@ export default function WeddingsPage() {
             Weddings, Receptions & Grand Lawns
           </h1>
           <p className="mt-3 text-stone-700 dark:text-stone-300 text-base max-w-2xl mx-auto leading-relaxed font-sans">
-            Plan your wedding at Raj Resort. We provide an open-air celebration lawn for 300 to 1,200+ guests, 
-            a glowing floral entrance avenue with drop chandeliers, 24/7 heavy industrial generator backup, and the air-conditioned Shahi Darbar hall.
+            Host your wedding celebration at Raj Resort. We provide an open lawn for 300 to 1,200+ guests under the starlit Patna sky, 
+            an illuminated floral pergola for your Baraat arrival, 24/7 industrial generator backup, and the air-conditioned Shahi Darbar hall.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-stone-800 dark:text-stone-200 font-sans">

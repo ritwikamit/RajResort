@@ -29,8 +29,8 @@ export default function GalleryPage() {
             Real Photos of Raj Resort Patna
           </h1>
           <p className="mt-3 text-stone-700 dark:text-stone-300 text-base max-w-2xl mx-auto leading-relaxed font-sans">
-            Take a look at our illuminated entrance pergola, grand lotus stage, starlit celebration lawn, 
-            luxurious guest rooms, and banquet dining arrangements.
+            Real photos of our illuminated entrance pergola, grand lotus stage, open celebration lawn, 
+            air-conditioned guest rooms, and banquet dining setups near Kurji Mor, Patna.
           </p>
         </div>
       </section>
