@@ -6,6 +6,7 @@ export interface EventVenue {
   description: string;
   emotionalTag: string;
   image: string;
+  images: string[];
   highlights: string[];
 }
 
@@ -143,6 +144,14 @@ export const RESORT_DATA = {
       emotionalTag: 'Where loved ones gather under the open evening sky',
       description: 'Our spacious green lawn gives your guests plenty of space to meet, laugh, and celebrate together. Soft grass, fresh evening air, and warm lights under the stars create the warm, welcoming feeling every family dreams of for a wedding.',
       image: '/images/venue-17.jpg',
+      images: [
+        '/images/venue-17.jpg',
+        '/images/landingpage3.png',
+        '/images/venue-18.jpg',
+        '/images/venue-19.jpg',
+        '/images/venue-22.jpg',
+        '/images/venue-23.jpg',
+      ],
       highlights: [
         'Comfortably hosts from 400 up to 1,200+ guests',
         'Open-air green lawn with warm garden lighting',
@@ -158,6 +167,14 @@ export const RESORT_DATA = {
       emotionalTag: 'A warm welcome that brings a smile to every guest',
       description: 'A 150-foot arrival avenue covered with fresh hanging flowers, crystal chandeliers, and warm fairy lights. Built wide enough for the entire Baraat to dance through with dhol, brass bands, and joyful celebration.',
       image: '/images/venue-12.jpg',
+      images: [
+        '/images/venue-12.jpg',
+        '/images/venue-10.jpg',
+        '/images/venue-07.png',
+        '/images/venue-13.jpg',
+        '/images/venue-05.png',
+        '/images/venue-14.jpg',
+      ],
       highlights: [
         'Overhead floral ceiling with sparkling crystal chandeliers',
         'Wide carpeted walkway with plenty of room for dancing Baraats',
@@ -173,6 +190,12 @@ export const RESORT_DATA = {
       emotionalTag: 'Comfortable and cool for your closest family ceremonies',
       description: 'A spacious, fully air-conditioned indoor hall designed for Haldi, Sangeet, Ring Ceremonies, and family dining. When the weather outside is hot or rainy, your grandparents, children, and guests can relax in cool, peaceful comfort.',
       image: '/images/venue-26.jpg',
+      images: [
+        '/images/venue-26.jpg',
+        '/images/venue-27.jpg',
+        '/images/venue-29.jpg',
+        '/images/venue-24.jpg',
+      ],
       highlights: [
         'Powerful air-conditioning to keep summer weddings cool and pleasant',
         'Stage setup for energetic Sangeet dances and family performances',
@@ -188,6 +211,14 @@ export const RESORT_DATA = {
       emotionalTag: 'Where two families unite with blessings and prayers',
       description: 'The sacred heart of the wedding. Built high enough so every aunt, uncle, and friend can see the Varmala and Saat Phere clearly, with traditional floral decor where Panditji guides the sacred vows.',
       image: '/images/venue-28.jpg',
+      images: [
+        '/images/venue-28.jpg',
+        '/images/venue-25.jpg',
+        '/images/venue-15.jpg',
+        '/images/venue-21.jpg',
+        '/images/venue-31.jpg',
+        '/images/venue-32.jpg',
+      ],
       highlights: [
         'Clear view from all sides of the lawn so no guest misses the vows',
         'Spacious stage for Panditji, parents, and close family members',
