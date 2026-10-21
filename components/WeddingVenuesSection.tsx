@@ -59,13 +59,13 @@ export const WeddingVenuesSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             
             {/* Real Venue Photography */}
-            <div className="lg:col-span-7 relative min-h-[300px] sm:min-h-[420px] lg:min-h-[480px]">
+            <div className="lg:col-span-7 relative min-h-[360px] sm:min-h-[440px] lg:min-h-[480px]">
               <Image
                 src={activeVenue.image}
                 alt={activeVenue.name}
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover object-center"
+                className={`object-cover ${activeVenue.id === 'floral-tunnel' ? 'object-top sm:object-center' : 'object-center'}`}
                 priority
               />
               

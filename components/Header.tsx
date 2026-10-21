@@ -47,11 +47,11 @@ export const Header: React.FC = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-40 bg-[#FAF7F9]/92 dark:bg-[#15071C]/95 backdrop-blur-xl text-[#1C0A22] dark:text-stone-100 border-b border-[#8E1EA2]/15 shadow-[0_4px_25px_rgba(142,30,162,0.06)] transition-all duration-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-6">
           
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 shrink-0 focus-visible:outline-none">
-            <RajResortLogo variant="horizontal" size={44} showSubtitle={true} inverted={false} />
+          <Link href="/" className="flex items-center gap-1.5 sm:gap-3 shrink-0 focus-visible:outline-none">
+            <RajResortLogo variant="horizontal" size={40} showSubtitle={true} inverted={false} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -110,7 +110,7 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Right Action Group */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             
             {/* Phone Front Desk */}
             <a
@@ -122,11 +122,11 @@ export const Header: React.FC = () => {
               <span>Front Desk</span>
             </a>
 
-            {/* Check Dates Button in Color Hunt Gradient */}
+            {/* Check Dates Button in Color Hunt Gradient (Desktop/Tablet Only) */}
             <button
               type="button"
               onClick={() => setEnquiryModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] hover:from-[#7B188D] hover:to-[#B544B2] text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_16px_rgba(142,30,162,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] hover:from-[#7B188D] hover:to-[#B544B2] text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_16px_rgba(142,30,162,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
             >
               <Calendar className="w-3.5 h-3.5 text-white" />
               <span>Check Dates</span>
@@ -138,7 +138,7 @@ export const Header: React.FC = () => {
               onClick={toggleTheme}
               aria-label={`Switch to ${mounted && theme === 'dark' ? 'light' : 'dark'} mode`}
               title={`Switch to ${mounted && theme === 'dark' ? 'light' : 'dark'} mode`}
-              className="p-2 sm:p-2.5 rounded-xl border border-[#8E1EA2]/20 bg-white/70 dark:bg-stone-900/70 hover:bg-[#FFC0DE]/30 text-stone-700 dark:text-stone-200 transition-colors cursor-pointer"
+              className="p-2 sm:p-2.5 rounded-xl border border-[#8E1EA2]/20 bg-white/70 dark:bg-stone-900/70 hover:bg-[#FFC0DE]/30 text-stone-700 dark:text-stone-200 transition-colors cursor-pointer shrink-0"
             >
               {mounted && theme === 'dark' ? (
                 <Sun className="w-4 h-4 text-[#ED96D7]" />
@@ -152,9 +152,9 @@ export const Header: React.FC = () => {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
-              className="md:hidden p-2 sm:p-2.5 border border-[#8E1EA2]/25 bg-white/80 dark:bg-stone-900/80 text-[#8E1EA2] rounded-xl cursor-pointer"
+              className="md:hidden p-2 sm:p-2.5 border border-[#8E1EA2]/30 bg-[#FFC0DE]/25 dark:bg-[#8E1EA2]/25 hover:bg-[#FFC0DE]/40 text-[#8E1EA2] dark:text-[#ED96D7] rounded-xl flex items-center justify-center shrink-0 cursor-pointer transition-colors shadow-xs"
             >
-              {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
 
           </div>

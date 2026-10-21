@@ -61,14 +61,22 @@ export const GallerySection: React.FC = () => {
             <div
               key={item.id}
               onClick={() => setLightboxIndex(index)}
-              className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#1C0B26] border border-[#8E1EA2]/15 shadow-[0_4px_20px_rgba(142,30,162,0.06)] hover:shadow-xl transition-all duration-300 cursor-pointer aspect-[4/3] sm:aspect-[3/4]"
+              className={`group relative rounded-2xl overflow-hidden bg-white dark:bg-[#1C0B26] border border-[#8E1EA2]/15 shadow-[0_4px_20px_rgba(142,30,162,0.06)] hover:shadow-xl transition-all duration-300 cursor-pointer ${
+                item.aspect === 'portrait' 
+                  ? 'aspect-[4/5] sm:aspect-[3/4]' 
+                  : item.aspect === 'landscape' 
+                    ? 'aspect-[16/10] sm:aspect-[3/4]' 
+                    : 'aspect-square sm:aspect-[3/4]'
+              }`}
             >
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                className={`object-cover ${
+                  item.aspect === 'portrait' ? 'object-top sm:object-center' : 'object-center'
+                } group-hover:scale-105 transition-transform duration-500 ease-out`}
               />
 
               {/* Gradient Scrim on hover */}

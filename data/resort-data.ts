@@ -140,7 +140,7 @@ export const RESORT_DATA = {
       capacity: '400 to 1,200+ Guests',
       emotionalTag: 'Where lifelong vows meet starlit Patna skies',
       description: 'An expansive open-air manicured celebration lawn curated for grand Vivah ceremonies, starlit Varmalas, and lavish family receptions. With gentle evening breezes and sweeping floral backdrops, every moment is unforgettable.',
-      image: '/images/venue-04.png',
+      image: '/images/venue-17.jpg',
       highlights: [
         'Massive 1,200+ guest celebration capacity',
         'Grand illuminated mandap stage with crystal fixtures',
@@ -271,10 +271,10 @@ export const RESORT_DATA = {
     },
     {
       id: 'gal-6',
-      title: 'Evening Chandelier Lawns & Banquet Seating',
-      category: 'Grand Lawns' as const,
-      caption: 'Open starlit lawns draped in ambient warm lanterns and comfortable family seating arrangements.',
-      aspect: 'square' as any,
+      title: 'Bridal Entry with Floral Canopy & Phoolon Ki Chaadar',
+      category: 'Ceremonial Pergola' as const,
+      caption: 'A heartfelt bridal arrival under a canopy of fresh blossoms and bells as loved ones walk alongside.',
+      aspect: 'portrait' as const,
       image: '/images/venue-02.jpg',
     },
     {
@@ -289,9 +289,9 @@ export const RESORT_DATA = {
       id: 'gal-8',
       title: 'Lawn Lighting & Celebration Courtyard',
       category: 'Banquets & Lighting' as const,
-      caption: 'Fairy light curtains and evening ambiance that bring an unmistakable royal majesty to every wedding.',
-      aspect: 'square' as any,
-      image: '/images/venue-03.png',
+      caption: 'Fairy light curtains, stage pyrotechnics, and evening ambiance that bring an unmistakable royal majesty to every wedding.',
+      aspect: 'portrait' as const,
+      image: '/images/venue-31.jpg',
     },
     {
       id: 'gal-9',
@@ -311,10 +311,10 @@ export const RESORT_DATA = {
     },
     {
       id: 'gal-11',
-      title: 'Evening Lawns & Open Sky Dining Area',
-      category: 'Grand Lawns' as const,
-      caption: 'Expansive dining and banquet gathering spaces accommodating extended family feasts.',
-      aspect: 'square' as any,
+      title: 'Grand Glass Walkway & Royal Archways',
+      category: 'Ceremonial Pergola' as const,
+      caption: 'Illuminated mirror glass walkway leading beneath majestic circular floral arches and chandeliers.',
+      aspect: 'portrait' as const,
       image: '/images/venue-05.png',
     },
     {

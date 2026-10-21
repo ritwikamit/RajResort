@@ -103,13 +103,14 @@ export const GalleryModal: React.FC<GalleryModalProps> = ({
 
       {/* Modal Container */}
       <div className="relative max-w-4xl w-full flex flex-col border border-white/15 bg-stone-900 text-white shadow-2xl overflow-hidden rounded-2xl sm:rounded-3xl backdrop-blur-xl font-sans max-h-[92vh]">
-        <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] bg-stone-950">
+        <div className="relative w-full h-[48vh] sm:h-[62vh] md:h-[68vh] bg-stone-950 flex items-center justify-center p-2">
           <Image
             key={activeIdx}
             src={currentItem.image}
             alt={currentItem.title}
             fill
-            className="object-cover object-center"
+            sizes="90vw"
+            className="object-contain object-center"
             priority
           />
         </div>
