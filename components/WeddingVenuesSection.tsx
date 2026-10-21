@@ -18,14 +18,14 @@ export const WeddingVenuesSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <span className="font-cursive text-3xl sm:text-4xl text-[#8E1EA2] dark:text-[#ED96D7] tracking-wide block mb-1">
-              Curated Celebration Spaces
+              Made for Family Celebrations
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-              Celebrated with Family Dignity & Grand Tradition
+              Spaces Where You Feel at Home
             </h2>
           </div>
           <p className="text-stone-600 dark:text-stone-300 text-sm max-w-md leading-relaxed font-sans font-normal">
-            From the grand Baraat entry along our illuminated floral pergola to the sacred Varmala under starlit Patna skies, every venue is curated for lifelong family memories.
+            From the Baraat dancing through the flower gate to parents blessing the couple at the mandap, each corner of our resort is prepared with care for your family.
           </p>
         </div>
 

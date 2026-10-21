@@ -24,14 +24,14 @@ export const GallerySection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
             <span className="font-cursive text-3xl sm:text-4xl text-[#8E1EA2] dark:text-[#ED96D7] tracking-wide block mb-1">
-              Captured Moments of Joy
+              Real Weddings, Real Happiness
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-              Photographs of Real Celebrations
+              Moments We Are Blessed to Host
             </h2>
           </div>
           <p className="text-stone-600 dark:text-stone-300 text-sm max-w-md leading-relaxed font-sans font-normal">
-            Take a look through our authentic celebration photographs—from starlit lawns and illuminated pergolas to sacred mandap ceremonies at Kurji Mor, Patliputra.
+            Take a look through real photographs from celebrations at Raj Resort. The nervous smiles, the happy tears of parents, and the joy of families dancing under the stars.
           </p>
         </div>
 

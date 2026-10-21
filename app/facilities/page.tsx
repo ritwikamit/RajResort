@@ -43,13 +43,13 @@ export default function FacilitiesPage() {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <span className="font-cursive text-3xl sm:text-4xl text-[#FFC0DE] tracking-wide block mb-2 drop-shadow-md">
-            Uncompromising Standards & Peace of Mind
+            Care, Comfort & Peace of Mind
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-            Wedding Infrastructure & Amenities
+            Everything Your Family Needs
           </h1>
           <p className="mt-4 text-stone-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-sans font-normal drop-shadow-sm">
-            Everything your celebration requires for flawless execution: 100% industrial generator power backup, gated parking with valet coordination, high-capacity split air conditioning, and a dedicated 24-hour event management team.
+            When your guests arrive, everything should be smooth and comfortable. Continuous generator power so the lights never go out, plenty of safe parking, cool AC rooms for elders and the bride, and our team ready to help at any moment.
           </p>
         </div>
       </section>

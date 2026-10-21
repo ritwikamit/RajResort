@@ -56,13 +56,13 @@ export const ContactEnquirySection: React.FC = () => {
         {/* Header */}
         <div className="max-w-2xl mb-12">
           <span className="font-cursive text-3xl sm:text-4xl text-[#8E1EA2] dark:text-[#ED96D7] tracking-wide block mb-1">
-            Personal Attention for Every Family
+            We Would Love to Hear From You
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-            Connect with Our Event Desk
+            Let Us Help Plan Your Big Day
           </h2>
           <p className="mt-3 text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed font-sans font-normal">
-            Planning a wedding celebration, Sangeet, or Ring Ceremony? Give us a call, send a message on WhatsApp, or send an inquiry below. We will reply promptly with date availability and package guidance.
+            Whether you are just starting to plan or looking for a specific wedding date in Patna, call us or message us on WhatsApp. Our team will answer your questions kindly and help guide your family every step of the way.
           </p>
         </div>
 

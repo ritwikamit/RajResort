@@ -19,15 +19,15 @@ interface TickerEntry {
 }
 
 const TICKER_ITEMS: TickerEntry[] = [
-  { text: 'ROYAL WEDDINGS & STARLIT CELEBRATIONS', icon: Heart },
-  { text: 'OPEN LAWN CAPACITY FOR 400 TO 1,200+ GUESTS', icon: Users },
-  { text: '100% INDUSTRIAL GENERATOR POWER (ZERO BLACKOUTS)', icon: Zap },
-  { text: 'ILLUMINATED FLORAL PERGOLA BARAAT ARRIVAL', icon: Sparkles },
+  { text: 'WEDDINGS & CELEBRATIONS UNDER THE STARS', icon: Heart },
+  { text: 'OPEN LAWN FOR 400 TO 1,200+ GUESTS', icon: Users },
+  { text: 'CONTINUOUS GENERATOR BACKUP (ZERO POWER CUTS)', icon: Zap },
+  { text: 'FLOWER WALKWAY FOR BARAAT ARRIVAL', icon: Sparkles },
   { text: 'SHAHI DARBAR AIR-CONDITIONED BANQUET HALL', icon: Building2 },
-  { text: 'GATED VALET PARKING & SECURE PREMISES', icon: Car },
-  { text: 'EXQUISITE MULTI-CUISINE FEASTS & STAGE DÉCOR', icon: UtensilsCrossed },
+  { text: 'GATED PARKING WITH SECURITY GUARDS', icon: Car },
+  { text: 'SPACIOUS DINING FOR FAMILY HALWAIS & BUFFETS', icon: UtensilsCrossed },
   { text: 'GATE 62, KURJI MOR, PATLIPUTRA, PATNA', icon: MapPin },
-  { text: '24/7 EVENT CONCIERGE & WHATSAPP DESK', icon: PhoneCall },
+  { text: 'CARING EVENT STAFF ON STANDBY', icon: PhoneCall },
 ];
 
 export const MovingTextTicker: React.FC = () => {

@@ -99,9 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
               <RajResortLogo variant="horizontal" size={74} showDivider={true} showSubtitle={true} />
             </div>
             <p className="text-xs text-stone-600 dark:text-stone-300 max-w-sm leading-relaxed">
-              Patna’s premier destination for grand weddings and sacred celebrations. 
-              Featuring our starlit celebration lawn, ceremonial chandelier pergola, air-conditioned Shahi Darbar hall, 
-              and dedicated bridal preparation suites in Patliputra.
+              A place where families come together to celebrate life's most precious beginnings. With an open green lawn under Patna's night sky, a cool banquet hall, and warm hospitality that makes every guest feel at home.
             </p>
             <div className="text-xs text-[#8E1EA2] dark:text-[#ED96D7] font-semibold flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 shrink-0" />

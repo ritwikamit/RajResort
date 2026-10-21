@@ -37,10 +37,10 @@ export const HeroSection: React.FC = () => {
       {/* Content Container - Compact and Fully Visible on Smartphone & Desktop */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center w-full my-auto">
         
-        {/* Emotional Kicker in Authentic Cursive Font (No Where Forever Begins text) */}
+        {/* Emotional Kicker in Authentic Cursive Font */}
         <div className="mb-2 sm:mb-2.5">
           <span className="font-cursive text-2xl sm:text-3xl md:text-4xl text-[#FFC0DE] tracking-wide block drop-shadow-md">
-            Sacred Vows & Royal Family Celebrations
+            When Two Families Become One
           </span>
         </div>
 
@@ -52,13 +52,12 @@ export const HeroSection: React.FC = () => {
 
         {/* Grand Headline */}
         <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white max-w-3xl leading-[1.12] drop-shadow-lg">
-          Where Patna Celebrates Sacred Vows & Royal Weddings
+          A Beautiful Beginning for the People You Love Most
         </h1>
 
         {/* Emotional Family Narrative */}
         <p className="mt-3 sm:mt-4 text-stone-200 text-xs sm:text-base max-w-2xl leading-relaxed font-sans font-normal drop-shadow-md">
-          From your daughter’s emotional Varmala under open starlit skies to welcoming hundreds of beloved relatives with royal warmth, 
-          <strong className="text-white font-semibold"> Raj Resort</strong> turns your family’s most sacred dreams into memories that outlive generations.
+          A wedding is the day all your loved ones gather in one place to bless your new journey. At <strong className="text-white font-semibold">Raj Resort</strong> near Kurji Mor in Patna, we offer an open green lawn, warm lights, and caring hospitality so you and your family can truly enjoy every single moment.
         </p>
 
         {/* Refined Action Buttons - Premium Color Hunt Palette */}

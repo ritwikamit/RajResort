@@ -45,25 +45,24 @@ export default function WeddingsPage() {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <span className="font-cursive text-3xl sm:text-4xl text-[#FFC0DE] tracking-wide block mb-2 drop-shadow-md">
-            Sacred Vows & Starlit Celebrations
+            Blessings, Laughter & Happy Tears
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-            Grand Wedding Lawns & Banquets
+            Our Wedding Lawns & Banquets
           </h1>
           <p className="mt-4 text-stone-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-sans font-normal drop-shadow-sm">
-            Host your wedding celebration at Raj Resort. An open lawn for 400 to 1,200+ guests under the starlit Patna sky, 
-            an illuminated floral pergola for your royal Baraat arrival, 100% industrial power backup, and the AC Shahi Darbar banquet hall.
+            Celebrate your family's biggest day under the Patna stars. An open green lawn for 400 to 1,200+ guests, a long flower walkway for the Baraat, backup generators that never let the lights go out, and a cool AC hall for family ceremonies.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-stone-200 font-sans">
             <span className="flex items-center gap-1.5 font-medium">
-              <Users className="w-4 h-4 text-[#ED96D7]" /> 1,200+ Guest Capacity
+              <Users className="w-4 h-4 text-[#ED96D7]" /> 400 to 1,200+ Guests
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <Zap className="w-4 h-4 text-[#ED96D7]" /> 100% Dual Generator Power
+              <Zap className="w-4 h-4 text-[#ED96D7]" /> Continuous Generator Power
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <ShieldCheck className="w-4 h-4 text-[#ED96D7]" /> Secured Gated Premises
+              <ShieldCheck className="w-4 h-4 text-[#ED96D7]" /> Gated Premises with Security
             </span>
           </div>
         </div>

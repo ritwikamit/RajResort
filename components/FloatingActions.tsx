@@ -65,19 +65,19 @@ export const FloatingActions: React.FC = () => {
 
     // Instant helpful assistant responses
     setTimeout(() => {
-      let reply = "Thank you! You can connect with our duty manager directly on WhatsApp or phone below for personalized wedding packages and date booking.";
+      let reply = "Thank you! You can message us on WhatsApp or call our reception directly below. We are here to help your family with dates and arrangements.";
       const lower = query.toLowerCase();
 
       if (lower.includes('capacity') || lower.includes('guest') || lower.includes('lawn') || lower.includes('wedding')) {
-        reply = "Our Starlit Royal Lawn holds 400 to 1,200+ guests with a 150-ft illuminated floral pergola for the Baraat and an elevated Varmala stage. We also host 150 to 500 guests in our AC Shahi Darbar banquet hall!";
+        reply = "Our open celebration lawn comfortably hosts from 400 up to 1,200+ guests, with a 150-ft flower entrance for the Baraat and an elevated Varmala stage. We also have the AC Shahi Darbar hall for 150 to 500 guests!";
       } else if (lower.includes('date') || lower.includes('available') || lower.includes('book') || lower.includes('rate') || lower.includes('price')) {
-        reply = "Wedding dates fill quickly during auspicious Lagan seasons! Please tap 'WhatsApp Reception' below and share your expected date and guest count for an immediate proposal.";
+        reply = "Lagan dates fill up very quickly! Please tap 'WhatsApp Reception' below and tell us your expected wedding date and guest count so we can check immediately for you.";
       } else if (lower.includes('location') || lower.includes('address') || lower.includes('where') || lower.includes('kurji')) {
-        reply = "Raj Resort is conveniently situated near Gate No. 62, Kurji Mor, Patliputra, Patna (800010)—just 150 meters from Kurji Mor and 12 minutes from Patliputra Junction.";
+        reply = "Raj Resort is located right near Gate No. 62, Kurji Mor, Patliputra, Patna (800010). It is easy to reach from Patliputra Junction and the Ganga Marine Drive.";
       } else if (lower.includes('power') || lower.includes('generator') || lower.includes('light')) {
-        reply = "We provide 100% industrial dual generator power backup so your wedding lighting, DJ acoustics, and AC banquet never experience a second of interruption.";
+        reply = "You will never have to worry about power cuts. Our heavy-duty backup generators keep the stage lights, AC, sound, and decorations running without a second of pause.";
       } else if (lower.includes('visit') || lower.includes('see') || lower.includes('tour')) {
-        reply = "We would love to welcome you and your family for a personal walkthrough! Visiting hours are 10:00 AM to 8:00 PM daily. Tap WhatsApp below to let us know when you plan to arrive.";
+        reply = "We would love to welcome you and your family for a personal visit! You can come by anytime between 10:00 AM and 8:00 PM. Tap WhatsApp below to let us know when you plan to arrive.";
       }
 
       setMessages((prev) => [

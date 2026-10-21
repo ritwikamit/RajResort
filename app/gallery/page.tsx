@@ -43,13 +43,13 @@ export default function GalleryPage() {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <span className="font-cursive text-3xl sm:text-4xl text-[#FFC0DE] tracking-wide block mb-2 drop-shadow-md">
-            Visual Memories of Joy & Splendor
+            Memories That Stay with You Forever
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-            Authentic Celebration Gallery
+            Real Moments from Real Weddings
           </h1>
           <p className="mt-4 text-stone-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-sans font-normal drop-shadow-sm">
-            Explore authentic photographs of our starlit celebration lawns, grand ceremonial mandap setups, illuminated floral pergolas, and evening banquet courtyards at Kurji Mor, Patliputra.
+            Here are actual photographs from weddings celebrated at Raj Resort: the long flower entrance, the sacred mandap, the sparkling chandeliers, and families celebrating under the open Patna sky.
           </p>
         </div>
       </section>

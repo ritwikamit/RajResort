@@ -43,13 +43,13 @@ export default function LocationPage() {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <span className="font-cursive text-3xl sm:text-4xl text-[#FFC0DE] tracking-wide block mb-2 drop-shadow-md">
-            Effortless Arrival for Every Guest
+            Welcoming Guests from Near and Far
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-            Location & Map Directions
+            How to Reach Raj Resort
           </h1>
           <p className="mt-4 text-stone-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-sans font-normal drop-shadow-sm">
-            Situated directly by Gate No. 62 at Kurji Mor in Patliputra. Conveniently accessible from Patliputra Junction, Patna Railway Station, Jay Prakash Narayan Airport, and the Digha Marine Drive expressway.
+            Located right near Gate No. 62 at Kurji Mor in Patliputra. Easy to find for your relatives arriving by car from Patna, via the Ganga Marine Drive from Digha, or coming from the railway stations and airport.
           </p>
         </div>
       </section>

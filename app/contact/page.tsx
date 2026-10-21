@@ -45,13 +45,13 @@ export default function ContactPage() {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <span className="font-cursive text-3xl sm:text-4xl text-[#FFC0DE] tracking-wide block mb-2 drop-shadow-md">
-            We Are Here to Serve Your Family
+            We Are Always Here for Your Family
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-            Connect with Raj Resort Reception
+            Speak with Us Directly
           </h1>
           <p className="mt-4 text-stone-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-sans font-normal drop-shadow-sm">
-            Planning a grand wedding celebration or family milestone in Patna? Call our 24/7 reception desk, connect instantly via WhatsApp, or leave a message below. We look forward to welcoming your family.
+            Planning a wedding is a big step for your whole family. Call our reception desk anytime, message us on WhatsApp, or send an enquiry below. We are here to answer your questions and welcome you with an open heart.
           </p>
         </div>
       </section>

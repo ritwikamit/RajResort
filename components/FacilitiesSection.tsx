@@ -33,13 +33,13 @@ export const FacilitiesSection: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="font-cursive text-3xl sm:text-4xl text-[#8E1EA2] dark:text-[#ED96D7] tracking-wide block mb-1">
-            Reliable Infrastructure & Care
+            Peace of Mind for Your Family
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-            Venue Facilities for Seamless Celebrations
+            We Take Care of the Details
           </h2>
           <p className="mt-3.5 text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed font-sans font-normal">
-            Everything in place so your family can focus solely on celebrations, blessings, and warm hospitality in Patna.
+            When you host a wedding at Raj Resort, you should not have to worry about power cuts, parking, or cooking space. We handle everything behind the scenes so you can enjoy your family's biggest day.
           </p>
         </div>
 
