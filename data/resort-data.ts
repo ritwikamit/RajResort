@@ -24,12 +24,14 @@ export interface ExternalLink {
   note?: string;
 }
 
+import { FULL_GALLERY_ITEMS } from './gallery-items';
+
 export interface GalleryItem {
   id: string;
   title: string;
   category: 'Grand Lawns' | 'Ceremonial Pergola' | 'Stage & Mandap' | 'Banquets & Lighting';
   caption: string;
-  aspect: 'landscape' | 'portrait';
+  aspect: 'landscape' | 'portrait' | 'square';
   image: string;
 }
 
@@ -228,102 +230,5 @@ export const RESORT_DATA = {
     },
   ],
 
-  galleryItems: [
-    {
-      id: 'gal-1',
-      title: 'The Open Wedding Lawn at Night',
-      category: 'Grand Lawns' as const,
-      caption: 'Our green open lawn under the evening stars, where your entire family can gather, sit comfortably, and celebrate together.',
-      aspect: 'landscape' as const,
-      image: '/images/landingpage3.png',
-    },
-    {
-      id: 'gal-2',
-      title: 'The Baraat Welcome Walkway',
-      category: 'Ceremonial Pergola' as const,
-      caption: 'A long flower-covered walkway with warm lights and chandeliers, welcoming the Baraat and bride with music and celebration.',
-      aspect: 'portrait' as const,
-      image: '/images/venue-12.jpg',
-    },
-    {
-      id: 'gal-3',
-      title: 'The Sacred Vivah Mandap',
-      category: 'Stage & Mandap' as const,
-      caption: 'Decorated with fresh flowers and sacred lights for the Saat Phere, where parents give their blessings and two families unite.',
-      aspect: 'landscape' as const,
-      image: '/images/venue-28.jpg',
-    },
-    {
-      id: 'gal-4',
-      title: 'Shahi Darbar AC Hall',
-      category: 'Banquets & Lighting' as const,
-      caption: 'A cool, comfortable indoor hall where elders can rest, guests can enjoy hot meals, and families celebrate Haldi and Sangeet.',
-      aspect: 'landscape' as const,
-      image: '/images/venue-26.jpg',
-    },
-    {
-      id: 'gal-5',
-      title: 'The Main Flower Entrance Gate',
-      category: 'Ceremonial Pergola' as const,
-      caption: 'A tall gateway dressed in fresh flowers where guests arrive, smile, and take their first photos of the evening.',
-      aspect: 'portrait' as const,
-      image: '/images/venue-10.jpg',
-    },
-    {
-      id: 'gal-6',
-      title: "The Bride's Walk with Loved Ones",
-      category: 'Ceremonial Pergola' as const,
-      caption: 'The touching moment every family remembers. The bride walking towards the mandap under a flower canopy held by her brothers.',
-      aspect: 'portrait' as const,
-      image: '/images/venue-02.jpg',
-    },
-    {
-      id: 'gal-7',
-      title: 'The Varmala & Stage Ceremony',
-      category: 'Stage & Mandap' as const,
-      caption: 'The central raised stage where the bride and groom exchange garlands and receive blessings from every guest.',
-      aspect: 'portrait' as const,
-      image: '/images/venue-15.jpg',
-    },
-    {
-      id: 'gal-8',
-      title: 'Fireworks Over the Grand Stage',
-      category: 'Banquets & Lighting' as const,
-      caption: 'Brilliant fireworks light up the Patna night sky as the couple takes the stage and the whole family cheers.',
-      aspect: 'portrait' as const,
-      image: '/images/venue-31.jpg',
-    },
-    {
-      id: 'gal-9',
-      title: 'Lantern Walkway for Guests',
-      category: 'Ceremonial Pergola' as const,
-      caption: 'Soft lantern lights and greenery guiding your relatives smoothly from the gate to the main celebration lawn.',
-      aspect: 'portrait' as const,
-      image: '/images/venue-13.jpg',
-    },
-    {
-      id: 'gal-10',
-      title: 'The Floral Stage Arch',
-      category: 'Stage & Mandap' as const,
-      caption: 'Hand-arranged flowers and warm stage lighting framing the couple for photographs they will cherish for a lifetime.',
-      aspect: 'portrait' as const,
-      image: '/images/venue-25.jpg',
-    },
-    {
-      id: 'gal-11',
-      title: "The Groom's Grand Entry",
-      category: 'Ceremonial Pergola' as const,
-      caption: "The groom stepping in along the illuminated glass walkway under circular flower arches to meet the bride's family.",
-      aspect: 'portrait' as const,
-      image: '/images/venue-05.png',
-    },
-    {
-      id: 'gal-12',
-      title: 'Crystal Chandeliers & Warm Lights',
-      category: 'Banquets & Lighting' as const,
-      caption: 'Sparkling crystal chandeliers and warm golden lights that make the entire night feel festive and welcoming.',
-      aspect: 'portrait' as const,
-      image: '/images/venue-27.jpg',
-    },
-  ],
+  galleryItems: FULL_GALLERY_ITEMS,
 };
