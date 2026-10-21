@@ -9,11 +9,11 @@ import {
   MapPin, 
   Mail, 
   Home, 
-  Bed, 
   Heart, 
   Images, 
   Compass, 
-  PhoneCall 
+  PhoneCall,
+  Sparkles 
 } from 'lucide-react';
 import { RajResortLogo } from './RajResortLogo';
 import { RESORT_DATA } from '@/data/resort-data';
@@ -38,56 +38,56 @@ const WhatsAppOfficialIcon = ({ className = 'w-5 h-5' }: { className?: string })
 
 export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) => {
   return (
-    <footer className="bg-[#EDE5DA] dark:bg-[#060A08] text-stone-700 dark:text-stone-300 border-t border-stone-300/80 dark:border-stone-800/80 pt-12 sm:pt-14 pb-32 md:pb-12 font-sans transition-colors duration-300">
+    <footer className="bg-[#EDE6DD] dark:bg-[#070A09] text-stone-700 dark:text-stone-300 border-t border-stone-300/80 dark:border-stone-800/80 pt-12 sm:pt-14 pb-32 md:pb-12 font-sans transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Smartphone-Optimized Quick Navigation Grid (Visible on mobile screens) */}
+        {/* Smartphone-Optimized Quick Navigation Grid */}
         <div className="md:hidden pb-10 border-b border-stone-300 dark:border-stone-800">
-          <div className="text-xs font-bold uppercase tracking-wider text-[#99141A] dark:text-rose-400 mb-3 text-center">
-            Quick Smartphone Navigation
+          <div className="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-200 mb-3 text-center">
+            Quick Navigation
           </div>
           <div className="grid grid-cols-2 gap-2 text-xs">
             <Link 
               href="/" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#99141A] active:scale-98 transition-all"
+              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
             >
-              <Home className="w-4 h-4 text-[#99141A] dark:text-rose-400 shrink-0" />
-              <span>Home Page</span>
-            </Link>
-            <Link 
-              href="/rooms" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#99141A] active:scale-98 transition-all"
-            >
-              <Bed className="w-4 h-4 text-[#99141A] dark:text-rose-400 shrink-0" />
-              <span>Rooms & Suites</span>
+              <Home className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <span>Home</span>
             </Link>
             <Link 
               href="/weddings" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#99141A] active:scale-98 transition-all"
+              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
             >
-              <Heart className="w-4 h-4 text-[#99141A] dark:text-rose-400 shrink-0" />
-              <span>Wedding Lawns</span>
+              <Heart className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <span>Weddings</span>
             </Link>
             <Link 
               href="/gallery" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#99141A] active:scale-98 transition-all"
+              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
             >
-              <Images className="w-4 h-4 text-[#99141A] dark:text-rose-400 shrink-0" />
-              <span>Photo Gallery</span>
+              <Images className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <span>Gallery</span>
             </Link>
             <Link 
               href="/facilities" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#99141A] active:scale-98 transition-all"
+              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
             >
-              <ShieldCheck className="w-4 h-4 text-[#99141A] dark:text-rose-400 shrink-0" />
-              <span>Resort Facilities</span>
+              <ShieldCheck className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <span>Facilities</span>
             </Link>
             <Link 
               href="/location" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#99141A] active:scale-98 transition-all"
+              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
             >
-              <Compass className="w-4 h-4 text-[#99141A] dark:text-rose-400 shrink-0" />
-              <span>Maps & Route</span>
+              <Compass className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <span>Location</span>
+            </Link>
+            <Link 
+              href="/contact" 
+              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
+            >
+              <PhoneCall className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <span>Contact</span>
             </Link>
           </div>
         </div>
@@ -99,9 +99,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
           <div className="md:col-span-5 space-y-4">
             <RajResortLogo variant="horizontal" size={48} showSubtitle={true} />
             <p className="text-xs text-stone-600 dark:text-stone-300 max-w-sm leading-relaxed">
-              Patna’s premier destination for grand weddings and comfortable stays. 
+              Patna’s premier destination for grand weddings and sacred celebrations. 
               Featuring our starlit celebration lawn, ceremonial chandelier pergola, air-conditioned Shahi Darbar hall, 
-              and peaceful guest accommodations in Patliputra.
+              and dedicated bridal preparation suites in Patliputra.
             </p>
             <div className="text-xs text-stone-600 dark:text-stone-400 font-medium">
               Gate No. 62, Kurji Mor, Patliputra, Patna, Bihar 800010
@@ -110,73 +110,67 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
 
           {/* Direct Navigation Links (3 Cols) */}
           <div className="md:col-span-3 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#99141A] dark:text-rose-400">
-              Quick Navigation
+            <div className="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">
+              Celebration Links
             </div>
             <ul className="text-xs space-y-2 text-stone-600 dark:text-stone-300">
               <li>
-                <Link href="/rooms" className="hover:text-[#99141A] dark:hover:text-rose-400 transition-colors">
-                  Rooms & Executive Suites
-                </Link>
-              </li>
-              <li>
-                <Link href="/weddings" className="hover:text-[#99141A] dark:hover:text-rose-400 transition-colors">
+                <Link href="/weddings" className="hover:text-stone-900 dark:hover:text-white transition-colors">
                   Wedding Lawns & Banquets
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-[#99141A] dark:hover:text-rose-400 transition-colors">
+                <Link href="/gallery" className="hover:text-stone-900 dark:hover:text-white transition-colors">
                   Photo & Video Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/facilities" className="hover:text-[#99141A] dark:hover:text-rose-400 transition-colors">
-                  Resort Facilities
+                <Link href="/facilities" className="hover:text-stone-900 dark:hover:text-white transition-colors">
+                  Venue Facilities & Infrastructure
                 </Link>
               </li>
               <li>
-                <Link href="/location" className="hover:text-[#99141A] dark:hover:text-rose-400 transition-colors">
+                <Link href="/location" className="hover:text-stone-900 dark:hover:text-white transition-colors">
                   Location & Map Directions
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#99141A] dark:hover:text-rose-400 transition-colors">
-                  Contact & Front Desk
+                <Link href="/contact" className="hover:text-stone-900 dark:hover:text-white transition-colors">
+                  Contact Reception & Dates
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact & Reception (4 Cols) - Front desk inquiries just icons with ACTUAL WhatsApp icon */}
+          {/* Contact & Reception (4 Cols) */}
           <div className="md:col-span-4 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#99141A] dark:text-rose-400">
+            <div className="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">
               Front Desk & Inquiries
             </div>
             
-            {/* Clean row of luxury action icons */}
             <div className="flex items-center gap-3 pt-1">
               {/* Call Icon */}
               <a
                 href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`}
                 aria-label="Call Reception Directly"
                 title="Call Reception Directly (24/7 Desk)"
-                className="w-11 h-11 rounded-xl bg-white/80 dark:bg-stone-900/90 border border-stone-300 dark:border-stone-700 flex items-center justify-center text-stone-800 dark:text-stone-100 hover:text-[#99141A] hover:border-[#99141A] transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer group"
+                className="w-11 h-11 rounded-xl bg-white/80 dark:bg-stone-900/90 border border-stone-300 dark:border-stone-700 flex items-center justify-center text-stone-800 dark:text-stone-100 hover:text-stone-950 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
               >
-                <PhoneCall className="w-5 h-5 text-[#99141A] dark:text-rose-400 group-hover:scale-110 transition-transform" />
+                <PhoneCall className="w-5 h-5 text-stone-800 dark:text-stone-200" />
               </a>
 
-              {/* ACTUAL WhatsApp Icon as requested */}
+              {/* WhatsApp Icon */}
               <a
                 href={`https://wa.me/${RESORT_DATA.whatsappNumber}?text=${encodeURIComponent(
-                  'Hello Raj Resort Patna, I would like to enquire about room bookings and event venues.'
+                  'Hello Raj Resort Patna, I would like to enquire about wedding lawns and date availability.'
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp"
                 title="Direct WhatsApp Desk"
-                className="w-11 h-11 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer group"
+                className="w-11 h-11 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
               >
-                <WhatsAppOfficialIcon className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
+                <WhatsAppOfficialIcon className="w-5 h-5 fill-white" />
               </a>
 
               {/* Location Pin Icon */}
@@ -184,9 +178,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 href="/location"
                 aria-label="Resort Location & Google Maps"
                 title="Location & Map Directions"
-                className="w-11 h-11 rounded-xl bg-white/80 dark:bg-stone-900/90 border border-stone-300 dark:border-stone-700 flex items-center justify-center text-stone-800 dark:text-stone-100 hover:text-amber-600 hover:border-amber-400 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer group"
+                className="w-11 h-11 rounded-xl bg-white/80 dark:bg-stone-900/90 border border-stone-300 dark:border-stone-700 flex items-center justify-center text-stone-800 dark:text-stone-100 hover:text-stone-950 transition-all hover:scale-105 active:scale-95 shadow-xs"
               >
-                <MapPin className="w-5 h-5 text-amber-500 group-hover:scale-110 transition-transform" />
+                <MapPin className="w-5 h-5 text-stone-800 dark:text-stone-200" />
               </Link>
 
               {/* Email / Form Contact Icon */}
@@ -194,57 +188,53 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 href="/contact"
                 aria-label="Contact Reception Page"
                 title="Front Desk Enquiries & Bookings"
-                className="w-11 h-11 rounded-xl bg-white/80 dark:bg-stone-900/90 border border-stone-300 dark:border-stone-700 flex items-center justify-center text-stone-800 dark:text-stone-100 hover:text-[#99141A] hover:border-[#99141A] transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer group"
+                className="w-11 h-11 rounded-xl bg-white/80 dark:bg-stone-900/90 border border-stone-300 dark:border-stone-700 flex items-center justify-center text-stone-800 dark:text-stone-100 hover:text-stone-950 transition-all hover:scale-105 active:scale-95 shadow-xs"
               >
-                <Mail className="w-5 h-5 text-[#99141A] dark:text-rose-400 group-hover:scale-110 transition-transform" />
+                <Mail className="w-5 h-5 text-stone-800 dark:text-stone-200" />
               </Link>
             </div>
 
             <p className="text-stone-500 dark:text-stone-400 text-[11px] pt-1">
-              24/7 Front desk assistance, instant WhatsApp replies, and direction guidance.
+              24/7 Front desk assistance, instant WhatsApp replies, and wedding planning guidance.
             </p>
           </div>
 
         </div>
 
-        {/* Center Credits & Copyright with Designed and Developed BELOW All Rights Reserved */}
+        {/* Center Credits & Copyright */}
         <div className="pt-8 flex flex-col items-center justify-center text-center space-y-2 font-sans">
-          
-          {/* 1. All Rights Reserved sentence FIRST */}
           <p className="text-xs text-stone-500 dark:text-stone-400">
             © {new Date().getFullYear()} Raj Resort Patna. All rights reserved.
           </p>
 
-          {/* 2. Designed and Developed by sentence BELOW */}
           <p className="text-xs sm:text-sm font-medium text-stone-800 dark:text-stone-200">
-            Designed and Developed by <span className="text-[#99141A] dark:text-rose-400 font-bold">ACCustomLabs</span>
+            Designed and Developed by <span className="text-stone-900 dark:text-white font-bold">ACCustomLabs</span>
           </p>
 
-          {/* Legal and Cookie Links */}
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-stone-600 dark:text-stone-400 pt-3">
             <button
               onClick={onOpenPrivacy}
-              className="hover:text-[#99141A] dark:hover:text-rose-400 transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
+              className="hover:text-stone-900 dark:hover:text-white transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-[#99141A] dark:text-rose-400" />
+              <ShieldCheck className="w-3.5 h-3.5" />
               <span>Privacy Notice & Terms</span>
             </button>
             
             {onOpenCookies && (
               <button
                 onClick={onOpenCookies}
-                className="hover:text-[#99141A] dark:hover:text-rose-400 transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
+                className="hover:text-stone-900 dark:hover:text-white transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
               >
-                <Cookie className="w-3.5 h-3.5 text-amber-500" />
+                <Cookie className="w-3.5 h-3.5" />
                 <span>Cookies Policy</span>
               </button>
             )}
 
             <Link
               href="/location"
-              className="hover:text-[#99141A] dark:hover:text-rose-400 transition-colors underline underline-offset-4 inline-flex items-center gap-1.5"
+              className="hover:text-stone-900 dark:hover:text-white transition-colors underline underline-offset-4 inline-flex items-center gap-1.5"
             >
-              <MapPin className="w-3.5 h-3.5 text-amber-500" />
+              <MapPin className="w-3.5 h-3.5" />
               <span>Google Maps Location</span>
             </Link>
           </div>

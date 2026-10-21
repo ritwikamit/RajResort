@@ -44,7 +44,7 @@ export const RajResortLogo: React.FC<LogoProps> = ({
           </span>
           {showSubtitle && (
             <span className={`text-[9px] sm:text-[10px] tracking-[0.18em] sm:tracking-[0.26em] uppercase font-semibold mt-0.5 sm:mt-1 transition-colors whitespace-nowrap hidden min-[360px]:inline-block ${
-              inverted ? 'text-amber-200 drop-shadow-xs' : 'text-[#99141A] dark:text-rose-400'
+              inverted ? 'text-stone-300 drop-shadow-xs' : 'text-stone-600 dark:text-stone-300'
             }`}>
               Patliputra · Patna
             </span>

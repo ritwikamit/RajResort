@@ -13,9 +13,9 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    serviceType: 'Grand Wedding & Lawn Celebration',
+    serviceType: 'Grand Wedding & Starlit Lawn Celebration',
     date: '',
-    guestCount: '300 - 500 Guests',
+    guestCount: '400 - 800 Guests',
     requirements: '',
   });
 
@@ -26,18 +26,17 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Construct polished WhatsApp enquiry message
     const message = 
-`👑 *RAJ RESORT PATNA - NEW RESERVATION ENQUIRY*
+`👑 *RAJ RESORT PATNA - WEDDING VENUE ENQUIRY*
 
-• *Guest Name:* ${formData.name.trim() || 'Valued Guest'}
+• *Family / Host Name:* ${formData.name.trim() || 'Valued Family'}
 • *Contact Number:* ${formData.phone.trim() || 'Provided on chat'}
-• *Enquiry Type:* ${formData.serviceType}
+• *Celebration Type:* ${formData.serviceType}
 • *Preferred Date:* ${formData.date.trim() || 'Flexible / To be discussed'}
-• *Estimated Guests / Rooms:* ${formData.guestCount}
-• *Special Requirements:* ${formData.requirements.trim() || 'Kindly share package details and availability.'}
+• *Estimated Guest Count:* ${formData.guestCount}
+• *Special Requirements:* ${formData.requirements.trim() || 'Kindly share wedding packages and date availability.'}
 
-📍 *Location:* Raj Resort, Gate 62, Kurji Mor, Patliputra, Patna`;
+📍 *Venue:* Raj Resort, Gate 62, Kurji Mor, Patliputra, Patna`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${RESORT_DATA.whatsappNumber}?text=${encodedMessage}`;
@@ -51,39 +50,39 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-xl bg-white dark:bg-stone-900 rounded-3xl shadow-2xl border border-stone-200 dark:border-stone-800 overflow-hidden"
+        className="relative w-full max-w-xl bg-white dark:bg-[#14171A] rounded-3xl shadow-2xl border border-stone-200 dark:border-white/10 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header with Royal Crimson Gradient */}
-        <div className="relative p-6 sm:p-7 bg-gradient-to-r from-[#7A0C11] via-[#99141A] to-[#600A0E] text-white">
+        {/* Modal Header */}
+        <div className="relative p-6 sm:p-7 bg-[#121417] text-white border-b border-white/10">
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="absolute top-5 right-5 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-colors cursor-pointer"
+            className="absolute top-5 right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
 
-          <div className="flex items-center gap-2 text-amber-300 text-xs font-bold tracking-widest uppercase mb-1">
+          <div className="flex items-center gap-2 text-stone-300 text-xs font-semibold tracking-widest uppercase mb-1">
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>Instant Front Desk WhatsApp Enquiry</span>
+            <span>Direct WhatsApp Reception Desk</span>
           </div>
           <h3 className="font-serif text-2xl sm:text-3xl font-bold">
-            Plan Your Stay or Event
+            Check Wedding Dates & Packages
           </h3>
-          <p className="text-white/80 text-xs sm:text-sm mt-1">
-            Fill in your preferences below to receive instant pricing and date availability directly on WhatsApp.
+          <p className="text-stone-300 text-xs sm:text-sm mt-1">
+            Provide your preferred event details to receive date availability and custom wedding lawn packages.
           </p>
         </div>
 
         {/* Form Body */}
-        <form onSubmit={handleSubmit} className="p-4 sm:p-7 space-y-3.5 sm:space-y-4 max-h-[75vh] overflow-y-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+        <form onSubmit={handleSubmit} className="p-5 sm:p-7 space-y-4 max-h-[75vh] overflow-y-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Full Name */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5">
                 Your Full Name *
               </label>
               <input
@@ -92,122 +91,106 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
                 placeholder="e.g. Rahul Sharma"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all"
               />
             </div>
 
             {/* Mobile / WhatsApp Number */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5">
-                Contact / WhatsApp *
+              <label className="block text-xs font-semibold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5">
+                WhatsApp Number *
               </label>
               <input
                 type="tel"
                 required
-                placeholder="10-digit Mobile number"
+                placeholder="10-digit mobile number"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Service Type */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5">
-                Event / Booking Category
+              <label className="block text-xs font-semibold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5">
+                Celebration Type
               </label>
               <select
                 value={formData.serviceType}
                 onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all"
               >
-                <option value="Grand Wedding & Lawn Celebration">Grand Wedding & Lawn (300-1200+ guests)</option>
-                <option value="AC Guest Room / Executive Suite">AC Guest Room / Suite Stay</option>
-                <option value="Pre-Wedding Sangeet / Mehendi">Pre-Wedding Sangeet / Mehendi</option>
-                <option value="Birthday or Anniversary Party">Birthday or Anniversary Party</option>
-                <option value="Corporate Seminar / Banquet Hall">Corporate Seminar / Banquet Hall</option>
-                <option value="General Inquiries & Resort Visit">General Inquiries & Resort Visit</option>
+                <option value="Grand Wedding & Starlit Lawn Celebration">Grand Wedding & Lawn (400-1200+ guests)</option>
+                <option value="Pre-Wedding Sangeet & Mehendi">Pre-Wedding Sangeet & Mehendi</option>
+                <option value="Ring Ceremony & Family Reception">Ring Ceremony & Reception</option>
+                <option value="Shahi Darbar AC Banquet Gathering">Shahi Darbar AC Banquet Gathering</option>
+                <option value="General Wedding Inquiries & Property Visit">General Inquiries & Property Visit</option>
               </select>
             </div>
 
-            {/* Event / Check-in Date */}
+            {/* Event Date */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-[#99141A] dark:text-rose-400" />
+              <label className="block text-xs font-semibold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-stone-500" />
                 <span>Preferred Date</span>
               </label>
               <input
                 type="date"
                 value={formData.date}
                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all"
               />
             </div>
           </div>
 
           {/* Guest Count */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 flex items-center gap-1.5">
-              <Users className="w-3.5 h-3.5 text-[#99141A] dark:text-rose-400" />
-              <span>Estimated Guests / Room Capacity</span>
+            <label className="block text-xs font-semibold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 flex items-center gap-1.5">
+              <Users className="w-3.5 h-3.5 text-stone-500" />
+              <span>Estimated Guests</span>
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {['1 - 10 Rooms', '100 - 300 Guests', '300 - 700 Guests', '700 - 1,200+ Guests'].map((option) => (
-                <button
-                  type="button"
-                  key={option}
-                  onClick={() => setFormData({ ...formData, guestCount: option })}
-                  className={`px-2.5 py-2 text-xs font-medium rounded-xl border text-center transition-all cursor-pointer ${
-                    formData.guestCount === option
-                      ? 'border-[#99141A] bg-[#99141A]/10 text-[#99141A] dark:text-rose-300 dark:border-rose-400 font-bold'
-                      : 'border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 hover:border-stone-400'
-                  }`}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
+            <select
+              value={formData.guestCount}
+              onChange={(e) => setFormData({ ...formData, guestCount: e.target.value })}
+              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all"
+            >
+              <option value="200 - 400 Guests">200 - 400 Guests</option>
+              <option value="400 - 800 Guests">400 - 800 Guests</option>
+              <option value="800 - 1,200+ Guests">800 - 1,200+ Guests</option>
+              <option value="More than 1,200 Guests">1,200+ Guests (Full Lawn & Banquet)</option>
+            </select>
           </div>
 
-          {/* Message / Special Requirements */}
+          {/* Requirements Note */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5">
               Specific Requirements / Questions
             </label>
             <textarea
               rows={2}
-              placeholder="e.g. Catering preference, stage setup, extra bridal room, generator power backup requirement..."
+              placeholder="e.g. Catering setup preferences, mandap decoration, Baraat arrival time..."
               value={formData.requirements}
               onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 text-stone-900 dark:text-stone-100 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#99141A] transition-all resize-none"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all resize-none"
             />
           </div>
 
-          {/* Action Buttons */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+          {/* Submit Action */}
+          <div className="pt-2">
             <button
               type="submit"
-              className="w-full flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 btn-red-gradient text-xs font-bold tracking-wider uppercase rounded-xl shadow-lg cursor-pointer hover:scale-[1.01] transition-transform"
+              disabled={submitted}
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-[#141618] hover:bg-[#25282C] text-white text-xs font-semibold tracking-wider uppercase transition-all shadow-lg active:scale-98 cursor-pointer"
             >
-              <MessageSquare className="w-4 h-4" />
-              <span>{submitted ? 'Redirecting to WhatsApp...' : 'Submit & Open in WhatsApp'}</span>
+              <Send className="w-4 h-4 text-white" />
+              <span>{submitted ? 'Connecting to WhatsApp...' : 'Send Wedding Date Enquiry'}</span>
             </button>
-
-            {/* Direct Instant Call */}
-            <a
-              href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-stone-300 dark:border-stone-700 hover:border-[#99141A] bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200 text-xs font-bold tracking-wider uppercase transition-colors"
-            >
-              <Phone className="w-4 h-4 text-[#99141A] dark:text-rose-400" />
-              <span>Call Front Desk</span>
-            </a>
           </div>
 
-          <div className="flex items-center justify-center gap-2 text-[11px] text-stone-500 dark:text-stone-400 text-center pt-1">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-            <span>Guaranteed zero spam · Directly connected to Raj Resort reservation staff</span>
+          <div className="text-center pt-1 text-[11px] text-stone-500 dark:text-stone-400">
+            Directly connected to Raj Resort Patna Front Desk ({RESORT_DATA.phoneDisplay})
           </div>
         </form>
       </div>

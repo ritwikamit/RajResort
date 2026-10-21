@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { GallerySection } from '@/components/GallerySection';
 import { Footer } from '@/components/Footer';
@@ -8,29 +9,47 @@ import { PrivacyPolicyModal } from '@/components/PrivacyPolicyModal';
 import { CookiePolicyModal } from '@/components/CookiePolicyModal';
 import { FloatingActions } from '@/components/FloatingActions';
 import { MobileStickyBar } from '@/components/MobileStickyBar';
-import { Image as ImageIcon } from 'lucide-react';
 
 export default function GalleryPage() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const [cookieOpen, setCookieOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FAF7F2] dark:bg-[#080D0B] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#99141A]/20 selection:text-[#99141A] transition-colors duration-300 relative z-10">
+    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#0A0D0E] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#8E1B21]/20 selection:text-[#8E1B21] transition-colors duration-300 relative z-10">
       <Header />
       
-      {/* Page Hero Banner */}
-      <section className="pt-24 sm:pt-32 pb-10 sm:pb-16 bg-[#F5EFEB] dark:bg-[#0D1411] border-b border-stone-200/80 dark:border-stone-800/80 transition-colors">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#99141A] dark:text-rose-400 uppercase mb-4">
-            <ImageIcon className="w-4 h-4 text-[#99141A] dark:text-rose-400" />
-            <span>Property & Event Highlights</span>
+      {/* Dedicated Landscape Hero Banner Faded from Sides */}
+      <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden border-b border-stone-200/80 dark:border-stone-800/80">
+        
+        {/* Background Landscape Photo with Side Fades */}
+        <div className="absolute inset-0 z-0">
+          <div className="relative w-full h-full fade-sides-mask">
+            <Image
+              src="/images/venue-28.jpg"
+              alt="Raj Resort Patna Wedding Ceremony Gallery Landscape"
+              fill
+              priority
+              className="object-cover object-center scale-105"
+            />
+            {/* Scrim */}
+            <div className="absolute inset-0 bg-black/60 dark:bg-black/75 pointer-events-none" />
           </div>
-          <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-            Real Photos of Raj Resort Patna
+        </div>
+
+        {/* Lateral Soft Gradients */}
+        <div className="absolute inset-y-0 left-0 w-12 sm:w-32 bg-gradient-to-r from-[#FAF8F5] dark:from-[#0A0D0E] to-transparent z-[2] pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-12 sm:w-32 bg-gradient-to-l from-[#FAF8F5] dark:from-[#0A0D0E] to-transparent z-[2] pointer-events-none" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <span className="font-cursive text-3xl sm:text-4xl text-[#F2E6D8] tracking-wide block mb-2 drop-shadow-md">
+            Visual Memories of Joy & Splendor
+          </span>
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
+            Authentic Celebration Gallery
           </h1>
-          <p className="mt-3 text-stone-700 dark:text-stone-300 text-base max-w-2xl mx-auto leading-relaxed font-sans">
-            Real photos of our illuminated entrance pergola, grand lotus stage, open celebration lawn, 
-            air-conditioned guest rooms, and banquet dining setups near Kurji Mor, Patna.
+          <p className="mt-4 text-stone-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-sans font-normal drop-shadow-sm">
+            Explore authentic photographs of our starlit celebration lawns, grand ceremonial mandap setups, illuminated floral pergolas, and evening banquet courtyards at Kurji Mor, Patliputra.
           </p>
         </div>
       </section>

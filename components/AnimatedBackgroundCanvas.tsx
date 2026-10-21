@@ -56,18 +56,16 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
     
     const palette = isDark
       ? [
-          { color: '#FDE68A', glow: 'rgba(253, 230, 138, 0.45)' }, // Warm Champagne Starlight
-          { color: '#F59E0B', glow: 'rgba(245, 158, 11, 0.4)' },  // Golden Glow
-          { color: '#E11D48', glow: 'rgba(225, 29, 72, 0.35)' },  // Royal Ruby Ember
-          { color: '#FDA4AF', glow: 'rgba(253, 164, 175, 0.35)' }, // Soft Rose Gold
-          { color: '#D97706', glow: 'rgba(217, 119, 6, 0.4)' },   // Deep Amber
+          { color: '#F5EBE1', glow: 'rgba(245, 235, 225, 0.4)' }, // Warm Pearl Starlight
+          { color: '#E5D5C5', glow: 'rgba(229, 213, 197, 0.35)' }, // Champagne Glow
+          { color: '#D4C4B5', glow: 'rgba(212, 196, 181, 0.3)' },  // Soft Muted Ivory
+          { color: '#C8A898', glow: 'rgba(200, 168, 152, 0.25)' }, // Gentle Rose Gold
         ]
       : [
-          { color: '#D4AF37', glow: 'rgba(212, 175, 55, 0.3)' },  // Metallic Gold
-          { color: '#B45309', glow: 'rgba(180, 83, 9, 0.25)' },   // Warm Amber
-          { color: '#99141A', glow: 'rgba(153, 20, 26, 0.2)' },   // Royal Crimson
-          { color: '#F59E0B', glow: 'rgba(245, 158, 11, 0.3)' },  // Golden Champagne
-          { color: '#E5A93C', glow: 'rgba(229, 169, 60, 0.25)' }, // Honey Sunlight
+          { color: '#C5B5A5', glow: 'rgba(197, 181, 165, 0.25)' }, // Soft Linen Pearl
+          { color: '#B8A595', glow: 'rgba(184, 165, 149, 0.2)' },  // Warm Muted Amber
+          { color: '#A59282', glow: 'rgba(165, 146, 130, 0.2)' },  // Neutral Starlight
+          { color: '#881318', glow: 'rgba(136, 19, 24, 0.15)' },   // Deep Royal Wine Hint
         ];
 
     const particleCount = Math.min(width < 768 ? 32 : 65, 75);

@@ -100,7 +100,7 @@ export const DirectionsSection: React.FC = () => {
                 href={RESORT_DATA.directionsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 btn-red-gradient text-xs font-semibold tracking-wider uppercase rounded-xl shadow-md"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#141618] hover:bg-[#25282C] text-white text-xs font-semibold tracking-wider uppercase rounded-xl shadow-md transition-colors"
               >
                 <Navigation className="w-4 h-4 text-white" />
                 <span>Open in Google Maps Navigation</span>
