@@ -26,9 +26,9 @@ export const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-[#16061C]/50 to-black/75 pointer-events-none" />
       </div>
 
-      {/* Subtle Lateral Side Edge Fades (Delicate 3-4% side vignette only) */}
-      <div className="absolute inset-y-0 left-0 w-4 sm:w-16 bg-gradient-to-r from-black/60 to-transparent z-[2] pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-4 sm:w-16 bg-gradient-to-l from-black/60 to-transparent z-[2] pointer-events-none" />
+      {/* Dark Lateral Side Edge Fades */}
+      <div className="absolute inset-y-0 left-0 w-8 sm:w-24 md:w-36 bg-gradient-to-r from-black/85 via-black/40 to-transparent z-[2] pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-8 sm:w-24 md:w-36 bg-gradient-to-l from-black/85 via-black/40 to-transparent z-[2] pointer-events-none" />
 
       {/* Top and Bottom Atmosphere Blends */}
       <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/70 to-transparent z-[2] pointer-events-none" />

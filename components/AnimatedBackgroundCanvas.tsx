@@ -3,22 +3,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 
-interface Particle {
-  x: number;
-  y: number;
-  radius: number;
-  baseRadius: number;
-  vx: number;
-  vy: number;
-  alpha: number;
-  targetAlpha: number;
-  alphaSpeed: number;
-  color: string;
-  glowColor: string;
-  pulsePhase: number;
-  pulseSpeed: number;
-}
-
 export const AnimatedBackgroundCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const { theme } = useTheme();
@@ -27,145 +11,202 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
     let animationFrameId: number;
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    let mouseX = width / 2;
-    let mouseY = height / 2;
+    // Mouse coordinates with smooth easing
+    let targetX = width / 2;
+    let targetY = height / 2;
+    let currentX = width / 2;
+    let currentY = height / 2;
+    let isHovering = false;
+    let hoverOpacity = 0;
 
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      targetX = e.clientX;
+      targetY = e.clientY;
+      isHovering = true;
+    };
+
+    const handleMouseLeave = () => {
+      isHovering = false;
     };
 
     const handleResize = () => {
       if (!canvas) return;
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
+      createPaperPattern();
     };
 
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('mouseleave', handleMouseLeave);
 
-    // Palette tailored for luxury resort vibe in Light & Dark modes
-    const isDark = theme === 'dark' || document.documentElement.classList.contains('dark');
-    
-    const palette = isDark
-      ? [
-          { color: '#ED96D7', glow: 'rgba(237, 150, 215, 0.35)' }, // Soft Lilac Rose
-          { color: '#FFC0DE', glow: 'rgba(255, 192, 222, 0.4)' },  // Blush Petal
-          { color: '#C654C3', glow: 'rgba(198, 84, 195, 0.3)' },   // Radiant Magenta
-          { color: '#FDFBFC', glow: 'rgba(253, 251, 252, 0.25)' }, // Pearl Starlight
-        ]
-      : [
-          { color: '#8E1EA2', glow: 'rgba(142, 30, 162, 0.18)' },  // Deep Regal Violet
-          { color: '#C654C3', glow: 'rgba(198, 84, 195, 0.2)' },   // Soft Radiant Magenta
-          { color: '#ED96D7', glow: 'rgba(237, 150, 215, 0.22)' }, // Soft Lilac
-          { color: '#FFC0DE', glow: 'rgba(255, 192, 222, 0.28)' }, // Petal Blush
-        ];
+    // Pre-render a seamless luxury handcrafted paper texture on an offscreen canvas
+    let paperPattern: CanvasPattern | null = null;
 
-    const particleCount = Math.min(width < 768 ? 32 : 65, 75);
-    const particles: Particle[] = [];
+    const createPaperPattern = () => {
+      const patternCanvas = document.createElement('canvas');
+      const patternSize = 256;
+      patternCanvas.width = patternSize;
+      patternCanvas.height = patternSize;
+      const pCtx = patternCanvas.getContext('2d');
+      if (!pCtx) return;
 
-    for (let i = 0; i < particleCount; i++) {
-      const pColor = palette[Math.floor(Math.random() * palette.length)];
-      const baseRadius = Math.random() * 2.2 + 0.9;
-      particles.push({
+      const isDark = theme === 'dark' || document.documentElement.classList.contains('dark');
+      
+      // Base paper tone
+      pCtx.fillStyle = isDark ? '#120718' : '#FAF7F9';
+      pCtx.fillRect(0, 0, patternSize, patternSize);
+
+      // Procedural paper grain & organic fibers
+      const numGrain = 1400;
+      for (let i = 0; i < numGrain; i++) {
+        const x = Math.random() * patternSize;
+        const y = Math.random() * patternSize;
+        const radius = Math.random() * 0.85 + 0.2;
+        const alpha = Math.random() * 0.045 + 0.015;
+
+        pCtx.beginPath();
+        pCtx.arc(x, y, radius, 0, Math.PI * 2);
+        pCtx.fillStyle = isDark 
+          ? `rgba(237, 150, 215, ${alpha})`
+          : `rgba(142, 30, 162, ${alpha * 0.7})`;
+        pCtx.fill();
+      }
+
+      // Fine organic paper weave fibers
+      const numFibers = 90;
+      for (let i = 0; i < numFibers; i++) {
+        const x = Math.random() * patternSize;
+        const y = Math.random() * patternSize;
+        const length = Math.random() * 8 + 3;
+        const angle = Math.random() * Math.PI * 2;
+        const alpha = Math.random() * 0.035 + 0.01;
+
+        pCtx.beginPath();
+        pCtx.moveTo(x, y);
+        pCtx.lineTo(x + Math.cos(angle) * length, y + Math.sin(angle) * length);
+        pCtx.strokeStyle = isDark 
+          ? `rgba(255, 192, 222, ${alpha})`
+          : `rgba(90, 20, 110, ${alpha * 0.6})`;
+        pCtx.lineWidth = 0.55;
+        pCtx.stroke();
+      }
+
+      paperPattern = ctx.createPattern(patternCanvas, 'repeat');
+    };
+
+    createPaperPattern();
+
+    // Subtle ambient stardust motes (minimal, elegant)
+    interface Mote {
+      x: number;
+      y: number;
+      r: number;
+      vx: number;
+      vy: number;
+      alpha: number;
+      baseAlpha: number;
+      pulse: number;
+    }
+
+    const motes: Mote[] = [];
+    const moteCount = Math.min(width < 768 ? 16 : 28, 35);
+    for (let i = 0; i < moteCount; i++) {
+      motes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: baseRadius,
-        baseRadius,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: -Math.random() * 0.5 - 0.15, // Gentle upward celestial float
-        alpha: Math.random() * 0.5 + 0.15,
-        targetAlpha: Math.random() * 0.6 + 0.25,
-        alphaSpeed: (Math.random() * 0.008 + 0.003) * (Math.random() > 0.5 ? 1 : -1),
-        color: pColor.color,
-        glowColor: pColor.glow,
-        pulsePhase: Math.random() * Math.PI * 2,
-        pulseSpeed: Math.random() * 0.03 + 0.01,
+        r: Math.random() * 1.5 + 0.5,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        alpha: Math.random() * 0.4 + 0.2,
+        baseAlpha: Math.random() * 0.35 + 0.15,
+        pulse: Math.random() * Math.PI * 2,
       });
     }
 
-    let frameCount = 0;
-
+    // Animation Loop
     const render = () => {
       ctx.clearRect(0, 0, width, height);
-      frameCount++;
 
-      // Draw faint constellation links between nearby particles
-      const maxConnectDist = isDark ? 95 : 75;
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < maxConnectDist) {
-            const linkAlpha = (1 - dist / maxConnectDist) * 0.12 * Math.min(particles[i].alpha, particles[j].alpha);
-            ctx.strokeStyle = isDark ? `rgba(253, 230, 138, ${linkAlpha})` : `rgba(212, 175, 55, ${linkAlpha})`;
-            ctx.lineWidth = 0.6;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
+      // Draw paper texture background
+      if (paperPattern) {
+        ctx.fillStyle = paperPattern;
+        ctx.fillRect(0, 0, width, height);
       }
 
-      // Render & update floating glowing particles without expensive canvas shadowBlur
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
+      // Smooth cursor follow for minimal hover interaction
+      currentX += (targetX - currentX) * 0.06;
+      currentY += (targetY - currentY) * 0.06;
+      hoverOpacity += ((isHovering ? 1 : 0) - hoverOpacity) * 0.05;
 
-        // Sinuous undulating drift
-        p.pulsePhase += p.pulseSpeed;
-        p.x += p.vx + Math.sin(p.pulsePhase) * 0.25;
-        p.y += p.vy;
-
-        // Subtle gentle repulsion from cursor
-        const mdx = p.x - mouseX;
-        const mdy = p.y - mouseY;
-        const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
-        if (mDist < 120 && mDist > 0) {
-          const force = (1 - mDist / 120) * 0.5;
-          p.x += (mdx / mDist) * force;
-          p.y += (mdy / mDist) * force;
-        }
-
-        // Pulse size and alpha
-        p.radius = p.baseRadius + Math.sin(p.pulsePhase) * 0.5;
-        p.alpha += p.alphaSpeed;
-
-        if (p.alpha > p.targetAlpha || p.alpha < 0.12) {
-          p.alphaSpeed = -p.alphaSpeed;
-        }
-
-        // Wrap around bounds
-        if (p.y < -15) {
-          p.y = height + 10;
-          p.x = Math.random() * width;
-        }
-        if (p.x < -15) p.x = width + 10;
-        if (p.x > width + 15) p.x = -10;
-
-        const effectiveAlpha = Math.max(0.08, Math.min(p.alpha, 0.85));
+      // Minimal hover sheen: soft ambient starlight glow around cursor
+      if (hoverOpacity > 0.01) {
+        const isDark = theme === 'dark' || document.documentElement.classList.contains('dark');
+        const glowRadius = width < 768 ? 90 : 140;
         
-        // Fast dual-circle glow without expensive CPU shadowBlur
-        ctx.globalAlpha = effectiveAlpha * 0.4;
-        ctx.fillStyle = p.color;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, Math.max(1, p.radius * 2), 0, Math.PI * 2);
-        ctx.fill();
+        const gradient = ctx.createRadialGradient(
+          currentX,
+          currentY,
+          0,
+          currentX,
+          currentY,
+          glowRadius
+        );
 
-        ctx.globalAlpha = effectiveAlpha;
+        if (isDark) {
+          gradient.addColorStop(0, `rgba(237, 150, 215, ${0.12 * hoverOpacity})`);
+          gradient.addColorStop(0.5, `rgba(142, 30, 162, ${0.06 * hoverOpacity})`);
+          gradient.addColorStop(1, 'rgba(18, 7, 24, 0)');
+        } else {
+          gradient.addColorStop(0, `rgba(255, 192, 222, ${0.18 * hoverOpacity})`);
+          gradient.addColorStop(0.5, `rgba(237, 150, 215, ${0.08 * hoverOpacity})`);
+          gradient.addColorStop(1, 'rgba(250, 247, 249, 0)');
+        }
+
+        ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, Math.max(0.5, p.radius), 0, Math.PI * 2);
+        ctx.arc(currentX, currentY, glowRadius, 0, Math.PI * 2);
         ctx.fill();
       }
+
+      // Minimal floating stardust specks
+      const isDark = theme === 'dark' || document.documentElement.classList.contains('dark');
+      motes.forEach((m) => {
+        m.x += m.vx;
+        m.y += m.vy;
+        m.pulse += 0.015;
+
+        // Wrap around boundaries
+        if (m.x < 0) m.x = width;
+        if (m.x > width) m.x = 0;
+        if (m.y < 0) m.y = height;
+        if (m.y > height) m.y = 0;
+
+        // Subtle reaction to cursor distance (minimal interaction)
+        const dx = m.x - currentX;
+        const dy = m.y - currentY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        let extraAlpha = 0;
+        if (dist < 120) {
+          extraAlpha = (1 - dist / 120) * 0.25;
+        }
+
+        const alpha = Math.min(1, Math.max(0, m.baseAlpha + Math.sin(m.pulse) * 0.15 + extraAlpha));
+
+        ctx.beginPath();
+        ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+        ctx.fillStyle = isDark
+          ? `rgba(255, 192, 222, ${alpha * 0.6})`
+          : `rgba(142, 30, 162, ${alpha * 0.35})`;
+        ctx.fill();
+      });
 
       animationFrameId = requestAnimationFrame(render);
     };
@@ -173,9 +214,10 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
     render();
 
     return () => {
+      cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [theme]);
 
@@ -183,7 +225,7 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 opacity-80 dark:opacity-90 transition-opacity duration-700"
+      className="fixed inset-0 pointer-events-none z-[-1] transition-opacity duration-500"
     />
   );
 };

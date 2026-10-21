@@ -93,10 +93,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
         {/* Desktop Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-10 border-b border-[#8E1EA2]/15 items-start">
           
-          {/* Brand & Emblem Lockup with BIG Logo (5 Cols) */}
+          {/* Brand & Emblem Lockup with BIG Logo (No Rectangle Box) */}
           <div className="md:col-span-5 space-y-4">
-            <div className="p-3 rounded-2xl bg-white dark:bg-[#1C0B26] border border-[#8E1EA2]/15 inline-block shadow-sm">
-              <RajResortLogo variant="horizontal" size={68} showSubtitle={true} />
+            <div className="py-1 inline-block">
+              <RajResortLogo variant="horizontal" size={74} showDivider={true} showSubtitle={true} />
             </div>
             <p className="text-xs text-stone-600 dark:text-stone-300 max-w-sm leading-relaxed">
               Patna’s premier destination for grand weddings and sacred celebrations. 

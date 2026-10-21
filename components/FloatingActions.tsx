@@ -146,30 +146,21 @@ export const FloatingActions: React.FC = () => {
           <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-[#8E1EA2] dark:text-[#ED96D7] group-hover:-translate-y-0.5 transition-transform" />
         </button>
 
-        {/* Chatbot Button featuring Ankita DP Avatar */}
+        {/* Chatbot Floating Trigger Button with Message Icon */}
         <button
           onClick={() => setChatOpen(!chatOpen)}
-          aria-label="Chat with Ankita at Raj Resort"
-          title="Chat with Ankita (Wedding Concierge)"
-          className="relative w-12 h-12 sm:w-[54px] sm:h-[54px] rounded-full flex items-center justify-center bg-gradient-to-tr from-[#8E1EA2] to-[#C654C3] shadow-[0_8px_25px_rgba(142,30,162,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-white ring-2 ring-[#8E1EA2]/40 cursor-pointer overflow-hidden p-0.5"
+          aria-label="Open Resort Assistant Chat"
+          title="Chat with Reception Concierge"
+          className="relative w-12 h-12 sm:w-[54px] sm:h-[54px] rounded-full flex items-center justify-center bg-gradient-to-tr from-[#8E1EA2] to-[#C654C3] shadow-[0_8px_25px_rgba(142,30,162,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-white ring-2 ring-[#8E1EA2]/30 cursor-pointer"
         >
           {chatOpen ? (
-            <div className="w-full h-full rounded-full bg-[#8E1EA2] flex items-center justify-center text-white">
-              <X className="w-5 h-5 text-white" />
-            </div>
+            <X className="w-5 h-5 text-white" />
           ) : (
-            <div className="relative w-full h-full rounded-full overflow-hidden">
-              <Image
-                src="/images/ankita.jpg"
-                alt="Ankita - Wedding Reception Manager"
-                fill
-                sizes="54px"
-                className="object-cover object-top"
-                priority
-              />
+            <>
+              <MessageCircle className="w-6 h-6 text-white" />
               {/* Online Green Pulsing Indicator */}
-              <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full z-10" />
-            </div>
+              <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full" />
+            </>
           )}
         </button>
 

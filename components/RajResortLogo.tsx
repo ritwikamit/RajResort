@@ -9,19 +9,21 @@ interface LogoProps {
   variant?: 'full-circle' | 'emblem-only' | 'horizontal';
   showSubtitle?: boolean;
   inverted?: boolean;
+  showDivider?: boolean;
 }
 
 export const RajResortLogo: React.FC<LogoProps> = ({
   className = '',
   size = 56,
-  variant = 'full-circle',
+  variant = 'horizontal',
   showSubtitle = true,
   inverted = false,
+  showDivider = true,
 }) => {
   if (variant === 'horizontal') {
-    const emblemSize = Math.max(40, size);
+    const emblemSize = Math.max(38, size);
     return (
-      <div className={`flex items-center gap-3 sm:gap-4 ${className}`}>
+      <div className={`flex items-center gap-2.5 sm:gap-3.5 ${className}`}>
         {/* Exact Official Circular Emblem from favicon.png */}
         <div 
           className="relative shrink-0 flex items-center justify-center select-none drop-shadow-md rounded-full overflow-hidden"
@@ -37,11 +39,22 @@ export const RajResortLogo: React.FC<LogoProps> = ({
           />
         </div>
 
+        {/* Vertical Divider Line | */}
+        {showDivider && (
+          <div 
+            className={`w-[1.5px] rounded-full self-stretch my-1 sm:my-1.5 transition-colors shrink-0 ${
+              inverted 
+                ? 'bg-white/30' 
+                : 'bg-[#8E1EA2]/30 dark:bg-[#ED96D7]/40'
+            }`} 
+          />
+        )}
+
         {/* Wordmark typography */}
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-center">
           <span 
             className={`font-serif tracking-[0.14em] font-bold uppercase leading-none transition-colors whitespace-nowrap ${
-              emblemSize > 50 ? 'text-xl sm:text-2xl' : 'text-base sm:text-xl'
+              emblemSize >= 64 ? 'text-2xl sm:text-3xl' : emblemSize >= 48 ? 'text-lg sm:text-xl' : 'text-base sm:text-lg'
             } ${
               inverted ? 'text-white drop-shadow-xs' : 'text-stone-900 dark:text-stone-50'
             }`}
@@ -50,8 +63,8 @@ export const RajResortLogo: React.FC<LogoProps> = ({
           </span>
           {showSubtitle && (
             <span 
-              className={`tracking-[0.2em] sm:tracking-[0.28em] uppercase font-semibold mt-1 transition-colors whitespace-nowrap ${
-                emblemSize > 50 ? 'text-[10px] sm:text-xs' : 'text-[9px] sm:text-[10px]'
+              className={`tracking-[0.2em] sm:tracking-[0.26em] uppercase font-semibold mt-1 transition-colors whitespace-nowrap ${
+                emblemSize >= 64 ? 'text-[11px] sm:text-xs' : 'text-[9px] sm:text-[10px]'
               } ${
                 inverted ? 'text-stone-300 drop-shadow-xs' : 'text-[#8E1EA2] dark:text-[#ED96D7]'
               }`}
