@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Send, CheckCircle2, AlertCircle, Calendar } from 'lucide-react';
+import { Phone, MessageSquare, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { RESORT_DATA } from '@/data/resort-data';
 
 export const ContactEnquirySection: React.FC = () => {
@@ -50,18 +50,18 @@ export const ContactEnquirySection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-[#FAF8F5] dark:bg-[#0A0D0E] text-stone-900 dark:text-stone-100 border-t border-stone-200/80 dark:border-stone-800/80 transition-colors duration-300">
+    <section id="contact" className="py-20 sm:py-28 bg-[#FAF7F9] dark:bg-[#120718] text-stone-900 dark:text-stone-100 border-t border-[#8E1EA2]/15 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="max-w-2xl mb-12">
-          <span className="font-cursive text-3xl sm:text-4xl text-[#8E1B21] dark:text-rose-300 tracking-wide block mb-1">
+          <span className="font-cursive text-3xl sm:text-4xl text-[#8E1EA2] dark:text-[#ED96D7] tracking-wide block mb-1">
             Personal Attention for Every Family
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
             Connect with Our Event Desk
           </h2>
-          <p className="mt-3 text-stone-700 dark:text-stone-300 text-sm sm:text-base leading-relaxed font-sans font-normal">
+          <p className="mt-3 text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed font-sans font-normal">
             Planning a wedding celebration, Sangeet, or Ring Ceremony? Give us a call, send a message on WhatsApp, or send an inquiry below. We will reply promptly with date availability and package guidance.
           </p>
         </div>
@@ -72,9 +72,9 @@ export const ContactEnquirySection: React.FC = () => {
           <div className="lg:col-span-5 space-y-5">
             
             {/* Phone Card */}
-            <div className="p-6 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm rounded-2xl">
+            <div className="p-6 bg-white dark:bg-[#1C0B26] border border-[#8E1EA2]/15 shadow-sm rounded-2xl">
               <div className="flex items-center gap-3 mb-3">
-                <div className="p-2.5 bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-stone-100 rounded-xl">
+                <div className="p-2.5 bg-[#FFC0DE]/30 text-[#8E1EA2] rounded-xl">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -91,7 +91,7 @@ export const ContactEnquirySection: React.FC = () => {
               </p>
               <a
                 href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`}
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-stone-100 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 hover:border-stone-500 text-stone-900 dark:text-stone-100 transition-all text-xs font-semibold tracking-wider uppercase rounded-xl cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#FAF7F9] dark:bg-[#250F32] border border-[#8E1EA2]/25 hover:border-[#8E1EA2] text-[#8E1EA2] dark:text-[#ED96D7] transition-all text-xs font-semibold tracking-wider uppercase rounded-xl cursor-pointer"
               >
                 <Phone className="w-4 h-4" />
                 <span>Call Front Desk ({RESORT_DATA.phoneDisplay})</span>
@@ -99,7 +99,7 @@ export const ContactEnquirySection: React.FC = () => {
             </div>
 
             {/* WhatsApp Card */}
-            <div className="p-6 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm rounded-2xl">
+            <div className="p-6 bg-white dark:bg-[#1C0B26] border border-[#8E1EA2]/15 shadow-sm rounded-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2.5 bg-emerald-600/10 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 rounded-xl">
                   <MessageSquare className="w-5 h-5" />
@@ -122,7 +122,7 @@ export const ContactEnquirySection: React.FC = () => {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-emerald-700 hover:bg-emerald-800 text-white transition-all text-xs font-semibold tracking-wider uppercase rounded-xl shadow-xs"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white transition-all text-xs font-semibold tracking-wider uppercase rounded-xl shadow-xs"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Chat on WhatsApp</span>
@@ -130,8 +130,8 @@ export const ContactEnquirySection: React.FC = () => {
             </div>
 
             {/* Location Summary */}
-            <div className="p-5 bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-xs text-stone-700 dark:text-stone-300 space-y-2 rounded-2xl font-sans">
-              <div className="flex items-center justify-between pb-2 border-b border-stone-200 dark:border-stone-800">
+            <div className="p-5 bg-white dark:bg-[#1C0B26] border border-[#8E1EA2]/15 text-xs text-stone-700 dark:text-stone-300 space-y-2 rounded-2xl font-sans">
+              <div className="flex items-center justify-between pb-2 border-b border-[#8E1EA2]/10">
                 <span className="text-stone-500 dark:text-stone-400">Front Desk Hours</span>
                 <span className="font-semibold text-stone-900 dark:text-stone-100">Open 24 Hours / 7 Days</span>
               </div>
@@ -144,7 +144,7 @@ export const ContactEnquirySection: React.FC = () => {
           </div>
 
           {/* Right Column: Wedding Inquiry Form */}
-          <div className="lg:col-span-7 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm">
+          <div className="lg:col-span-7 bg-white dark:bg-[#1C0B26] border border-[#8E1EA2]/15 p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm">
             <h3 className="font-serif text-xl sm:text-2xl font-bold text-stone-900 dark:text-stone-100 mb-1">
               Send a Wedding Date Enquiry
             </h3>
@@ -178,7 +178,7 @@ export const ContactEnquirySection: React.FC = () => {
                     placeholder="e.g. Ramesh Kumar"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all font-sans"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all font-sans"
                   />
                 </div>
 
@@ -192,7 +192,7 @@ export const ContactEnquirySection: React.FC = () => {
                     placeholder="10-digit mobile number"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all font-sans"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all font-sans"
                   />
                 </div>
               </div>
@@ -205,7 +205,7 @@ export const ContactEnquirySection: React.FC = () => {
                   <select
                     value={formData.enquiryType}
                     onChange={(e) => setFormData({ ...formData, enquiryType: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all font-sans"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all font-sans"
                   >
                     <option value="Grand Wedding & Starlit Lawn">Grand Wedding & Starlit Lawn</option>
                     <option value="Pre-Wedding Sangeet & Mehendi">Pre-Wedding Sangeet & Mehendi</option>
@@ -223,7 +223,7 @@ export const ContactEnquirySection: React.FC = () => {
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all font-sans"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all font-sans"
                   />
                 </div>
               </div>
@@ -237,7 +237,7 @@ export const ContactEnquirySection: React.FC = () => {
                   placeholder="e.g. 500 Guests"
                   value={formData.guests}
                   onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all font-sans"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all font-sans"
                 />
               </div>
 
@@ -250,13 +250,13 @@ export const ContactEnquirySection: React.FC = () => {
                   placeholder="Tell us about your event timeline, catering requirements, or questions..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all resize-none font-sans"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all resize-none font-sans"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#141618] hover:bg-[#25282C] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-md cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] hover:from-[#7B188D] hover:to-[#B544B2] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-[0_4px_16px_rgba(142,30,162,0.28)] cursor-pointer"
               >
                 <Send className="w-4 h-4" />
                 <span>Submit Wedding Date Inquiry</span>

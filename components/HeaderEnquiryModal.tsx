@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, Send, Phone, Calendar, Users, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { X, Send, Calendar, Users, MessageSquare } from 'lucide-react';
 import { RESORT_DATA } from '@/data/resort-data';
 
 interface HeaderEnquiryModalProps {
@@ -52,27 +52,27 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-xl bg-white dark:bg-[#14171A] rounded-3xl shadow-2xl border border-stone-200 dark:border-white/10 overflow-hidden"
+        className="relative w-full max-w-xl bg-white dark:bg-[#1A0A24] rounded-3xl shadow-2xl border border-[#8E1EA2]/25 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="relative p-6 sm:p-7 bg-[#121417] text-white border-b border-white/10">
+        <div className="relative p-6 sm:p-7 bg-gradient-to-r from-[#8E1EA2] via-[#A828B8] to-[#C654C3] text-white border-b border-white/10">
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="absolute top-5 right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+            className="absolute top-5 right-5 p-2 rounded-full bg-white/15 hover:bg-white/25 text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
 
-          <div className="flex items-center gap-2 text-stone-300 text-xs font-semibold tracking-widest uppercase mb-1">
+          <div className="flex items-center gap-2 text-[#FFC0DE] text-xs font-semibold tracking-widest uppercase mb-1">
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Direct WhatsApp Reception Desk</span>
           </div>
           <h3 className="font-serif text-2xl sm:text-3xl font-bold">
             Check Wedding Dates & Packages
           </h3>
-          <p className="text-stone-300 text-xs sm:text-sm mt-1">
+          <p className="text-white/85 text-xs sm:text-sm mt-1">
             Provide your preferred event details to receive date availability and custom wedding lawn packages.
           </p>
         </div>
@@ -91,7 +91,7 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
                 placeholder="e.g. Rahul Sharma"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all"
               />
             </div>
 
@@ -106,7 +106,7 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
                 placeholder="10-digit mobile number"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all"
               />
             </div>
           </div>
@@ -120,7 +120,7 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
               <select
                 value={formData.serviceType}
                 onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all"
               >
                 <option value="Grand Wedding & Starlit Lawn Celebration">Grand Wedding & Lawn (400-1200+ guests)</option>
                 <option value="Pre-Wedding Sangeet & Mehendi">Pre-Wedding Sangeet & Mehendi</option>
@@ -133,14 +133,14 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
             {/* Event Date */}
             <div>
               <label className="block text-xs font-semibold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-stone-500" />
+                <Calendar className="w-3.5 h-3.5 text-[#8E1EA2]" />
                 <span>Preferred Date</span>
               </label>
               <input
                 type="date"
                 value={formData.date}
                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all"
               />
             </div>
           </div>
@@ -148,13 +148,13 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
           {/* Guest Count */}
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 flex items-center gap-1.5">
-              <Users className="w-3.5 h-3.5 text-stone-500" />
+              <Users className="w-3.5 h-3.5 text-[#8E1EA2]" />
               <span>Estimated Guests</span>
             </label>
             <select
               value={formData.guestCount}
               onChange={(e) => setFormData({ ...formData, guestCount: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all"
             >
               <option value="200 - 400 Guests">200 - 400 Guests</option>
               <option value="400 - 800 Guests">400 - 800 Guests</option>
@@ -173,7 +173,7 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
               placeholder="e.g. Catering setup preferences, mandap decoration, Baraat arrival time..."
               value={formData.requirements}
               onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 dark:focus:ring-white transition-all resize-none"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-[#FAF7F9] dark:bg-[#250F32] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#8E1EA2] transition-all resize-none"
             />
           </div>
 
@@ -182,7 +182,7 @@ export const HeaderEnquiryModal: React.FC<HeaderEnquiryModalProps> = ({ isOpen, 
             <button
               type="submit"
               disabled={submitted}
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-[#141618] hover:bg-[#25282C] text-white text-xs font-semibold tracking-wider uppercase transition-all shadow-lg active:scale-98 cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] hover:from-[#7B188D] hover:to-[#B544B2] text-white text-xs font-semibold tracking-wider uppercase transition-all shadow-md active:scale-98 cursor-pointer"
             >
               <Send className="w-4 h-4 text-white" />
               <span>{submitted ? 'Connecting to WhatsApp...' : 'Send Wedding Date Enquiry'}</span>

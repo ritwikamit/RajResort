@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ArrowUp, MessageSquare, X, Send, Phone } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowUp, X, Send, Phone, MessageCircle } from 'lucide-react';
 import { RESORT_DATA } from '@/data/resort-data';
 import { useTheme } from '@/context/ThemeContext';
 import { useIsMounted } from '@/lib/hooks';
@@ -25,12 +26,12 @@ export const FloatingActions: React.FC = () => {
     {
       id: '1',
       sender: 'bot',
-      text: 'Namaste! Welcome to Raj Resort Patna. How can we assist with your wedding plans or room reservation today?',
+      text: 'Namaste! I am Ankita, your personal wedding manager at Raj Resort Patna. How can I assist with your wedding dates, lawn capacity, or banquet celebration today?',
       time: 'Just now',
     },
   ]);
 
-  // Handle scroll progress for the border fill
+  // Handle scroll progress
   useEffect(() => {
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -62,21 +63,21 @@ export const FloatingActions: React.FC = () => {
     setMessages((prev) => [...prev, userMsg]);
     if (!textToSend) setInputMessage('');
 
-    // Instant helpful assistant responses without exposing raw mobile number
+    // Instant helpful assistant responses
     setTimeout(() => {
-      let reply = "Thank you for reaching out! You can tap 'Call Desk' or message our WhatsApp team below for instant date availability and packages.";
+      let reply = "Thank you! You can connect with our duty manager directly on WhatsApp or phone below for personalized wedding packages and date booking.";
       const lower = query.toLowerCase();
 
       if (lower.includes('capacity') || lower.includes('guest') || lower.includes('lawn') || lower.includes('wedding')) {
-        reply = "Our Grand Royal Lawn accommodates from 300 to 1,200+ guests, featuring an illuminated entrance pergola, red-carpet aisle, and Varmala stage with cold fireworks. We also have the air-conditioned Shahi Darbar hall for 150 to 450 guests!";
-      } else if (lower.includes('room') || lower.includes('stay') || lower.includes('book') || lower.includes('rate') || lower.includes('price')) {
-        reply = "You can view live room rates and book instantly via our WhatsApp booking desk or explore verified partner portals (MakeMyTrip, Agoda, Guest Reservations) in our 'Book a Stay' section.";
-      } else if (lower.includes('location') || lower.includes('address') || lower.includes('where') || lower.includes('reach') || lower.includes('kurji')) {
-        reply = "Raj Resort is located near Gate No. 62, Kurji Mor, Patliputra, Patna (Bihar 800010). We are just 150m from Kurji Mor, 3.8 km from Patliputra Junction, and 9.2 km from Patna Airport.";
-      } else if (lower.includes('power') || lower.includes('generator') || lower.includes('electricity') || lower.includes('ac')) {
-        reply = "Yes, we run heavy-duty industrial generator backup 24/7 so your lights, stage sound, and split ACs continue without interruption.";
-      } else if (lower.includes('visit') || lower.includes('see') || lower.includes('timing')) {
-        reply = "You are warmly welcome to visit! Venue viewing hours are 10:00 AM to 8:00 PM daily. Tap WhatsApp Desk below so our duty manager can personally show you around.";
+        reply = "Our Starlit Royal Lawn holds 400 to 1,200+ guests with a 150-ft illuminated floral pergola for the Baraat and an elevated Varmala stage. We also host 150 to 500 guests in our AC Shahi Darbar banquet hall!";
+      } else if (lower.includes('date') || lower.includes('available') || lower.includes('book') || lower.includes('rate') || lower.includes('price')) {
+        reply = "Wedding dates fill quickly during auspicious Lagan seasons! Please tap 'WhatsApp Reception' below and share your expected date and guest count for an immediate proposal.";
+      } else if (lower.includes('location') || lower.includes('address') || lower.includes('where') || lower.includes('kurji')) {
+        reply = "Raj Resort is conveniently situated near Gate No. 62, Kurji Mor, Patliputra, Patna (800010)—just 150 meters from Kurji Mor and 12 minutes from Patliputra Junction.";
+      } else if (lower.includes('power') || lower.includes('generator') || lower.includes('light')) {
+        reply = "We provide 100% industrial dual generator power backup so your wedding lighting, DJ acoustics, and AC banquet never experience a second of interruption.";
+      } else if (lower.includes('visit') || lower.includes('see') || lower.includes('tour')) {
+        reply = "We would love to welcome you and your family for a personal walkthrough! Visiting hours are 10:00 AM to 8:00 PM daily. Tap WhatsApp below to let us know when you plan to arrive.";
       }
 
       setMessages((prev) => [
@@ -100,15 +101,15 @@ export const FloatingActions: React.FC = () => {
 
   return (
     <>
-      {/* Floating Vertical Button Stack: Positioned above mobile bottom bar */}
-      <aside aria-label="Quick Actions" className="fixed bottom-20 right-3 sm:bottom-6 sm:right-6 z-40 flex flex-col items-center gap-2.5 sm:gap-3 select-none">
+      {/* Floating Vertical Button Stack: Above mobile bar, always clearly visible */}
+      <aside aria-label="Quick Actions" className="fixed bottom-20 right-3.5 sm:bottom-6 sm:right-6 z-50 flex flex-col items-center gap-3 select-none">
         
-        {/* Scroll Up Button with Circular Filling Border */}
+        {/* Scroll Up Button with Circular Filling Border in #8E1EA2 */}
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top of page"
           title={`Scroll to top (${Math.round(scrollProgress)}%)`}
-          className={`relative w-11 h-11 sm:w-[52px] sm:h-[52px] rounded-full flex items-center justify-center bg-white/95 dark:bg-stone-900/95 backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 group border border-stone-200 dark:border-stone-700 cursor-pointer ${
+          className={`relative w-11 h-11 sm:w-[52px] sm:h-[52px] rounded-full flex items-center justify-center bg-white/95 dark:bg-stone-900/95 backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 group border border-[#8E1EA2]/25 cursor-pointer ${
             showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
           }`}
         >
@@ -123,16 +124,16 @@ export const FloatingActions: React.FC = () => {
               cy={size / 2}
               r={radius}
               fill="none"
-              stroke={mounted && theme === 'dark' ? '#292524' : '#F3EBE1'}
+              stroke={mounted && theme === 'dark' ? '#2A1032' : '#FFC0DE'}
               strokeWidth={strokeWidth}
             />
-            {/* Animated Filling Progress Border in Red */}
+            {/* Animated Filling Progress Border in #8E1EA2 */}
             <circle
               cx={size / 2}
               cy={size / 2}
               r={radius}
               fill="none"
-              stroke="#B81D24"
+              stroke="#8E1EA2"
               strokeWidth={strokeWidth}
               strokeDasharray={circumference}
               strokeDashoffset={strokeDashoffset}
@@ -142,103 +143,121 @@ export const FloatingActions: React.FC = () => {
           </svg>
 
           {/* Arrow Icon in Center */}
-          <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-[#99141A] dark:text-rose-400 group-hover:-translate-y-0.5 transition-transform" />
+          <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-[#8E1EA2] dark:text-[#ED96D7] group-hover:-translate-y-0.5 transition-transform" />
         </button>
 
-        {/* Chatbot Button in Red Gradient */}
+        {/* Chatbot Button featuring Ankita DP Avatar */}
         <button
           onClick={() => setChatOpen(!chatOpen)}
-          aria-label="Open Resort Assistant Chat"
-          title="Chat with Resort Team"
-          className="relative w-11 h-11 sm:w-[52px] sm:h-[52px] rounded-full flex items-center justify-center btn-red-gradient shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-white dark:border-stone-800 cursor-pointer"
+          aria-label="Chat with Ankita at Raj Resort"
+          title="Chat with Ankita (Wedding Concierge)"
+          className="relative w-12 h-12 sm:w-[54px] sm:h-[54px] rounded-full flex items-center justify-center bg-gradient-to-tr from-[#8E1EA2] to-[#C654C3] shadow-[0_8px_25px_rgba(142,30,162,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-white ring-2 ring-[#8E1EA2]/40 cursor-pointer overflow-hidden p-0.5"
         >
           {chatOpen ? (
-            <X className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <div className="w-full h-full rounded-full bg-[#8E1EA2] flex items-center justify-center text-white">
+              <X className="w-5 h-5 text-white" />
+            </div>
           ) : (
-            <>
-              <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-              {/* Online Green Indicator */}
-              <span className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-emerald-500 border-2 border-white dark:border-stone-800 rounded-full" />
-            </>
+            <div className="relative w-full h-full rounded-full overflow-hidden">
+              <Image
+                src="/images/ankita.jpg"
+                alt="Ankita - Wedding Reception Manager"
+                fill
+                sizes="54px"
+                className="object-cover object-top"
+                priority
+              />
+              {/* Online Green Pulsing Indicator */}
+              <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full z-10" />
+            </div>
           )}
         </button>
 
       </aside>
 
-      {/* Concierge Chatbot Dialog Window in Both Modes */}
+      {/* Concierge Chatbot Dialog Window */}
       {chatOpen && (
         <section
           aria-label="Resort Concierge Chat"
-          className="fixed inset-x-3 bottom-20 sm:bottom-24 sm:right-6 sm:left-auto sm:w-[380px] max-h-[82vh] sm:max-h-[580px] z-50 bg-white/95 dark:bg-stone-900/95 backdrop-blur-2xl border border-stone-200/90 dark:border-stone-700/80 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.25)] flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200"
+          className="fixed inset-x-3 bottom-20 sm:bottom-24 sm:right-6 sm:left-auto sm:w-[380px] max-h-[82vh] sm:max-h-[580px] z-50 bg-white/98 dark:bg-[#180A22]/98 backdrop-blur-2xl border border-[#8E1EA2]/25 rounded-2xl shadow-[0_25px_60px_rgba(142,30,162,0.22)] flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200"
         >
-          {/* Chat Header in Red Gradient */}
-          <div className="p-3 sm:p-4 btn-red-gradient text-white flex items-center justify-between shrink-0">
-            <div className="flex items-center gap-2.5 sm:gap-3">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 flex items-center justify-center text-xs sm:text-sm font-bold">
-                R
+          {/* Chat Header in Royal Color Hunt Gradient */}
+          <div className="p-3.5 sm:p-4 bg-gradient-to-r from-[#8E1EA2] via-[#A828B8] to-[#C654C3] text-white flex items-center justify-between shrink-0 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white/80 shadow-sm shrink-0">
+                <Image
+                  src="/images/ankita.jpg"
+                  alt="Ankita"
+                  fill
+                  sizes="40px"
+                  className="object-cover object-top"
+                />
               </div>
               <div>
-                <h2 className="text-xs sm:text-sm font-bold leading-tight">Raj Resort Assistant</h2>
-                <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-rose-100">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  <span>Online · Quick Answers</span>
+                <h2 className="text-sm font-bold leading-tight flex items-center gap-1.5">
+                  <span>Ankita</span>
+                  <span className="text-[10px] font-normal px-1.5 py-0.5 rounded-full bg-white/20 text-[#FFC0DE]">Reception</span>
+                </h2>
+                <div className="flex items-center gap-1.5 text-[11px] text-[#FFC0DE] mt-0.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span>Online · Wedding Concierge</span>
                 </div>
               </div>
             </div>
             <button
               onClick={() => setChatOpen(false)}
               aria-label="Close chat"
-              className="p-1.5 text-white/80 hover:text-white rounded-md hover:bg-white/10 cursor-pointer"
+              className="p-1.5 text-white/80 hover:text-white rounded-lg hover:bg-white/15 cursor-pointer transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
           {/* Chat Messages */}
-          <div className="p-3 sm:p-4 flex-1 min-h-[140px] max-h-[42vh] sm:max-h-[290px] overflow-y-auto space-y-2.5 sm:space-y-3 bg-[#FAF7F2] dark:bg-[#101714] text-xs">
+          <div className="p-3 sm:p-4 flex-1 min-h-[160px] max-h-[42vh] sm:max-h-[290px] overflow-y-auto space-y-3 bg-[#FAF7F9] dark:bg-[#120718] text-xs">
             {messages.map((m) => (
               <div
                 key={m.id}
                 className={`flex flex-col ${m.sender === 'user' ? 'items-end' : 'items-start'}`}
               >
                 <div
-                  className={`p-2.5 sm:p-3 rounded-xl max-w-[88%] leading-relaxed ${
+                  className={`p-3 rounded-2xl max-w-[88%] leading-relaxed ${
                     m.sender === 'user'
-                      ? 'btn-red-gradient text-white rounded-br-none shadow-xs'
-                      : 'bg-white dark:bg-stone-800 text-stone-800 dark:text-stone-100 border border-stone-200/80 dark:border-stone-700 rounded-bl-none shadow-xs'
+                      ? 'bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] text-white rounded-br-none shadow-sm'
+                      : 'bg-white dark:bg-[#200E2C] text-stone-800 dark:text-stone-100 border border-[#8E1EA2]/15 rounded-bl-none shadow-xs'
                   }`}
                 >
                   {m.text}
                 </div>
-                <span className="text-[10px] text-stone-400 mt-1 px-1">{m.time}</span>
+                <span className="text-[10px] text-stone-400 dark:text-stone-500 mt-1 px-1">{m.time}</span>
               </div>
             ))}
           </div>
 
-          {/* Quick Question Buttons: Horizontally Scrollable on Mobile */}
-          <div className="px-3 py-2 bg-stone-50 dark:bg-stone-800/80 border-t border-stone-200/80 dark:border-stone-700/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar whitespace-nowrap text-[11px] shrink-0">
+          {/* Quick Action Suggestion Pills */}
+          <div className="px-3 py-2 bg-white dark:bg-[#1C0B26] border-t border-[#8E1EA2]/15 flex items-center gap-1.5 overflow-x-auto no-scrollbar whitespace-nowrap text-[11px] shrink-0">
             <button
-              onClick={() => handleSendMessage('How many guests can the wedding lawn hold?')}
-              className="shrink-0 px-2.5 py-1 bg-white dark:bg-stone-700 border border-stone-200 dark:border-stone-600 hover:border-[#99141A] dark:hover:border-rose-400 text-stone-700 dark:text-stone-200 rounded-lg transition-colors cursor-pointer"
+              onClick={() => handleSendMessage('What is the capacity of the starlit lawn?')}
+              className="shrink-0 px-2.5 py-1 bg-[#FFC0DE]/30 dark:bg-[#8E1EA2]/25 border border-[#8E1EA2]/20 hover:border-[#8E1EA2] text-[#8E1EA2] dark:text-[#ED96D7] rounded-lg transition-colors cursor-pointer font-medium"
             >
-              Lawn Capacity?
+              Lawn Capacity (1,200+)
             </button>
             <button
-              onClick={() => handleSendMessage('How do I book a room?')}
-              className="shrink-0 px-2.5 py-1 bg-white dark:bg-stone-700 border border-stone-200 dark:border-stone-600 hover:border-[#99141A] dark:hover:border-rose-400 text-stone-700 dark:text-stone-200 rounded-lg transition-colors cursor-pointer"
+              onClick={() => handleSendMessage('How can I check wedding date availability?')}
+              className="shrink-0 px-2.5 py-1 bg-[#FFC0DE]/30 dark:bg-[#8E1EA2]/25 border border-[#8E1EA2]/20 hover:border-[#8E1EA2] text-[#8E1EA2] dark:text-[#ED96D7] rounded-lg transition-colors cursor-pointer font-medium"
             >
-              Book a Room
+              Check Dates
             </button>
             <button
-              onClick={() => handleSendMessage('Where is the resort located in Patna?')}
-              className="shrink-0 px-2.5 py-1 bg-white dark:bg-stone-700 border border-stone-200 dark:border-stone-600 hover:border-[#99141A] dark:hover:border-rose-400 text-stone-700 dark:text-stone-200 rounded-lg transition-colors cursor-pointer"
+              onClick={() => handleSendMessage('Can I schedule a venue tour at Kurji Mor?')}
+              className="shrink-0 px-2.5 py-1 bg-[#FFC0DE]/30 dark:bg-[#8E1EA2]/25 border border-[#8E1EA2]/20 hover:border-[#8E1EA2] text-[#8E1EA2] dark:text-[#ED96D7] rounded-lg transition-colors cursor-pointer font-medium"
             >
-              Location & Map
+              Visit Venue
             </button>
           </div>
 
-          {/* Input & Direct Contacts Footer */}
-          <div className="p-2.5 sm:p-3 bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 shrink-0">
+          {/* Message Input & Fast Contact Strip */}
+          <div className="p-2.5 sm:p-3 bg-white dark:bg-[#180A22] border-t border-[#8E1EA2]/15 shrink-0">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -248,40 +267,43 @@ export const FloatingActions: React.FC = () => {
             >
               <input
                 type="text"
-                placeholder="Ask about rooms, wedding dates, lawn..."
+                placeholder="Ask Ankita about wedding dates, lawn..."
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
-                className="flex-1 px-3 py-2 text-base sm:text-xs bg-stone-50 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 rounded-lg focus:outline-none focus:border-[#99141A] text-stone-900 dark:text-stone-100"
+                className="flex-1 px-3 py-2 text-xs bg-[#FAF7F9] dark:bg-[#220F30] border border-[#8E1EA2]/25 rounded-xl focus:outline-none focus:border-[#8E1EA2] text-stone-900 dark:text-stone-100"
               />
               <button
                 type="submit"
                 aria-label="Send message"
-                className="p-2 sm:p-2.5 btn-red-gradient text-white rounded-lg transition-colors cursor-pointer shrink-0"
+                className="p-2.5 bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] text-white rounded-xl hover:opacity-95 transition-opacity cursor-pointer shrink-0 shadow-sm"
               >
                 <Send className="w-3.5 h-3.5" />
               </button>
             </form>
 
             {/* Direct Connect Strip */}
-            <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-stone-500 dark:text-stone-400 pt-1">
+            <div className="flex items-center justify-between text-[11px] text-stone-500 dark:text-stone-400 pt-1">
               <a
                 href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`}
-                className="flex items-center gap-1 hover:text-[#99141A] dark:hover:text-rose-400 font-medium"
+                className="flex items-center gap-1 text-[#8E1EA2] dark:text-[#ED96D7] hover:underline font-semibold"
               >
-                <Phone className="w-3 h-3 text-[#99141A] dark:text-rose-400" />
+                <Phone className="w-3 h-3 text-[#8E1EA2]" />
                 <span>Call Desk</span>
               </a>
               <span className="text-stone-300 dark:text-stone-700">·</span>
               <a
-                href={`https://wa.me/${RESORT_DATA.whatsappNumber}`}
+                href={`https://wa.me/${RESORT_DATA.whatsappNumber}?text=${encodeURIComponent(
+                  'Hello Ankita, I am enquiring about wedding dates and lawn packages at Raj Resort Patna.'
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 font-semibold"
+                className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 hover:underline font-semibold"
               >
-                <span>WhatsApp Us</span>
+                <MessageCircle className="w-3 h-3" />
+                <span>WhatsApp Ankita</span>
               </a>
               <span className="text-stone-300 dark:text-stone-700">·</span>
-              <span className="text-stone-400 dark:text-stone-500">Kurji Mor</span>
+              <span className="text-stone-400">Kurji Mor</span>
             </div>
           </div>
         </section>

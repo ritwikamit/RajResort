@@ -1,17 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { MovingTextTicker } from '@/components/MovingTextTicker';
 import { ScrollReveal } from '@/components/ScrollReveal';
-import { SpecialWeddingStory } from '@/components/SpecialWeddingStory';
 import { WeddingVenuesSection } from '@/components/WeddingVenuesSection';
 import { GallerySection } from '@/components/GallerySection';
 import { FacilitiesSection } from '@/components/FacilitiesSection';
 import { GoogleMapsSection } from '@/components/GoogleMapsSection';
-import { DirectionsSection } from '@/components/DirectionsSection';
 import { ContactEnquirySection } from '@/components/ContactEnquirySection';
 import { FollowUsSection } from '@/components/FollowUsSection';
 import { OtherListingsSection } from '@/components/OtherListingsSection';
@@ -21,15 +18,13 @@ import { CookiePolicyModal } from '@/components/CookiePolicyModal';
 import { CookieConsentBanner } from '@/components/CookieConsentBanner';
 import { FloatingActions } from '@/components/FloatingActions';
 import { MobileStickyBar } from '@/components/MobileStickyBar';
-import { Phone, Calendar, Heart, ShieldCheck, MapPin } from 'lucide-react';
-import { RESORT_DATA } from '@/data/resort-data';
 
 export default function Home() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const [cookiePolicyOpen, setCookiePolicyOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#0A0D0E] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#8E1B21]/20 selection:text-[#8E1B21] transition-colors duration-300 relative z-10 scroll-smooth">
+    <div className="min-h-screen bg-[#FAF7F9] dark:bg-[#120718] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#FFC0DE] selection:text-[#8E1EA2] transition-colors duration-300 relative z-10 scroll-smooth">
       
       {/* JSON-LD Structured Data for Local Wedding Destination SEO */}
       <script
@@ -65,28 +60,23 @@ export default function Home() {
         }}
       />
 
-      {/* Luxury Obsidian Header */}
+      {/* Light Luxury Translucent Header */}
       <Header />
 
       {/* Main Content Area */}
       <main className="flex-1">
-        {/* Hero Section with LandingHeroSection.mp4 Video Background & Cursive Typography */}
+        {/* Hero Section with LandingHeroSection.mp4 Video Background */}
         <HeroSection />
 
         {/* Moving Text Ticker */}
         <MovingTextTicker />
-
-        {/* SPECIAL WEDDING STORY SECTION - landingPage3.png with Emotional Family Narrative */}
-        <ScrollReveal>
-          <SpecialWeddingStory />
-        </ScrollReveal>
 
         {/* Curated Wedding Venues & Lawns */}
         <ScrollReveal>
           <WeddingVenuesSection />
         </ScrollReveal>
 
-        {/* Real Celebration Photo Gallery */}
+        {/* Real Celebration Photo Gallery - 100% Distinct Photos */}
         <ScrollReveal>
           <GallerySection />
         </ScrollReveal>
@@ -99,11 +89,6 @@ export default function Home() {
         {/* Interactive Google Map & Location */}
         <ScrollReveal>
           <GoogleMapsSection />
-        </ScrollReveal>
-
-        {/* Highway Travel & Arrival Guide */}
-        <ScrollReveal>
-          <DirectionsSection />
         </ScrollReveal>
 
         {/* Wedding Date Inquiries & Contact Form */}
@@ -122,7 +107,7 @@ export default function Home() {
         </ScrollReveal>
       </main>
 
-      {/* Luxury Footer */}
+      {/* Luxury Footer with Big Logo */}
       <Footer
         onOpenPrivacy={() => setPrivacyOpen(true)}
         onOpenCookies={() => setCookiePolicyOpen(true)}
@@ -152,7 +137,7 @@ export default function Home() {
         onOpenPolicy={() => setCookiePolicyOpen(true)}
       />
 
-      {/* Floating Vertical Actions */}
+      {/* Floating Concierge Chatbot & Scroll Action */}
       <FloatingActions />
 
       {/* Mobile Sticky Bar */}

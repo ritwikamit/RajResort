@@ -17,13 +17,13 @@ export default function WeddingsPage() {
   const [cookieOpen, setCookieOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#0A0D0E] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#8E1B21]/20 selection:text-[#8E1B21] transition-colors duration-300 relative z-10">
+    <div className="min-h-screen bg-[#FAF7F9] dark:bg-[#120718] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#FFC0DE] selection:text-[#8E1EA2] transition-colors duration-300 relative z-10">
       <Header />
       
-      {/* Dedicated Hero Section with Real Landscape Image & Side Edge Fades */}
-      <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden border-b border-stone-200/80 dark:border-stone-800/80">
+      {/* Dedicated Hero Section with Real Landscape Image & Subtle Side Fade */}
+      <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden border-b border-[#8E1EA2]/15">
         
-        {/* Background Landscape Photo with Side Fades */}
+        {/* Background Landscape Photo with Subtle Side Fade */}
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full fade-sides-mask">
             <Image
@@ -31,20 +31,16 @@ export default function WeddingsPage() {
               alt="Raj Resort Patna Grand Wedding Lawns Landscape"
               fill
               priority
-              className="object-cover object-center scale-105"
+              className="object-cover object-center"
             />
             {/* Scrim Overlay */}
-            <div className="absolute inset-0 bg-black/60 dark:bg-black/70 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/70 pointer-events-none" />
           </div>
         </div>
 
-        {/* Lateral Soft Gradients */}
-        <div className="absolute inset-y-0 left-0 w-12 sm:w-32 bg-gradient-to-r from-[#FAF8F5] dark:from-[#0A0D0E] to-transparent z-[2] pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-12 sm:w-32 bg-gradient-to-l from-[#FAF8F5] dark:from-[#0A0D0E] to-transparent z-[2] pointer-events-none" />
-
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <span className="font-cursive text-3xl sm:text-4xl text-[#F2E6D8] tracking-wide block mb-2 drop-shadow-md">
+          <span className="font-cursive text-3xl sm:text-4xl text-[#FFC0DE] tracking-wide block mb-2 drop-shadow-md">
             Sacred Vows & Starlit Celebrations
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
@@ -57,13 +53,13 @@ export default function WeddingsPage() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-stone-200 font-sans">
             <span className="flex items-center gap-1.5 font-medium">
-              <Users className="w-4 h-4 text-stone-300" /> 1,200+ Guest Capacity
+              <Users className="w-4 h-4 text-[#ED96D7]" /> 1,200+ Guest Capacity
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <Zap className="w-4 h-4 text-stone-300" /> 100% Dual Generator Power
+              <Zap className="w-4 h-4 text-[#ED96D7]" /> 100% Dual Generator Power
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <ShieldCheck className="w-4 h-4 text-stone-300" /> Secured Gated Premises
+              <ShieldCheck className="w-4 h-4 text-[#ED96D7]" /> Secured Gated Premises
             </span>
           </div>
         </div>

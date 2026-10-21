@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { 
-  Phone, 
   ShieldCheck, 
   Cookie, 
   MapPin, 
@@ -12,8 +11,7 @@ import {
   Heart, 
   Images, 
   Compass, 
-  PhoneCall,
-  Sparkles 
+  PhoneCall
 } from 'lucide-react';
 import { RajResortLogo } from './RajResortLogo';
 import { RESORT_DATA } from '@/data/resort-data';
@@ -38,104 +36,107 @@ const WhatsAppOfficialIcon = ({ className = 'w-5 h-5' }: { className?: string })
 
 export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) => {
   return (
-    <footer className="bg-[#EDE6DD] dark:bg-[#070A09] text-stone-700 dark:text-stone-300 border-t border-stone-300/80 dark:border-stone-800/80 pt-12 sm:pt-14 pb-32 md:pb-12 font-sans transition-colors duration-300">
+    <footer className="bg-[#F8F3F7] dark:bg-[#100615] text-stone-700 dark:text-stone-300 border-t border-[#8E1EA2]/15 pt-12 sm:pt-16 pb-32 md:pb-14 font-sans transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Smartphone-Optimized Quick Navigation Grid */}
-        <div className="md:hidden pb-10 border-b border-stone-300 dark:border-stone-800">
-          <div className="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-200 mb-3 text-center">
+        <div className="md:hidden pb-10 border-b border-[#8E1EA2]/15">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#8E1EA2] dark:text-[#ED96D7] mb-3 text-center">
             Quick Navigation
           </div>
           <div className="grid grid-cols-2 gap-2 text-xs">
             <Link 
               href="/" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
+              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
             >
-              <Home className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <Home className="w-4 h-4 text-[#8E1EA2] shrink-0" />
               <span>Home</span>
             </Link>
             <Link 
               href="/weddings" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
+              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
             >
-              <Heart className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <Heart className="w-4 h-4 text-[#8E1EA2] shrink-0" />
               <span>Weddings</span>
             </Link>
             <Link 
               href="/gallery" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
+              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
             >
-              <Images className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <Images className="w-4 h-4 text-[#8E1EA2] shrink-0" />
               <span>Gallery</span>
             </Link>
             <Link 
               href="/facilities" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
+              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
             >
-              <ShieldCheck className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <ShieldCheck className="w-4 h-4 text-[#8E1EA2] shrink-0" />
               <span>Facilities</span>
             </Link>
             <Link 
               href="/location" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
+              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
             >
-              <Compass className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <Compass className="w-4 h-4 text-[#8E1EA2] shrink-0" />
               <span>Location</span>
             </Link>
             <Link 
               href="/contact" 
-              className="p-3 bg-white/80 dark:bg-stone-900/90 rounded-xl border border-stone-200 dark:border-stone-800 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-stone-950 active:scale-98 transition-all"
+              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
             >
-              <PhoneCall className="w-4 h-4 text-stone-700 dark:text-stone-300 shrink-0" />
+              <PhoneCall className="w-4 h-4 text-[#8E1EA2] shrink-0" />
               <span>Contact</span>
             </Link>
           </div>
         </div>
 
         {/* Desktop Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-10 border-b border-stone-300 dark:border-stone-800">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-10 border-b border-[#8E1EA2]/15 items-start">
           
-          {/* Brand & Emblem Lockup (5 Cols) */}
+          {/* Brand & Emblem Lockup with BIG Logo (5 Cols) */}
           <div className="md:col-span-5 space-y-4">
-            <RajResortLogo variant="horizontal" size={48} showSubtitle={true} />
+            <div className="p-3 rounded-2xl bg-white dark:bg-[#1C0B26] border border-[#8E1EA2]/15 inline-block shadow-sm">
+              <RajResortLogo variant="horizontal" size={68} showSubtitle={true} />
+            </div>
             <p className="text-xs text-stone-600 dark:text-stone-300 max-w-sm leading-relaxed">
               Patna’s premier destination for grand weddings and sacred celebrations. 
               Featuring our starlit celebration lawn, ceremonial chandelier pergola, air-conditioned Shahi Darbar hall, 
               and dedicated bridal preparation suites in Patliputra.
             </p>
-            <div className="text-xs text-stone-600 dark:text-stone-400 font-medium">
-              Gate No. 62, Kurji Mor, Patliputra, Patna, Bihar 800010
+            <div className="text-xs text-[#8E1EA2] dark:text-[#ED96D7] font-semibold flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 shrink-0" />
+              <span>Gate No. 62, Kurji Mor, Patliputra, Patna, Bihar 800010</span>
             </div>
           </div>
 
           {/* Direct Navigation Links (3 Cols) */}
           <div className="md:col-span-3 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#8E1EA2] dark:text-[#ED96D7]">
               Celebration Links
             </div>
-            <ul className="text-xs space-y-2 text-stone-600 dark:text-stone-300">
+            <ul className="text-xs space-y-2.5 text-stone-600 dark:text-stone-300">
               <li>
-                <Link href="/weddings" className="hover:text-stone-900 dark:hover:text-white transition-colors">
+                <Link href="/weddings" className="hover:text-[#8E1EA2] dark:hover:text-[#ED96D7] transition-colors">
                   Wedding Lawns & Banquets
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-stone-900 dark:hover:text-white transition-colors">
+                <Link href="/gallery" className="hover:text-[#8E1EA2] dark:hover:text-[#ED96D7] transition-colors">
                   Photo & Video Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/facilities" className="hover:text-stone-900 dark:hover:text-white transition-colors">
+                <Link href="/facilities" className="hover:text-[#8E1EA2] dark:hover:text-[#ED96D7] transition-colors">
                   Venue Facilities & Infrastructure
                 </Link>
               </li>
               <li>
-                <Link href="/location" className="hover:text-stone-900 dark:hover:text-white transition-colors">
+                <Link href="/location" className="hover:text-[#8E1EA2] dark:hover:text-[#ED96D7] transition-colors">
                   Location & Map Directions
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-stone-900 dark:hover:text-white transition-colors">
+                <Link href="/contact" className="hover:text-[#8E1EA2] dark:hover:text-[#ED96D7] transition-colors">
                   Contact Reception & Dates
                 </Link>
               </li>
@@ -144,7 +145,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
 
           {/* Contact & Reception (4 Cols) */}
           <div className="md:col-span-4 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#8E1EA2] dark:text-[#ED96D7]">
               Front Desk & Inquiries
             </div>
             
@@ -154,9 +155,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`}
                 aria-label="Call Reception Directly"
                 title="Call Reception Directly (24/7 Desk)"
-                className="w-11 h-11 rounded-xl bg-white/80 dark:bg-stone-900/90 border border-stone-300 dark:border-stone-700 flex items-center justify-center text-stone-800 dark:text-stone-100 hover:text-stone-950 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                className="w-11 h-11 rounded-xl bg-white dark:bg-[#1E0B28] border border-[#8E1EA2]/25 flex items-center justify-center text-[#8E1EA2] hover:bg-[#FFC0DE]/30 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
               >
-                <PhoneCall className="w-5 h-5 text-stone-800 dark:text-stone-200" />
+                <PhoneCall className="w-5 h-5 text-[#8E1EA2]" />
               </a>
 
               {/* WhatsApp Icon */}
@@ -178,9 +179,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 href="/location"
                 aria-label="Resort Location & Google Maps"
                 title="Location & Map Directions"
-                className="w-11 h-11 rounded-xl bg-white/80 dark:bg-stone-900/90 border border-stone-300 dark:border-stone-700 flex items-center justify-center text-stone-800 dark:text-stone-100 hover:text-stone-950 transition-all hover:scale-105 active:scale-95 shadow-xs"
+                className="w-11 h-11 rounded-xl bg-white dark:bg-[#1E0B28] border border-[#8E1EA2]/25 flex items-center justify-center text-[#8E1EA2] hover:bg-[#FFC0DE]/30 transition-all hover:scale-105 active:scale-95 shadow-xs"
               >
-                <MapPin className="w-5 h-5 text-stone-800 dark:text-stone-200" />
+                <MapPin className="w-5 h-5 text-[#8E1EA2]" />
               </Link>
 
               {/* Email / Form Contact Icon */}
@@ -188,9 +189,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 href="/contact"
                 aria-label="Contact Reception Page"
                 title="Front Desk Enquiries & Bookings"
-                className="w-11 h-11 rounded-xl bg-white/80 dark:bg-stone-900/90 border border-stone-300 dark:border-stone-700 flex items-center justify-center text-stone-800 dark:text-stone-100 hover:text-stone-950 transition-all hover:scale-105 active:scale-95 shadow-xs"
+                className="w-11 h-11 rounded-xl bg-white dark:bg-[#1E0B28] border border-[#8E1EA2]/25 flex items-center justify-center text-[#8E1EA2] hover:bg-[#FFC0DE]/30 transition-all hover:scale-105 active:scale-95 shadow-xs"
               >
-                <Mail className="w-5 h-5 text-stone-800 dark:text-stone-200" />
+                <Mail className="w-5 h-5 text-[#8E1EA2]" />
               </Link>
             </div>
 
@@ -208,33 +209,33 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
           </p>
 
           <p className="text-xs sm:text-sm font-medium text-stone-800 dark:text-stone-200">
-            Designed and Developed by <span className="text-stone-900 dark:text-white font-bold">ACCustomLabs</span>
+            Designed and Developed by <span className="text-[#8E1EA2] dark:text-[#ED96D7] font-bold">ACCustomLabs</span>
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-stone-600 dark:text-stone-400 pt-3">
             <button
               onClick={onOpenPrivacy}
-              className="hover:text-stone-900 dark:hover:text-white transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
+              className="hover:text-[#8E1EA2] transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
             >
-              <ShieldCheck className="w-3.5 h-3.5" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#8E1EA2]" />
               <span>Privacy Notice & Terms</span>
             </button>
             
             {onOpenCookies && (
               <button
                 onClick={onOpenCookies}
-                className="hover:text-stone-900 dark:hover:text-white transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
+                className="hover:text-[#8E1EA2] transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
               >
-                <Cookie className="w-3.5 h-3.5" />
+                <Cookie className="w-3.5 h-3.5 text-[#8E1EA2]" />
                 <span>Cookies Policy</span>
               </button>
             )}
 
             <Link
               href="/location"
-              className="hover:text-stone-900 dark:hover:text-white transition-colors underline underline-offset-4 inline-flex items-center gap-1.5"
+              className="hover:text-[#8E1EA2] transition-colors underline underline-offset-4 inline-flex items-center gap-1.5"
             >
-              <MapPin className="w-3.5 h-3.5" />
+              <MapPin className="w-3.5 h-3.5 text-[#8E1EA2]" />
               <span>Google Maps Location</span>
             </Link>
           </div>

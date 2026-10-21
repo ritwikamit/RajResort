@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Users, CheckCircle2, ArrowRight, Heart, Calendar } from 'lucide-react';
+import { Users, CheckCircle2, Calendar } from 'lucide-react';
 import { RESORT_DATA } from '@/data/resort-data';
 
 export const WeddingVenuesSection: React.FC = () => {
@@ -11,26 +11,26 @@ export const WeddingVenuesSection: React.FC = () => {
   const activeVenue = RESORT_DATA.venues.find((v) => v.id === activeVenueId) || RESORT_DATA.venues[0];
 
   return (
-    <section id="weddings" className="py-20 sm:py-28 bg-[#F4F0EB] dark:bg-[#0E1114] text-stone-900 dark:text-stone-100 border-t border-stone-200/80 dark:border-stone-800/80 transition-colors duration-300">
+    <section id="weddings" className="py-20 sm:py-28 bg-[#FAF7F9] dark:bg-[#120718] text-stone-900 dark:text-stone-100 border-t border-[#8E1EA2]/15 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <span className="font-cursive text-3xl sm:text-4xl text-[#8E1B21] dark:text-rose-300 tracking-wide block mb-1">
+            <span className="font-cursive text-3xl sm:text-4xl text-[#8E1EA2] dark:text-[#ED96D7] tracking-wide block mb-1">
               Curated Celebration Spaces
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
               Celebrated with Family Dignity & Grand Tradition
             </h2>
           </div>
-          <p className="text-stone-700 dark:text-stone-300 text-sm max-w-md leading-relaxed font-sans font-normal">
+          <p className="text-stone-600 dark:text-stone-300 text-sm max-w-md leading-relaxed font-sans font-normal">
             From the grand Baraat entry along our illuminated floral pergola to the sacred Varmala under starlit Patna skies, every venue is curated for lifelong family memories.
           </p>
         </div>
 
         {/* Venue Selector Tabs */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 border-b border-stone-200 dark:border-stone-800 pb-5 mb-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 border-b border-[#8E1EA2]/15 pb-5 mb-10">
           {RESORT_DATA.venues.map((venue) => {
             const isActive = venue.id === activeVenueId;
             return (
@@ -39,14 +39,14 @@ export const WeddingVenuesSection: React.FC = () => {
                 onClick={() => setActiveVenueId(venue.id)}
                 className={`p-3.5 sm:p-4 text-left transition-all rounded-xl border cursor-pointer ${
                   isActive
-                    ? 'bg-[#141618] dark:bg-white text-white dark:text-stone-950 border-transparent shadow-md'
-                    : 'bg-white/80 dark:bg-stone-900/80 text-stone-800 dark:text-stone-200 border-stone-200 dark:border-stone-800 hover:border-stone-400'
+                    ? 'bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] text-white border-transparent shadow-md'
+                    : 'bg-white dark:bg-[#1E0B28] text-stone-800 dark:text-stone-200 border-[#8E1EA2]/20 hover:border-[#8E1EA2]'
                 }`}
               >
                 <div className="font-serif text-sm sm:text-base font-bold line-clamp-1">
                   {venue.name}
                 </div>
-                <div className={`text-[11px] mt-0.5 ${isActive ? 'text-stone-300 dark:text-stone-600' : 'text-stone-500 dark:text-stone-400'}`}>
+                <div className={`text-[11px] mt-0.5 ${isActive ? 'text-[#FFC0DE]' : 'text-stone-500 dark:text-stone-400'}`}>
                   {venue.capacity}
                 </div>
               </button>
@@ -55,7 +55,7 @@ export const WeddingVenuesSection: React.FC = () => {
         </div>
 
         {/* Active Venue Showcase Card */}
-        <div className="bg-white dark:bg-stone-900 rounded-2xl sm:rounded-3xl border border-stone-200/80 dark:border-stone-800 shadow-[0_16px_40px_rgba(0,0,0,0.06)] overflow-hidden">
+        <div className="bg-white dark:bg-[#1A0A24] rounded-2xl sm:rounded-3xl border border-[#8E1EA2]/15 shadow-[0_16px_40px_rgba(142,30,162,0.06)] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             
             {/* Real Venue Photography */}
@@ -74,7 +74,7 @@ export const WeddingVenuesSection: React.FC = () => {
 
               {/* Tag on image */}
               <div className="absolute bottom-4 left-4 right-4 text-white pointer-events-none">
-                <span className="text-[10px] sm:text-xs uppercase tracking-widest font-semibold text-stone-200">
+                <span className="text-[10px] sm:text-xs uppercase tracking-widest font-semibold text-[#FFC0DE]">
                   {activeVenue.type}
                 </span>
                 <p className="font-serif text-lg sm:text-xl font-bold mt-0.5">
@@ -86,8 +86,8 @@ export const WeddingVenuesSection: React.FC = () => {
             {/* Venue Details & Capacity */}
             <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#8E1B21] dark:text-rose-300">
-                  <Users className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#8E1EA2] dark:text-[#ED96D7]">
+                  <Users className="w-4 h-4 text-[#8E1EA2]" />
                   <span>{activeVenue.capacity}</span>
                 </div>
 
@@ -95,19 +95,19 @@ export const WeddingVenuesSection: React.FC = () => {
                   {activeVenue.name}
                 </h3>
 
-                <p className="text-xs sm:text-sm font-cursive text-stone-600 dark:text-stone-400 text-lg sm:text-xl">
+                <p className="font-cursive text-[#8E1EA2] dark:text-[#FFC0DE] text-xl sm:text-2xl leading-none">
                   {activeVenue.emotionalTag}
                 </p>
 
-                <p className="text-stone-700 dark:text-stone-300 text-xs sm:text-sm leading-relaxed font-sans">
+                <p className="text-stone-600 dark:text-stone-300 text-xs sm:text-sm leading-relaxed font-sans">
                   {activeVenue.description}
                 </p>
 
                 {/* Highlights List */}
-                <div className="space-y-2 pt-2 border-t border-stone-200 dark:border-stone-800">
+                <div className="space-y-2 pt-2 border-t border-[#8E1EA2]/15">
                   {activeVenue.highlights.map((h, i) => (
                     <div key={i} className="flex items-start gap-2 text-xs text-stone-700 dark:text-stone-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#8E1B21] dark:text-rose-400 mt-0.5 shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#8E1EA2] dark:text-[#ED96D7] mt-0.5 shrink-0" />
                       <span>{h}</span>
                     </div>
                   ))}
@@ -115,14 +115,14 @@ export const WeddingVenuesSection: React.FC = () => {
               </div>
 
               {/* Inquiry Action */}
-              <div className="pt-4 border-t border-stone-200 dark:border-stone-800 flex items-center gap-3">
+              <div className="pt-4 border-t border-[#8E1EA2]/15 flex items-center gap-3">
                 <a
                   href={`https://wa.me/${RESORT_DATA.whatsappNumber}?text=${encodeURIComponent(
                     `Hello Raj Resort Patna, I am interested in booking "${activeVenue.name}" for our wedding. Please share packages and date availability.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-[#141618] hover:bg-[#25282C] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-md cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] hover:from-[#7B188D] hover:to-[#B544B2] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-[0_4px_16px_rgba(142,30,162,0.25)] cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Check Availability on WhatsApp</span>

@@ -56,16 +56,16 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
     
     const palette = isDark
       ? [
-          { color: '#F5EBE1', glow: 'rgba(245, 235, 225, 0.4)' }, // Warm Pearl Starlight
-          { color: '#E5D5C5', glow: 'rgba(229, 213, 197, 0.35)' }, // Champagne Glow
-          { color: '#D4C4B5', glow: 'rgba(212, 196, 181, 0.3)' },  // Soft Muted Ivory
-          { color: '#C8A898', glow: 'rgba(200, 168, 152, 0.25)' }, // Gentle Rose Gold
+          { color: '#ED96D7', glow: 'rgba(237, 150, 215, 0.35)' }, // Soft Lilac Rose
+          { color: '#FFC0DE', glow: 'rgba(255, 192, 222, 0.4)' },  // Blush Petal
+          { color: '#C654C3', glow: 'rgba(198, 84, 195, 0.3)' },   // Radiant Magenta
+          { color: '#FDFBFC', glow: 'rgba(253, 251, 252, 0.25)' }, // Pearl Starlight
         ]
       : [
-          { color: '#C5B5A5', glow: 'rgba(197, 181, 165, 0.25)' }, // Soft Linen Pearl
-          { color: '#B8A595', glow: 'rgba(184, 165, 149, 0.2)' },  // Warm Muted Amber
-          { color: '#A59282', glow: 'rgba(165, 146, 130, 0.2)' },  // Neutral Starlight
-          { color: '#881318', glow: 'rgba(136, 19, 24, 0.15)' },   // Deep Royal Wine Hint
+          { color: '#8E1EA2', glow: 'rgba(142, 30, 162, 0.18)' },  // Deep Regal Violet
+          { color: '#C654C3', glow: 'rgba(198, 84, 195, 0.2)' },   // Soft Radiant Magenta
+          { color: '#ED96D7', glow: 'rgba(237, 150, 215, 0.22)' }, // Soft Lilac
+          { color: '#FFC0DE', glow: 'rgba(255, 192, 222, 0.28)' }, // Petal Blush
         ];
 
     const particleCount = Math.min(width < 768 ? 32 : 65, 75);

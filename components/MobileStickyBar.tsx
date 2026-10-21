@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Phone, Calendar, Home, Images, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { RESORT_DATA } from '@/data/resort-data';
-import { HeaderEnquiryModal } from './HeaderEnquiryModal';
 
 const WhatsAppOfficialIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   <svg 
@@ -20,80 +19,73 @@ const WhatsAppOfficialIcon = ({ className = 'w-4 h-4' }: { className?: string })
 );
 
 export const MobileStickyBar: React.FC = () => {
-  const [enquiryOpen, setEnquiryOpen] = useState(false);
   const pathname = usePathname();
 
   return (
-    <>
-      {/* Mobile Sticky Bottom Navigation Bar (md:hidden) */}
-      <nav 
-        aria-label="Mobile Navigation Bar"
-        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 dark:bg-[#0E1114]/95 backdrop-blur-xl border-t border-stone-200 dark:border-stone-800 shadow-[0_-4px_25px_rgba(0,0,0,0.15)] px-3 pt-2 pb-[max(0.6rem,env(safe-area-inset-bottom))] flex items-center justify-around gap-1 select-none"
+    <nav 
+      aria-label="Mobile Navigation Bar"
+      className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#FAF7F9]/95 dark:bg-[#15071C]/95 backdrop-blur-xl border-t border-[#8E1EA2]/15 shadow-[0_-4px_25px_rgba(142,30,162,0.08)] px-3 pt-2 pb-[max(0.6rem,env(safe-area-inset-bottom))] flex items-center justify-around gap-1 select-none"
+    >
+      {/* Home */}
+      <Link 
+        href="/" 
+        className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors touch-manipulation ${
+          pathname === '/' 
+            ? 'text-[#8E1EA2] dark:text-[#ED96D7] font-bold' 
+            : 'text-stone-600 dark:text-stone-400'
+        }`}
       >
-        {/* Home */}
-        <Link 
-          href="/" 
-          className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors touch-manipulation ${
-            pathname === '/' 
-              ? 'text-stone-950 dark:text-white font-bold' 
-              : 'text-stone-600 dark:text-stone-400'
-          }`}
-        >
-          <Home className="w-4 h-4 mb-0.5" />
-          <span>Home</span>
-        </Link>
+        <Home className="w-4 h-4 mb-0.5" />
+        <span>Home</span>
+      </Link>
 
-        {/* Weddings */}
-        <Link 
-          href="/weddings" 
-          className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${
-            pathname === '/weddings' 
-              ? 'text-stone-950 dark:text-white font-bold' 
-              : 'text-stone-600 dark:text-stone-400'
-          }`}
-        >
-          <Heart className="w-4 h-4 mb-0.5" />
-          <span>Weddings</span>
-        </Link>
+      {/* Weddings */}
+      <Link 
+        href="/weddings" 
+        className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${
+          pathname === '/weddings' 
+            ? 'text-[#8E1EA2] dark:text-[#ED96D7] font-bold' 
+            : 'text-stone-600 dark:text-stone-400'
+        }`}
+      >
+        <Heart className="w-4 h-4 mb-0.5" />
+        <span>Weddings</span>
+      </Link>
 
-        {/* Gallery */}
-        <Link 
-          href="/gallery" 
-          className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${
-            pathname === '/gallery' 
-              ? 'text-stone-950 dark:text-white font-bold' 
-              : 'text-stone-600 dark:text-stone-400'
-          }`}
-        >
-          <Images className="w-4 h-4 mb-0.5" />
-          <span>Gallery</span>
-        </Link>
+      {/* Gallery */}
+      <Link 
+        href="/gallery" 
+        className={`flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold transition-colors ${
+          pathname === '/gallery' 
+            ? 'text-[#8E1EA2] dark:text-[#ED96D7] font-bold' 
+            : 'text-stone-600 dark:text-stone-400'
+        }`}
+      >
+        <Images className="w-4 h-4 mb-0.5" />
+        <span>Gallery</span>
+      </Link>
 
-        {/* Call Reception */}
-        <a 
-          href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`} 
-          className="flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold text-stone-600 dark:text-stone-400 hover:text-stone-950 dark:hover:text-white active:scale-95 transition-all"
-        >
-          <Phone className="w-4 h-4 mb-0.5" />
-          <span>Call Desk</span>
-        </a>
+      {/* Call Reception */}
+      <a 
+        href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`} 
+        className="flex flex-col items-center justify-center py-1 px-2 rounded-lg text-[10px] font-semibold text-stone-600 dark:text-stone-400 hover:text-[#8E1EA2] active:scale-95 transition-all"
+      >
+        <Phone className="w-4 h-4 mb-0.5" />
+        <span>Call Desk</span>
+      </a>
 
-        {/* WhatsApp Dates Button */}
-        <a 
-          href={`https://wa.me/${RESORT_DATA.whatsappNumber}?text=${encodeURIComponent(
-            'Hello Raj Resort Patna, I would like to check wedding lawn and date availability.'
-          )}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#25D366] text-white text-[11px] font-bold shadow-sm active:scale-95 transition-transform"
-        >
-          <WhatsAppOfficialIcon className="w-4 h-4 fill-white" />
-          <span>Dates</span>
-        </a>
-      </nav>
-
-      {/* WhatsApp Enquiry Modal */}
-      <HeaderEnquiryModal isOpen={enquiryOpen} onClose={() => setEnquiryOpen(false)} />
-    </>
+      {/* WhatsApp Dates Button */}
+      <a 
+        href={`https://wa.me/${RESORT_DATA.whatsappNumber}?text=${encodeURIComponent(
+          'Hello Raj Resort Patna, I would like to check wedding lawn and date availability.'
+        )}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] text-white text-[11px] font-bold shadow-sm active:scale-95 transition-transform"
+      >
+        <Calendar className="w-3.5 h-3.5 text-white" />
+        <span>Dates</span>
+      </a>
+    </nav>
   );
 };

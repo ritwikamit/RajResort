@@ -1,16 +1,17 @@
 import type { Metadata, Viewport } from 'next';
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
+import { Cormorant_Garamond, Plus_Jakarta_Sans, Alex_Brush } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { AnimatedBackgroundCanvas } from '@/components/AnimatedBackgroundCanvas';
+import { InitialPageLoader } from '@/components/InitialPageLoader';
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#7A0C11' },
-    { media: '(prefers-color-scheme: dark)', color: '#080D0B' },
+    { media: '(prefers-color-scheme: light)', color: '#8E1EA2' },
+    { media: '(prefers-color-scheme: dark)', color: '#16081C' },
   ],
 };
 
@@ -25,6 +26,13 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-sans',
+  display: 'swap',
+});
+
+const alexBrush = Alex_Brush({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-cursive',
   display: 'swap',
 });
 
@@ -57,9 +65,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jakarta.variable} scroll-smooth`} suppressHydrationWarning>
-      <body className="bg-[#FAF7F2] dark:bg-[#080D0B] text-stone-900 dark:text-stone-100 antialiased selection:bg-[#99141A]/20 selection:text-[#99141A] transition-colors duration-300" suppressHydrationWarning>
+    <html lang="en" className={`${cormorant.variable} ${jakarta.variable} ${alexBrush.variable} scroll-smooth`} suppressHydrationWarning>
+      <body className="bg-[#FAF7F9] text-stone-900 antialiased selection:bg-[#FFC0DE] selection:text-[#8E1EA2] transition-colors duration-300" suppressHydrationWarning>
         <ThemeProvider>
+          <InitialPageLoader />
           <AnimatedBackgroundCanvas />
           {children}
         </ThemeProvider>

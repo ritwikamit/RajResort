@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Maximize2, Image as ImageIcon } from 'lucide-react';
-import { RESORT_DATA, GalleryItem } from '@/data/resort-data';
+import { Maximize2 } from 'lucide-react';
+import { RESORT_DATA } from '@/data/resort-data';
 import { GalleryModal } from './GalleryModal';
 
 export const GallerySection: React.FC = () => {
@@ -17,26 +17,26 @@ export const GallerySection: React.FC = () => {
     : RESORT_DATA.galleryItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="gallery" className="py-20 sm:py-28 bg-[#FAF8F5] dark:bg-[#0A0D0E] text-stone-900 dark:text-stone-100 border-t border-stone-200/80 dark:border-stone-800/80 transition-colors duration-300">
+    <section id="gallery" className="py-20 sm:py-28 bg-[#FAF7F9] dark:bg-[#120718] text-stone-900 dark:text-stone-100 border-t border-[#8E1EA2]/15 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <span className="font-cursive text-3xl sm:text-4xl text-[#8E1B21] dark:text-rose-300 tracking-wide block mb-1">
+            <span className="font-cursive text-3xl sm:text-4xl text-[#8E1EA2] dark:text-[#ED96D7] tracking-wide block mb-1">
               Captured Moments of Joy
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
               Photographs of Real Celebrations
             </h2>
           </div>
-          <p className="text-stone-700 dark:text-stone-300 text-sm max-w-md leading-relaxed font-sans font-normal">
-            Take a look through our real celebration photographs—from starlit lawns and illuminated pergolas to sacred mandap ceremonies at Kurji Mor, Patliputra.
+          <p className="text-stone-600 dark:text-stone-300 text-sm max-w-md leading-relaxed font-sans font-normal">
+            Take a look through our authentic celebration photographs—from starlit lawns and illuminated pergolas to sacred mandap ceremonies at Kurji Mor, Patliputra.
           </p>
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap gap-2 border-b border-stone-200 dark:border-stone-800 pb-5 mb-8">
+        <div className="flex flex-wrap gap-2 border-b border-[#8E1EA2]/15 pb-5 mb-8">
           {categories.map((cat) => {
             const isActive = cat === activeCategory;
             return (
@@ -45,8 +45,8 @@ export const GallerySection: React.FC = () => {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-[#141618] dark:bg-white text-white dark:text-stone-950 shadow-sm'
-                    : 'bg-stone-200/70 dark:bg-stone-800/70 text-stone-700 dark:text-stone-300 hover:bg-stone-300/70 dark:hover:bg-stone-700/70'
+                    ? 'bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] text-white shadow-sm'
+                    : 'bg-[#FFC0DE]/25 dark:bg-[#8E1EA2]/20 text-[#8E1EA2] dark:text-[#ED96D7] hover:bg-[#FFC0DE]/40'
                 }`}
               >
                 {cat}
@@ -55,13 +55,13 @@ export const GallerySection: React.FC = () => {
           })}
         </div>
 
-        {/* Responsive Gallery Grid with Correct Padding & Aspect Ratios */}
+        {/* Responsive Gallery Grid with 100% Distinct Real Photos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {filteredItems.map((item, index) => (
             <div
               key={item.id}
               onClick={() => setLightboxIndex(index)}
-              className="group relative rounded-2xl overflow-hidden bg-stone-100 dark:bg-stone-900 border border-stone-200/80 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 cursor-pointer aspect-[4/3] sm:aspect-[3/4]"
+              className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#1C0B26] border border-[#8E1EA2]/15 shadow-[0_4px_20px_rgba(142,30,162,0.06)] hover:shadow-xl transition-all duration-300 cursor-pointer aspect-[4/3] sm:aspect-[3/4]"
             >
               <Image
                 src={item.image}
@@ -72,11 +72,11 @@ export const GallerySection: React.FC = () => {
               />
 
               {/* Gradient Scrim on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-75 group-hover:opacity-90 transition-opacity" />
 
               {/* Text Information */}
               <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                <span className="text-[10px] uppercase tracking-widest font-semibold text-stone-300">
+                <span className="text-[10px] uppercase tracking-widest font-semibold text-[#FFC0DE]">
                   {item.category}
                 </span>
                 <h4 className="font-serif text-sm sm:text-base font-bold line-clamp-2 mt-0.5 leading-snug">
