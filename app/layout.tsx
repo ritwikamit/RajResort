@@ -66,13 +66,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.png', type: 'image/png', sizes: '512x512' },
-      { url: '/icon.png', type: 'image/png', sizes: '192x192' },
+      { url: '/favicon.ico?v=2', sizes: 'any' },
+      { url: '/favicon.png?v=2', type: 'image/png', sizes: '512x512' },
+      { url: '/icon.png?v=2', type: 'image/png', sizes: '192x192' },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: '/favicon.ico?v=2',
     apple: [
-      { url: '/favicon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' },
     ],
   },
   openGraph: {
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     siteName: 'Raj Resort Patna',
     images: [
       {
-        url: 'https://rajresortpatna.com/images/landingpage3.png',
+        url: 'https://rajresortpatna.com/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Raj Resort Patna - 3.5 Acre Wedding Lawn and Event Venue in Patna',
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     title: 'Raj Resort Patna | Wedding & Event Venue in Patliputra, Patna',
     description:
       '3.5-acre wedding and celebration venue in Patliputra, Patna. Open celebration lawns for 400 to 1,200+ guests, AC banquet hall, Ganga River-view dining, and parking for 400+ cars.',
-    images: ['https://rajresortpatna.com/images/landingpage3.png'],
+    images: ['https://rajresortpatna.com/images/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -120,11 +120,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${jakarta.variable} ${greatVibes.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/icon.png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon.png?v=2" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
         <meta name="theme-color" content="#FFFAF3" />
+        <meta property="og:image" content="https://rajresortpatna.com/images/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://rajresortpatna.com/images/og-image.jpg" />
         <meta name="geo.position" content="25.6391525;85.1102531" />
         <meta name="geo.placename" content="Patliputra, Patna, Bihar, India" />
         <meta name="geo.region" content="IN-BR" />
