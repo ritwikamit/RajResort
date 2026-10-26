@@ -34,7 +34,15 @@ export default function Home() {
             '@context': 'https://schema.org',
             '@type': 'EventVenue',
             name: 'Raj Resort Patna',
+            url: 'https://rajresortpatna.com',
+            image: [
+              'https://rajresortpatna.com/images/landingpage3.png',
+              'https://rajresortpatna.com/images/venue-17.jpg',
+              'https://rajresortpatna.com/images/venue-02.jpg',
+              'https://rajresortpatna.com/images/venue-08.jpg',
+            ],
             description: 'Premier wedding destination and grand celebration lawns in Patliputra, Patna featuring starlit celebration lawns, illuminated floral pergolas, and AC banquet halls.',
+            priceRange: '₹₹₹',
             address: {
               '@type': 'PostalAddress',
               streetAddress: 'Near Gate No. 62, Kurji Mor, Patliputra',
@@ -48,7 +56,23 @@ export default function Home() {
               latitude: 25.6391525,
               longitude: 85.1102531,
             },
-            telephone: '+919054394665',
+            telephone: '+91736080001',
+            openingHoursSpecification: [
+              {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: [
+                  'Monday',
+                  'Tuesday',
+                  'Wednesday',
+                  'Thursday',
+                  'Friday',
+                  'Saturday',
+                  'Sunday',
+                ],
+                opens: '00:00',
+                closes: '23:59',
+              },
+            ],
             amenityFeature: [
               { '@type': 'LocationFeatureSpecification', name: 'Open Air Celebration Lawn', value: true },
               { '@type': 'LocationFeatureSpecification', name: 'AC Banquet Hall', value: true },
