@@ -33,7 +33,7 @@ export const INSTAGRAM_REELS: InstagramReelItem[] = [
     reelUrl: 'https://www.instagram.com/reel/Db5GzFhzsa6/?utm_source=ig_web_copy_link',
     title: 'Aishwarya & Abhishek — A Love Story Written in Forever',
     subtitle: 'Mandap ceremonies, 150-ft illuminated floral walkway, starlight celebrations, and lifetime promises at Raj Resort Patna.',
-    category: 'Wedding Story',
+    category: 'Wedding Ceremony',
     author: 'K.P Studio Bihar',
     authorHandle: '@kpstudio09',
     authorUrl: 'https://www.instagram.com/kpstudio09/',
@@ -45,7 +45,7 @@ export const INSTAGRAM_REELS: InstagramReelItem[] = [
     reelUrl: 'https://www.instagram.com/reel/DXw5TEspqMl/?utm_source=ig_web_copy_link',
     title: 'Luxury Grand Celebrations & Starlit Lawns',
     subtitle: 'From dream weddings to premium celebrations — crystal chandeliers, 3.5-acre lawn night lighting, and banquet setups.',
-    category: 'Grand Lawn & Decor',
+    category: 'Lawn & Decor',
     author: 'Raj Resort Patna',
     authorHandle: '@rajresortpatna',
     authorUrl: 'https://www.instagram.com/rajresortpatna/',
@@ -63,9 +63,27 @@ export const INSTAGRAM_REELS: InstagramReelItem[] = [
     authorUrl: 'https://www.instagram.com/rajresortpatna/',
     highlights: ['150-ft Floral Walkway', 'Baraat Procession', '400+ Car Parking'],
   },
+  {
+    id: 'DSjb45Xiarv',
+    videoSrc: '/videos/reel-4.mp4',
+    reelUrl: 'https://www.instagram.com/reel/DSjb45Xiarv/?utm_source=ig_web_copy_link',
+    title: 'Grand Mandap Rituals & Royal Wedding Vows',
+    subtitle: 'Sacred ceremonies, majestic stage decorations, and emotional wedding moments under the illuminated night sky of Patna.',
+    category: 'Mandap & Rituals',
+    author: 'Raj Resort Patna',
+    authorHandle: '@rajresortpatna',
+    authorUrl: 'https://www.instagram.com/rajresortpatna/',
+    highlights: ['Sacred Mandap', 'Royal Stage Setup', 'Groom & Bride Entry'],
+  },
 ];
 
-const CATEGORIES = ['All Reels', 'Wedding Story', 'Grand Lawn & Decor', 'Baraat Celebration'];
+const CATEGORIES = [
+  'All 4 Videos',
+  'Wedding Ceremony',
+  'Lawn & Decor',
+  'Baraat Celebration',
+  'Mandap & Rituals',
+];
 
 interface InstagramReelsSectionProps {
   id?: string;
@@ -76,12 +94,13 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
   id = 'reels',
   className = '',
 }) => {
-  const [activeCategory, setActiveCategory] = useState<string>('All Reels');
+  const [activeCategory, setActiveCategory] = useState<string>('All 4 Videos');
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [mutedStates, setMutedStates] = useState<Record<string, boolean>>({
     Db5GzFhzsa6: true,
     DXw5TEspqMl: true,
     DU27q4uCe1L: true,
+    DSjb45Xiarv: true,
   });
 
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
@@ -109,7 +128,10 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
           // If browser policy restricted playback, ensure muted and retry
           video.muted = true;
           setMutedStates((prev) => ({ ...prev, [reelId]: true }));
-          video.play().then(() => setPlayingId(reelId)).catch(() => {});
+          video
+            .play()
+            .then(() => setPlayingId(reelId))
+            .catch(() => {});
         });
     }
   };
@@ -163,7 +185,7 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
   };
 
   const displayedReels =
-    activeCategory === 'All Reels'
+    activeCategory === 'All 4 Videos'
       ? INSTAGRAM_REELS
       : INSTAGRAM_REELS.filter((r) => r.category === activeCategory);
 
@@ -185,7 +207,7 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
             </h2>
           </div>
           <p className="text-stone-700 dark:text-stone-300 text-sm max-w-md leading-relaxed font-sans font-normal">
-            Experience actual wedding celebrations, 3.5-acre starlit lawn decors, and high-energy baraat entries recorded live at Raj Resort, Patliputra, Patna. Hover over any video to preview instantly.
+            Experience actual wedding celebrations, 3.5-acre starlit lawn decors, and high-energy baraat entries recorded live in panoramic landscape view. Hover over any video to preview instantly with smooth autoplay.
           </p>
         </div>
 
@@ -210,12 +232,12 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
           })}
         </div>
 
-        {/* Responsive Reels Grid with Smooth Ratio-Preserving Hover Scale & Autoplay */}
+        {/* 4 Landscaped Video Boxes in 2x2 Grid with Smooth Hover Scale & Autoplay */}
         <div
           className={`grid gap-6 sm:gap-8 ${
             displayedReels.length === 1
-              ? 'max-w-md mx-auto grid-cols-1'
-              : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+              ? 'max-w-2xl mx-auto grid-cols-1'
+              : 'grid-cols-1 md:grid-cols-2'
           }`}
         >
           {displayedReels.map((reel) => {
@@ -227,7 +249,7 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
                 key={reel.id}
                 onMouseEnter={() => handleMouseEnter(reel.id)}
                 onMouseLeave={() => handleMouseLeave(reel.id)}
-                className="group relative flex flex-col bg-white dark:bg-[#201714] rounded-2xl border border-[#FFE5BF] dark:border-[#352520] shadow-sm hover:shadow-2xl transition-all duration-700 ease-out hover:scale-[1.03] hover:border-[#F62440]/60 z-10 hover:z-20 overflow-hidden"
+                className="group relative flex flex-col bg-white dark:bg-[#201714] rounded-2xl border border-[#FFE5BF] dark:border-[#352520] shadow-sm hover:shadow-2xl transition-all duration-700 ease-out hover:scale-[1.025] hover:border-[#F62440]/60 z-10 hover:z-20 overflow-hidden"
               >
                 {/* Card Top Creator Bar */}
                 <div className="p-4 sm:p-5 border-b border-[#FFE5BF]/40 dark:border-[#352520] bg-[#FFFAF3]/70 dark:bg-[#1a1310] flex items-center justify-between">
@@ -258,9 +280,9 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
                   </span>
                 </div>
 
-                {/* Video Box Container with Exact 9:16 Aspect Ratio */}
+                {/* Landscaped Video Box Container with 16:9 Aspect Ratio */}
                 <div
-                  className="relative w-full aspect-[9/16] bg-black overflow-hidden cursor-pointer select-none"
+                  className="relative w-full aspect-video bg-black overflow-hidden cursor-pointer select-none"
                   onClick={() => handleTogglePlay(reel.id)}
                 >
                   <video
@@ -277,7 +299,7 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
 
                   {/* Play Button Overlay (Fades out seamlessly on hover / play) */}
                   <div
-                    className={`absolute inset-0 bg-black/35 flex items-center justify-center transition-all duration-500 pointer-events-none ${
+                    className={`absolute inset-0 bg-black/30 flex items-center justify-center transition-all duration-500 pointer-events-none ${
                       isPlaying ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
                     }`}
                   >
