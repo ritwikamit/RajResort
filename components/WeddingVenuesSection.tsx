@@ -30,14 +30,14 @@ export const WeddingVenuesSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <span className="font-cursive text-3xl sm:text-4xl text-[#F62440] tracking-wide block mb-1">
-              Made for Family Celebrations
+              Celebration Venues & Settings
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-              Spaces Where You Feel at Home
+              Spaces Configured for Your Event
             </h2>
           </div>
           <p className="text-stone-700 dark:text-stone-300 text-sm max-w-md leading-relaxed font-sans font-normal">
-            From the Baraat dancing through the flower gate to parents blessing the couple at the mandap, each corner of our resort is prepared with care for your family.
+            From the 150-foot illuminated floral walkway for Baraat arrivals to the open celebration lawn and air-conditioned banquet hall, each area offers space for ceremonies, dining, and family gatherings.
           </p>
         </div>
 

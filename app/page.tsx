@@ -10,6 +10,7 @@ import { GallerySection } from '@/components/GallerySection';
 import { FacilitiesSection } from '@/components/FacilitiesSection';
 import { GoogleMapsSection } from '@/components/GoogleMapsSection';
 import { ContactEnquirySection } from '@/components/ContactEnquirySection';
+import { FAQSection } from '@/components/FAQSection';
 import { FollowUsSection } from '@/components/FollowUsSection';
 import { OtherListingsSection } from '@/components/OtherListingsSection';
 import { Footer } from '@/components/Footer';
@@ -112,6 +113,11 @@ export default function Home() {
         {/* Interactive Google Map & Location */}
         <ScrollReveal>
           <GoogleMapsSection />
+        </ScrollReveal>
+
+        {/* Frequently Asked Questions */}
+        <ScrollReveal>
+          <FAQSection />
         </ScrollReveal>
 
         {/* Wedding Date Inquiries & Contact Form */}

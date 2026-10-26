@@ -33,13 +33,13 @@ export const FacilitiesSection: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="font-cursive text-3xl sm:text-4xl text-[#F62440] tracking-wide block mb-1">
-            Peace of Mind for Your Family
+            Venue Facilities & Infrastructure
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-            We Take Care of the Details
+            Designed for Smooth Family Gatherings
           </h2>
           <p className="mt-3.5 text-stone-700 dark:text-stone-300 text-sm sm:text-base leading-relaxed font-sans font-normal">
-            When you host a wedding at Raj Resort, you should not have to worry about power cuts, parking, or cooking space. We handle everything behind the scenes so you can enjoy your family's biggest day.
+            Spread across 3.5 acres near Kurji Mor, Raj Resort provides dedicated parking for 400+ cars, on-site guest rooms, river-view dining, and continuous power backup to keep your event running seamlessly.
           </p>
         </div>
 

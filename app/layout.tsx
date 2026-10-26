@@ -40,22 +40,22 @@ const greatVibes = Great_Vibes({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rajresortpatna.com'),
   title: {
-    default: 'Best Resort in Patna | Raj Resort - Luxury Wedding Lawns & Banquets',
-    template: '%s | Raj Resort Patna - Best Wedding Resort in Patna',
+    default: 'Raj Resort Patna | Wedding & Event Venue in Patliputra, Patna',
+    template: '%s | Raj Resort Patna',
   },
   description:
-    'Raj Resort Patna is the best wedding resort and celebration venue in Patna, located at Kurji Mor, Patliputra. Featuring grand starlit open-air celebration lawns, royal banquet halls, catering, and luxurious event spaces.',
+    'Raj Resort Patna is a 3.5-acre wedding and event venue near Kurji Mor, Patliputra featuring open celebration lawns, an AC banquet hall, Ganga River-view dining, 25+ guest rooms, and parking for 400+ cars.',
   keywords: [
-    'Best Resort in Patna',
+    'wedding venue in Patna',
+    'marriage lawn in Patna',
+    'banquet hall in Patna',
+    'resort for wedding in Patna',
     'Raj Resort Patna',
-    'Best Wedding Resort in Patna',
-    'Best Marriage Lawn in Patna',
-    'Best Banquet Hall in Patna',
-    'Luxury Wedding Venue Patliputra Patna',
-    'Marriage Hall near Kurji Mor Patna',
-    'Celebration Lawn Patna',
-    'Marriage Hall in Patna',
-    'Top Resort in Patna for Marriage',
+    'wedding lawn Patliputra Patna',
+    'marriage hall near Kurji Mor',
+    'engagement venue Patna',
+    'reception venue Patna',
+    'event lawn Patna',
   ],
   authors: [{ name: 'Raj Resort Patna' }],
   creator: 'Raj Resort Patna',
@@ -75,9 +75,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: 'Best Resort in Patna | Raj Resort - Luxury Wedding Lawns & Banquets',
+    title: 'Raj Resort Patna | Wedding & Event Venue in Patliputra, Patna',
     description:
-      'Premier wedding resort and grand celebration lawns in Kurji Mor, Patliputra, Patna. Starlit lawns, illuminated pergolas, and AC banquet halls for memorable weddings.',
+      '3.5-acre wedding and celebration venue in Patliputra, Patna. Open celebration lawns for 400 to 1,200+ guests, AC banquet hall, Ganga River-view dining, and parking for 400+ cars.',
     url: 'https://rajresortpatna.com',
     siteName: 'Raj Resort Patna',
     images: [
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
         url: 'https://rajresortpatna.com/images/landingpage3.png',
         width: 1200,
         height: 630,
-        alt: 'Raj Resort Patna - Best Wedding Lawn and Celebration Venue in Patna',
+        alt: 'Raj Resort Patna - 3.5 Acre Wedding Lawn and Event Venue in Patna',
       },
     ],
     locale: 'en_IN',
@@ -93,9 +93,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Resort in Patna | Raj Resort Patna',
+    title: 'Raj Resort Patna | Wedding & Event Venue in Patliputra, Patna',
     description:
-      'Premier wedding resort and grand celebration lawns in Kurji Mor, Patliputra, Patna. Grand starlit lawns, royal banquet halls, and unforgettable celebrations.',
+      '3.5-acre wedding and celebration venue in Patliputra, Patna. Open celebration lawns for 400 to 1,200+ guests, AC banquet hall, Ganga River-view dining, and parking for 400+ cars.',
     images: ['https://rajresortpatna.com/images/landingpage3.png'],
   },
   robots: {

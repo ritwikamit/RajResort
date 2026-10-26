@@ -10,7 +10,8 @@ import { PrivacyPolicyModal } from '@/components/PrivacyPolicyModal';
 import { CookiePolicyModal } from '@/components/CookiePolicyModal';
 import { FloatingActions } from '@/components/FloatingActions';
 import { MobileStickyBar } from '@/components/MobileStickyBar';
-import { Users, Zap, ShieldCheck } from 'lucide-react';
+import { Users, Zap, ShieldCheck, Car } from 'lucide-react';
+import { FAQSection } from '@/components/FAQSection';
 
 export default function WeddingsPage() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
@@ -45,13 +46,13 @@ export default function WeddingsPage() {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <span className="font-cursive text-3xl sm:text-4xl text-[#FFE5BF] tracking-wide block mb-2 drop-shadow-md">
-            Blessings, Laughter & Happy Tears
+            Weddings & Celebrations
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-            Our Wedding Lawns & Banquets
+            Wedding Lawns & Celebration Spaces
           </h1>
           <p className="mt-4 text-stone-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-sans font-normal drop-shadow-sm">
-            Celebrate your family's biggest day under the Patna stars. An open green lawn for 400 to 1,200+ guests, a long flower walkway for the Baraat, backup generators that never let the lights go out, and a cool AC hall for family ceremonies.
+            Host your wedding, sagai, or reception across our 3.5-acre property in Patliputra. With an open celebration lawn for 400 to 1,200+ guests, a 150-ft illuminated floral walkway, glass-walk bride and groom entry, themed Varmala stages, continuous generator backup, and parking for 400+ cars.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-stone-200 font-sans">
@@ -59,10 +60,13 @@ export default function WeddingsPage() {
               <Users className="w-4 h-4 text-[#FFE5BF]" /> 400 to 1,200+ Guests
             </span>
             <span className="flex items-center gap-1.5 font-medium">
+              <Car className="w-4 h-4 text-[#FFE5BF]" /> 400+ Car Parking
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
               <Zap className="w-4 h-4 text-[#FFE5BF]" /> Continuous Generator Power
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <ShieldCheck className="w-4 h-4 text-[#FFE5BF]" /> Gated Premises with Security
+              <ShieldCheck className="w-4 h-4 text-[#FFE5BF]" /> 400+ Celebrations Hosted
             </span>
           </div>
         </div>
@@ -70,6 +74,7 @@ export default function WeddingsPage() {
 
       <main className="flex-1">
         <WeddingVenuesSection />
+        <FAQSection />
         <ContactEnquirySection />
       </main>
 

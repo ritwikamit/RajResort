@@ -99,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
               <RajResortLogo variant="horizontal" size={74} showDivider={true} showSubtitle={true} />
             </div>
             <p className="text-xs text-stone-700 dark:text-stone-300 max-w-sm leading-relaxed">
-              A place where families come together to celebrate life's most precious beginnings. With an open green lawn under Patna's night sky, a cool banquet hall, and warm hospitality that makes every guest feel at home.
+              A 3.5-acre wedding and celebration venue near Kurji Mor, Patliputra, Patna. Featuring open celebration lawns for 400 to 1,200+ guests, an AC banquet hall, Ganga River-view dining, 25+ guest rooms, and parking for 400+ cars.
             </p>
             <div className="text-xs text-[#F62440] font-semibold flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 shrink-0" />

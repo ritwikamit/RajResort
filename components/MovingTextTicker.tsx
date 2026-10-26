@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { 
-  Heart, 
   Users, 
   Zap, 
   Sparkles, 
@@ -10,7 +9,8 @@ import {
   Car, 
   UtensilsCrossed, 
   MapPin, 
-  PhoneCall 
+  BedDouble,
+  Award
 } from 'lucide-react';
 
 interface TickerEntry {
@@ -19,15 +19,16 @@ interface TickerEntry {
 }
 
 const TICKER_ITEMS: TickerEntry[] = [
-  { text: 'WEDDINGS & CELEBRATIONS UNDER THE STARS', icon: Heart },
+  { text: '3.5-ACRE CELEBRATION VENUE IN PATNA', icon: Sparkles },
+  { text: 'DEDICATED PARKING FOR 400+ CARS', icon: Car },
+  { text: 'GANGA RIVER-VIEW DINING AREA', icon: UtensilsCrossed },
+  { text: '25+ AC GUEST ROOMS & SUITES', icon: BedDouble },
+  { text: 'EXPERIENCE HOSTING 400+ CELEBRATIONS', icon: Award },
   { text: 'OPEN LAWN FOR 400 TO 1,200+ GUESTS', icon: Users },
-  { text: 'CONTINUOUS GENERATOR BACKUP (ZERO POWER CUTS)', icon: Zap },
-  { text: 'FLOWER WALKWAY FOR BARAAT ARRIVAL', icon: Sparkles },
-  { text: 'SHAHI DARBAR AIR-CONDITIONED BANQUET HALL', icon: Building2 },
-  { text: 'GATED PARKING WITH SECURITY GUARDS', icon: Car },
-  { text: 'SPACIOUS DINING FOR FAMILY HALWAIS & BUFFETS', icon: UtensilsCrossed },
-  { text: 'GATE 62, KURJI MOR, PATLIPUTRA, PATNA', icon: MapPin },
-  { text: 'CARING EVENT STAFF ON STANDBY', icon: PhoneCall },
+  { text: 'SHAHI DARBAR AC BANQUET HALL', icon: Building2 },
+  { text: 'TRAINED HOSPITALITY & CATERING TEAM', icon: UtensilsCrossed },
+  { text: 'CONTINUOUS 24/7 GENERATOR BACKUP', icon: Zap },
+  { text: 'GATE 62, KURJI MOR, PATLIPUTRA', icon: MapPin },
 ];
 
 export const MovingTextTicker: React.FC = () => {

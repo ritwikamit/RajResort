@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { FacilitiesSection } from '@/components/FacilitiesSection';
+import { FAQSection } from '@/components/FAQSection';
 import { Footer } from '@/components/Footer';
 import { PrivacyPolicyModal } from '@/components/PrivacyPolicyModal';
 import { CookiePolicyModal } from '@/components/CookiePolicyModal';
@@ -43,19 +44,20 @@ export default function FacilitiesPage() {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <span className="font-cursive text-3xl sm:text-4xl text-[#FFE5BF] tracking-wide block mb-2 drop-shadow-md">
-            Care, Comfort & Peace of Mind
+            Comfort, Hospitality & Support
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
-            Everything Your Family Needs
+            Facilities & Event Infrastructure
           </h1>
           <p className="mt-4 text-stone-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-sans font-normal drop-shadow-sm">
-            When your guests arrive, everything should be smooth and comfortable. Continuous generator power so the lights never go out, plenty of safe parking, cool AC rooms for elders and the bride, and our team ready to help at any moment.
+            Everything your celebration needs across 3.5 acres in Patliputra. Dedicated on-site parking for 400+ cars, Ganga River-view dining area, 25+ air-conditioned guest rooms, continuous heavy-duty generator backup, and hospitality staff with hotel-management background.
           </p>
         </div>
       </section>
 
       <main className="flex-1">
         <FacilitiesSection />
+        <FAQSection />
       </main>
 
       <Footer

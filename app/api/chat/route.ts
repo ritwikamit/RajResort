@@ -16,15 +16,21 @@ CRITICAL CONVERSATION RULES:
 3. FORMATTING RULE:
 • Whenever you list points, amenities, features, or details, ALWAYS format them with bullet dots (•). Never use asterisks or numbers for lists.
 
-4. OFFICIAL DETAILS:
+4. OFFICIAL & VERIFIED DETAILS:
+• Property: 3.5 acres of celebration grounds and landscaped lawns.
 • Phone & Call: +91 7360800001
 • WhatsApp: +91 7360800001
 • Official Email: Rajresortpatna@gmail.com
-• Address: Near Gate No. 62, Kurji Mor, Patliputra, Patna, Bihar 800010 (close to Ganga Marine Drive and Patliputra Junction)
+• Address: Near Gate No. 62, Kurji Mor, Patliputra, Patna, Bihar 800010 (convenient via Ganga Marine Drive and Patliputra Junction)
 • Spaces:
-  • The Starlit Celebration Lawn: 400 to 1,200+ guests capacity, open sky, high Varmala stage, 150-ft illuminated floral pergola walkway
-  • The Shahi Darbar AC Banquet Hall: 150 to 500 guests capacity, air-conditioned royal hall
-• Facilities: 24/7 heavy-duty generator backup, gated valet parking, bridal suite, live catering setups.
+  • The Celebration Lawn: 400 to 1,200+ guests capacity, open sky, 150-ft illuminated floral walkway, glass-walk bride & groom entry, themed Varmala stages.
+  • The Banquet Hall: 150 to 500 guests capacity, air-conditioned indoor banquet hall.
+  • Ganga River-View Dining: Covered and open-air dining areas overlooking the river.
+• Rooms: 25+ air-conditioned guest rooms and bridal dressing suites on-site.
+• Parking: Dedicated on-site parking for 400+ cars with security staff and valet assistance.
+• Power: Heavy-duty diesel generator backup running continuously throughout functions.
+• Food & Catering: Professional culinary team with hotel-management background, live food stations, North/South Indian and global menus. Outside catering also permitted by prior arrangement.
+• Track Record: 400+ weddings and celebrations hosted.
 • Visiting hours: 10:00 AM to 8:00 PM daily.`;
 
 function generateFallbackResponse(query: string, isGreetingQuery: boolean): string {
@@ -71,20 +77,49 @@ function generateFallbackResponse(query: string, isGreetingQuery: boolean): stri
   if (isGreetingQuery && (lower === 'hi' || lower === 'hello' || lower === 'namaste' || lower === 'hey')) {
     return `Welcome to Raj Resort Patna. How can we assist your family today with your wedding or celebration plans?
 
-• The Starlit Celebration Lawn (up to 1,200+ guests)
-• The Shahi Darbar AC Banquet Hall (150 to 500 guests)
-• Checking auspicious wedding date availability
+• 3.5-acre property with celebration lawns for 400 to 1,200+ guests
+• Air-conditioned banquet hall for 150 to 500 guests
+• Ganga River-view dining area
+• 25+ air-conditioned guest rooms on-site
+• Dedicated parking for 400+ cars with valet assistance
 • Front Desk: +91 7360800001 (Phone & WhatsApp)`;
   }
 
   if (lower.includes('capacity') || lower.includes('guest') || lower.includes('size')) {
-    return `Raj Resort offers expansive celebration spaces designed comfortably for both grand weddings and intimate ceremonies:
+    return `Raj Resort Patna covers 3.5 acres with spaces suited for both grand weddings and intimate ceremonies:
 
-• The Starlit Celebration Lawn: Welcomes 400 to 1,200+ guests under the open sky with a 150-ft floral pergola entrance.
-• The Shahi Darbar AC Banquet Hall: Comfortably seats 150 to 500 guests with full climate control and crystal chandeliers.
-• Dedicated dining area and live kitchen setups for seamless catering.
+• Celebration Lawn: Accommodates 400 to 1,200+ guests under the open sky with a 150-ft illuminated floral walkway and glass-walk entry.
+• AC Banquet Hall: Accommodates 150 to 500 guests with full climate control.
+• Ganga River-View Dining Area: Dedicated covered and open-air dining overlooking the river.
+• 25+ Air-Conditioned Rooms: On-site accommodation for out-of-town guests and bridal preparation.
 
 Would you like to check date availability for your family? You can message our front desk directly at +91 7360800001.`;
+  }
+
+  if (lower.includes('parking') || lower.includes('car') || lower.includes('vehicle')) {
+    return `Parking is one of our primary strengths:
+
+• Dedicated on-site parking for 400+ cars.
+• Marked bays, paved driveways, and security personnel on duty.
+• Valet assistance for arriving family cars and wedding guests.
+• Easy access off Kurji Main Road with direct flow away from city bottlenecks.`;
+  }
+
+  if (lower.includes('room') || lower.includes('stay') || lower.includes('suite') || lower.includes('accommodation')) {
+    return `We offer comfortable on-site accommodation for families:
+
+• 25+ air-conditioned rooms and suites located directly within the resort premises.
+• Includes dedicated bridal preparation suites with attached mirrors and dressing areas.
+• Convenient for out-of-town family members, elders, and late-night ceremonies.`;
+  }
+
+  if (lower.includes('food') || lower.includes('catering') || lower.includes('menu')) {
+    return `We provide flexible catering arrangements for your event:
+
+• In-house hospitality and culinary team with hotel-management background.
+• Presentation buffets, live chaat, dosa, tandoor, and beverage counters.
+• Pure vegetarian and multi-cuisine options (North Indian, South Indian, Continental, Chinese).
+• Outside catering is also welcome by prior arrangement if you have a preferred family caterer.`;
   }
 
   if (lower.includes('date') || lower.includes('book') || lower.includes('price') || lower.includes('rate') || lower.includes('cost')) {
@@ -94,40 +129,40 @@ Would you like to check date availability for your family? You can message our f
 • Call our front desk anytime at +91 7360800001.
 • Email your enquiry to Rajresortpatna@gmail.com.
 
-Please share your expected wedding date and approximate guest count, and we will immediately check availability and provide customized package details.`;
+Please share your expected wedding date and approximate guest count, and we will immediately check availability and discuss transparent package options for your family.`;
   }
 
   if (lower.includes('location') || lower.includes('address') || lower.includes('where') || lower.includes('reach')) {
     return `Raj Resort is conveniently situated in Patliputra, Patna:
 
 • Address: Near Gate No. 62, Kurji Mor, Patliputra, Patna, Bihar 800010.
-• Easy access via the Ganga Marine Drive from Digha.
-• Close to Patliputra Junction and Patna Airport for arriving guests.
-• Gated valet parking inside the premises for up to 100+ vehicles.`;
+• Quick access via the Ganga Marine Drive from Digha.
+• 3.8 km from Patliputra Junction, 7.5 km from Patna Junction, and 9.2 km from Patna Airport.
+• Dedicated on-site parking for 400+ vehicles with valet assistance.`;
   }
 
   if (lower.includes('power') || lower.includes('generator') || lower.includes('light') || lower.includes('facility') || lower.includes('amenities')) {
     return `We ensure your wedding celebrations run smoothly without interruption:
 
-• 100% 24/7 heavy-duty generator power backup for stage, AC, lighting, and sound.
-• Illuminated 150-ft floral pergola walkway for a memorable Baraat welcome.
-• Dedicated bridal suite with green rooms for the family.
-• Gated on-site parking with valet assistance.`;
+• Continuous heavy-duty diesel generator backup powering stage, AC hall, garden lighting, and sound systems.
+• Dedicated parking for 400+ cars with security staff and valet assistance.
+• 150-ft illuminated floral walkway and glass-walk entry for the bride and groom.
+• 25+ air-conditioned guest rooms and bridal dressing suites on-site.`;
   }
 
   if (lower.includes('visit') || lower.includes('see') || lower.includes('tour')) {
-    return `We would be delighted to welcome you and your family for a personal walkthrough of the lawns and banquet hall:
+    return `We would be delighted to welcome you and your family for a personal walkthrough of the 3.5-acre property:
 
 • Visiting hours: 10:00 AM to 8:00 PM daily.
 • Location: Near Gate No. 62, Kurji Mor, Patliputra, Patna.
-• Call +91 7360800001 or message on WhatsApp to let us know when you plan to visit so our manager can receive you personally.`;
+• Call +91 7360800001 or message on WhatsApp so our management team can receive you personally.`;
   }
 
   return `Raj Resort Patna is ready to assist your family:
 
 • For instant date checks and pricing, call or WhatsApp our reception at +91 7360800001.
 • Email us anytime at Rajresortpatna@gmail.com.
-• You can ask about lawn capacity, banquet halls, parking, or scheduling a visit to Kurji Mor!`;
+• You can ask about our 3.5-acre lawn, banquet hall, 400+ parking, Ganga-view dining, or scheduling a visit to Kurji Mor!`;
 }
 
 interface MessageHistoryItem {

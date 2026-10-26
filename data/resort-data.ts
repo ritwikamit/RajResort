@@ -36,6 +36,12 @@ export interface GalleryItem {
   image: string;
 }
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+  category: string;
+}
+
 export const RESORT_DATA = {
   name: 'Raj Resort',
   city: 'Patna',
@@ -51,26 +57,30 @@ export const RESORT_DATA = {
     lng: 85.1102531,
   },
   directionsLink: 'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,17z/data=!3m1!4b1!4m9!3m8!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m2!4m1!1i2!8m2!3d25.6391525!4d85.1102531',
-  establishedNote: 'Premier wedding destination, celebration lawns, and grand banquet hall near Kurji Mor, Patliputra',
+  propertySize: '3.5 Acres',
+  parkingCapacity: '400+ Cars',
+  roomsCount: '25+ Rooms & Suites',
+  weddingsCount: '400+ Celebrations Hosted',
+  establishedNote: 'Wedding and event venue across 3.5 acres near Kurji Mor, Patliputra with 400+ car parking, Ganga River-view dining, and 25+ guest rooms.',
   
   socialLinks: [
     {
       title: 'Instagram',
       handle: '@rajresortpatna',
       url: 'https://www.instagram.com/rajresortpatna/?hl=en',
-      description: 'Real wedding ceremonies, starlit decor setups, customer stories, and celebration highlights.',
+      description: 'Photographs of recent wedding setups, starlit lawn decors, and real ceremonies at Kurji Mor.',
     },
     {
       title: 'Facebook',
       handle: 'Raj Resort Patna',
       url: 'https://www.facebook.com/rajresortpatna/',
-      description: 'Event photo albums, customer blessings, anniversary stories, and venue news.',
+      description: 'Event photo albums, wedding memories, anniversary celebrations, and venue updates.',
     },
     {
       title: 'YouTube',
       handle: 'Raj Resort Official',
       url: 'https://www.youtube.com/results?search_query=raj+resort+patna',
-      description: 'Video tours of grand lawns, illuminated floral walkways, and royal wedding entries.',
+      description: 'Video walkthroughs of celebration lawns, floral entry avenues, and stage setups.',
     },
   ],
 
@@ -80,21 +90,21 @@ export const RESORT_DATA = {
       category: 'directory' as const,
       url: 'https://www.justdial.com/Patna/Raj-Resort-Near-Kurji-More-Kurji/0612PX612-X612-220718182741-N7B7_BZDET',
       badge: 'Verified Venue',
-      description: 'Local Patna reviews, wedding venue capacity ratings, and verified contact numbers.',
+      description: 'Local reviews, guest capacity details, and verified front desk telephone listings.',
     },
     {
       title: 'Google Business Profile',
       category: 'directory' as const,
       url: 'https://maps.google.com/?cid=12140407765181711246',
       badge: 'Official Map Listing',
-      description: 'Real customer reviews, driving directions, user-uploaded photographs, and live hours.',
+      description: 'Customer reviews, driving directions via Marine Drive, verified photos, and reception hours.',
     },
     {
       title: 'Weddingz / Local Listings',
       category: 'directory' as const,
       url: 'https://www.google.com/search?q=raj+resort+patna+weddings',
       badge: 'Wedding Network',
-      description: 'Patna wedding lawn directory listings and event planning inquiries.',
+      description: 'Patna event venue directory profile and wedding date inquiry platform.',
     },
   ],
   directoryLinks: [
@@ -103,21 +113,21 @@ export const RESORT_DATA = {
       category: 'directory' as const,
       url: 'https://www.justdial.com/Patna/Raj-Resort-Near-Kurji-More-Kurji/0612PX612-X612-220718182741-N7B7_BZDET',
       badge: 'Verified Venue',
-      description: 'Local Patna reviews, wedding venue capacity ratings, and verified contact numbers.',
+      description: 'Local reviews, guest capacity details, and verified front desk telephone listings.',
     },
     {
       title: 'Google Business Profile',
       category: 'directory' as const,
       url: 'https://maps.google.com/?cid=12140407765181711246',
       badge: 'Official Map Listing',
-      description: 'Real customer reviews, driving directions, user-uploaded photographs, and live hours.',
+      description: 'Customer reviews, driving directions via Marine Drive, verified photos, and reception hours.',
     },
     {
       title: 'Weddingz / Local Listings',
       category: 'directory' as const,
       url: 'https://www.google.com/search?q=raj+resort+patna+weddings',
       badge: 'Wedding Network',
-      description: 'Patna wedding lawn directory listings and event planning inquiries.',
+      description: 'Patna event venue directory profile and wedding date inquiry platform.',
     },
   ],
 
@@ -142,8 +152,8 @@ export const RESORT_DATA = {
       name: 'The Starlit Celebration Lawn',
       type: 'Open-Air Wedding Lawn',
       capacity: '400 to 1,200+ Guests',
-      emotionalTag: 'Where loved ones gather under the open evening sky',
-      description: 'Our spacious green lawn gives your guests plenty of space to meet, laugh, and celebrate together. Soft grass, fresh evening air, and warm lights under the stars create the warm, welcoming feeling every family dreams of for a wedding.',
+      emotionalTag: 'Spacious 3.5-acre setting under the evening sky',
+      description: 'Our spacious green lawn offers ample room for wedding ceremonies, live food counters, and family gatherings. Positioned within a 3.5-acre property, it provides open air and garden lighting for comfortable, unhurried celebrations.',
       image: '/images/landingpage3.png',
       images: [
         '/images/landingpage3.png',
@@ -154,19 +164,19 @@ export const RESORT_DATA = {
         '/images/venue-23.jpg',
       ],
       highlights: [
-        'Comfortably hosts from 400 up to 1,200+ guests',
-        'Open-air green lawn with warm garden lighting',
-        'Spacious dining area for your family caterers and Halwais',
-        'Heavy-duty generators so the lights and music never stop',
+        'Welcomes 400 to 1,200+ guests with room for movement',
+        'Open-air green lawns within 3.5 acres of venue grounds',
+        'Convenient dining area for live buffets and family caterers',
+        'Heavy-duty generator backup for uninterrupted power',
       ],
     },
     {
       id: 'floral-tunnel',
-      name: 'The 150-Foot Flower Entrance Walkway',
-      type: 'Grand Baraat & Guest Arrival Avenue',
-      capacity: 'Spacious Arrival Walkway',
-      emotionalTag: 'A warm welcome that brings a smile to every guest',
-      description: 'A 150-foot arrival avenue covered with fresh hanging flowers, crystal chandeliers, and warm fairy lights. Built wide enough for the entire Baraat to dance through with dhol, brass bands, and joyful celebration.',
+      name: 'The 150-Foot Floral Walkway',
+      type: 'Baraat & Guest Arrival Avenue',
+      capacity: 'Spacious Arrival Avenue',
+      emotionalTag: 'An illuminated walkway designed for joyful Baraat arrivals',
+      description: 'A 150-foot arrival avenue decorated with hanging floral arrangements, crystal chandeliers, and warm fairy lights. Built wide enough for family Baraats to dance through comfortably with dhol and music.',
       image: '/images/venue-12.jpg',
       images: [
         '/images/venue-12.jpg',
@@ -177,10 +187,10 @@ export const RESORT_DATA = {
         '/images/venue-14.jpg',
       ],
       highlights: [
-        'Overhead floral ceiling with sparkling crystal chandeliers',
-        'Wide carpeted walkway with plenty of room for dancing Baraats',
-        'Beautiful background for family photographs and bridal entry',
-        'Gentle warm lights that make everyone look their best',
+        'Wide carpeted walkway with space for dancing Baraats',
+        'Overhead floral ceiling with warm crystal chandeliers',
+        'Scenic backdrop for bride, groom, and family entry photos',
+        'Evenly placed lights to support photography and videography',
       ],
     },
     {
@@ -188,8 +198,8 @@ export const RESORT_DATA = {
       name: 'Shahi Darbar AC Banquet Hall',
       type: 'Indoor Air-Conditioned Hall',
       capacity: '150 to 500 Guests',
-      emotionalTag: 'Comfortable and cool for your closest family ceremonies',
-      description: 'A spacious, fully air-conditioned indoor hall designed for Haldi, Sangeet, Ring Ceremonies, and family dining. When the weather outside is hot or rainy, your grandparents, children, and guests can relax in cool, peaceful comfort.',
+      emotionalTag: 'Cool and comfortable indoor setting for family ceremonies',
+      description: 'A spacious, fully air-conditioned indoor banquet hall suited for Haldi, Mehendi, Sangeet, engagement ceremonies, and private dining. During warm summer evenings or monsoon rains, guests and elders can relax in climate-controlled comfort.',
       image: '/images/venue-26.jpg',
       images: [
         '/images/venue-26.jpg',
@@ -198,19 +208,19 @@ export const RESORT_DATA = {
         '/images/venue-24.jpg',
       ],
       highlights: [
-        'Powerful air-conditioning to keep summer weddings cool and pleasant',
-        'Stage setup for energetic Sangeet dances and family performances',
-        'Comfortable indoor seating and dining arrangements',
-        'Quiet rooms nearby for changing and bridal touch-ups',
+        'Full air conditioning for pleasant celebrations in any weather',
+        'Dedicated stage area for Sangeet dances and performances',
+        'Flexible seating layouts for formal dining and ceremonies',
+        'Convenient access to 25+ guest rooms and bridal dressing areas',
       ],
     },
     {
       id: 'ceremonial-stage',
-      name: 'The Sacred Vivah Mandap & Stage',
+      name: 'The Vivah Mandap & Stage',
       type: 'Central Ceremony Stage',
-      capacity: 'Central Wedding Stage',
-      emotionalTag: 'Where two families unite with blessings and prayers',
-      description: 'The sacred heart of the wedding. Built high enough so every aunt, uncle, and friend can see the Varmala and Saat Phere clearly, with traditional floral decor where Panditji guides the sacred vows.',
+      capacity: 'Elevated Stage & Mandap',
+      emotionalTag: 'Clear visibility for sacred vows and family blessings',
+      description: 'An elevated stage built so family members and guests across the lawn have a clear view of the Varmala and Saat Phere. Features traditional floral decor and designated space for Panditji, parents, and ceremonial Havankund rituals.',
       image: '/images/venue-28.jpg',
       images: [
         '/images/venue-28.jpg',
@@ -221,44 +231,92 @@ export const RESORT_DATA = {
         '/images/venue-32.jpg',
       ],
       highlights: [
-        'Clear view from all sides of the lawn so no guest misses the vows',
-        'Spacious stage for Panditji, parents, and close family members',
-        'Fresh flower decoration and holy Havankund space',
-        'Arrangements for celebratory flower showers during the Varmala',
+        'Clear visibility from all areas of the celebration lawn',
+        'Spacious platform for Panditji and close family members',
+        'Traditional floral mandap design and sacred Havankund setup',
+        'Arrangements for flower showers and celebratory moments',
       ],
     },
   ],
 
   facilities: [
     {
-      iconName: 'Zap',
-      title: 'Continuous Generator Backup',
-      detail: 'Heavy-duty backup generators ensure the stage lights, AC, sound systems, and flower lights never flicker, even during Patna power cuts.',
-    },
-    {
       iconName: 'ShieldCheck',
-      title: 'Gated Parking with Watchful Security',
-      detail: 'Spacious on-site parking with gate guards, so your relatives and guests can park easily and walk right into the wedding without road hassle.',
+      title: 'Dedicated Parking for 400+ Cars',
+      detail: 'A dedicated on-site parking area accommodating 400+ vehicles with gate security and valet assistance, keeping guest arrivals calm and organized.',
     },
     {
-      iconName: 'Wind',
-      title: 'Air-Conditioned Hall & Bridal Suites',
-      detail: 'High-powered cooling across the Shahi Darbar hall and private bridal dressing rooms, keeping elders and the bride cool and fresh.',
-    },
-    {
-      iconName: 'Clock',
-      title: 'Caring Event Staff on Standby',
-      detail: 'Our on-site team is here from morning till the Vidai, helping coordinate caterers, decorators, and any family requests with a smile.',
+      iconName: 'Sparkles',
+      title: '3.5-Acre Property',
+      detail: 'Spacious grounds offering open celebration lawns, paved walkways, and banquet infrastructure so large gatherings never feel crowded.',
     },
     {
       iconName: 'UtensilsCrossed',
-      title: 'Large Dining Space for Halwais & Buffets',
-      detail: 'Dedicated, covered kitchen and dining areas where your caterers have all the space they need to prepare hot, delicious wedding feasts.',
+      title: 'Ganga River-View Dining Area',
+      detail: 'A dedicated dine-in area with scenic views of the Ganga River, creating a calm backdrop for wedding dinners, receptions, and family feasts.',
+    },
+    {
+      iconName: 'Wind',
+      title: '25+ Rooms and Suites',
+      detail: 'Comfortable air-conditioned rooms on the property for out-of-town relatives, bridal party preparations, and overnight family stays.',
+    },
+    {
+      iconName: 'Clock',
+      title: 'Trained Hospitality & Catering Team',
+      detail: 'Certified event and banquet staff with hotel-management education handling food presentation, buffet service, and guest hospitality.',
+    },
+    {
+      iconName: 'Zap',
+      title: '24/7 Heavy-Duty Generator Backup',
+      detail: 'Heavy-duty industrial generator backup ensures stage lights, air conditioning, sound systems, and lawn lighting operate without interruption.',
+    },
+    {
+      iconName: 'CheckCircle2',
+      title: 'Themed Stage & Entry Concepts',
+      detail: 'Customized entrance concepts including glass-walk aisle, floral pergolas, and cold-spark Niagara effects for memorable couple entries.',
     },
     {
       iconName: 'MapPin',
-      title: 'Easy to Reach near Kurji Mor, Patliputra',
-      detail: 'Located near Gate No. 62 at Kurji Mor with quick access from Digha Marine Drive, Patliputra Station, and Patna Airport.',
+      title: 'Accessible Kurji Mor Location',
+      detail: 'Located near Gate No. 62 at Kurji Mor, Patliputra, offering direct access via the Ganga Marine Drive, Patliputra Station, and Patna Airport.',
+    },
+  ],
+
+  faqs: [
+    {
+      question: 'What types of events can be hosted at Raj Resort Patna?',
+      answer: 'Raj Resort hosts a wide variety of family and formal gatherings, including weddings, receptions, engagements (Sagai), Sangeet and Haldi functions, anniversary celebrations, birthday parties, corporate conferences, and cultural events.',
+      category: 'Events',
+    },
+    {
+      question: 'How much parking is available for guests?',
+      answer: 'The resort features a dedicated on-site parking facility for 400+ cars, complete with gated security and valet assistance, ensuring convenient parking off the main Kurji Mor road.',
+      category: 'Parking',
+    },
+    {
+      question: 'Does the venue feature Ganga River-view dining?',
+      answer: 'Yes. Raj Resort includes a dedicated dine-in area with scenic views of the Ganga River, providing a pleasant open-air dining atmosphere for wedding dinners and receptions.',
+      category: 'Dining',
+    },
+    {
+      question: 'Is guest accommodation available on the property?',
+      answer: 'Yes. We offer 25+ air-conditioned rooms and suites on-site, providing comfortable lodging for wedding parties, out-of-town relatives, and bridal dressing needs.',
+      category: 'Accommodation',
+    },
+    {
+      question: 'What wedding entry and stage concepts are available?',
+      answer: 'Our event team can arrange custom entry concepts, such as a real glass-walk bridal walkway, illuminated 150-ft floral pergolas, themed Varmala stages, and safe cold-spark waterfall effects.',
+      category: 'Weddings',
+    },
+    {
+      question: 'Is catering service available at the resort?',
+      answer: 'Yes. Event catering is supported by a trained hospitality team with formal hotel-management education. We provide multi-cuisine buffet spreads, live cooking setups, and traditional Indian preparations tailored to your event requirements.',
+      category: 'Catering',
+    },
+    {
+      question: 'How can I check date availability or schedule a walkthrough?',
+      answer: 'You can connect directly with our front desk by calling or messaging +91 7360800001, emailing Rajresortpatna@gmail.com, or visiting the property in person between 10:00 AM and 8:00 PM daily.',
+      category: 'Booking',
     },
   ],
 
