@@ -45,7 +45,7 @@ export const RajResortLogo: React.FC<LogoProps> = ({
             className={`w-[1.5px] rounded-full self-stretch my-1 sm:my-1.5 transition-colors shrink-0 ${
               inverted 
                 ? 'bg-white/30' 
-                : 'bg-[#8E1EA2]/30 dark:bg-[#ED96D7]/40'
+                : 'bg-[#F62440]/30 dark:bg-[#FFE5BF]/40'
             }`} 
           />
         )}
@@ -66,7 +66,7 @@ export const RajResortLogo: React.FC<LogoProps> = ({
               className={`tracking-[0.2em] sm:tracking-[0.26em] uppercase font-semibold mt-1 transition-colors whitespace-nowrap ${
                 emblemSize >= 64 ? 'text-[11px] sm:text-xs' : 'text-[9px] sm:text-[10px]'
               } ${
-                inverted ? 'text-stone-300 drop-shadow-xs' : 'text-[#8E1EA2] dark:text-[#ED96D7]'
+                inverted ? 'text-stone-300 drop-shadow-xs' : 'text-[#F62440] dark:text-[#FFE5BF]'
               }`}
             >
               Patliputra · Patna

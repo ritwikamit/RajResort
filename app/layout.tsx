@@ -10,8 +10,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#8E1EA2' },
-    { media: '(prefers-color-scheme: dark)', color: '#16081C' },
+    { media: '(prefers-color-scheme: light)', color: '#F62440' },
+    { media: '(prefers-color-scheme: dark)', color: '#181210' },
   ],
 };
 
@@ -66,7 +66,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${jakarta.variable} ${alexBrush.variable} scroll-smooth`} suppressHydrationWarning>
-      <body className="bg-[#FAF7F9] text-stone-900 antialiased selection:bg-[#FFC0DE] selection:text-[#8E1EA2] transition-colors duration-300" suppressHydrationWarning>
+      <body className="bg-[#FFFAF3] text-stone-900 antialiased selection:bg-[#FFE5BF] selection:text-[#F62440] transition-colors duration-300" suppressHydrationWarning>
         <ThemeProvider>
           <InitialPageLoader />
           <AnimatedBackgroundCanvas />

@@ -22,8 +22,8 @@ export const HeroSection: React.FC = () => {
           <source src="/LandingHeroSection.mp4" type="video/mp4" />
         </video>
 
-        {/* Cinematic Luxury Scrim with Subtle Rose-Plum Ambient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-[#16061C]/50 to-black/75 pointer-events-none" />
+        {/* Cinematic Luxury Scrim */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black/75 pointer-events-none" />
       </div>
 
       {/* Dark Lateral Side Edge Fades */}
@@ -39,14 +39,14 @@ export const HeroSection: React.FC = () => {
         
         {/* Emotional Kicker in Authentic Cursive Font */}
         <div className="mb-2 sm:mb-2.5">
-          <span className="font-cursive text-2xl sm:text-3xl md:text-4xl text-[#FFC0DE] tracking-wide block drop-shadow-md">
+          <span className="font-cursive text-2xl sm:text-3xl md:text-4xl text-[#FFE5BF] tracking-wide block drop-shadow-md">
             When Two Families Become One
           </span>
         </div>
 
         {/* Location & Heritage Tag */}
         <div className="flex items-center justify-center gap-1.5 text-[10px] sm:text-xs uppercase tracking-[0.22em] font-semibold text-stone-200 drop-shadow-sm mb-3 sm:mb-4">
-          <MapPin className="w-3.5 h-3.5 text-[#ED96D7]" />
+          <MapPin className="w-3.5 h-3.5 text-[#FFE5BF]" />
           <span>Kurji Mor · Patliputra · Patna</span>
         </div>
 
@@ -69,7 +69,7 @@ export const HeroSection: React.FC = () => {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-7 sm:py-3.5 bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] hover:from-[#7B188D] hover:to-[#B544B2] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-xl shadow-[0_8px_25px_rgba(142,30,162,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border border-white/20"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-7 sm:py-3.5 bg-gradient-to-r from-[#F62440] to-[#D81B34] hover:from-[#E01A35] hover:to-[#BF132A] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-xl shadow-[0_8px_25px_rgba(246,36,64,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer border border-white/20"
           >
             <Calendar className="w-4 h-4 text-white" />
             <span>Check Wedding Dates</span>
@@ -78,25 +78,25 @@ export const HeroSection: React.FC = () => {
           {/* Secondary Action: Explore Grand Lawns */}
           <Link
             href="/weddings"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 bg-white/15 hover:bg-white/25 border border-[#ED96D7]/40 text-white hover:text-stone-100 transition-all text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-xl backdrop-blur-md cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 bg-white/15 hover:bg-white/25 border border-[#FFE5BF]/40 text-white hover:text-stone-100 transition-all text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-xl backdrop-blur-md cursor-pointer"
           >
             <span>Explore Venues & Lawns</span>
-            <ArrowRight className="w-4 h-4 text-[#FFC0DE]" />
+            <ArrowRight className="w-4 h-4 text-[#FFE5BF]" />
           </Link>
         </div>
 
-        {/* Key Venue Highlights (Clean, NO cylinders, NO pulsating dots, NO star icons) */}
+        {/* Key Venue Highlights */}
         <div className="mt-6 sm:mt-10 pt-5 sm:pt-6 border-t border-white/20 w-full grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-6 text-center">
           <div className="flex items-center justify-center gap-2 text-stone-200">
-            <Users className="w-4 h-4 text-[#ED96D7] shrink-0" />
+            <Users className="w-4 h-4 text-[#FFE5BF] shrink-0" />
             <span className="text-xs sm:text-sm font-medium">1,200+ Guest Starlit Lawn</span>
           </div>
           <div className="flex items-center justify-center gap-2 text-stone-200">
-            <Zap className="w-4 h-4 text-[#ED96D7] shrink-0" />
+            <Zap className="w-4 h-4 text-[#FFE5BF] shrink-0" />
             <span className="text-xs sm:text-sm font-medium">100% Industrial Generator Backup</span>
           </div>
           <div className="flex items-center justify-center gap-2 text-stone-200">
-            <MapPin className="w-4 h-4 text-[#ED96D7] shrink-0" />
+            <MapPin className="w-4 h-4 text-[#FFE5BF] shrink-0" />
             <span className="text-xs sm:text-sm font-medium">Gate 62, Kurji Mor, Patliputra</span>
           </div>
         </div>

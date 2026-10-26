@@ -24,7 +24,7 @@ export default function Home() {
   const [cookiePolicyOpen, setCookiePolicyOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FAF7F9] dark:bg-[#120718] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#FFC0DE] selection:text-[#8E1EA2] transition-colors duration-300 relative z-10 scroll-smooth">
+    <div className="min-h-screen bg-[#FFFAF3] dark:bg-[#181210] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#FFE5BF] selection:text-[#F62440] transition-colors duration-300 relative z-10 scroll-smooth">
       
       {/* JSON-LD Structured Data for Local Wedding Destination SEO */}
       <script
@@ -76,9 +76,9 @@ export default function Home() {
           <WeddingVenuesSection />
         </ScrollReveal>
 
-        {/* Real Celebration Photo Gallery - 100% Distinct Photos */}
+        {/* Real Celebration Photo Gallery - 100% Distinct Photos (12 on Landing Page) */}
         <ScrollReveal>
-          <GallerySection />
+          <GallerySection isLandingPage={true} />
         </ScrollReveal>
 
         {/* Venue Facilities & Infrastructure */}

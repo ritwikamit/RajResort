@@ -17,11 +17,11 @@ export default function WeddingsPage() {
   const [cookieOpen, setCookieOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FAF7F9] dark:bg-[#120718] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#FFC0DE] selection:text-[#8E1EA2] transition-colors duration-300 relative z-10">
+    <div className="min-h-screen bg-[#FFFAF3] dark:bg-[#181210] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#FFE5BF] selection:text-[#F62440] transition-colors duration-300 relative z-10">
       <Header />
       
       {/* Dedicated Hero Section with Real Landscape Image & Subtle Side Fade */}
-      <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden border-b border-[#8E1EA2]/15">
+      <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden border-b border-[#FFE5BF]/40">
         
         {/* Background Landscape Photo with Subtle Side Fade */}
         <div className="absolute inset-0 z-0">
@@ -44,7 +44,7 @@ export default function WeddingsPage() {
 
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <span className="font-cursive text-3xl sm:text-4xl text-[#FFC0DE] tracking-wide block mb-2 drop-shadow-md">
+          <span className="font-cursive text-3xl sm:text-4xl text-[#FFE5BF] tracking-wide block mb-2 drop-shadow-md">
             Blessings, Laughter & Happy Tears
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">
@@ -56,13 +56,13 @@ export default function WeddingsPage() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-stone-200 font-sans">
             <span className="flex items-center gap-1.5 font-medium">
-              <Users className="w-4 h-4 text-[#ED96D7]" /> 400 to 1,200+ Guests
+              <Users className="w-4 h-4 text-[#FFE5BF]" /> 400 to 1,200+ Guests
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <Zap className="w-4 h-4 text-[#ED96D7]" /> Continuous Generator Power
+              <Zap className="w-4 h-4 text-[#FFE5BF]" /> Continuous Generator Power
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <ShieldCheck className="w-4 h-4 text-[#ED96D7]" /> Gated Premises with Security
+              <ShieldCheck className="w-4 h-4 text-[#FFE5BF]" /> Gated Premises with Security
             </span>
           </div>
         </div>

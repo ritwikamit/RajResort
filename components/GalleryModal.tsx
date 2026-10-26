@@ -116,9 +116,9 @@ export const GalleryModal: React.FC<GalleryModalProps> = ({
         </div>
 
         {/* Caption Panel */}
-        <div className="p-5 sm:p-6 bg-[#16071C] border-t border-[#8E1EA2]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="p-5 sm:p-6 bg-[#1A1210] border-t border-[#FFE5BF]/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <div className="text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase text-[#FFC0DE] font-sans mb-1">
+            <div className="text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase text-[#FFE5BF] font-sans mb-1">
               {currentItem.category} · Photo {activeIdx + 1} of {items.length}
             </div>
             <h3 className="font-serif text-lg sm:text-2xl font-bold text-white">
@@ -131,7 +131,7 @@ export const GalleryModal: React.FC<GalleryModalProps> = ({
 
           <button
             onClick={onClose}
-            className="w-full sm:w-auto shrink-0 px-6 py-2.5 bg-gradient-to-r from-[#8E1EA2] to-[#C654C3] hover:from-[#7B188D] hover:to-[#B544B2] text-white text-xs uppercase tracking-wider font-semibold rounded-xl text-center cursor-pointer shadow-md"
+            className="w-full sm:w-auto shrink-0 px-6 py-2.5 bg-gradient-to-r from-[#F62440] to-[#D81B34] hover:from-[#E01A35] hover:to-[#BF132A] text-white text-xs uppercase tracking-wider font-semibold rounded-xl text-center cursor-pointer shadow-md"
           >
             Done Viewing
           </button>

@@ -15,11 +15,11 @@ export default function FacilitiesPage() {
   const [cookieOpen, setCookieOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FAF7F9] dark:bg-[#120718] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#FFC0DE] selection:text-[#8E1EA2] transition-colors duration-300 relative z-10">
+    <div className="min-h-screen bg-[#FFFAF3] dark:bg-[#181210] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-[#FFE5BF] selection:text-[#F62440] transition-colors duration-300 relative z-10">
       <Header />
       
       {/* Dedicated Landscape Hero Banner Faded only on side edges */}
-      <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden border-b border-[#8E1EA2]/15">
+      <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden border-b border-[#FFE5BF]/40">
         
         {/* Background Landscape Photo with Subtle Side Fade */}
         <div className="absolute inset-0 z-0">
@@ -42,7 +42,7 @@ export default function FacilitiesPage() {
 
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <span className="font-cursive text-3xl sm:text-4xl text-[#FFC0DE] tracking-wide block mb-2 drop-shadow-md">
+          <span className="font-cursive text-3xl sm:text-4xl text-[#FFE5BF] tracking-wide block mb-2 drop-shadow-md">
             Care, Comfort & Peace of Mind
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg leading-tight">

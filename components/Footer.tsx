@@ -36,72 +36,72 @@ const WhatsAppOfficialIcon = ({ className = 'w-5 h-5' }: { className?: string })
 
 export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) => {
   return (
-    <footer className="bg-[#F8F3F7] dark:bg-[#100615] text-stone-700 dark:text-stone-300 border-t border-[#8E1EA2]/15 pt-12 sm:pt-16 pb-32 md:pb-14 font-sans transition-colors duration-300">
+    <footer className="bg-[#FFF2DB] dark:bg-[#140E0C] text-stone-700 dark:text-stone-300 border-t border-[#FFE5BF] dark:border-[#352520] pt-12 sm:pt-16 pb-32 md:pb-14 font-sans transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Smartphone-Optimized Quick Navigation Grid */}
-        <div className="md:hidden pb-10 border-b border-[#8E1EA2]/15">
-          <div className="text-xs font-bold uppercase tracking-wider text-[#8E1EA2] dark:text-[#ED96D7] mb-3 text-center">
+        <div className="md:hidden pb-10 border-b border-[#FFE5BF] dark:border-[#352520]">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#F62440] mb-3 text-center">
             Quick Navigation
           </div>
           <div className="grid grid-cols-2 gap-2 text-xs">
             <Link 
               href="/" 
-              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
+              className="p-3 bg-white dark:bg-[#201714] rounded-xl border border-[#FFE5BF] dark:border-[#352520] flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#F62440] active:scale-98 transition-all shadow-xs"
             >
-              <Home className="w-4 h-4 text-[#8E1EA2] shrink-0" />
+              <Home className="w-4 h-4 text-[#F62440] shrink-0" />
               <span>Home</span>
             </Link>
             <Link 
               href="/weddings" 
-              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
+              className="p-3 bg-white dark:bg-[#201714] rounded-xl border border-[#FFE5BF] dark:border-[#352520] flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#F62440] active:scale-98 transition-all shadow-xs"
             >
-              <Heart className="w-4 h-4 text-[#8E1EA2] shrink-0" />
+              <Heart className="w-4 h-4 text-[#F62440] shrink-0" />
               <span>Weddings</span>
             </Link>
             <Link 
               href="/gallery" 
-              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
+              className="p-3 bg-white dark:bg-[#201714] rounded-xl border border-[#FFE5BF] dark:border-[#352520] flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#F62440] active:scale-98 transition-all shadow-xs"
             >
-              <Images className="w-4 h-4 text-[#8E1EA2] shrink-0" />
+              <Images className="w-4 h-4 text-[#F62440] shrink-0" />
               <span>Gallery</span>
             </Link>
             <Link 
               href="/facilities" 
-              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
+              className="p-3 bg-white dark:bg-[#201714] rounded-xl border border-[#FFE5BF] dark:border-[#352520] flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#F62440] active:scale-98 transition-all shadow-xs"
             >
-              <ShieldCheck className="w-4 h-4 text-[#8E1EA2] shrink-0" />
+              <ShieldCheck className="w-4 h-4 text-[#F62440] shrink-0" />
               <span>Facilities</span>
             </Link>
             <Link 
               href="/location" 
-              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
+              className="p-3 bg-white dark:bg-[#201714] rounded-xl border border-[#FFE5BF] dark:border-[#352520] flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#F62440] active:scale-98 transition-all shadow-xs"
             >
-              <Compass className="w-4 h-4 text-[#8E1EA2] shrink-0" />
+              <Compass className="w-4 h-4 text-[#F62440] shrink-0" />
               <span>Location</span>
             </Link>
             <Link 
               href="/contact" 
-              className="p-3 bg-white dark:bg-[#1E0B28] rounded-xl border border-[#8E1EA2]/15 flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#8E1EA2] active:scale-98 transition-all shadow-xs"
+              className="p-3 bg-white dark:bg-[#201714] rounded-xl border border-[#FFE5BF] dark:border-[#352520] flex items-center gap-2 font-medium text-stone-800 dark:text-stone-100 hover:text-[#F62440] active:scale-98 transition-all shadow-xs"
             >
-              <PhoneCall className="w-4 h-4 text-[#8E1EA2] shrink-0" />
+              <PhoneCall className="w-4 h-4 text-[#F62440] shrink-0" />
               <span>Contact</span>
             </Link>
           </div>
         </div>
 
         {/* Desktop Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-10 border-b border-[#8E1EA2]/15 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-10 border-b border-[#FFE5BF] dark:border-[#352520] items-start">
           
-          {/* Brand & Emblem Lockup with BIG Logo (No Rectangle Box) */}
+          {/* Brand & Emblem Lockup with BIG Logo */}
           <div className="md:col-span-5 space-y-4">
             <div className="py-1 inline-block">
               <RajResortLogo variant="horizontal" size={74} showDivider={true} showSubtitle={true} />
             </div>
-            <p className="text-xs text-stone-600 dark:text-stone-300 max-w-sm leading-relaxed">
+            <p className="text-xs text-stone-700 dark:text-stone-300 max-w-sm leading-relaxed">
               A place where families come together to celebrate life's most precious beginnings. With an open green lawn under Patna's night sky, a cool banquet hall, and warm hospitality that makes every guest feel at home.
             </p>
-            <div className="text-xs text-[#8E1EA2] dark:text-[#ED96D7] font-semibold flex items-center gap-1.5">
+            <div className="text-xs text-[#F62440] font-semibold flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 shrink-0" />
               <span>Gate No. 62, Kurji Mor, Patliputra, Patna, Bihar 800010</span>
             </div>
@@ -109,32 +109,32 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
 
           {/* Direct Navigation Links (3 Cols) */}
           <div className="md:col-span-3 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#8E1EA2] dark:text-[#ED96D7]">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#F62440]">
               Celebration Links
             </div>
-            <ul className="text-xs space-y-2.5 text-stone-600 dark:text-stone-300">
+            <ul className="text-xs space-y-2.5 text-stone-700 dark:text-stone-300">
               <li>
-                <Link href="/weddings" className="hover:text-[#8E1EA2] dark:hover:text-[#ED96D7] transition-colors">
+                <Link href="/weddings" className="hover:text-[#F62440] transition-colors">
                   Wedding Lawns & Banquets
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-[#8E1EA2] dark:hover:text-[#ED96D7] transition-colors">
+                <Link href="/gallery" className="hover:text-[#F62440] transition-colors">
                   Photo & Video Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/facilities" className="hover:text-[#8E1EA2] dark:hover:text-[#ED96D7] transition-colors">
+                <Link href="/facilities" className="hover:text-[#F62440] transition-colors">
                   Venue Facilities & Infrastructure
                 </Link>
               </li>
               <li>
-                <Link href="/location" className="hover:text-[#8E1EA2] dark:hover:text-[#ED96D7] transition-colors">
+                <Link href="/location" className="hover:text-[#F62440] transition-colors">
                   Location & Map Directions
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#8E1EA2] dark:hover:text-[#ED96D7] transition-colors">
+                <Link href="/contact" className="hover:text-[#F62440] transition-colors">
                   Contact Reception & Dates
                 </Link>
               </li>
@@ -143,7 +143,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
 
           {/* Contact & Reception (4 Cols) */}
           <div className="md:col-span-4 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#8E1EA2] dark:text-[#ED96D7]">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#F62440]">
               Front Desk & Inquiries
             </div>
             
@@ -153,9 +153,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`}
                 aria-label="Call Reception Directly"
                 title="Call Reception Directly (24/7 Desk)"
-                className="w-11 h-11 rounded-xl bg-white dark:bg-[#1E0B28] border border-[#8E1EA2]/25 flex items-center justify-center text-[#8E1EA2] hover:bg-[#FFC0DE]/30 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                className="w-11 h-11 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
               >
-                <PhoneCall className="w-5 h-5 text-[#8E1EA2]" />
+                <PhoneCall className="w-5 h-5 text-[#F62440]" />
               </a>
 
               {/* WhatsApp Icon */}
@@ -177,9 +177,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 href="/location"
                 aria-label="Resort Location & Google Maps"
                 title="Location & Map Directions"
-                className="w-11 h-11 rounded-xl bg-white dark:bg-[#1E0B28] border border-[#8E1EA2]/25 flex items-center justify-center text-[#8E1EA2] hover:bg-[#FFC0DE]/30 transition-all hover:scale-105 active:scale-95 shadow-xs"
+                className="w-11 h-11 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs"
               >
-                <MapPin className="w-5 h-5 text-[#8E1EA2]" />
+                <MapPin className="w-5 h-5 text-[#F62440]" />
               </Link>
 
               {/* Email / Form Contact Icon */}
@@ -187,13 +187,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 href="/contact"
                 aria-label="Contact Reception Page"
                 title="Front Desk Enquiries & Bookings"
-                className="w-11 h-11 rounded-xl bg-white dark:bg-[#1E0B28] border border-[#8E1EA2]/25 flex items-center justify-center text-[#8E1EA2] hover:bg-[#FFC0DE]/30 transition-all hover:scale-105 active:scale-95 shadow-xs"
+                className="w-11 h-11 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs"
               >
-                <Mail className="w-5 h-5 text-[#8E1EA2]" />
+                <Mail className="w-5 h-5 text-[#F62440]" />
               </Link>
             </div>
 
-            <p className="text-stone-500 dark:text-stone-400 text-[11px] pt-1">
+            <p className="text-stone-600 dark:text-stone-400 text-[11px] pt-1">
               24/7 Front desk assistance, instant WhatsApp replies, and wedding planning guidance.
             </p>
           </div>
@@ -202,38 +202,38 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
 
         {/* Center Credits & Copyright */}
         <div className="pt-8 flex flex-col items-center justify-center text-center space-y-2 font-sans">
-          <p className="text-xs text-stone-500 dark:text-stone-400">
+          <p className="text-xs text-stone-600 dark:text-stone-400">
             © {new Date().getFullYear()} Raj Resort Patna. All rights reserved.
           </p>
 
           <p className="text-xs sm:text-sm font-medium text-stone-800 dark:text-stone-200">
-            Designed and Developed by <span className="text-[#8E1EA2] dark:text-[#ED96D7] font-bold">ACCustomLabs</span>
+            Designed and Developed by <span className="text-[#F62440] font-bold">ACCustomLabs</span>
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-stone-600 dark:text-stone-400 pt-3">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-stone-700 dark:text-stone-400 pt-3">
             <button
               onClick={onOpenPrivacy}
-              className="hover:text-[#8E1EA2] transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
+              className="hover:text-[#F62440] transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-[#8E1EA2]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#F62440]" />
               <span>Privacy Notice & Terms</span>
             </button>
             
             {onOpenCookies && (
               <button
                 onClick={onOpenCookies}
-                className="hover:text-[#8E1EA2] transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
+                className="hover:text-[#F62440] transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
               >
-                <Cookie className="w-3.5 h-3.5 text-[#8E1EA2]" />
+                <Cookie className="w-3.5 h-3.5 text-[#F62440]" />
                 <span>Cookies Policy</span>
               </button>
             )}
 
             <Link
               href="/location"
-              className="hover:text-[#8E1EA2] transition-colors underline underline-offset-4 inline-flex items-center gap-1.5"
+              className="hover:text-[#F62440] transition-colors underline underline-offset-4 inline-flex items-center gap-1.5"
             >
-              <MapPin className="w-3.5 h-3.5 text-[#8E1EA2]" />
+              <MapPin className="w-3.5 h-3.5 text-[#F62440]" />
               <span>Google Maps Location</span>
             </Link>
           </div>

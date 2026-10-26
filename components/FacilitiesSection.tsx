@@ -27,18 +27,18 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export const FacilitiesSection: React.FC = () => {
   return (
-    <section id="facilities" className="py-20 sm:py-28 bg-[#FAF7F9] dark:bg-[#120718] text-stone-900 dark:text-stone-100 border-t border-[#8E1EA2]/15 transition-colors duration-300">
+    <section id="facilities" className="py-20 sm:py-28 bg-[#FFFAF3] dark:bg-[#181210] text-stone-900 dark:text-stone-100 border-t border-[#FFE5BF] dark:border-[#352520] transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="font-cursive text-3xl sm:text-4xl text-[#8E1EA2] dark:text-[#ED96D7] tracking-wide block mb-1">
+          <span className="font-cursive text-3xl sm:text-4xl text-[#F62440] tracking-wide block mb-1">
             Peace of Mind for Your Family
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
             We Take Care of the Details
           </h2>
-          <p className="mt-3.5 text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed font-sans font-normal">
+          <p className="mt-3.5 text-stone-700 dark:text-stone-300 text-sm sm:text-base leading-relaxed font-sans font-normal">
             When you host a wedding at Raj Resort, you should not have to worry about power cuts, parking, or cooking space. We handle everything behind the scenes so you can enjoy your family's biggest day.
           </p>
         </div>
@@ -48,10 +48,10 @@ export const FacilitiesSection: React.FC = () => {
           {RESORT_DATA.facilities.map((fac) => (
             <div
               key={fac.title}
-              className="p-6 sm:p-7 bg-white dark:bg-[#1C0B26] border border-[#8E1EA2]/15 hover:border-[#8E1EA2]/40 transition-all duration-300 flex flex-col justify-between rounded-2xl shadow-[0_4px_20px_rgba(142,30,162,0.04)] hover:shadow-lg group"
+              className="p-6 sm:p-7 bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] hover:border-[#F62440]/50 transition-all duration-300 flex flex-col justify-between rounded-2xl shadow-[0_4px_20px_rgba(246,36,64,0.03)] hover:shadow-lg group"
             >
               <div>
-                <div className="w-11 h-11 mb-4 flex items-center justify-center bg-[#FFC0DE]/30 text-[#8E1EA2] group-hover:bg-gradient-to-r group-hover:from-[#8E1EA2] group-hover:to-[#C654C3] group-hover:text-white transition-all rounded-xl">
+                <div className="w-11 h-11 mb-4 flex items-center justify-center bg-[#FFF2DB] dark:bg-[#2C1F1B] text-[#F62440] group-hover:bg-gradient-to-r group-hover:from-[#F62440] group-hover:to-[#D81B34] group-hover:text-white transition-all rounded-xl">
                   {iconMap[fac.iconName] || <Sparkles className="w-5 h-5" />}
                 </div>
 
@@ -64,7 +64,7 @@ export const FacilitiesSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-[#8E1EA2]/10 flex items-center gap-1.5 text-[11px] font-semibold text-[#8E1EA2] dark:text-[#ED96D7]">
+              <div className="mt-5 pt-3 border-t border-[#FFE5BF]/40 dark:border-[#352520] flex items-center gap-1.5 text-[11px] font-semibold text-[#F62440]">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>Verified Facility at Kurji Mor</span>
               </div>

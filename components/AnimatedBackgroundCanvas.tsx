@@ -60,8 +60,8 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
 
       const isDark = theme === 'dark' || document.documentElement.classList.contains('dark');
       
-      // Base paper tone
-      pCtx.fillStyle = isDark ? '#120718' : '#FAF7F9';
+      // Base paper tone according to Color Hunt palette
+      pCtx.fillStyle = isDark ? '#181210' : '#FFFAF3';
       pCtx.fillRect(0, 0, patternSize, patternSize);
 
       // Procedural paper grain & organic fibers
@@ -75,8 +75,8 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
         pCtx.beginPath();
         pCtx.arc(x, y, radius, 0, Math.PI * 2);
         pCtx.fillStyle = isDark 
-          ? `rgba(237, 150, 215, ${alpha})`
-          : `rgba(142, 30, 162, ${alpha * 0.7})`;
+          ? `rgba(255, 229, 191, ${alpha * 0.8})`
+          : `rgba(246, 36, 64, ${alpha * 0.35})`;
         pCtx.fill();
       }
 
@@ -93,8 +93,8 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
         pCtx.moveTo(x, y);
         pCtx.lineTo(x + Math.cos(angle) * length, y + Math.sin(angle) * length);
         pCtx.strokeStyle = isDark 
-          ? `rgba(255, 192, 222, ${alpha})`
-          : `rgba(90, 20, 110, ${alpha * 0.6})`;
+          ? `rgba(255, 229, 191, ${alpha})`
+          : `rgba(216, 27, 52, ${alpha * 0.4})`;
         pCtx.lineWidth = 0.55;
         pCtx.stroke();
       }
@@ -146,7 +146,7 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
       currentY += (targetY - currentY) * 0.06;
       hoverOpacity += ((isHovering ? 1 : 0) - hoverOpacity) * 0.05;
 
-      // Minimal hover sheen: soft ambient starlight glow around cursor
+      // Minimal hover sheen: soft ambient glow around cursor
       if (hoverOpacity > 0.01) {
         const isDark = theme === 'dark' || document.documentElement.classList.contains('dark');
         const glowRadius = width < 768 ? 90 : 140;
@@ -161,13 +161,13 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
         );
 
         if (isDark) {
-          gradient.addColorStop(0, `rgba(237, 150, 215, ${0.12 * hoverOpacity})`);
-          gradient.addColorStop(0.5, `rgba(142, 30, 162, ${0.06 * hoverOpacity})`);
-          gradient.addColorStop(1, 'rgba(18, 7, 24, 0)');
+          gradient.addColorStop(0, `rgba(246, 36, 64, ${0.1 * hoverOpacity})`);
+          gradient.addColorStop(0.5, `rgba(255, 229, 191, ${0.05 * hoverOpacity})`);
+          gradient.addColorStop(1, 'rgba(24, 18, 16, 0)');
         } else {
-          gradient.addColorStop(0, `rgba(255, 192, 222, ${0.18 * hoverOpacity})`);
-          gradient.addColorStop(0.5, `rgba(237, 150, 215, ${0.08 * hoverOpacity})`);
-          gradient.addColorStop(1, 'rgba(250, 247, 249, 0)');
+          gradient.addColorStop(0, `rgba(255, 229, 191, ${0.25 * hoverOpacity})`);
+          gradient.addColorStop(0.5, `rgba(246, 36, 64, ${0.05 * hoverOpacity})`);
+          gradient.addColorStop(1, 'rgba(255, 250, 243, 0)');
         }
 
         ctx.fillStyle = gradient;
@@ -203,8 +203,8 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
         ctx.beginPath();
         ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
         ctx.fillStyle = isDark
-          ? `rgba(255, 192, 222, ${alpha * 0.6})`
-          : `rgba(142, 30, 162, ${alpha * 0.35})`;
+          ? `rgba(255, 229, 191, ${alpha * 0.6})`
+          : `rgba(246, 36, 64, ${alpha * 0.25})`;
         ctx.fill();
       });
 

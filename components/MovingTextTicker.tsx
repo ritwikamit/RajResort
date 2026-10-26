@@ -32,11 +32,11 @@ const TICKER_ITEMS: TickerEntry[] = [
 
 export const MovingTextTicker: React.FC = () => {
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-r from-[#24062E] via-[#8E1EA2] to-[#24062E] text-white py-3 sm:py-3.5 border-y border-[#FFC0DE]/20 shadow-[0_4px_20px_rgba(142,30,162,0.25)] select-none z-20">
+    <div className="relative w-full overflow-hidden bg-gradient-to-r from-[#1E0509] via-[#F62440] to-[#1E0509] text-white py-3 sm:py-3.5 border-y border-[#FFE5BF]/30 shadow-[0_4px_20px_rgba(246,36,64,0.22)] select-none z-20">
       
       {/* Subtle edge fades for ribbon */}
-      <div className="absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#24062E] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#24062E] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#1E0509] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#1E0509] to-transparent z-10 pointer-events-none" />
 
       {/* Scrolling Track */}
       <div className="animate-marquee-left flex items-center">
@@ -45,9 +45,9 @@ export const MovingTextTicker: React.FC = () => {
           const Icon = item.icon;
           return (
             <div key={`set1-${index}`} className="flex items-center gap-3 px-6 text-xs sm:text-sm font-semibold tracking-widest whitespace-nowrap">
-              <Icon className="w-3.5 h-3.5 text-[#FFC0DE] shrink-0" />
+              <Icon className="w-3.5 h-3.5 text-[#FFE5BF] shrink-0" />
               <span className="text-white font-serif">{item.text}</span>
-              <span className="text-[#FFC0DE]/60 text-xs">•</span>
+              <span className="text-[#FFE5BF]/70 text-xs">•</span>
             </div>
           );
         })}
@@ -56,9 +56,9 @@ export const MovingTextTicker: React.FC = () => {
           const Icon = item.icon;
           return (
             <div key={`set2-${index}`} className="flex items-center gap-3 px-6 text-xs sm:text-sm font-semibold tracking-widest whitespace-nowrap">
-              <Icon className="w-3.5 h-3.5 text-[#FFC0DE] shrink-0" />
+              <Icon className="w-3.5 h-3.5 text-[#FFE5BF] shrink-0" />
               <span className="text-white font-serif">{item.text}</span>
-              <span className="text-[#FFC0DE]/60 text-xs">•</span>
+              <span className="text-[#FFE5BF]/70 text-xs">•</span>
             </div>
           );
         })}
