@@ -56,7 +56,7 @@ export const RESORT_DATA = {
     lat: 25.6391525,
     lng: 85.1102531,
   },
-  directionsLink: 'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,17z/data=!3m1!4b1!4m9!3m8!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m2!4m1!1i2!8m2!3d25.6391525!4d85.1102531',
+  directionsLink: 'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,17z/data=!4m9!3m8!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m2!4m1!1i2!8m2!3d25.6391525!4d85.1102531!16s%2Fg%2F11pvch6p79?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D',
   propertySize: '3.5 Acres',
   parkingCapacity: '400+ Cars',
   roomsCount: '25+ Rooms & Suites',
@@ -95,7 +95,7 @@ export const RESORT_DATA = {
     {
       title: 'Google Business Profile',
       category: 'directory' as const,
-      url: 'https://maps.google.com/?cid=12140407765181711246',
+      url: 'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,17z/data=!4m9!3m8!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m2!4m1!1i2!8m2!3d25.6391525!4d85.1102531!16s%2Fg%2F11pvch6p79?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D',
       badge: 'Official Map Listing',
       description: 'Customer reviews, driving directions via Marine Drive, verified photos, and reception hours.',
     },
@@ -118,7 +118,7 @@ export const RESORT_DATA = {
     {
       title: 'Google Business Profile',
       category: 'directory' as const,
-      url: 'https://maps.google.com/?cid=12140407765181711246',
+      url: 'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,17z/data=!4m9!3m8!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m2!4m1!1i2!8m2!3d25.6391525!4d85.1102531!16s%2Fg%2F11pvch6p79?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D',
       badge: 'Official Map Listing',
       description: 'Customer reviews, driving directions via Marine Drive, verified photos, and reception hours.',
     },

@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import { AnimatedBackgroundCanvas } from '@/components/AnimatedBackgroundCanvas';
 import { InitialPageLoader } from '@/components/InitialPageLoader';
 import { GlobalCookieManager } from '@/components/GlobalCookieManager';
+import { StructuredData } from '@/components/StructuredData';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -124,6 +125,11 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="192x192" href="/icon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
         <meta name="theme-color" content="#FFFAF3" />
+        <meta name="geo.position" content="25.6391525;85.1102531" />
+        <meta name="geo.placename" content="Patliputra, Patna, Bihar, India" />
+        <meta name="geo.region" content="IN-BR" />
+        <meta name="ICBM" content="25.6391525, 85.1102531" />
+        <StructuredData />
       </head>
       <body className="bg-[#FFFAF3] text-stone-900 antialiased selection:bg-[#FFE5BF] selection:text-[#F62440] transition-colors duration-300" suppressHydrationWarning>
         <ThemeProvider>
