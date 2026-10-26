@@ -50,11 +50,11 @@ export const RajResortLogo: React.FC<LogoProps> = ({
           />
         )}
 
-        {/* Wordmark typography */}
+        {/* Wordmark typography in elegant cursive */}
         <div className="flex flex-col justify-center">
           <span 
-            className={`font-serif tracking-[0.14em] font-bold uppercase leading-none transition-colors whitespace-nowrap ${
-              emblemSize >= 64 ? 'text-2xl sm:text-3xl' : emblemSize >= 48 ? 'text-lg sm:text-xl' : 'text-base sm:text-lg'
+            className={`font-cursive tracking-wide leading-tight transition-colors whitespace-nowrap ${
+              emblemSize >= 64 ? 'text-3xl sm:text-4xl' : emblemSize >= 48 ? 'text-2xl sm:text-3xl' : 'text-xl sm:text-2xl'
             } ${
               inverted ? 'text-white drop-shadow-xs' : 'text-stone-900 dark:text-stone-50'
             }`}
@@ -63,7 +63,7 @@ export const RajResortLogo: React.FC<LogoProps> = ({
           </span>
           {showSubtitle && (
             <span 
-              className={`tracking-[0.2em] sm:tracking-[0.26em] uppercase font-semibold mt-1 transition-colors whitespace-nowrap ${
+              className={`tracking-[0.2em] sm:tracking-[0.26em] uppercase font-semibold mt-0.5 transition-colors whitespace-nowrap ${
                 emblemSize >= 64 ? 'text-[11px] sm:text-xs' : 'text-[9px] sm:text-[10px]'
               } ${
                 inverted ? 'text-stone-300 drop-shadow-xs' : 'text-[#F62440] dark:text-[#FFE5BF]'

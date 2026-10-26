@@ -63,16 +63,10 @@ export const InitialPageLoader: React.FC = () => {
           className="scale-110 sm:scale-125 transition-transform"
         />
 
-        {/* Elegant Animated Loading Bar & Indicator */}
-        <div className="mt-10 flex flex-col items-center gap-3">
-          <div className="w-48 sm:w-56 h-1 bg-[#FFE5BF] dark:bg-[#352520] rounded-full overflow-hidden">
-            <div className="h-full w-full bg-gradient-to-r from-[#F62440] via-[#FF5E74] to-[#D81B34] rounded-full animate-pulse" />
-          </div>
-
-          <p className="font-serif italic text-xs tracking-[0.25em] text-[#F62440] dark:text-[#FFE5BF] uppercase font-semibold">
-            Loading...
-          </p>
-        </div>
+        {/* Just Loading... text */}
+        <p className="mt-8 font-serif italic text-xs tracking-[0.25em] text-[#F62440] dark:text-[#FFE5BF] uppercase font-semibold animate-pulse">
+          Loading...
+        </p>
       </div>
     </div>
   );
