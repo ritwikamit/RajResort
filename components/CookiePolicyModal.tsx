@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { X, Cookie, ShieldCheck, Check } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { X, Cookie, ShieldCheck, Check, Sparkles } from 'lucide-react';
 
 interface CookiePolicyModalProps {
   isOpen: boolean;
@@ -9,13 +9,25 @@ interface CookiePolicyModalProps {
   onAcceptAll?: () => void;
 }
 
+const COOKIE_STORAGE_KEY = 'raj_resort_cookies_accepted';
+
 export const CookiePolicyModal: React.FC<CookiePolicyModalProps> = ({
   isOpen,
   onClose,
   onAcceptAll,
 }) => {
+  const [currentPreference, setCurrentPreference] = useState<string | null>(null);
+  const [savedMessage, setSavedMessage] = useState<string | null>(null);
+
   useEffect(() => {
     if (!isOpen) return;
+    try {
+      const stored = localStorage.getItem(COOKIE_STORAGE_KEY);
+      setCurrentPreference(stored);
+    } catch {
+      // Ignore
+    }
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
@@ -25,30 +37,52 @@ export const CookiePolicyModal: React.FC<CookiePolicyModalProps> = ({
 
   if (!isOpen) return null;
 
+  const handleSavePreference = (pref: 'all' | 'essential') => {
+    try {
+      localStorage.setItem(COOKIE_STORAGE_KEY, pref);
+      document.cookie = `${COOKIE_STORAGE_KEY}=${pref}; path=/; max-age=31536000; SameSite=Lax`;
+      window.dispatchEvent(new Event('cookie_consent_updated'));
+    } catch {
+      // Ignore
+    }
+
+    setCurrentPreference(pref);
+    setSavedMessage(pref === 'all' ? 'All cookies accepted successfully!' : 'Essential preferences saved.');
+    if (onAcceptAll && pref === 'all') {
+      onAcceptAll();
+    }
+
+    setTimeout(() => {
+      setSavedMessage(null);
+      onClose();
+    }, 600);
+  };
+
   return (
     <div
       role="dialog"
       aria-modal="true"
       aria-labelledby="cookie-policy-title"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-stone-950/80 p-4 sm:p-6 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md p-4 sm:p-6 animate-in fade-in duration-200"
     >
-      <div className="relative max-w-2xl w-full bg-white/95 dark:bg-stone-900/95 backdrop-blur-2xl border border-white/90 dark:border-stone-700 p-4 sm:p-8 text-stone-800 dark:text-stone-200 shadow-2xl rounded-2xl sm:rounded-3xl max-h-[88vh] overflow-y-auto">
+      <div className="relative max-w-2xl w-full bg-[#FFFAF3] dark:bg-[#1E1714] border border-[#FFE5BF] dark:border-[#352520] p-5 sm:p-8 text-stone-800 dark:text-stone-200 shadow-2xl rounded-2xl sm:rounded-3xl max-h-[90vh] overflow-y-auto">
         
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close cookie policy"
-          className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:text-[#99141A] dark:hover:text-rose-400 rounded-xl transition-colors cursor-pointer"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 border border-[#FFE5BF] dark:border-[#352520] bg-white dark:bg-[#251B17] text-stone-700 dark:text-stone-300 hover:text-[#F62440] dark:hover:text-[#F62440] rounded-xl transition-colors cursor-pointer"
         >
           <X className="w-4 h-4" />
         </button>
 
-        <div className="flex items-center gap-3 pb-4 border-b border-stone-200 dark:border-stone-800 mb-6">
-          <div className="p-2.5 bg-[#99141A]/10 dark:bg-rose-950/40 text-[#99141A] dark:text-rose-400 rounded-xl">
-            <Cookie className="w-5 h-5" />
+        {/* Modal Header */}
+        <div className="flex items-center gap-3 pb-4 border-b border-[#FFE5BF] dark:border-[#352520] mb-5">
+          <div className="p-2.5 bg-[#FFF2DB] dark:bg-[#2C1F1B] text-[#F62440] rounded-xl border border-[#FFE5BF] dark:border-[#3E2C26]">
+            <Cookie className="w-6 h-6" />
           </div>
           <div>
-            <h2 id="cookie-policy-title" className="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">
+            <h2 id="cookie-policy-title" className="font-serif text-2xl font-bold text-stone-900 dark:text-stone-50">
               Cookie & Data Storage Policy
             </h2>
             <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
@@ -57,14 +91,23 @@ export const CookiePolicyModal: React.FC<CookiePolicyModalProps> = ({
           </div>
         </div>
 
-        <div className="space-y-4 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
+        {/* Saved confirmation toast */}
+        {savedMessage && (
+          <div className="mb-4 p-3 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 rounded-xl text-xs font-semibold flex items-center gap-2 animate-in fade-in">
+            <Check className="w-4 h-4 text-emerald-600" />
+            <span>{savedMessage}</span>
+          </div>
+        )}
+
+        {/* Content Body */}
+        <div className="space-y-4 text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-relaxed font-sans">
           <p>
             Welcome to <strong className="text-stone-900 dark:text-stone-100">Raj Resort Patna</strong>. 
             We value your privacy and believe in total transparency regarding how data and local storage are utilized on our official website.
           </p>
 
           <h3 className="font-serif text-base font-semibold text-stone-900 dark:text-stone-100 pt-2 flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-[#99141A] dark:text-rose-400" />
+            <ShieldCheck className="w-4 h-4 text-[#F62440]" />
             <span>1. What Are Cookies and Local Storage?</span>
           </h3>
           <p>
@@ -77,7 +120,7 @@ export const CookiePolicyModal: React.FC<CookiePolicyModalProps> = ({
           </h3>
           
           <div className="space-y-2.5 pt-1">
-            <div className="p-3.5 bg-stone-50 dark:bg-stone-800/60 rounded-xl border border-stone-200 dark:border-stone-700">
+            <div className="p-3.5 bg-white dark:bg-[#251B17] rounded-xl border border-[#FFE5BF] dark:border-[#352520]">
               <div className="font-bold text-stone-900 dark:text-stone-100 text-xs sm:text-sm mb-1 flex items-center gap-1.5">
                 <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span>Strictly Necessary & Functional Preferences</span>
@@ -87,42 +130,55 @@ export const CookiePolicyModal: React.FC<CookiePolicyModalProps> = ({
               </p>
             </div>
 
-            <div className="p-3.5 bg-stone-50 dark:bg-stone-800/60 rounded-xl border border-stone-200 dark:border-stone-700">
+            <div className="p-3.5 bg-white dark:bg-[#251B17] rounded-xl border border-[#FFE5BF] dark:border-[#352520]">
               <div className="font-bold text-stone-900 dark:text-stone-100 text-xs sm:text-sm mb-1 flex items-center gap-1.5">
                 <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span>External Portals & Third-Party Cookies</span>
+                <span>External Portals & Third-Party Services</span>
               </div>
               <p className="text-xs text-stone-600 dark:text-stone-400">
-                When you click to book rooms via certified partners (such as MakeMyTrip, Agoda, or Guest Reservations) or open Google Maps, their independent privacy and cookie policies govern those services.
+                When you click to connect via WhatsApp or open Google Maps navigation, their independent privacy and cookie policies govern those respective services.
               </p>
             </div>
           </div>
 
           <h3 className="font-serif text-base font-semibold text-stone-900 dark:text-stone-100 pt-2">
-            3. Managing Your Preferences
+            3. Current Status & Controls
           </h3>
-          <p>
-            You have full control over your preferences. You can accept all cookies, choose essential storage only, or clear your browser cache and cookies at any time through your browser settings.
-          </p>
+          <div className="p-3 bg-[#FFF2DB]/60 dark:bg-[#281E19] rounded-xl border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-between text-xs">
+            <span>Your current preference:</span>
+            <span className="font-bold text-[#F62440] uppercase tracking-wider">
+              {currentPreference === 'all' 
+                ? 'All Cookies Accepted' 
+                : currentPreference === 'essential' 
+                ? 'Essential Storage Only' 
+                : 'Not Yet Decided'}
+            </span>
+          </div>
 
-          <div className="pt-4 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row items-center justify-end gap-3">
+          {/* Action Buttons */}
+          <div className="pt-4 border-t border-[#FFE5BF] dark:border-[#352520] flex flex-col sm:flex-row items-center justify-end gap-2.5">
             <button
+              type="button"
               onClick={onClose}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-200 hover:text-[#99141A] text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
+              className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-[#FFE5BF] dark:border-[#352520] bg-white dark:bg-[#251B17] text-stone-700 dark:text-stone-200 hover:text-[#F62440] text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
             >
               Close
             </button>
-            {onAcceptAll && (
-              <button
-                onClick={() => {
-                  onAcceptAll();
-                  onClose();
-                }}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl btn-red-gradient text-xs font-semibold uppercase tracking-wider text-white shadow-md cursor-pointer"
-              >
-                Accept All Cookies
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => handleSavePreference('essential')}
+              className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-[#FFE5BF] dark:border-[#352520] bg-[#FFF2DB] hover:bg-[#FFE5BF] dark:bg-[#2A1E19] text-stone-900 dark:text-stone-100 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              Essential Only
+            </button>
+            <button
+              type="button"
+              onClick={() => handleSavePreference('all')}
+              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#F62440] to-[#D81B34] hover:from-[#E01A35] hover:to-[#BF132A] text-xs font-semibold uppercase tracking-wider text-white shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer flex items-center justify-center gap-1.5"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Accept All Cookies</span>
+            </button>
           </div>
         </div>
 

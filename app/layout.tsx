@@ -4,6 +4,7 @@ import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { AnimatedBackgroundCanvas } from '@/components/AnimatedBackgroundCanvas';
 import { InitialPageLoader } from '@/components/InitialPageLoader';
+import { GlobalCookieManager } from '@/components/GlobalCookieManager';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -129,6 +130,7 @@ export default function RootLayout({
           <InitialPageLoader />
           <AnimatedBackgroundCanvas />
           {children}
+          <GlobalCookieManager />
         </ThemeProvider>
       </body>
     </html>

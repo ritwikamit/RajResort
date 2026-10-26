@@ -15,7 +15,6 @@ import { OtherListingsSection } from '@/components/OtherListingsSection';
 import { Footer } from '@/components/Footer';
 import { PrivacyPolicyModal } from '@/components/PrivacyPolicyModal';
 import { CookiePolicyModal } from '@/components/CookiePolicyModal';
-import { CookieConsentBanner } from '@/components/CookieConsentBanner';
 import { FloatingActions } from '@/components/FloatingActions';
 import { MobileStickyBar } from '@/components/MobileStickyBar';
 
@@ -154,11 +153,6 @@ export default function Home() {
             // Ignore
           }
         }}
-      />
-
-      {/* Cookie Consent Banner */}
-      <CookieConsentBanner
-        onOpenPolicy={() => setCookiePolicyOpen(true)}
       />
 
       {/* Floating Concierge Chatbot & Scroll Action */}

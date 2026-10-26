@@ -219,14 +219,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
               <span>Privacy Notice & Terms</span>
             </button>
             
-            {onOpenCookies && (
+            {onOpenCookies ? (
               <button
+                type="button"
                 onClick={onOpenCookies}
                 className="hover:text-[#F62440] transition-colors underline underline-offset-4 cursor-pointer inline-flex items-center gap-1.5"
               >
                 <Cookie className="w-3.5 h-3.5 text-[#F62440]" />
                 <span>Cookies Policy</span>
               </button>
+            ) : (
+              <Link
+                href="/cookies"
+                className="hover:text-[#F62440] transition-colors underline underline-offset-4 inline-flex items-center gap-1.5"
+              >
+                <Cookie className="w-3.5 h-3.5 text-[#F62440]" />
+                <span>Cookies Policy</span>
+              </Link>
             )}
 
             <Link

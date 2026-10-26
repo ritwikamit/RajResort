@@ -41,6 +41,16 @@ const nextConfig: NextConfig = {
         destination: 'https://rajresortpatna.com/:path*',
         permanent: true,
       },
+      {
+        source: '/cookie',
+        destination: '/cookies',
+        permanent: true,
+      },
+      {
+        source: '/cookie-policy',
+        destination: '/cookies',
+        permanent: true,
+      },
     ];
   },
   transpilePackages: ['motion'],
