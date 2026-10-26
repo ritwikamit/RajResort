@@ -177,20 +177,28 @@ export const FloatingActions: React.FC = () => {
           <ArrowUp className="w-4 h-4 text-[#F62440] group-hover:-translate-y-0.5 transition-transform" />
         </button>
 
-        {/* Minimal Chatbot Trigger Button */}
+        {/* Chatbot Trigger Button with Receptionist DP */}
         <button
           onClick={() => setChatOpen(!chatOpen)}
           aria-label="Open Resort Assistant Chat"
-          title="Chat with Reception"
-          className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-white dark:bg-[#221A16] hover:bg-[#FFF2DB] dark:hover:bg-[#2D221D] shadow-[0_4px_16px_rgba(246,36,64,0.18)] transition-all duration-200 hover:scale-105 active:scale-95 border-2 border-[#F62440] cursor-pointer text-[#F62440]"
+          title="Chat with Receptionist"
+          className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden flex items-center justify-center bg-[#F62440] shadow-[0_4px_16px_rgba(246,36,64,0.3)] transition-all duration-200 hover:scale-105 active:scale-95 border-2 border-white dark:border-[#221A16] cursor-pointer"
         >
           {chatOpen ? (
-            <X className="w-5 h-5 text-[#F62440]" />
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-r from-[#F62440] to-[#D81B34] text-white">
+              <X className="w-5 h-5 text-white" />
+            </div>
           ) : (
             <>
-              <MessageSquare className="w-5 h-5 text-[#F62440]" />
+              <Image
+                src="/images/receptionist-avatar.jpg"
+                alt="Chat with Receptionist"
+                fill
+                sizes="48px"
+                className="object-cover object-top"
+              />
               {/* Online Green Indicator */}
-              <span className="absolute top-0.5 right-0.5 w-2.5 h-2.5 bg-emerald-500 border border-white dark:border-[#221A16] rounded-full" />
+              <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full z-10" />
             </>
           )}
         </button>
@@ -206,23 +214,24 @@ export const FloatingActions: React.FC = () => {
           {/* Minimal Elegant Header in Color Hunt Palette */}
           <div className="p-3.5 sm:p-4 bg-gradient-to-r from-[#F62440] to-[#D81B34] text-white flex items-center justify-between shrink-0 shadow-sm">
             <div className="flex items-center gap-2.5">
-              <div className="relative w-9 h-9 rounded-full overflow-hidden border border-white/40 shadow-xs shrink-0 bg-white p-0.5">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white/70 shadow-md shrink-0 bg-[#F62440]">
                 <Image
-                  src="/favicon.png"
-                  alt="Raj Resort Official Emblem"
+                  src="/images/receptionist-avatar.jpg"
+                  alt="Raj Resort Receptionist"
                   fill
-                  sizes="36px"
-                  className="object-contain"
+                  sizes="40px"
+                  className="object-cover object-top"
                 />
+                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-white rounded-full z-10" />
               </div>
               <div>
                 <h2 className="text-sm font-bold leading-tight flex items-center gap-1.5">
-                  <span>Raj Resort Desk</span>
+                  <span>Priya · Front Desk</span>
                   <span className="text-[10px] font-normal px-1.5 py-0.5 rounded-full bg-white/20 text-[#FFE5BF]">Reception</span>
                 </h2>
                 <div className="flex items-center gap-1.5 text-[11px] text-[#FFE5BF] mt-0.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  <span>Online · Kurji Mor, Patna</span>
+                  <span>Online · Raj Resort, Kurji Mor</span>
                 </div>
               </div>
             </div>
@@ -243,23 +252,45 @@ export const FloatingActions: React.FC = () => {
             {messages.map((m) => (
               <div
                 key={m.id}
-                className={`flex flex-col ${m.sender === 'user' ? 'items-end' : 'items-start'}`}
+                className={`flex gap-2 ${m.sender === 'user' ? 'justify-end' : 'justify-start items-start'}`}
               >
-                <div
-                  className={`p-3 rounded-2xl max-w-[88%] leading-relaxed whitespace-pre-line ${
-                    m.sender === 'user'
-                      ? 'bg-gradient-to-r from-[#F62440] to-[#D81B34] text-white rounded-br-none shadow-sm'
-                      : 'bg-white dark:bg-[#251B17] text-stone-900 dark:text-stone-100 border border-[#FFE5BF] dark:border-[#352520] rounded-bl-none shadow-xs'
-                  }`}
-                >
-                  {m.text}
+                {m.sender === 'bot' && (
+                  <div className="relative w-6 h-6 rounded-full overflow-hidden border border-[#FFE5BF] shrink-0 mt-0.5 shadow-xs bg-[#F62440]">
+                    <Image
+                      src="/images/receptionist-avatar.jpg"
+                      alt="Receptionist DP"
+                      fill
+                      sizes="24px"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                )}
+                <div className={`flex flex-col ${m.sender === 'user' ? 'items-end' : 'items-start'} max-w-[86%]`}>
+                  <div
+                    className={`p-3 rounded-2xl leading-relaxed whitespace-pre-line ${
+                      m.sender === 'user'
+                        ? 'bg-gradient-to-r from-[#F62440] to-[#D81B34] text-white rounded-br-none shadow-sm'
+                        : 'bg-white dark:bg-[#251B17] text-stone-900 dark:text-stone-100 border border-[#FFE5BF] dark:border-[#352520] rounded-bl-none shadow-xs'
+                    }`}
+                  >
+                    {m.text}
+                  </div>
+                  <span className="text-[10px] text-stone-400 dark:text-stone-500 mt-1 px-1">{m.time}</span>
                 </div>
-                <span className="text-[10px] text-stone-400 dark:text-stone-500 mt-1 px-1">{m.time}</span>
               </div>
             ))}
 
             {isThinking && (
-              <div className="flex flex-col items-start animate-in fade-in duration-200">
+              <div className="flex gap-2 items-start animate-in fade-in duration-200">
+                <div className="relative w-6 h-6 rounded-full overflow-hidden border border-[#FFE5BF] shrink-0 mt-0.5 shadow-xs bg-[#F62440]">
+                  <Image
+                    src="/images/receptionist-avatar.jpg"
+                    alt="Receptionist DP"
+                    fill
+                    sizes="24px"
+                    className="object-cover object-top"
+                  />
+                </div>
                 <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#251B17] text-stone-600 dark:text-stone-300 border border-[#FFE5BF] dark:border-[#352520] rounded-bl-none shadow-xs flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F62440] animate-bounce" />
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F62440] animate-bounce [animation-delay:0.2s]" />
