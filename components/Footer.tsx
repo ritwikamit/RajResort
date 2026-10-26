@@ -209,12 +209,21 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
 
           <div className="flex items-center justify-center gap-1.5 text-xs text-stone-600 dark:text-stone-400">
             <span>Designed and Developed by</span>
+            {/* Light Mode: AC and Labs in crisp Black */}
             <Image
               src="/images/accustomlabs-logo.png"
               alt="ACCustomLabs"
               width={105}
               height={18}
-              className="h-3.5 sm:h-4 w-auto object-contain inline-block align-middle opacity-90 hover:opacity-100 transition-opacity"
+              className="h-3.5 sm:h-4 w-auto object-contain inline-block align-middle dark:hidden opacity-90 hover:opacity-100 transition-opacity"
+            />
+            {/* Dark Mode: AC and Labs in White */}
+            <Image
+              src="/images/accustomlabs-logo-dark.png"
+              alt="ACCustomLabs"
+              width={105}
+              height={18}
+              className="h-3.5 sm:h-4 w-auto object-contain hidden dark:inline-block align-middle opacity-90 hover:opacity-100 transition-opacity"
             />
           </div>
 
