@@ -38,11 +38,35 @@
     font-family: var(--font-cursive), "Great Vibes", cursive;
   }
 
-  /* Instant tap responsiveness eliminating 300ms mobile touch delay */
+  /* Instant tap responsiveness eliminating 300ms mobile touch delay & scrollbar removal */
   html, body {
     overflow-x: hidden;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    display: none;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+    display: none;
   }
 
   button, a, [role="button"], input, select, textarea {
@@ -51,7 +75,7 @@
   }
 }
 
-/* Hide scrollbar utility for clean horizontal swipe on mobile */
+/* Hide scrollbar utility */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
