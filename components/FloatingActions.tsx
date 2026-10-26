@@ -65,15 +65,20 @@ export const FloatingActions: React.FC = () => {
     if (!textToSend) setInputMessage('');
     setIsThinking(true);
 
+    const history = messages.slice(-5).map((m) => ({
+      role: m.sender === 'user' ? 'user' : 'assistant',
+      content: m.text,
+    }));
+
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: query }),
+        body: JSON.stringify({ message: query, history }),
       });
 
       const data = await res.json();
-      const botReply = data.reply || "Namaste! For immediate assistance, please call our front desk at +91 7360800001 or WhatsApp us below.";
+      const botReply = data.reply || "For immediate assistance, please call our front desk at +91 7360800001 or message on WhatsApp.";
 
       setMessages((prev) => [
         ...prev,
@@ -90,7 +95,7 @@ export const FloatingActions: React.FC = () => {
         {
           id: (Date.now() + 1).toString(),
           sender: 'bot',
-          text: "Namaste! Our reception team is available 24/7 at Kurji Mor, Patliputra. Please call us at +91 7360800001 or message on WhatsApp.",
+          text: "Our reception team is available daily at Kurji Mor, Patliputra. Please call us at +91 7360800001 or message on WhatsApp.",
           time: 'Just now',
         },
       ]);
