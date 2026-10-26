@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { GallerySection } from '@/components/GallerySection';
+import { InstagramReelsSection } from '@/components/InstagramReelsSection';
 import { Footer } from '@/components/Footer';
 import { PrivacyPolicyModal } from '@/components/PrivacyPolicyModal';
 import { CookiePolicyModal } from '@/components/CookiePolicyModal';
@@ -56,6 +57,16 @@ export default function GalleryPage() {
 
       <main className="flex-1">
         <GallerySection isLandingPage={false} />
+        
+        {/* Instagram Reels Video Gallery */}
+        <section className="py-16 sm:py-20 bg-[#FFFAF3] dark:bg-[#181210] border-t border-[#FFE5BF]/60 dark:border-[#352520] transition-colors duration-300">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <InstagramReelsSection
+              title="Featured Wedding Reels & Live Highlights"
+              subtitle="Watch real couples, baraat arrivals, and evening celebrations filmed at Raj Resort Patna."
+            />
+          </div>
+        </section>
       </main>
 
       <Footer
