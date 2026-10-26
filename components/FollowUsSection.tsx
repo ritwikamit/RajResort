@@ -3,32 +3,24 @@
 import React from 'react';
 import { ExternalLink as ExternalLinkIcon, Instagram, Facebook, Youtube } from 'lucide-react';
 import { RESORT_DATA } from '@/data/resort-data';
-import { InstagramReelsSection } from '@/components/InstagramReelsSection';
 
 export const FollowUsSection: React.FC = () => {
   return (
     <section className="py-16 sm:py-20 bg-[#FFFAF3] dark:bg-[#181210] text-stone-900 dark:text-stone-100 border-t border-[#FFE5BF] dark:border-[#352520] transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Featured Instagram Reels Section */}
-        <InstagramReelsSection
-          title="Watch Real Weddings & Viral Reels"
-          subtitle="Real baraat entries, breathtaking 3.5-acre lawn decor, mandap vows, and celebration stories filmed live at Raj Resort, Patna."
-        />
-
-        {/* Social Channels Directory */}
-        <div className="mt-16 sm:mt-20 pt-12 border-t border-[#FFE5BF]/60 dark:border-[#352520]">
-          <div className="text-center max-w-xl mx-auto mb-8">
-            <span className="font-cursive text-2xl sm:text-3xl text-[#F62440] tracking-wide block mb-1">
-              Stay Connected
-            </span>
-            <h3 className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-              Follow Us on Official Social Channels
-            </h3>
-            <p className="mt-1.5 text-stone-600 dark:text-stone-400 text-xs sm:text-sm font-sans font-normal">
-              Connect with our team across Instagram, Facebook, and YouTube for daily updates and wedding planning guides.
-            </p>
-          </div>
+        {/* Social Channels Directory Header */}
+        <div className="text-center max-w-xl mx-auto mb-10">
+          <span className="font-cursive text-3xl sm:text-4xl text-[#F62440] tracking-wide block mb-1">
+            Stay Connected
+          </span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
+            Follow Us on Official Social Channels
+          </h2>
+          <p className="mt-2 text-stone-600 dark:text-stone-400 text-sm font-sans font-normal leading-relaxed">
+            Connect with our team across Instagram, Facebook, and YouTube for setup sneak peeks, banquet tours, and wedding planning guides.
+          </p>
+        </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {RESORT_DATA.socialLinks.map((social) => {
@@ -68,8 +60,6 @@ export const FollowUsSection: React.FC = () => {
             })}
           </div>
         </div>
-
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  };

@@ -6,6 +6,7 @@ import { HeroSection } from '@/components/HeroSection';
 import { MovingTextTicker } from '@/components/MovingTextTicker';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { WeddingVenuesSection } from '@/components/WeddingVenuesSection';
+import { InstagramReelsSection } from '@/components/InstagramReelsSection';
 import { GallerySection } from '@/components/GallerySection';
 import { FacilitiesSection } from '@/components/FacilitiesSection';
 import { GoogleMapsSection } from '@/components/GoogleMapsSection';
@@ -43,7 +44,12 @@ export default function Home() {
           <WeddingVenuesSection />
         </ScrollReveal>
 
-        {/* Real Celebration Photo Gallery - 100% Distinct Photos (12 on Landing Page) */}
+        {/* Watch Real Weddings & Viral Reels (Above Moments We Are Blessed to Host) */}
+        <ScrollReveal>
+          <InstagramReelsSection />
+        </ScrollReveal>
+
+        {/* Real Celebration Photo Gallery - Moments We Are Blessed to Host */}
         <ScrollReveal>
           <GallerySection isLandingPage={true} />
         </ScrollReveal>
