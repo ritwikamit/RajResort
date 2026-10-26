@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { ArrowUp, X, Send, Phone, MessageSquare } from 'lucide-react';
 import { RESORT_DATA } from '@/data/resort-data';
@@ -20,6 +20,8 @@ export const FloatingActions: React.FC = () => {
   const [chatOpen, setChatOpen] = useState(false);
   const [inputMessage, setInputMessage] = useState('');
   const [isThinking, setIsThinking] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const mounted = useIsMounted();
   const { theme } = useTheme();
 
@@ -27,10 +29,27 @@ export const FloatingActions: React.FC = () => {
     {
       id: '1',
       sender: 'bot',
-      text: 'Namaste! Welcome to Raj Resort Patna reception desk. We are here exclusively to assist your family with wedding celebrations:\n\n• The Starlit Celebration Lawn (1,200+ guests)\n• The Shahi Darbar AC Banquet Hall (150-500 guests)\n• Checking auspicious wedding date availability\n• Arranging an in-person venue visit at Kurji Mor\n\nHow may we help your family today?',
+      text: 'Welcome to Raj Resort Patna reception desk. We are here exclusively to assist your family with wedding celebrations:\n\n• The Starlit Celebration Lawn (1,200+ guests)\n• The Shahi Darbar AC Banquet Hall (150-500 guests)\n• Checking auspicious wedding date availability\n• Arranging an in-person venue visit at Kurji Mor\n\nHow may we help your family today?',
       time: 'Just now',
     },
   ]);
+
+  const scrollToBottom = (behavior: ScrollBehavior = 'smooth') => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior, block: 'end' });
+    }
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
+  };
+
+  useEffect(() => {
+    if (chatOpen) {
+      scrollToBottom('smooth');
+      const timer = setTimeout(() => scrollToBottom('smooth'), 120);
+      return () => clearTimeout(timer);
+    }
+  }, [messages, isThinking, chatOpen]);
 
   // Handle scroll progress
   useEffect(() => {
@@ -217,7 +236,10 @@ export const FloatingActions: React.FC = () => {
           </div>
 
           {/* Chat Messages */}
-          <div className="p-3 sm:p-4 flex-1 min-h-[160px] max-h-[42vh] sm:max-h-[290px] overflow-y-auto space-y-3 bg-[#FFFAF3] dark:bg-[#181210] text-xs">
+          <div 
+            ref={messagesContainerRef}
+            className="p-3 sm:p-4 flex-1 min-h-[160px] max-h-[42vh] sm:max-h-[290px] overflow-y-auto space-y-3 bg-[#FFFAF3] dark:bg-[#181210] text-xs scroll-smooth"
+          >
             {messages.map((m) => (
               <div
                 key={m.id}
@@ -246,6 +268,9 @@ export const FloatingActions: React.FC = () => {
                 </div>
               </div>
             )}
+            
+            {/* Auto scroll anchor */}
+            <div ref={messagesEndRef} className="h-0 w-full" />
           </div>
 
           {/* Quick Action Suggestion Pills */}
