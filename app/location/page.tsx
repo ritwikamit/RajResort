@@ -25,11 +25,12 @@ export default function LocationPage() {
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full fade-sides-mask">
             <Image
-              src="/images/venue-02.jpg"
+              src="/images/dedicated-pages/Location&mapsHero.webp"
               alt="Raj Resort Patna Arrival and Location Landscape"
               fill
               priority
-              className="object-cover object-center"
+              sizes="100vw"
+              className="object-cover object-[center_25%]"
             />
             {/* Soft Ambient Scrim */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/70 pointer-events-none" />

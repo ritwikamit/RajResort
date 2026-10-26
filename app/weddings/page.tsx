@@ -28,11 +28,12 @@ export default function WeddingsPage() {
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full fade-sides-mask">
             <Image
-              src="/images/landingpage3.png"
+              src="/images/dedicated-pages/Wedding&LawnHero.webp"
               alt="Raj Resort Patna Grand Wedding Lawns Landscape"
               fill
               priority
-              className="object-cover object-center"
+              sizes="100vw"
+              className="object-cover object-[center_45%]"
             />
             {/* Scrim Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/70 pointer-events-none" />

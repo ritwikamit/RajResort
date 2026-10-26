@@ -26,11 +26,12 @@ export default function GalleryPage() {
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full fade-sides-mask">
             <Image
-              src="/images/venue-28.jpg"
+              src="/images/dedicated-pages/GallaryHero.webp"
               alt="Raj Resort Patna Wedding Ceremony Gallery Landscape"
               fill
               priority
-              className="object-cover object-center"
+              sizes="100vw"
+              className="object-cover object-[center_15%]"
             />
             {/* Scrim */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/70 pointer-events-none" />
