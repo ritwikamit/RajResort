@@ -13,3 +13,4 @@ coverage/
 # Ensure all public assets are tracked
 !public/
 !public/images/**
+*-orig.mp4

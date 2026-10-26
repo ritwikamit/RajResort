@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Users, ShieldCheck, MapPin, Sparkles, UtensilsCrossed } from 'lucide-react';
 import { RESORT_DATA } from '@/data/resort-data';
@@ -9,21 +10,34 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="relative min-h-[100dvh] flex flex-col justify-center items-center overflow-hidden pt-20 pb-8 sm:pt-28 sm:pb-16 select-none">
       
-      {/* Background Video: LandingHeroSection.mp4 */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* Background Media: Instant WebP Poster + Faststart Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+        {/* Instant High-Priority LCP Poster Image (Paints in <50ms) */}
+        <Image
+          src="/images/hero-poster.webp"
+          alt="Raj Resort Patna Luxury Wedding Venue"
+          fill
+          priority
+          sizes="100vw"
+          quality={85}
+          className="object-cover object-center"
+        />
+
+        {/* Seamless Faststart Video Overlay */}
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-cover object-center"
+          poster="/images/hero-poster.webp"
+          className="relative z-[1] w-full h-full object-cover object-center"
         >
           <source src="/LandingHeroSection.mp4" type="video/mp4" />
         </video>
 
         {/* Ambient Film Scrim */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black/75 pointer-events-none" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/65 via-black/45 to-black/75 pointer-events-none" />
       </div>
 
       {/* Lateral Side Edge Fades */}
