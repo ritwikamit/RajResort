@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   ShieldCheck, 
   Cookie, 
@@ -206,9 +207,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
             © {new Date().getFullYear()} Raj Resort Patna. All rights reserved.
           </p>
 
-          <p className="text-xs sm:text-sm font-medium text-stone-800 dark:text-stone-200">
-            Designed and Developed by <span className="text-[#F62440] font-bold">ACCustomLabs</span>
-          </p>
+          <div className="flex items-center justify-center gap-1.5 text-xs text-stone-600 dark:text-stone-400">
+            <span>Designed and Developed by</span>
+            <Image
+              src="/images/accustomlabs-logo.png"
+              alt="ACCustomLabs"
+              width={105}
+              height={18}
+              className="h-3.5 sm:h-4 w-auto object-contain inline-block align-middle opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-stone-700 dark:text-stone-400 pt-3">
             <button
