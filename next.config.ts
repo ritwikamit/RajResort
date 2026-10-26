@@ -28,6 +28,21 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'wedding.rajresortpatna.com',
+          },
+        ],
+        destination: 'https://rajresortpatna.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
   transpilePackages: ['motion'],
   webpack: (config, {dev}) => {
     if (dev && process.env.DISABLE_HMR === 'true') {

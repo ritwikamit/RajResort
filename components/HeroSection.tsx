@@ -50,14 +50,17 @@ export const HeroSection: React.FC = () => {
           <span>Kurji Mor · Patliputra · Patna</span>
         </div>
 
-        {/* Grand Headline */}
-        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white max-w-3xl leading-[1.12] drop-shadow-lg">
-          A Beautiful Beginning for the People You Love Most
+        {/* Grand Headline - SEO Optimized for Best Resort in Patna */}
+        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white max-w-4xl leading-[1.14] drop-shadow-lg">
+          Best Wedding Resort in Patna
+          <span className="block text-xl sm:text-3xl md:text-4xl font-normal text-[#FFE5BF] mt-1.5 font-serif italic">
+            A Beautiful Beginning for the People You Love Most
+          </span>
         </h1>
 
-        {/* Emotional Family Narrative */}
+        {/* Emotional Family Narrative with Core Keywords */}
         <p className="mt-3 sm:mt-4 text-stone-200 text-xs sm:text-base max-w-2xl leading-relaxed font-sans font-normal drop-shadow-md">
-          A wedding is the day all your loved ones gather in one place to bless your new journey. At <strong className="text-white font-semibold">Raj Resort</strong> near Kurji Mor in Patna, we offer an open green lawn, warm lights, and caring hospitality so you and your family can truly enjoy every single moment.
+          Recognized as the premier wedding resort and grand marriage lawn in Patna, <strong className="text-white font-semibold">Raj Resort</strong> near Kurji Mor, Patliputra offers starlit open-air lawns, royal banquet halls, illuminated floral pergolas, and warm hospitality so your family can celebrate every blessed moment together.
         </p>
 
         {/* Refined Action Buttons - Premium Color Hunt Palette */}
