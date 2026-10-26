@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { RESORT_DATA } from '@/data/resort-data';
 
 const SYSTEM_PROMPT = `You are the warm, polite, and caring digital reception concierge at Raj Resort Patna (located at Near Gate No. 62, Kurji Mor, Patliputra, Patna, Bihar 800010).
 
@@ -117,6 +116,27 @@ Please share your expected wedding date and approximate guest count, and we will
 • You can ask me about lawn capacity, banquet halls, parking, or scheduling a visit to Kurji Mor!`;
 }
 
+async function requestOpenRouter(apiKey: string, query: string, model: string) {
+  return await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey.replace(/['"]/g, '').trim()}`,
+      'HTTP-Referer': 'https://rajresortpatna.com',
+      'X-Title': 'Raj Resort Patna Concierge',
+    },
+    body: JSON.stringify({
+      model: model,
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPT },
+        { role: 'user', content: query },
+      ],
+      temperature: 0.4,
+      max_tokens: 450,
+    }),
+  });
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -126,48 +146,59 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ reply: 'Please provide a question about Raj Resort Patna.' }, { status: 400 });
     }
 
-    const apiKey = process.env.Openrouter_API || process.env.OPENROUTER_API_KEY;
+    // Support all casing variants of the OpenRouter API key
+    const rawApiKey = 
+      process.env.Openrouter_API || 
+      process.env.OPENROUTER_API || 
+      process.env.OPENROUTER_API_KEY || 
+      process.env.openrouter_api ||
+      process.env.NEXT_PUBLIC_OPENROUTER_API;
 
-    if (!apiKey) {
-      // Graceful intelligent fallback if key is not configured locally
+    if (!rawApiKey) {
+      console.warn('Chatbot: OpenRouter API key not configured in environment variables');
       return NextResponse.json({ reply: generateFallbackResponse(query) });
     }
 
-    // Call OpenRouter API with Gemini 2.0 Flash or Llama 3.3
-    const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey.trim()}`,
-        'HTTP-Referer': 'https://rajresortpatna.com',
-        'X-Title': 'Raj Resort Patna Concierge',
-      },
-      body: JSON.stringify({
-        model: 'google/gemini-2.0-flash-001',
-        messages: [
-          { role: 'system', content: SYSTEM_PROMPT },
-          { role: 'user', content: query },
-        ],
-        temperature: 0.4,
-        max_tokens: 450,
-      }),
-    });
+    const cleanApiKey = rawApiKey.replace(/['"]/g, '').trim();
 
-    if (!openRouterResponse.ok) {
-      console.warn('OpenRouter API returned error, using fallback responder');
+    // Models to attempt: primary Google Gemini 2.0 Flash, followed by free/auto fallbacks
+    const candidateModels = [
+      'google/gemini-2.0-flash-001',
+      'google/gemini-2.0-flash-lite-preview-02-05:free',
+      'meta-llama/llama-3.3-70b-instruct:free',
+      'openrouter/auto',
+    ];
+
+    let replyText = '';
+
+    for (const model of candidateModels) {
+      try {
+        const response = await requestOpenRouter(cleanApiKey, query, model);
+        if (response.ok) {
+          const data = await response.json();
+          const content = data?.choices?.[0]?.message?.content?.trim();
+          if (content) {
+            replyText = content;
+            break;
+          }
+        } else {
+          const errorDetail = await response.text();
+          console.warn(`Chatbot: Model ${model} returned HTTP ${response.status}:`, errorDetail);
+        }
+      } catch (callErr) {
+        console.warn(`Chatbot: Request failed for ${model}:`, callErr);
+      }
+    }
+
+    if (!replyText) {
       return NextResponse.json({ reply: generateFallbackResponse(query) });
     }
 
-    const reply = data.choices?.[0]?.message?.content?.trim();
-
-    if (!reply) {
-      return NextResponse.json({ reply: generateFallbackResponse(query) });
-    }
-
-    const formattedReply = reply.replace(/^[\*\-]\s+/gm, '• ');
+    // Ensure all list bullet points are formatted as dots (•)
+    const formattedReply = replyText.replace(/^[\*\-]\s+/gm, '• ');
     return NextResponse.json({ reply: formattedReply });
   } catch (err) {
-    console.error('Chatbot error:', err);
+    console.error('Chatbot POST handler error:', err);
     return NextResponse.json({ 
       reply: 'Namaste! We are here to assist with all your wedding queries at Raj Resort Patna. Please contact our reception desk at +91 7360800001 or email Rajresortpatna@gmail.com for immediate help.' 
     });
