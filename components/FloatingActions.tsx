@@ -195,6 +195,8 @@ export const FloatingActions: React.FC = () => {
                 alt="Chat with Receptionist"
                 fill
                 sizes="48px"
+                priority
+                unoptimized
                 className="object-cover object-top"
               />
               {/* Online Green Indicator */}
@@ -220,6 +222,8 @@ export const FloatingActions: React.FC = () => {
                   alt="Raj Resort Receptionist"
                   fill
                   sizes="40px"
+                  priority
+                  unoptimized
                   className="object-cover object-top"
                 />
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-white rounded-full z-10" />
@@ -261,6 +265,7 @@ export const FloatingActions: React.FC = () => {
                       alt="Receptionist DP"
                       fill
                       sizes="24px"
+                      unoptimized
                       className="object-cover object-top"
                     />
                   </div>
@@ -288,6 +293,7 @@ export const FloatingActions: React.FC = () => {
                     alt="Receptionist DP"
                     fill
                     sizes="24px"
+                    unoptimized
                     className="object-cover object-top"
                   />
                 </div>

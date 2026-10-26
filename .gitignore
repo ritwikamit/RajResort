@@ -7,5 +7,9 @@ coverage/
 !.env.example
 
 # Redundant source media in root (already served from public/)
-LandingHeroSection.mp4
-Images/
+/LandingHeroSection.mp4
+/Images/
+
+# Ensure all public assets are tracked
+!public/
+!public/images/**
