@@ -177,30 +177,20 @@ export const FloatingActions: React.FC = () => {
           <ArrowUp className="w-4 h-4 text-[#F62440] group-hover:-translate-y-0.5 transition-transform" />
         </button>
 
-        {/* Chatbot Trigger Button with Receptionist DP */}
+        {/* Chatbot Trigger Button */}
         <button
           onClick={() => setChatOpen(!chatOpen)}
-          aria-label="Open Resort Assistant Chat"
-          title="Chat with Receptionist"
-          className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden flex items-center justify-center bg-[#F62440] shadow-[0_4px_16px_rgba(246,36,64,0.3)] transition-all duration-200 hover:scale-105 active:scale-95 border-2 border-white dark:border-[#221A16] cursor-pointer"
+          aria-label={chatOpen ? "Close chat" : "Open Resort Assistant Chat"}
+          title={chatOpen ? "Close chat" : "Chat with Reception"}
+          className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-white dark:bg-[#221A16] hover:bg-[#FFF2DB] dark:hover:bg-[#2D221D] shadow-[0_4px_16px_rgba(246,36,64,0.18)] transition-all duration-200 hover:scale-105 active:scale-95 border-2 border-[#F62440] cursor-pointer text-[#F62440]"
         >
           {chatOpen ? (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-r from-[#F62440] to-[#D81B34] text-white">
-              <X className="w-5 h-5 text-white" />
-            </div>
+            <X className="w-5 h-5 text-[#F62440]" />
           ) : (
             <>
-              <Image
-                src="/images/receptionist-avatar.jpg"
-                alt="Chat with Receptionist"
-                fill
-                sizes="48px"
-                priority
-                unoptimized
-                className="object-cover object-top"
-              />
+              <MessageSquare className="w-5 h-5 text-[#F62440]" />
               {/* Online Green Indicator */}
-              <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full z-10" />
+              <span className="absolute top-0.5 right-0.5 w-2.5 h-2.5 bg-emerald-500 border border-white dark:border-[#221A16] rounded-full" />
             </>
           )}
         </button>
@@ -226,7 +216,6 @@ export const FloatingActions: React.FC = () => {
                   unoptimized
                   className="object-cover object-top"
                 />
-                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-white rounded-full z-10" />
               </div>
               <div>
                 <h2 className="text-sm font-bold leading-tight flex items-center gap-1.5">
