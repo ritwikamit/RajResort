@@ -19,6 +19,7 @@ export const FloatingActions: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [inputMessage, setInputMessage] = useState('');
+  const [isThinking, setIsThinking] = useState(false);
   const mounted = useIsMounted();
   const { theme } = useTheme();
 
@@ -26,7 +27,7 @@ export const FloatingActions: React.FC = () => {
     {
       id: '1',
       sender: 'bot',
-      text: 'Namaste! Welcome to Raj Resort Patna. How can we assist with your wedding dates, lawn capacity, or banquet celebrations today?',
+      text: 'Namaste! Welcome to Raj Resort Patna reception desk. We are here exclusively to assist your family with wedding celebrations:\n\n• The Starlit Celebration Lawn (1,200+ guests)\n• The Shahi Darbar AC Banquet Hall (150-500 guests)\n• Checking auspicious wedding date availability\n• Arranging an in-person venue visit at Kurji Mor\n\nHow may we help your family today?',
       time: 'Just now',
     },
   ]);
@@ -49,9 +50,9 @@ export const FloatingActions: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSendMessage = (textToSend?: string) => {
+  const handleSendMessage = async (textToSend?: string) => {
     const query = textToSend || inputMessage;
-    if (!query.trim()) return;
+    if (!query.trim() || isThinking) return;
 
     const userMsg: ChatMessage = {
       id: Date.now().toString(),
@@ -62,34 +63,40 @@ export const FloatingActions: React.FC = () => {
 
     setMessages((prev) => [...prev, userMsg]);
     if (!textToSend) setInputMessage('');
+    setIsThinking(true);
 
-    // Helpful assistant responses
-    setTimeout(() => {
-      let reply = "Thank you! You can message us on WhatsApp or call our reception directly below. We are here to help your family with dates and arrangements.";
-      const lower = query.toLowerCase();
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: query }),
+      });
 
-      if (lower.includes('capacity') || lower.includes('guest') || lower.includes('lawn') || lower.includes('wedding')) {
-        reply = "Our open celebration lawn comfortably hosts from 400 up to 1,200+ guests, with a 150-ft flower entrance for the Baraat and an elevated Varmala stage. We also have the AC Shahi Darbar hall for 150 to 500 guests!";
-      } else if (lower.includes('date') || lower.includes('available') || lower.includes('book') || lower.includes('rate') || lower.includes('price')) {
-        reply = "Lagan dates fill up very quickly! Please tap 'WhatsApp Reception' below and tell us your expected wedding date and guest count so we can check immediately for you.";
-      } else if (lower.includes('location') || lower.includes('address') || lower.includes('where') || lower.includes('kurji')) {
-        reply = "Raj Resort is located right near Gate No. 62, Kurji Mor, Patliputra, Patna (800010). It is easy to reach from Patliputra Junction and the Ganga Marine Drive.";
-      } else if (lower.includes('power') || lower.includes('generator') || lower.includes('light')) {
-        reply = "You will never have to worry about power cuts. Our heavy-duty backup generators keep the stage lights, AC, sound, and decorations running without a second of pause.";
-      } else if (lower.includes('visit') || lower.includes('see') || lower.includes('tour')) {
-        reply = "We would love to welcome you and your family for a personal visit! You can come by anytime between 10:00 AM and 8:00 PM. Tap WhatsApp below to let us know when you plan to arrive.";
-      }
+      const data = await res.json();
+      const botReply = data.reply || "Namaste! For immediate assistance, please call our front desk at +91 7360800001 or WhatsApp us below.";
 
       setMessages((prev) => [
         ...prev,
         {
           id: (Date.now() + 1).toString(),
           sender: 'bot',
-          text: reply,
+          text: botReply,
           time: 'Just now',
         },
       ]);
-    }, 450);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: (Date.now() + 1).toString(),
+          sender: 'bot',
+          text: "Namaste! Our reception team is available 24/7 at Kurji Mor, Patliputra. Please call us at +91 7360800001 or message on WhatsApp.",
+          time: 'Just now',
+        },
+      ]);
+    } finally {
+      setIsThinking(false);
+    }
   };
 
   // SVG circular calculations
@@ -212,7 +219,7 @@ export const FloatingActions: React.FC = () => {
                 className={`flex flex-col ${m.sender === 'user' ? 'items-end' : 'items-start'}`}
               >
                 <div
-                  className={`p-3 rounded-2xl max-w-[88%] leading-relaxed ${
+                  className={`p-3 rounded-2xl max-w-[88%] leading-relaxed whitespace-pre-line ${
                     m.sender === 'user'
                       ? 'bg-gradient-to-r from-[#F62440] to-[#D81B34] text-white rounded-br-none shadow-sm'
                       : 'bg-white dark:bg-[#251B17] text-stone-900 dark:text-stone-100 border border-[#FFE5BF] dark:border-[#352520] rounded-bl-none shadow-xs'
@@ -223,6 +230,17 @@ export const FloatingActions: React.FC = () => {
                 <span className="text-[10px] text-stone-400 dark:text-stone-500 mt-1 px-1">{m.time}</span>
               </div>
             ))}
+
+            {isThinking && (
+              <div className="flex flex-col items-start animate-in fade-in duration-200">
+                <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#251B17] text-stone-600 dark:text-stone-300 border border-[#FFE5BF] dark:border-[#352520] rounded-bl-none shadow-xs flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F62440] animate-bounce" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F62440] animate-bounce [animation-delay:0.2s]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F62440] animate-bounce [animation-delay:0.4s]" />
+                  <span className="text-[11px] font-medium ml-1 text-stone-600 dark:text-stone-300">Replying...</span>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Quick Action Suggestion Pills */}
@@ -265,14 +283,15 @@ export const FloatingActions: React.FC = () => {
               />
               <button
                 type="submit"
+                disabled={isThinking}
                 aria-label="Send message"
-                className="p-2.5 bg-gradient-to-r from-[#F62440] to-[#D81B34] text-white rounded-xl hover:opacity-95 transition-opacity cursor-pointer shrink-0 shadow-sm"
+                className="p-2.5 bg-gradient-to-r from-[#F62440] to-[#D81B34] text-white rounded-xl hover:opacity-95 transition-opacity cursor-pointer shrink-0 shadow-sm disabled:opacity-50"
               >
                 <Send className="w-3.5 h-3.5" />
               </button>
             </form>
 
-            {/* Direct Connect Strip without Ankita */}
+            {/* Direct Connect Strip */}
             <div className="flex items-center justify-between text-[11px] text-stone-600 dark:text-stone-400 pt-1">
               <a
                 href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`}

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Cormorant_Garamond, Plus_Jakarta_Sans, Alex_Brush } from 'next/font/google';
+import { Cormorant_Garamond, Plus_Jakarta_Sans, Great_Vibes } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { AnimatedBackgroundCanvas } from '@/components/AnimatedBackgroundCanvas';
@@ -29,7 +29,7 @@ const jakarta = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
-const alexBrush = Alex_Brush({
+const greatVibes = Great_Vibes({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--font-cursive',
@@ -116,7 +116,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jakarta.variable} ${alexBrush.variable} scroll-smooth`} suppressHydrationWarning>
+    <html lang="en" className={`${cormorant.variable} ${jakarta.variable} ${greatVibes.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />

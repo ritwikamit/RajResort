@@ -182,15 +182,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 <MapPin className="w-5 h-5 text-[#F62440]" />
               </Link>
 
-              {/* Email / Form Contact Icon */}
-              <Link
-                href="/contact"
-                aria-label="Contact Reception Page"
-                title="Front Desk Enquiries & Bookings"
-                className="w-11 h-11 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs"
+              {/* Email / Direct Mailto */}
+              <a
+                href={`mailto:${RESORT_DATA.email}`}
+                aria-label={`Email Reception at ${RESORT_DATA.email}`}
+                title={`Email: ${RESORT_DATA.email}`}
+                className="w-11 h-11 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
               >
                 <Mail className="w-5 h-5 text-[#F62440]" />
-              </Link>
+              </a>
             </div>
 
             <p className="text-stone-600 dark:text-stone-400 text-[11px] pt-1">

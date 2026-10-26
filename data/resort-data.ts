@@ -42,14 +42,15 @@ export const RESORT_DATA = {
   state: 'Bihar',
   pincode: '800010',
   fullAddress: 'Near Gate No. 62, Kurji Mor, Patliputra, Patna, Bihar 800010, India',
-  phone: '+91 73608 0001',
-  phoneDisplay: '+91 73608 0001',
-  whatsappNumber: '91736080001',
+  phone: '+91 7360800001',
+  phoneDisplay: '+91 7360800001',
+  whatsappNumber: '917360800001',
+  email: 'Rajresortpatna@gmail.com',
   coordinates: {
     lat: 25.6391525,
     lng: 85.1102531,
   },
-  directionsLink: 'https://maps.google.com/?cid=12140407765181711246',
+  directionsLink: 'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,17z/data=!3m1!4b1!4m9!3m8!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m2!4m1!1i2!8m2!3d25.6391525!4d85.1102531',
   establishedNote: 'Premier wedding destination, celebration lawns, and grand banquet hall near Kurji Mor, Patliputra',
   
   socialLinks: [

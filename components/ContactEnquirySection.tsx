@@ -135,6 +135,12 @@ export const ContactEnquirySection: React.FC = () => {
                 <span className="text-stone-500 dark:text-stone-400">Front Desk Hours</span>
                 <span className="font-semibold text-stone-900 dark:text-stone-100">Open 24 Hours / 7 Days</span>
               </div>
+              <div className="flex items-center justify-between pb-2 border-b border-[#FFE5BF]/40 dark:border-[#352520]">
+                <span className="text-stone-500 dark:text-stone-400">Official Email</span>
+                <a href={`mailto:${RESORT_DATA.email}`} className="font-semibold text-[#F62440] hover:underline">
+                  {RESORT_DATA.email}
+                </a>
+              </div>
               <div className="flex items-center justify-between">
                 <span className="text-stone-500 dark:text-stone-400">Address</span>
                 <span className="font-semibold text-stone-900 dark:text-stone-100">Gate 62, Kurji Mor, Patliputra</span>

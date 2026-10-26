@@ -56,7 +56,7 @@ export default function Home() {
               latitude: 25.6391525,
               longitude: 85.1102531,
             },
-            telephone: '+91736080001',
+            telephone: '+917360800001',
             openingHoursSpecification: [
               {
                 '@type': 'OpeningHoursSpecification',
