@@ -124,6 +124,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2" />
         <link rel="icon" type="image/png" sizes="192x192" href="/icon.png?v=2" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+        <link rel="preload" as="image" href="/images/hero-poster.webp" type="image/webp" fetchPriority="high" />
         <meta name="theme-color" content="#FFFAF3" />
         <meta property="og:image" content="https://rajresortpatna.com/images/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
