@@ -16,6 +16,7 @@ import {
 export interface InstagramReelItem {
   id: string;
   videoSrc: string;
+  posterSrc: string;
   reelUrl: string;
   title: string;
   subtitle: string;
@@ -30,6 +31,7 @@ export const INSTAGRAM_REELS: InstagramReelItem[] = [
   {
     id: 'Db5GzFhzsa6',
     videoSrc: '/videos/reel-1.mp4',
+    posterSrc: '/images/reels/poster-reel-1.webp',
     reelUrl: 'https://www.instagram.com/reel/Db5GzFhzsa6/?utm_source=ig_web_copy_link',
     title: 'Aishwarya & Abhishek — A Love Story Written in Forever',
     subtitle: 'Mandap ceremonies, 150-ft illuminated floral walkway, starlight celebrations, and lifetime promises at Raj Resort Patna.',
@@ -42,6 +44,7 @@ export const INSTAGRAM_REELS: InstagramReelItem[] = [
   {
     id: 'DXw5TEspqMl',
     videoSrc: '/videos/reel-2.mp4',
+    posterSrc: '/images/reels/poster-reel-2.webp',
     reelUrl: 'https://www.instagram.com/reel/DXw5TEspqMl/?utm_source=ig_web_copy_link',
     title: 'Luxury Grand Celebrations & Starlit Lawns',
     subtitle: 'From dream weddings to premium celebrations — crystal chandeliers, 3.5-acre lawn night lighting, and banquet setups.',
@@ -54,6 +57,7 @@ export const INSTAGRAM_REELS: InstagramReelItem[] = [
   {
     id: 'DU27q4uCe1L',
     videoSrc: '/videos/reel-3.mp4',
+    posterSrc: '/images/reels/poster-reel-3.webp',
     reelUrl: 'https://www.instagram.com/reel/DU27q4uCe1L/?utm_source=ig_web_copy_link',
     title: 'Baraat Entry & High-Energy Celebrations',
     subtitle: 'Experience the royal welcome — grand floral gateway, celebratory dhol beats, dancing baraatis, and joyous memories.',
@@ -66,6 +70,7 @@ export const INSTAGRAM_REELS: InstagramReelItem[] = [
   {
     id: 'DSjb45Xiarv',
     videoSrc: '/videos/reel-4.mp4',
+    posterSrc: '/images/reels/poster-reel-4.webp',
     reelUrl: 'https://www.instagram.com/reel/DSjb45Xiarv/?utm_source=ig_web_copy_link',
     title: 'Grand Mandap Rituals & Royal Wedding Vows',
     subtitle: 'Sacred ceremonies, majestic stage decorations, and emotional wedding moments under the illuminated night sky of Patna.',
@@ -249,11 +254,12 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
                       videoRefs.current[reel.id] = el;
                     }}
                     src={reel.videoSrc}
+                    poster={reel.posterSrc}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     playsInline
                     loop
                     muted={isMuted}
-                    preload="metadata"
+                    preload="none"
                   />
 
                   {/* Play Button Overlay (Fades out seamlessly on hover / play) */}
