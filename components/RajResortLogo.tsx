@@ -24,19 +24,24 @@ export const RajResortLogo: React.FC<LogoProps> = ({
     const emblemSize = Math.max(38, size);
     return (
       <div className={`flex items-center gap-2.5 sm:gap-3.5 ${className}`}>
-        {/* Exact Official Circular Emblem from favicon.png */}
+        {/* Exact Official Circular Emblem with Crisp White Outer Circle */}
         <div 
-          className="relative shrink-0 flex items-center justify-center select-none drop-shadow-md rounded-full overflow-hidden"
+          className="relative shrink-0 flex items-center justify-center select-none"
           style={{ width: emblemSize, height: emblemSize }}
         >
-          <Image
-            src="/favicon.png"
-            alt="Raj Resort Official Emblem"
-            width={emblemSize * 2}
-            height={emblemSize * 2}
-            priority
-            className="w-full h-full object-contain rounded-full"
-          />
+          {/* Prominent White Outer Circle with subtle contrast boundary */}
+          <div className="w-full h-full rounded-full p-[2px] sm:p-[2.5px] bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.14)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.3),0_2px_10px_rgba(0,0,0,0.6)] flex items-center justify-center">
+            <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-[#b40001]">
+              <Image
+                src="/favicon.png"
+                alt="Raj Resort Official Emblem"
+                width={emblemSize * 2}
+                height={emblemSize * 2}
+                priority
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Vertical Divider Line | */}
@@ -80,17 +85,21 @@ export const RajResortLogo: React.FC<LogoProps> = ({
   // Standalone Full Circular Emblem
   return (
     <div 
-      className={`relative shrink-0 flex items-center justify-center select-none drop-shadow-md rounded-full overflow-hidden ${className}`}
+      className={`relative shrink-0 flex items-center justify-center select-none ${className}`}
       style={{ width: size, height: size }}
     >
-      <Image
-        src="/favicon.png"
-        alt="Raj Resort Official Emblem"
-        width={size * 2}
-        height={size * 2}
-        priority
-        className="w-full h-full object-contain rounded-full"
-      />
+      <div className="w-full h-full rounded-full p-[2px] sm:p-[2.5px] bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.14)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.3),0_2px_10px_rgba(0,0,0,0.6)] flex items-center justify-center">
+        <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-[#b40001]">
+          <Image
+            src="/favicon.png"
+            alt="Raj Resort Official Emblem"
+            width={size * 2}
+            height={size * 2}
+            priority
+            className="w-full h-full object-cover rounded-full"
+          />
+        </div>
+      </div>
     </div>
   );
 };
