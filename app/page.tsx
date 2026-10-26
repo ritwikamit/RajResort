@@ -9,11 +9,7 @@ import { WeddingVenuesSection } from '@/components/WeddingVenuesSection';
 import { InstagramReelsSection } from '@/components/InstagramReelsSection';
 import { GallerySection } from '@/components/GallerySection';
 import { FacilitiesSection } from '@/components/FacilitiesSection';
-import { GoogleMapsSection } from '@/components/GoogleMapsSection';
-import { ContactEnquirySection } from '@/components/ContactEnquirySection';
 import { FAQSection } from '@/components/FAQSection';
-import { FollowUsSection } from '@/components/FollowUsSection';
-import { OtherListingsSection } from '@/components/OtherListingsSection';
 import { Footer } from '@/components/Footer';
 import { PrivacyPolicyModal } from '@/components/PrivacyPolicyModal';
 import { CookiePolicyModal } from '@/components/CookiePolicyModal';
@@ -59,29 +55,9 @@ export default function Home() {
           <FacilitiesSection />
         </ScrollReveal>
 
-        {/* Interactive Google Map & Location */}
-        <ScrollReveal>
-          <GoogleMapsSection />
-        </ScrollReveal>
-
         {/* Frequently Asked Questions */}
         <ScrollReveal>
           <FAQSection />
-        </ScrollReveal>
-
-        {/* Wedding Date Inquiries & Contact Form */}
-        <ScrollReveal>
-          <ContactEnquirySection />
-        </ScrollReveal>
-
-        {/* Verified Social Media Channels */}
-        <ScrollReveal>
-          <FollowUsSection />
-        </ScrollReveal>
-
-        {/* Local Verified Directory Profiles */}
-        <ScrollReveal>
-          <OtherListingsSection />
         </ScrollReveal>
       </main>
 

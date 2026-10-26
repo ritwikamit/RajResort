@@ -12,7 +12,10 @@ import {
   Heart, 
   Images, 
   Compass, 
-  PhoneCall
+  PhoneCall,
+  Instagram,
+  Facebook,
+  Youtube
 } from 'lucide-react';
 import { RajResortLogo } from './RajResortLogo';
 import { RESORT_DATA } from '@/data/resort-data';
@@ -89,6 +92,58 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
               <span>Contact</span>
             </Link>
           </div>
+
+          {/* Mobile Official Social & Contact Bar */}
+          <div className="flex items-center justify-center gap-3 pt-5 mt-5 border-t border-[#FFE5BF]/60 dark:border-[#352520]/60">
+            <a
+              href="https://www.instagram.com/rajresortpatna/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Raj Resort on Instagram"
+              title="Official Instagram (@rajresortpatna)"
+              className="w-10 h-10 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#E1306C] hover:bg-[#FFE5BF]/40 transition-all active:scale-95 shadow-xs"
+            >
+              <Instagram className="w-5 h-5 text-[#E1306C]" />
+            </a>
+            <a
+              href="https://www.facebook.com/rajresortpatna/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Raj Resort on Facebook"
+              title="Official Facebook Page"
+              className="w-10 h-10 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#1877F2] hover:bg-[#FFE5BF]/40 transition-all active:scale-95 shadow-xs"
+            >
+              <Facebook className="w-5 h-5 text-[#1877F2]" />
+            </a>
+            <a
+              href="https://www.youtube.com/results?search_query=raj+resort+patna"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Watch Raj Resort on YouTube"
+              title="Official YouTube Channel"
+              className="w-10 h-10 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-red-600 hover:bg-[#FFE5BF]/40 transition-all active:scale-95 shadow-xs"
+            >
+              <Youtube className="w-5 h-5 text-red-600" />
+            </a>
+            <a
+              href={`https://wa.me/${RESORT_DATA.whatsappNumber}?text=${encodeURIComponent(
+                'Hello Raj Resort Patna, I would like to enquire about wedding lawns and date availability.'
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat on WhatsApp"
+              className="w-10 h-10 rounded-xl bg-[#25D366] flex items-center justify-center text-white active:scale-95 shadow-xs"
+            >
+              <WhatsAppOfficialIcon className="w-4 h-4 fill-white" />
+            </a>
+            <a
+              href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`}
+              aria-label="Call Reception Directly"
+              className="w-10 h-10 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] active:scale-95 shadow-xs"
+            >
+              <PhoneCall className="w-4 h-4 text-[#F62440]" />
+            </a>
+          </div>
         </div>
 
         {/* Desktop Main Footer Grid */}
@@ -142,21 +197,57 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
             </ul>
           </div>
 
-          {/* Contact & Reception (4 Cols) */}
+          {/* Contact & Reception with Official Social Channels (4 Cols) */}
           <div className="md:col-span-4 space-y-3">
             <div className="text-xs font-bold uppercase tracking-wider text-[#F62440]">
-              Front Desk & Inquiries
+              Front Desk & Official Channels
             </div>
             
-            <div className="flex items-center gap-3 pt-1">
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
+              {/* Instagram Icon */}
+              <a
+                href="https://www.instagram.com/rajresortpatna/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Raj Resort on Instagram"
+                title="Official Instagram (@rajresortpatna)"
+                className="w-10 h-10 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#E1306C] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+              >
+                <Instagram className="w-4 h-4 text-[#E1306C]" />
+              </a>
+
+              {/* Facebook Icon */}
+              <a
+                href="https://www.facebook.com/rajresortpatna/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Raj Resort on Facebook"
+                title="Official Facebook Page"
+                className="w-10 h-10 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#1877F2] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+              >
+                <Facebook className="w-4 h-4 text-[#1877F2]" />
+              </a>
+
+              {/* YouTube Icon */}
+              <a
+                href="https://www.youtube.com/results?search_query=raj+resort+patna"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Watch Raj Resort on YouTube"
+                title="Official YouTube Channel"
+                className="w-10 h-10 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-red-600 hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+              >
+                <Youtube className="w-4 h-4 text-red-600" />
+              </a>
+
               {/* Call Icon */}
               <a
                 href={`tel:${RESORT_DATA.phone.replace(/\s+/g, '')}`}
                 aria-label="Call Reception Directly"
                 title="Call Reception Directly (24/7 Desk)"
-                className="w-11 h-11 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                className="w-10 h-10 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
               >
-                <PhoneCall className="w-5 h-5 text-[#F62440]" />
+                <PhoneCall className="w-4 h-4 text-[#F62440]" />
               </a>
 
               {/* WhatsApp Icon */}
@@ -168,9 +259,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp"
                 title="Direct WhatsApp Desk"
-                className="w-11 h-11 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                className="w-10 h-10 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
               >
-                <WhatsAppOfficialIcon className="w-5 h-5 fill-white" />
+                <WhatsAppOfficialIcon className="w-4 h-4 fill-white" />
               </a>
 
               {/* Location Pin Icon */}
@@ -178,9 +269,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 href="/location"
                 aria-label="Resort Location & Google Maps"
                 title="Location & Map Directions"
-                className="w-11 h-11 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs"
+                className="w-10 h-10 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs"
               >
-                <MapPin className="w-5 h-5 text-[#F62440]" />
+                <MapPin className="w-4 h-4 text-[#F62440]" />
               </Link>
 
               {/* Email / Direct Mailto */}
@@ -188,14 +279,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 href={`mailto:${RESORT_DATA.email}`}
                 aria-label={`Email Reception at ${RESORT_DATA.email}`}
                 title={`Email: ${RESORT_DATA.email}`}
-                className="w-11 h-11 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
+                className="w-10 h-10 rounded-xl bg-white dark:bg-[#201714] border border-[#FFE5BF] dark:border-[#352520] flex items-center justify-center text-[#F62440] hover:bg-[#FFE5BF]/40 transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer"
               >
-                <Mail className="w-5 h-5 text-[#F62440]" />
+                <Mail className="w-4 h-4 text-[#F62440]" />
               </a>
             </div>
 
             <p className="text-stone-600 dark:text-stone-400 text-[11px] pt-1">
-              24/7 Front desk assistance, instant WhatsApp replies, and wedding planning guidance.
+              24/7 Front desk assistance, instant WhatsApp replies, and updates across Instagram, Facebook & YouTube.
             </p>
           </div>
 

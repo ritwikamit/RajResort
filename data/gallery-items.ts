@@ -7,7 +7,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "The bride walking toward the mandap under a flower canopy held lovingly by her brothers.",
     "aspect": "square",
-    "image": "/images/venue-02.jpg"
+    "image": "/images/venue-02.webp"
   },
   {
     "id": "gal-03",
@@ -15,7 +15,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "The bride and groom seated on the royal stage receiving prayers and heartfelt wishes from family.",
     "aspect": "square",
-    "image": "/images/venue-03.png"
+    "image": "/images/venue-03.webp"
   },
   {
     "id": "gal-04",
@@ -23,7 +23,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "The groom ready on the illuminated stage for the arrival of the bride and the Varmala ceremony.",
     "aspect": "square",
-    "image": "/images/venue-04.png"
+    "image": "/images/venue-04.webp"
   },
   {
     "id": "gal-05",
@@ -31,7 +31,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "The groom stepping along the illuminated glass walkway under circular flower arches.",
     "aspect": "square",
-    "image": "/images/venue-05.png"
+    "image": "/images/venue-05.webp"
   },
   {
     "id": "gal-06",
@@ -39,7 +39,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Cold fireworks, dancers, and traditional music making the bridal entrance unforgettable.",
     "aspect": "square",
-    "image": "/images/venue-06.png"
+    "image": "/images/venue-06.webp"
   },
   {
     "id": "gal-08",
@@ -47,7 +47,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Warm ambient lighting and sparkling chandeliers brightening the celebration.",
     "aspect": "square",
-    "image": "/images/venue-08.jpg"
+    "image": "/images/venue-08.webp"
   },
   {
     "id": "gal-09",
@@ -55,7 +55,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Spacious green lawn accommodating grand family weddings under open skies.",
     "aspect": "square",
-    "image": "/images/venue-09.jpg"
+    "image": "/images/venue-09.webp"
   },
   {
     "id": "gal-10",
@@ -63,7 +63,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "A tall gateway dressed in fresh blossoms where relatives take their first photos of the night.",
     "aspect": "portrait",
-    "image": "/images/venue-10.jpg"
+    "image": "/images/venue-10.webp"
   },
   {
     "id": "gal-11",
@@ -71,7 +71,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Warm golden lanterns and green leaves guiding guests from the main entrance into the resort.",
     "aspect": "portrait",
-    "image": "/images/venue-11.jpg"
+    "image": "/images/venue-11.webp"
   },
   {
     "id": "gal-12",
@@ -79,7 +79,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "A 150-foot flower-covered walkway with chandeliers and warm lights welcoming the Baraat.",
     "aspect": "portrait",
-    "image": "/images/venue-12.jpg"
+    "image": "/images/venue-12.webp"
   },
   {
     "id": "gal-13",
@@ -87,7 +87,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Soft lantern lights and fresh greenery guiding relatives into the main celebration arena.",
     "aspect": "portrait",
-    "image": "/images/venue-13.jpg"
+    "image": "/images/venue-13.webp"
   },
   {
     "id": "gal-14",
@@ -95,7 +95,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Overhead flower garlands and auspicious bells welcoming guests into the courtyard.",
     "aspect": "square",
-    "image": "/images/venue-14.jpg"
+    "image": "/images/venue-14.webp"
   },
   {
     "id": "gal-15",
@@ -103,7 +103,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "The central raised stage where the bride and groom exchange garlands with family blessings.",
     "aspect": "portrait",
-    "image": "/images/venue-15.jpg"
+    "image": "/images/venue-15.webp"
   },
   {
     "id": "gal-16",
@@ -111,7 +111,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "A touching portrait of the bride smiling in her ceremonial attire before the vows.",
     "aspect": "portrait",
-    "image": "/images/venue-16.jpg"
+    "image": "/images/venue-16.webp"
   },
   {
     "id": "gal-17",
@@ -119,7 +119,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Our open lawn at night with the glowing heart arch and fairy lights under Patna skies.",
     "aspect": "portrait",
-    "image": "/images/venue-17.jpg"
+    "image": "/images/venue-17.webp"
   },
   {
     "id": "gal-18",
@@ -127,7 +127,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Expansive open lawn with dining tables where families meet and talk over fresh hot meals.",
     "aspect": "square",
-    "image": "/images/venue-18.jpg"
+    "image": "/images/venue-18.webp"
   },
   {
     "id": "gal-19",
@@ -135,7 +135,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Festive lawn lighting creating a warm, joyful atmosphere across the grounds.",
     "aspect": "portrait",
-    "image": "/images/venue-19.jpg"
+    "image": "/images/venue-19.webp"
   },
   {
     "id": "gal-20",
@@ -143,7 +143,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Illuminated carpeted path where family members and guests arrive in style.",
     "aspect": "portrait",
-    "image": "/images/venue-20.jpg"
+    "image": "/images/venue-20.webp"
   },
   {
     "id": "gal-21",
@@ -151,7 +151,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Intricately woven fresh flowers decorating the sacred wedding mandap.",
     "aspect": "portrait",
-    "image": "/images/venue-21.jpg"
+    "image": "/images/venue-21.webp"
   },
   {
     "id": "gal-22",
@@ -159,7 +159,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Delicate fairy lights draping the lawn for extended family conversations.",
     "aspect": "square",
-    "image": "/images/venue-22.jpg"
+    "image": "/images/venue-22.webp"
   },
   {
     "id": "gal-23",
@@ -167,7 +167,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Comfortable open-air seating for elders and guests on the soft green lawn.",
     "aspect": "portrait",
-    "image": "/images/venue-23.jpg"
+    "image": "/images/venue-23.webp"
   },
   {
     "id": "gal-24",
@@ -175,7 +175,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "A tender portrait of the couple smiling together under warm golden string lights.",
     "aspect": "portrait",
-    "image": "/images/venue-24.jpg"
+    "image": "/images/venue-24.webp"
   },
   {
     "id": "gal-25",
@@ -183,7 +183,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Hand-arranged flowers and stage lighting framing the bride and groom.",
     "aspect": "portrait",
-    "image": "/images/venue-25.jpg"
+    "image": "/images/venue-25.webp"
   },
   {
     "id": "gal-26",
@@ -191,7 +191,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "A cool, climate-controlled hall where guests enjoy fresh feasts and intimate ceremonies.",
     "aspect": "landscape",
-    "image": "/images/venue-26.jpg"
+    "image": "/images/venue-26.webp"
   },
   {
     "id": "gal-27",
@@ -199,7 +199,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Sparkling crystal chandeliers creating an enchanting evening glow.",
     "aspect": "portrait",
-    "image": "/images/venue-27.jpg"
+    "image": "/images/venue-27.webp"
   },
   {
     "id": "gal-28",
@@ -207,7 +207,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Decorated with marigolds and holy lights for the Saat Phere and family blessings.",
     "aspect": "landscape",
-    "image": "/images/venue-28.jpg"
+    "image": "/images/venue-28.webp"
   },
   {
     "id": "gal-29",
@@ -215,7 +215,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Golden ambient illumination highlighting every table and food pavilion.",
     "aspect": "portrait",
-    "image": "/images/venue-29.jpg"
+    "image": "/images/venue-29.webp"
   },
   {
     "id": "gal-30",
@@ -223,7 +223,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "The bride in royal maroon lehenga standing beneath the illuminated flower ceiling.",
     "aspect": "portrait",
-    "image": "/images/venue-30.jpg"
+    "image": "/images/venue-30.webp"
   },
   {
     "id": "gal-31",
@@ -231,7 +231,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Brilliant fireworks lighting up the Patna night sky as the couple takes the stage.",
     "aspect": "square",
-    "image": "/images/venue-31.jpg"
+    "image": "/images/venue-31.webp"
   },
   {
     "id": "gal-32",
@@ -239,7 +239,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "The couple on the central stage with celebratory flower showers and festive music.",
     "aspect": "square",
-    "image": "/images/venue-32.jpg"
+    "image": "/images/venue-32.webp"
   },
   {
     "id": "gal-33",
@@ -247,7 +247,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Warm garden lighting across the lawn where families gather peacefully.",
     "aspect": "square",
-    "image": "/images/venue-33.jpg"
+    "image": "/images/venue-33.webp"
   },
   {
     "id": "gal-34",
@@ -255,7 +255,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Delicate blossoms and golden lights welcoming the Baraat with dignity.",
     "aspect": "square",
-    "image": "/images/venue-34.jpg"
+    "image": "/images/venue-34.webp"
   },
   {
     "id": "gal-35",
@@ -263,7 +263,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Fresh traditional flowers and holy Havankund space for the Saat Phere.",
     "aspect": "square",
-    "image": "/images/venue-35.jpg"
+    "image": "/images/venue-35.webp"
   },
   {
     "id": "gal-36",
@@ -271,7 +271,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Climate-controlled comfort keeping elders and guests relaxed throughout the night.",
     "aspect": "square",
-    "image": "/images/venue-36.jpg"
+    "image": "/images/venue-36.webp"
   },
   {
     "id": "gal-37",
@@ -279,7 +279,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Gentle evening breezes and open lawns creating a comfortable celebration space.",
     "aspect": "square",
-    "image": "/images/venue-37.jpg"
+    "image": "/images/venue-37.webp"
   },
   {
     "id": "gal-38",
@@ -287,7 +287,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "A majestic flower gate welcoming guests with traditional warmth.",
     "aspect": "square",
-    "image": "/images/venue-38.jpg"
+    "image": "/images/venue-38.webp"
   },
   {
     "id": "gal-39",
@@ -295,7 +295,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Elevated ceremonial pavilion designed for memorable wedding vows.",
     "aspect": "square",
-    "image": "/images/venue-39.jpg"
+    "image": "/images/venue-39.webp"
   },
   {
     "id": "gal-40",
@@ -303,7 +303,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Generous dining space where fresh multi-cuisine wedding feasts are served.",
     "aspect": "square",
-    "image": "/images/venue-40.jpg"
+    "image": "/images/venue-40.webp"
   },
   {
     "id": "gal-41",
@@ -311,7 +311,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Well-arranged round tables and chairs allowing relatives to talk and relax.",
     "aspect": "square",
-    "image": "/images/venue-41.jpg"
+    "image": "/images/venue-41.webp"
   },
   {
     "id": "gal-42",
@@ -319,7 +319,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Hanging greenery and chandeliers framing the ceremonial procession.",
     "aspect": "portrait",
-    "image": "/images/venue-42.jpg"
+    "image": "/images/venue-42.webp"
   },
   {
     "id": "gal-43",
@@ -327,7 +327,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Artisan floral arrangements framing the couple for timeless family portraits.",
     "aspect": "portrait",
-    "image": "/images/venue-43.jpg"
+    "image": "/images/venue-43.webp"
   },
   {
     "id": "gal-44",
@@ -335,7 +335,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Golden string lights creating an intimate, festive glow over dinner tables.",
     "aspect": "portrait",
-    "image": "/images/venue-44.jpg"
+    "image": "/images/venue-44.webp"
   },
   {
     "id": "gal-45",
@@ -343,7 +343,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Wide lawn layout giving children space to play and elders a calm place to sit.",
     "aspect": "portrait",
-    "image": "/images/venue-45.jpg"
+    "image": "/images/venue-45.webp"
   },
   {
     "id": "gal-46",
@@ -351,7 +351,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Wide ceremonial walkway dressed in fresh flowers and fairy lighting.",
     "aspect": "portrait",
-    "image": "/images/venue-46.jpg"
+    "image": "/images/venue-46.webp"
   },
   {
     "id": "gal-47",
@@ -359,7 +359,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Grand illuminated stage providing clear sightlines for all wedding guests.",
     "aspect": "portrait",
-    "image": "/images/venue-47.jpg"
+    "image": "/images/venue-47.webp"
   },
   {
     "id": "gal-48",
@@ -367,7 +367,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Attentive service and comfortable seating for wedding feasts and receptions.",
     "aspect": "portrait",
-    "image": "/images/venue-48.jpg"
+    "image": "/images/venue-48.webp"
   },
   {
     "id": "gal-49",
@@ -375,7 +375,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Spacious green lawn accommodating grand family weddings under open skies.",
     "aspect": "portrait",
-    "image": "/images/venue-49.jpg"
+    "image": "/images/venue-49.webp"
   },
   {
     "id": "gal-50",
@@ -383,7 +383,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Festive lights and floral drapes marking the entrance to the wedding.",
     "aspect": "portrait",
-    "image": "/images/venue-50.jpg"
+    "image": "/images/venue-50.webp"
   },
   {
     "id": "gal-51",
@@ -391,7 +391,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Where blessings are exchanged and two families unite in sacred tradition.",
     "aspect": "portrait",
-    "image": "/images/venue-51.jpg"
+    "image": "/images/venue-51.webp"
   },
   {
     "id": "gal-52",
@@ -399,7 +399,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Warm ambient lighting and sparkling chandeliers brightening the celebration.",
     "aspect": "portrait",
-    "image": "/images/venue-52.jpg"
+    "image": "/images/venue-52.webp"
   },
   {
     "id": "gal-53",
@@ -407,7 +407,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Warm garden lighting across the lawn where families gather peacefully.",
     "aspect": "square",
-    "image": "/images/venue-53.jpg"
+    "image": "/images/venue-53.webp"
   },
   {
     "id": "gal-54",
@@ -415,7 +415,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Delicate blossoms and golden lights welcoming the Baraat with dignity.",
     "aspect": "square",
-    "image": "/images/venue-54.jpg"
+    "image": "/images/venue-54.webp"
   },
   {
     "id": "gal-55",
@@ -423,7 +423,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Fresh traditional flowers and holy Havankund space for the Saat Phere.",
     "aspect": "square",
-    "image": "/images/venue-55.jpg"
+    "image": "/images/venue-55.webp"
   },
   {
     "id": "gal-56",
@@ -431,7 +431,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Climate-controlled comfort keeping elders and guests relaxed throughout the night.",
     "aspect": "square",
-    "image": "/images/venue-56.jpg"
+    "image": "/images/venue-56.webp"
   },
   {
     "id": "gal-57",
@@ -439,7 +439,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Gentle evening breezes and open lawns creating a comfortable celebration space.",
     "aspect": "square",
-    "image": "/images/venue-57.jpg"
+    "image": "/images/venue-57.webp"
   },
   {
     "id": "gal-58",
@@ -447,7 +447,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "A majestic flower gate welcoming guests with traditional warmth.",
     "aspect": "square",
-    "image": "/images/venue-58.jpg"
+    "image": "/images/venue-58.webp"
   },
   {
     "id": "gal-59",
@@ -455,7 +455,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Elevated ceremonial pavilion designed for memorable wedding vows.",
     "aspect": "square",
-    "image": "/images/venue-59.jpg"
+    "image": "/images/venue-59.webp"
   },
   {
     "id": "gal-60",
@@ -463,7 +463,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Generous dining space where fresh multi-cuisine wedding feasts are served.",
     "aspect": "portrait",
-    "image": "/images/venue-60.jpg"
+    "image": "/images/venue-60.webp"
   },
   {
     "id": "gal-61",
@@ -471,7 +471,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Well-arranged round tables and chairs allowing relatives to talk and relax.",
     "aspect": "square",
-    "image": "/images/venue-61.jpg"
+    "image": "/images/venue-61.webp"
   },
   {
     "id": "gal-62",
@@ -479,7 +479,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Hanging greenery and chandeliers framing the ceremonial procession.",
     "aspect": "square",
-    "image": "/images/venue-62.jpg"
+    "image": "/images/venue-62.webp"
   },
   {
     "id": "gal-63",
@@ -487,7 +487,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Artisan floral arrangements framing the couple for timeless family portraits.",
     "aspect": "square",
-    "image": "/images/venue-63.jpg"
+    "image": "/images/venue-63.webp"
   },
   {
     "id": "gal-64",
@@ -495,7 +495,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Golden string lights creating an intimate, festive glow over dinner tables.",
     "aspect": "square",
-    "image": "/images/venue-64.jpg"
+    "image": "/images/venue-64.webp"
   },
   {
     "id": "gal-65",
@@ -503,7 +503,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Wide lawn layout giving children space to play and elders a calm place to sit.",
     "aspect": "portrait",
-    "image": "/images/venue-65.jpg"
+    "image": "/images/venue-65.webp"
   },
   {
     "id": "gal-66",
@@ -511,7 +511,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Wide ceremonial walkway dressed in fresh flowers and fairy lighting.",
     "aspect": "portrait",
-    "image": "/images/venue-66.jpg"
+    "image": "/images/venue-66.webp"
   },
   {
     "id": "gal-67",
@@ -519,7 +519,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Grand illuminated stage providing clear sightlines for all wedding guests.",
     "aspect": "portrait",
-    "image": "/images/venue-67.jpg"
+    "image": "/images/venue-67.webp"
   },
   {
     "id": "gal-68",
@@ -527,7 +527,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Attentive service and comfortable seating for wedding feasts and receptions.",
     "aspect": "portrait",
-    "image": "/images/venue-68.jpg"
+    "image": "/images/venue-68.webp"
   },
   {
     "id": "gal-69",
@@ -535,7 +535,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Spacious green lawn accommodating grand family weddings under open skies.",
     "aspect": "portrait",
-    "image": "/images/venue-69.jpg"
+    "image": "/images/venue-69.webp"
   },
   {
     "id": "gal-70",
@@ -543,7 +543,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Festive lights and floral drapes marking the entrance to the wedding.",
     "aspect": "square",
-    "image": "/images/venue-70.jpg"
+    "image": "/images/venue-70.webp"
   },
   {
     "id": "gal-71",
@@ -551,7 +551,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Where blessings are exchanged and two families unite in sacred tradition.",
     "aspect": "square",
-    "image": "/images/venue-71.jpg"
+    "image": "/images/venue-71.webp"
   },
   {
     "id": "gal-72",
@@ -559,7 +559,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Warm ambient lighting and sparkling chandeliers brightening the celebration.",
     "aspect": "square",
-    "image": "/images/venue-72.jpg"
+    "image": "/images/venue-72.webp"
   },
   {
     "id": "gal-73",
@@ -567,7 +567,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Warm garden lighting across the lawn where families gather peacefully.",
     "aspect": "square",
-    "image": "/images/venue-73.jpg"
+    "image": "/images/venue-73.webp"
   },
   {
     "id": "gal-74",
@@ -575,7 +575,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Ceremonial Pergola",
     "caption": "Delicate blossoms and golden lights welcoming the Baraat with dignity.",
     "aspect": "square",
-    "image": "/images/venue-74.jpg"
+    "image": "/images/venue-74.webp"
   },
   {
     "id": "gal-75",
@@ -583,7 +583,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Stage & Mandap",
     "caption": "Fresh traditional flowers and holy Havankund space for the Saat Phere.",
     "aspect": "square",
-    "image": "/images/venue-75.jpg"
+    "image": "/images/venue-75.webp"
   },
   {
     "id": "gal-76",
@@ -591,7 +591,7 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Banquets & Lighting",
     "caption": "Climate-controlled comfort keeping elders and guests relaxed throughout the night.",
     "aspect": "square",
-    "image": "/images/venue-76.jpg"
+    "image": "/images/venue-76.webp"
   },
   {
     "id": "gal-77",
@@ -599,6 +599,6 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "Grand Lawns",
     "caption": "Gentle evening breezes and open lawns creating a comfortable celebration space.",
     "aspect": "square",
-    "image": "/images/venue-77.jpg"
+    "image": "/images/venue-77.webp"
   }
 ];
