@@ -7,19 +7,24 @@ import { RESORT_DATA } from '@/data/resort-data';
 
 export const WeddingVenuesSection: React.FC = () => {
   const [activeVenueId, setActiveVenueId] = useState<string>(RESORT_DATA.venues[0].id);
+  const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
 
   const activeVenue = RESORT_DATA.venues.find((v) => v.id === activeVenueId) || RESORT_DATA.venues[0];
   const venueImages = activeVenue.images && activeVenue.images.length > 0 
     ? activeVenue.images 
     : [activeVenue.image];
 
+  const currentImage = venueImages[activeImageIndex] || venueImages[0];
+  const focalPoint = activeVenue.focalPoint || 'object-center';
+
   const handleVenueChange = (venueId: string) => {
     setActiveVenueId(venueId);
+    setActiveImageIndex(0);
   };
 
   const currentPhotoInfo = {
-    title: activeVenue.name,
-    caption: activeVenue.description,
+    title: activeVenue.photoTitle || activeVenue.name,
+    caption: activeVenue.photoCaption || activeVenue.description,
   };
 
   return (
@@ -71,21 +76,21 @@ export const WeddingVenuesSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             
             {/* Elegant Clean Photo Showcase */}
-            <div className="lg:col-span-7 flex flex-col bg-stone-950">
+            <div className="lg:col-span-7 flex flex-col bg-stone-950 justify-between">
               
               {/* Main Photo Container */}
-              <div className="relative w-full h-[340px] sm:h-[420px] lg:h-[460px] overflow-hidden select-none">
+              <div className="relative w-full h-[360px] sm:h-[440px] lg:h-[480px] overflow-hidden select-none bg-stone-900">
                 <Image
-                  src={venueImages[0]}
+                  src={currentImage}
                   alt={`${activeVenue.name} - Raj Resort Patna`}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover object-center"
+                  className={`object-cover ${focalPoint} transition-all duration-700`}
                 />
 
                 {/* Subtle bottom gradient shade */}
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-black/25 pointer-events-none" />
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
 
                 {/* Bottom Tag on image */}
                 <div className="absolute bottom-4 left-4 right-4 z-20 text-white pointer-events-none">
@@ -97,6 +102,36 @@ export const WeddingVenuesSection: React.FC = () => {
                   </p>
                 </div>
               </div>
+
+              {/* Photo Angle Switcher Thumbnails */}
+              {venueImages.length > 1 && (
+                <div className="flex items-center gap-2 px-4 py-2.5 bg-stone-950/95 border-t border-stone-800/80 overflow-x-auto scrollbar-none z-20">
+                  <span className="text-[10px] text-[#FFE5BF] font-semibold uppercase tracking-wider whitespace-nowrap mr-1">
+                    Venue Angles ({venueImages.length}):
+                  </span>
+                  {venueImages.map((img, idx) => (
+                    <button
+                      key={img + idx}
+                      type="button"
+                      onClick={() => setActiveImageIndex(idx)}
+                      className={`relative w-12 h-10 sm:w-14 sm:h-10 rounded-md overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${
+                        activeImageIndex === idx
+                          ? 'border-[#F62440] ring-2 ring-[#F62440]/50 scale-105'
+                          : 'border-white/20 opacity-60 hover:opacity-100 hover:border-white/60'
+                      }`}
+                      aria-label={`View photo ${idx + 1} of ${activeVenue.name}`}
+                    >
+                      <Image
+                        src={img}
+                        alt={`${activeVenue.name} view ${idx + 1}`}
+                        fill
+                        sizes="56px"
+                        className="object-cover object-center"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Clean Venue & Details Panel (Without Clutter) */}

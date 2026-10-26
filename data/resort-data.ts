@@ -8,6 +8,9 @@ export interface EventVenue {
   image: string;
   images: string[];
   highlights: string[];
+  focalPoint?: string;
+  photoTitle?: string;
+  photoCaption?: string;
 }
 
 export interface AmenityItem {
@@ -169,6 +172,9 @@ export const RESORT_DATA = {
         'Convenient dining area for live buffets and family caterers',
         'Heavy-duty generator backup for uninterrupted power',
       ],
+      focalPoint: 'object-center',
+      photoTitle: 'The 3.5-Acre Starlit Celebration Lawn',
+      photoCaption: 'Spacious open green lawn with illuminated garden perimeter and dining courtyards under Patna skies.',
     },
     {
       id: 'floral-tunnel',
@@ -177,14 +183,14 @@ export const RESORT_DATA = {
       capacity: 'Spacious Arrival Avenue',
       emotionalTag: 'An illuminated walkway designed for joyful Baraat arrivals',
       description: 'A 150-foot arrival avenue decorated with hanging floral arrangements, crystal chandeliers, and warm fairy lights. Built wide enough for family Baraats to dance through comfortably with dhol and music.',
-      image: '/images/venue-12.jpg',
+      image: '/images/venue-72.jpg',
       images: [
-        '/images/venue-12.jpg',
-        '/images/venue-10.jpg',
+        '/images/venue-72.jpg',
         '/images/venue-07.png',
-        '/images/venue-13.jpg',
+        '/images/venue-64.jpg',
+        '/images/venue-20.jpg',
         '/images/venue-05.png',
-        '/images/venue-14.jpg',
+        '/images/venue-25.jpg',
       ],
       highlights: [
         'Wide carpeted walkway with space for dancing Baraats',
@@ -192,6 +198,9 @@ export const RESORT_DATA = {
         'Scenic backdrop for bride, groom, and family entry photos',
         'Evenly placed lights to support photography and videography',
       ],
+      focalPoint: 'object-[center_25%]',
+      photoTitle: 'Illuminated Chandelier & Glass Walkway',
+      photoCaption: 'The bride and groom walking along the 150-foot illuminated walkway flanked by sparkling chandeliers and cold pyro fountains.',
     },
     {
       id: 'shahi-darbar',
@@ -200,12 +209,13 @@ export const RESORT_DATA = {
       capacity: '150 to 500 Guests',
       emotionalTag: 'Cool and comfortable indoor setting for family ceremonies',
       description: 'A spacious, fully air-conditioned indoor banquet hall suited for Haldi, Mehendi, Sangeet, engagement ceremonies, and private dining. During warm summer evenings or monsoon rains, guests and elders can relax in climate-controlled comfort.',
-      image: '/images/venue-26.jpg',
+      image: '/images/venue-27.jpg',
       images: [
-        '/images/venue-26.jpg',
         '/images/venue-27.jpg',
-        '/images/venue-29.jpg',
+        '/images/venue-76.jpg',
         '/images/venue-24.jpg',
+        '/images/venue-48.jpg',
+        '/images/venue-26.jpg',
       ],
       highlights: [
         'Full air conditioning for pleasant celebrations in any weather',
@@ -213,6 +223,9 @@ export const RESORT_DATA = {
         'Flexible seating layouts for formal dining and ceremonies',
         'Convenient access to 25+ guest rooms and bridal dressing areas',
       ],
+      focalPoint: 'object-[center_20%]',
+      photoTitle: 'Shahi Darbar Climate-Controlled Hall',
+      photoCaption: 'Air-conditioned indoor banquet hall adorned with crystal chandeliers and floral seating for pre-wedding ceremonies and receptions.',
     },
     {
       id: 'ceremonial-stage',
@@ -221,14 +234,14 @@ export const RESORT_DATA = {
       capacity: 'Elevated Stage & Mandap',
       emotionalTag: 'Clear visibility for sacred vows and family blessings',
       description: 'An elevated stage built so family members and guests across the lawn have a clear view of the Varmala and Saat Phere. Features traditional floral decor and designated space for Panditji, parents, and ceremonial Havankund rituals.',
-      image: '/images/venue-28.jpg',
+      image: '/images/venue-03.png',
       images: [
-        '/images/venue-28.jpg',
-        '/images/venue-25.jpg',
-        '/images/venue-15.jpg',
-        '/images/venue-21.jpg',
-        '/images/venue-31.jpg',
+        '/images/venue-03.png',
         '/images/venue-32.jpg',
+        '/images/venue-08.jpg',
+        '/images/venue-14.jpg',
+        '/images/venue-29.jpg',
+        '/images/venue-21.jpg',
       ],
       highlights: [
         'Clear visibility from all areas of the celebration lawn',
@@ -236,6 +249,9 @@ export const RESORT_DATA = {
         'Traditional floral mandap design and sacred Havankund setup',
         'Arrangements for flower showers and celebratory moments',
       ],
+      focalPoint: 'object-[center_25%]',
+      photoTitle: 'The Sacred Wedding Stage & Mandap',
+      photoCaption: 'Elevated royal ceremonial stage featuring lush floral backdrops, silver seating, and traditional ritual setting for the Varmala and Saat Phere.',
     },
   ],
 
