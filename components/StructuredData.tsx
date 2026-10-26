@@ -19,7 +19,7 @@ export const StructuredData: React.FC = () => {
         url: 'https://rajresortpatna.com',
         logo: 'https://rajresortpatna.com/icon.png',
         image: [
-          'https://rajresortpatna.com/images/landingpage3.png',
+          'https://rajresortpatna.com/images/spaces/starlit-celebration-lawn.webp',
           'https://rajresortpatna.com/images/venue-26.jpg',
           'https://rajresortpatna.com/images/venue-02.jpg',
           'https://rajresortpatna.com/images/venue-08.jpg',

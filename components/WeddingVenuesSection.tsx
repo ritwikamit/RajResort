@@ -7,20 +7,9 @@ import { RESORT_DATA } from '@/data/resort-data';
 
 export const WeddingVenuesSection: React.FC = () => {
   const [activeVenueId, setActiveVenueId] = useState<string>(RESORT_DATA.venues[0].id);
-  const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
 
   const activeVenue = RESORT_DATA.venues.find((v) => v.id === activeVenueId) || RESORT_DATA.venues[0];
-  const venueImages = activeVenue.images && activeVenue.images.length > 0 
-    ? activeVenue.images 
-    : [activeVenue.image];
-
-  const currentImage = venueImages[activeImageIndex] || venueImages[0];
   const focalPoint = activeVenue.focalPoint || 'object-center';
-
-  const handleVenueChange = (venueId: string) => {
-    setActiveVenueId(venueId);
-    setActiveImageIndex(0);
-  };
 
   const currentPhotoInfo = {
     title: activeVenue.photoTitle || activeVenue.name,
@@ -42,28 +31,28 @@ export const WeddingVenuesSection: React.FC = () => {
             </h2>
           </div>
           <p className="text-stone-700 dark:text-stone-300 text-sm max-w-md leading-relaxed font-sans font-normal">
-            From the 150-foot illuminated floral walkway for Baraat arrivals to the open celebration lawn and air-conditioned banquet hall, each area offers space for ceremonies, dining, and family gatherings.
+            From the illuminated 150-foot floral walkway for Baraat arrivals and royal chariot entries to the starlit celebration lawn and grand Varmala stage, each setting is designed for unforgettable wedding ceremonies.
           </p>
         </div>
 
-        {/* Venue Selector Tabs */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 border-b border-[#FFE5BF] dark:border-[#352520] pb-5 mb-10">
+        {/* Venue Selector Tabs (6 Spaces) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5 border-b border-[#FFE5BF] dark:border-[#352520] pb-5 mb-10">
           {RESORT_DATA.venues.map((venue) => {
             const isActive = venue.id === activeVenueId;
             return (
               <button
                 key={venue.id}
-                onClick={() => handleVenueChange(venue.id)}
-                className={`p-3.5 sm:p-4 text-left transition-all rounded-xl border cursor-pointer ${
+                onClick={() => setActiveVenueId(venue.id)}
+                className={`p-3 sm:p-3.5 text-left transition-all rounded-xl border cursor-pointer ${
                   isActive
                     ? 'bg-gradient-to-r from-[#F62440] to-[#D81B34] text-white border-transparent shadow-md'
                     : 'bg-white dark:bg-[#221A16] text-stone-800 dark:text-stone-200 border-[#FFE5BF] dark:border-[#352520] hover:border-[#F62440]/50'
                 }`}
               >
-                <div className="font-serif text-sm sm:text-base font-bold line-clamp-1">
+                <div className="font-serif text-xs sm:text-sm font-bold line-clamp-1">
                   {venue.name}
                 </div>
-                <div className={`text-[11px] mt-0.5 ${isActive ? 'text-[#FFE5BF]' : 'text-stone-500 dark:text-stone-400'}`}>
+                <div className={`text-[10px] sm:text-[11px] mt-0.5 line-clamp-1 ${isActive ? 'text-[#FFE5BF]' : 'text-stone-500 dark:text-stone-400'}`}>
                   {venue.capacity}
                 </div>
               </button>
@@ -71,70 +60,36 @@ export const WeddingVenuesSection: React.FC = () => {
           })}
         </div>
 
-        {/* Active Venue Showcase Card */}
+        {/* Active Venue Showcase Card (No Thumbnails) */}
         <div className="bg-white dark:bg-[#201714] rounded-2xl sm:rounded-3xl border border-[#FFE5BF] dark:border-[#352520] shadow-[0_16px_40px_rgba(246,36,64,0.06)] overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
             
-            {/* Elegant Clean Photo Showcase */}
-            <div className="lg:col-span-7 flex flex-col bg-stone-950 justify-between">
-              
-              {/* Main Photo Container */}
-              <div className="relative w-full h-[360px] sm:h-[440px] lg:h-[480px] overflow-hidden select-none bg-stone-900">
-                <Image
-                  src={currentImage}
-                  alt={`${activeVenue.name} - Raj Resort Patna`}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  className={`object-cover ${focalPoint} transition-all duration-700`}
-                />
+            {/* Elegant Clean Full Photo Showcase - No Thumbnails */}
+            <div className="lg:col-span-7 relative w-full h-[360px] sm:h-[440px] lg:h-[500px] overflow-hidden select-none bg-stone-900">
+              <Image
+                src={activeVenue.image}
+                alt={`${activeVenue.name} - Raj Resort Patna`}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className={`object-cover ${focalPoint} transition-all duration-700`}
+              />
 
-                {/* Subtle bottom gradient shade */}
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
+              {/* Subtle bottom gradient shade */}
+              <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
 
-                {/* Bottom Tag on image */}
-                <div className="absolute bottom-4 left-4 right-4 z-20 text-white pointer-events-none">
-                  <span className="text-[10px] sm:text-xs uppercase tracking-widest font-semibold text-[#FFE5BF]">
-                    {activeVenue.type}
-                  </span>
-                  <p className="font-serif text-lg sm:text-xl font-bold mt-0.5">
-                    {activeVenue.name}
-                  </p>
-                </div>
+              {/* Bottom Tag on image */}
+              <div className="absolute bottom-4 left-4 right-4 z-20 text-white pointer-events-none">
+                <span className="text-[10px] sm:text-xs uppercase tracking-widest font-semibold text-[#FFE5BF]">
+                  {activeVenue.type}
+                </span>
+                <p className="font-serif text-lg sm:text-xl font-bold mt-0.5">
+                  {activeVenue.name}
+                </p>
               </div>
-
-              {/* Photo Angle Switcher Thumbnails */}
-              {venueImages.length > 1 && (
-                <div className="flex items-center gap-2 px-4 py-2.5 bg-stone-950/95 border-t border-stone-800/80 overflow-x-auto scrollbar-none z-20">
-                  <span className="text-[10px] text-[#FFE5BF] font-semibold uppercase tracking-wider whitespace-nowrap mr-1">
-                    Venue Angles ({venueImages.length}):
-                  </span>
-                  {venueImages.map((img, idx) => (
-                    <button
-                      key={img + idx}
-                      type="button"
-                      onClick={() => setActiveImageIndex(idx)}
-                      className={`relative w-12 h-10 sm:w-14 sm:h-10 rounded-md overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${
-                        activeImageIndex === idx
-                          ? 'border-[#F62440] ring-2 ring-[#F62440]/50 scale-105'
-                          : 'border-white/20 opacity-60 hover:opacity-100 hover:border-white/60'
-                      }`}
-                      aria-label={`View photo ${idx + 1} of ${activeVenue.name}`}
-                    >
-                      <Image
-                        src={img}
-                        alt={`${activeVenue.name} view ${idx + 1}`}
-                        fill
-                        sizes="56px"
-                        className="object-cover object-center"
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
-            {/* Clean Venue & Details Panel (Without Clutter) */}
+            {/* Clean Venue & Details Panel */}
             <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6 bg-[#FFFAF3] dark:bg-[#201714]">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFF2DB] dark:bg-[#2C1F1B] border border-[#FFE5BF] dark:border-[#3E2C26] text-xs font-semibold text-[#F62440]">
@@ -151,7 +106,7 @@ export const WeddingVenuesSection: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Just the Details of the Venue Setting */}
+                {/* Photo Description as per the Authentic Image */}
                 <div className="p-4 rounded-xl bg-white dark:bg-[#291F1A] border border-[#FFE5BF] dark:border-[#352520] shadow-xs space-y-2">
                   <div className="text-[11px] font-bold tracking-wider uppercase text-[#F62440]">
                     Authentic Venue Photograph
@@ -163,9 +118,21 @@ export const WeddingVenuesSection: React.FC = () => {
                     {currentPhotoInfo.caption}
                   </p>
                 </div>
+
+                {/* Key Highlights of the Setting */}
+                {activeVenue.highlights && activeVenue.highlights.length > 0 && (
+                  <div className="space-y-2 pt-1">
+                    {activeVenue.highlights.map((h, i) => (
+                      <div key={i} className="flex items-start gap-2 text-xs text-stone-700 dark:text-stone-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#F62440] mt-1.5 shrink-0" />
+                        <span className="leading-snug">{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
-              {/* Inquiry Action */}
+              {/* WhatsApp Inquiry Action */}
               <div className="pt-4 border-t border-[#FFE5BF] dark:border-[#352520]">
                 <a
                   href={`https://wa.me/${RESORT_DATA.whatsappNumber}?text=${encodeURIComponent(

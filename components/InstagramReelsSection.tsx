@@ -77,14 +77,6 @@ export const INSTAGRAM_REELS: InstagramReelItem[] = [
   },
 ];
 
-const CATEGORIES = [
-  'All 4 Videos',
-  'Wedding Ceremony',
-  'Lawn & Decor',
-  'Baraat Celebration',
-  'Mandap & Rituals',
-];
-
 interface InstagramReelsSectionProps {
   id?: string;
   className?: string;
@@ -94,7 +86,6 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
   id = 'reels',
   className = '',
 }) => {
-  const [activeCategory, setActiveCategory] = useState<string>('All 4 Videos');
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [mutedStates, setMutedStates] = useState<Record<string, boolean>>({
     Db5GzFhzsa6: true,
@@ -184,11 +175,6 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
     }
   };
 
-  const displayedReels =
-    activeCategory === 'All 4 Videos'
-      ? INSTAGRAM_REELS
-      : INSTAGRAM_REELS.filter((r) => r.category === activeCategory);
-
   return (
     <section
       id={id}
@@ -211,36 +197,9 @@ export const InstagramReelsSection: React.FC<InstagramReelsSectionProps> = ({
           </p>
         </div>
 
-        {/* Consistent Filter Pills (Matches GallerySection) */}
-        <div className="flex flex-wrap gap-2 border-b border-[#FFE5BF] dark:border-[#352520] pb-5 mb-10">
-          {CATEGORIES.map((cat) => {
-            const isActive = cat === activeCategory;
-            return (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
-                  isActive
-                    ? 'bg-gradient-to-r from-[#F62440] to-[#D81B34] text-white shadow-xs'
-                    : 'bg-[#FFF2DB] dark:bg-[#221A16] text-stone-800 dark:text-stone-200 border border-[#FFE5BF] dark:border-[#352520] hover:border-[#F62440]/50'
-                }`}
-              >
-                <span className="uppercase">{cat}</span>
-              </button>
-            );
-          })}
-        </div>
-
         {/* 4 Landscaped Video Boxes in 2x2 Grid with Smooth Hover Scale & Autoplay */}
-        <div
-          className={`grid gap-6 sm:gap-8 ${
-            displayedReels.length === 1
-              ? 'max-w-2xl mx-auto grid-cols-1'
-              : 'grid-cols-1 md:grid-cols-2'
-          }`}
-        >
-          {displayedReels.map((reel) => {
+        <div className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2">
+          {INSTAGRAM_REELS.map((reel) => {
             const isPlaying = playingId === reel.id;
             const isMuted = mutedStates[reel.id] ?? true;
 

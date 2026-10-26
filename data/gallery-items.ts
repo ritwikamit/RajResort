@@ -2,14 +2,6 @@ import type { GalleryItem } from './resort-data';
 
 export const FULL_GALLERY_ITEMS: GalleryItem[] = [
   {
-    "id": "gal-01",
-    "title": "The Open Wedding Lawn at Night",
-    "category": "Grand Lawns",
-    "caption": "Our green open lawn under the evening stars, where your entire family can gather and celebrate together.",
-    "aspect": "landscape",
-    "image": "/images/landingpage3.png"
-  },
-  {
     "id": "gal-02",
     "title": "The Bride's Walk with Loved Ones",
     "category": "Ceremonial Pergola",
@@ -48,14 +40,6 @@ export const FULL_GALLERY_ITEMS: GalleryItem[] = [
     "caption": "Cold fireworks, dancers, and traditional music making the bridal entrance unforgettable.",
     "aspect": "square",
     "image": "/images/venue-06.png"
-  },
-  {
-    "id": "gal-07",
-    "title": "Circular Floral Welcome Gateway",
-    "category": "Ceremonial Pergola",
-    "caption": "Delicate hanging chandeliers and fresh floral arches framing the main aisle.",
-    "aspect": "square",
-    "image": "/images/venue-07.png"
   },
   {
     "id": "gal-08",
