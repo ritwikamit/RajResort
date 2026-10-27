@@ -27,7 +27,7 @@ export default function FacilitiesPage() {
           <div className="relative w-full h-full fade-sides-mask">
             <Image
               src="/images/dedicated-pages/Venue&FacilitiesHero.webp"
-              alt="Raj Resort Patna Banquet Hall and Event Infrastructure Landscape"
+              alt="Raj Resort Patna AC Banquet Hall and Event Venue Infrastructure in Patna"
               fill
               priority
               sizes="100vw"

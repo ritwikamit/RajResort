@@ -28,7 +28,7 @@ export default function ContactPage() {
           <div className="relative w-full h-full fade-sides-mask">
             <Image
               src="/images/dedicated-pages/ContactReceptionHero.webp"
-              alt="Raj Resort Patna Reception and Event Planning Desk Landscape"
+              alt="Raj Resort Patna Front Desk Booking & Wedding Venue Inquiries Patna"
               fill
               priority
               sizes="100vw"

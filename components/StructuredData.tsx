@@ -15,7 +15,11 @@ export const StructuredData: React.FC = () => {
           'Raj Resort Patliputra',
           'Raj Resort Wedding Lawn Patna',
           'Raj Resort Banquet Hall Patna',
+          'Raj Resort Wedding Venue Patna',
+          'Raj Resort Marriage Hall Patna',
         ],
+        keywords:
+          'Raj Resort Patna, best resort in Patna, wedding venue in Patna, best wedding venue in Patna, wedding resort in Patna, marriage hall in Patna, banquet hall in Patna, resort for marriage in Patna, wedding lawn in Patna, resort in Patna Bihar, resort near Kurjee Mor Patna, resort near P&M Mall Patna',
         url: 'https://rajresortpatna.com',
         logo: 'https://rajresortpatna.com/icon.png',
         image: [
@@ -120,6 +124,58 @@ export const StructuredData: React.FC = () => {
             value: '150-ft illuminated floral walkway and glass-walk entry',
           },
         ],
+        areaServed: [
+          { '@type': 'City', name: 'Patna' },
+          { '@type': 'AdministrativeArea', name: 'Bihar' },
+          { '@type': 'Place', name: 'Patliputra' },
+          { '@type': 'Place', name: 'Kurji' },
+        ],
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Wedding & Event Venue Services in Patna',
+          itemListElement: [
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Wedding Venue & Open Celebration Lawn',
+                description: 'Outdoor wedding celebration lawn for 400 to 1,200+ guests with 150-ft illuminated floral walkway, wedding mandap, and reception staging in Patna, Bihar.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Air-Conditioned Banquet Hall & Function Hall',
+                description: 'Shahi Darbar AC banquet hall accommodating 150 to 500 guests for wedding receptions, engagement ceremonies, birthday parties, and family functions in Patna.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Ganga River-View Dining Area',
+                description: 'Covered and open-air riverside dining with in-house hotel-management hospitality team and live catering counters.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Guest Rooms & Bridal Suites',
+                description: '25+ air-conditioned on-site rooms for visiting wedding families and bridal preparation.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Car Parking & Security',
+                description: 'Dedicated on-site secure parking for 400+ cars with security personnel and valet assistance.',
+              },
+            },
+          ],
+        },
         sameAs: [
           'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,17z/data=!4m9!3m8!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m2!4m1!1i2!8m2!3d25.6391525!4d85.1102531!16s%2Fg%2F11pvch6p79?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D',
           'https://www.justdial.com/Patna/Raj-Resort-Near-Kurji-More-Kurji/0612PX612-X612-220718182741-N7B7_BZDET',

@@ -26,7 +26,7 @@ export default function LocationPage() {
           <div className="relative w-full h-full fade-sides-mask">
             <Image
               src="/images/dedicated-pages/Location&mapsHero.webp"
-              alt="Raj Resort Patna Arrival and Location Landscape"
+              alt="Raj Resort Patna Location Map near Kurjee Mor and P&M Mall Patliputra Patna"
               fill
               priority
               sizes="100vw"

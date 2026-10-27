@@ -2,16 +2,24 @@ import type { Metadata } from 'next';
 import { BreadcrumbSchema } from '@/components/BreadcrumbSchema';
 
 export const metadata: Metadata = {
-  title: 'Contact Reception & Booking Inquiries | Raj Resort Patna',
+  title: 'Book Best Wedding Venue in Patna | Contact Raj Resort Patliputra',
   description:
-    'Contact Raj Resort Patna front desk at +91 7360800001 or email Rajresortpatna@gmail.com. Check wedding dates, venue packages, and schedule an on-site property tour in Patliputra, Patna.',
+    'Book your date at Raj Resort Patna, premier wedding venue & banquet hall in Patna, Bihar. Call +91 7360800001 or WhatsApp for marriage hall dates, lawn booking & package inquiries.',
+  keywords: [
+    'Raj Resort Patna booking',
+    'wedding venue in Patna contact',
+    'marriage hall in Patna booking',
+    'banquet hall enquiry Patna',
+    'best wedding venue in Patna booking',
+    'resort for marriage in Patna contact',
+  ],
   alternates: {
     canonical: 'https://rajresortpatna.com/contact',
   },
   openGraph: {
-    title: 'Contact Reception & Booking Inquiries | Raj Resort Patna',
+    title: 'Book Best Wedding Venue in Patna | Contact Raj Resort Patliputra',
     description:
-      'Inquire about wedding lawn availability and booking dates at Raj Resort Patna. 24/7 reception and WhatsApp desk at Kurji Mor, Patliputra.',
+      'Inquire about wedding lawn availability and booking dates at Raj Resort Patna. 24/7 reception desk at Kurji Mor, Patliputra, Patna.',
     url: 'https://rajresortpatna.com/contact',
     siteName: 'Raj Resort Patna',
     images: [
@@ -19,7 +27,7 @@ export const metadata: Metadata = {
         url: 'https://rajresortpatna.com/images/dedicated-pages/ContactReceptionHero.webp',
         width: 1200,
         height: 630,
-        alt: 'Raj Resort Patna - Front Desk Contact and Booking Inquiries',
+        alt: 'Raj Resort Patna - Booking Best Wedding Venue and Banquet Hall in Patna',
       },
     ],
     locale: 'en_IN',
@@ -27,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Reception & Booking Inquiries | Raj Resort Patna',
+    title: 'Book Best Wedding Venue in Patna | Contact Raj Resort Patliputra',
     description:
-      'Inquire about wedding lawn availability and booking dates at Raj Resort Patna. 24/7 reception and WhatsApp desk at Kurji Mor, Patliputra.',
+      'Inquire about wedding lawn availability and booking dates at Raj Resort Patna. 24/7 reception desk at Kurji Mor, Patliputra, Patna.',
     images: ['https://rajresortpatna.com/images/dedicated-pages/ContactReceptionHero.webp'],
   },
 };

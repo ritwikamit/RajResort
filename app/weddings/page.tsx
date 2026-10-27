@@ -29,7 +29,7 @@ export default function WeddingsPage() {
           <div className="relative w-full h-full fade-sides-mask">
             <Image
               src="/images/dedicated-pages/Wedding&LawnHero.webp"
-              alt="Raj Resort Patna Grand Wedding Lawns Landscape"
+              alt="Raj Resort Patna Grand Wedding Lawns & Marriage Venue in Patna Bihar"
               fill
               priority
               sizes="100vw"

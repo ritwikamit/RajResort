@@ -27,7 +27,7 @@ export default function GalleryPage() {
           <div className="relative w-full h-full fade-sides-mask">
             <Image
               src="/images/dedicated-pages/GallaryHero.webp"
-              alt="Raj Resort Patna Wedding Ceremony Gallery Landscape"
+              alt="Raj Resort Patna Wedding Lawns and Banquet Hall Ceremony Photo Gallery"
               fill
               priority
               sizes="100vw"

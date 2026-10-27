@@ -68,7 +68,7 @@ export const WeddingVenuesSection: React.FC = () => {
             <div className="lg:col-span-7 relative w-full h-[360px] sm:h-[440px] lg:h-[500px] overflow-hidden select-none bg-stone-900">
               <Image
                 src={activeVenue.image}
-                alt={`${activeVenue.name} - Raj Resort Patna`}
+                alt={`${activeVenue.name} - Wedding Venue & Banquet Hall at Raj Resort Patna`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 60vw"

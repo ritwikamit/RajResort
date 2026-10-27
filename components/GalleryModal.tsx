@@ -107,7 +107,7 @@ export const GalleryModal: React.FC<GalleryModalProps> = ({
           <Image
             key={activeIdx}
             src={currentItem.image}
-            alt={currentItem.title}
+            alt={`${currentItem.title} - Wedding Venue & Banquet Hall at Raj Resort Patna`}
             fill
             sizes="90vw"
             className="object-contain object-center"
