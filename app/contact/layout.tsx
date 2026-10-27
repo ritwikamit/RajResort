@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { BreadcrumbSchema } from '@/components/BreadcrumbSchema';
 
 export const metadata: Metadata = {
-  title: 'Book Best Wedding Venue in Patna | Contact Raj Resort Patliputra',
+  title: 'Book Best Wedding Venue in Patna | Contact & Booking',
   description:
     'Book your date at Raj Resort Patna, premier wedding venue & banquet hall in Patna, Bihar. Call +91 7360800001 or WhatsApp for marriage hall dates, lawn booking & package inquiries.',
   keywords: [

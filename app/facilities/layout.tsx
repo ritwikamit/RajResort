@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { BreadcrumbSchema } from '@/components/BreadcrumbSchema';
 
 export const metadata: Metadata = {
-  title: 'Banquet Hall in Patna | Function Hall & Event Venue - Raj Resort',
+  title: 'Banquet Hall in Patna | Function Hall & Event Venue',
   description:
     'Shahi Darbar AC banquet hall in Patna, family function venue & event spaces across 3.5 acres. Features function hall for 150-500 guests, party venue, Ganga River-view dining, 25+ AC rooms, and 400+ car parking in Patna, Bihar.',
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     canonical: 'https://rajresortpatna.com/facilities',
   },
   openGraph: {
-    title: 'Banquet Hall in Patna | Function Hall & Event Venue - Raj Resort',
+    title: 'Banquet Hall in Patna | Function Hall & Event Venue | Raj Resort Patna',
     description:
       'Shahi Darbar AC banquet hall in Patna, party venue & family function spaces across 3.5 acres. 400+ car parking, Ganga River-view dining, and continuous generator backup.',
     url: 'https://rajresortpatna.com/facilities',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Banquet Hall in Patna | Function Hall & Event Venue - Raj Resort',
+    title: 'Banquet Hall in Patna | Function Hall & Event Venue | Raj Resort Patna',
     description:
       'Shahi Darbar AC banquet hall in Patna, party venue & family function spaces across 3.5 acres. 400+ car parking, Ganga River-view dining, and continuous generator backup.',
     images: ['https://rajresortpatna.com/images/dedicated-pages/Venue&FacilitiesHero.webp'],

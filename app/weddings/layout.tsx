@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { BreadcrumbSchema } from '@/components/BreadcrumbSchema';
 
 export const metadata: Metadata = {
-  title: 'Wedding Venue in Patna | Marriage Hall & Wedding Lawn - Raj Resort',
+  title: 'Wedding Venue in Patna | Marriage Hall & Wedding Lawn',
   description:
     'Best wedding venue & marriage hall in Patna across 3.5 acres. Featuring open wedding lawns for 400-1,200+ guests, wedding reception venue, 150-ft floral walkway, royal mandap stages, and 400+ car parking in Patna, Bihar.',
   keywords: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: 'https://rajresortpatna.com/weddings',
   },
   openGraph: {
-    title: 'Wedding Venue in Patna | Marriage Hall & Wedding Lawn - Raj Resort',
+    title: 'Wedding Venue in Patna | Marriage Hall & Wedding Lawn | Raj Resort Patna',
     description:
       '3.5-acre luxury wedding venue & marriage hall in Patna, Bihar near Kurjee Mor. Open wedding lawn, 150-ft illuminated floral walkway, and royal mandap stage.',
     url: 'https://rajresortpatna.com/weddings',

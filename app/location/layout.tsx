@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { BreadcrumbSchema } from '@/components/BreadcrumbSchema';
 
 export const metadata: Metadata = {
-  title: 'Resort Near Kurjee Mor & P&M Mall Patna | Route Directions - Raj Resort',
+  title: 'Resort Near Kurjee Mor & P&M Mall | Route Directions',
   description:
     'Driving directions & map to Raj Resort near Kurjee Mor & P&M Mall, Patliputra, Patna, Bihar. Accessible via Ganga Marine Drive and Patliputra Station for weddings and events.',
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: 'https://rajresortpatna.com/location',
   },
   openGraph: {
-    title: 'Resort Near Kurjee Mor & P&M Mall Patna | Route Directions - Raj Resort',
+    title: 'Resort Near Kurjee Mor & P&M Mall | Route Directions | Raj Resort Patna',
     description:
       'Map & directions to Raj Resort Patna near Kurjee Mor & P&M Mall, Patliputra. Convenient riverfront access via Ganga Marine Drive.',
     url: 'https://rajresortpatna.com/location',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Resort Near Kurjee Mor & P&M Mall Patna | Route Directions - Raj Resort',
+    title: 'Resort Near Kurjee Mor & P&M Mall | Route Directions | Raj Resort Patna',
     description:
       'Map & directions to Raj Resort Patna near Kurjee Mor & P&M Mall, Patliputra. Convenient riverfront access via Ganga Marine Drive.',
     images: ['https://rajresortpatna.com/images/dedicated-pages/Location&mapsHero.webp'],

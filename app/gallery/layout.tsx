@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { BreadcrumbSchema } from '@/components/BreadcrumbSchema';
 
 export const metadata: Metadata = {
-  title: 'Wedding Lawns & Banquet Hall Photos | Gallery - Raj Resort Patna',
+  title: 'Wedding Lawns & Banquet Hall Photos | Photo Gallery',
   description:
     'Explore real photos and videos of wedding lawns, marriage stages, AC banquet halls, mandap decor, and celebration setups at Raj Resort Patna, Bihar near Kurjee Mor.',
   keywords: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     canonical: 'https://rajresortpatna.com/gallery',
   },
   openGraph: {
-    title: 'Wedding Lawns & Banquet Hall Photos | Gallery - Raj Resort Patna',
+    title: 'Wedding Lawns & Banquet Hall Photos | Photo Gallery | Raj Resort Patna',
     description:
       'Real wedding moments, viral reels, and celebration photographs from Raj Resort Patna near Kurjee Mor, Patliputra.',
     url: 'https://rajresortpatna.com/gallery',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Wedding Lawns & Banquet Hall Photos | Gallery - Raj Resort Patna',
+    title: 'Wedding Lawns & Banquet Hall Photos | Photo Gallery | Raj Resort Patna',
     description:
       'Real wedding moments, viral reels, and celebration photographs from Raj Resort Patna near Kurjee Mor, Patliputra.',
     images: ['https://rajresortpatna.com/images/dedicated-pages/GallaryHero.webp'],
