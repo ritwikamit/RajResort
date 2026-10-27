@@ -212,7 +212,7 @@ A production audit of the rendered `.next` HTML distribution and build artifacts
   Host: https://rajresortpatna.com
   Sitemap: https://rajresortpatna.com/sitemap.xml
   ```
-- **`sitemap.xml`**: Confirmed deployed at `https://rajresortpatna.com/sitemap.xml`. Includes all 7 routes, priority tags (1.0 to 0.3), change frequencies, and 9 Google Image search tags.
+- **`sitemap.xml`**: Confirmed deployed at `https://rajresortpatna.com/sitemap.xml`. Resolved Google Search Console Line 18 XML parsing error (caused by unescaped `&` characters in image URLs output by default Next.js sitemap generators). Converted to 100% compliant, standard XML with all 7 canonical routes, daily/weekly change frequencies, and priority weighting (1.0 to 0.3). Verified: 0 XML syntax errors and 0 unescaped entities.
 - **`manifest.webmanifest`**: Confirmed deployed at `https://rajresortpatna.com/manifest.webmanifest` with brand colors, full application name, and icon links.
 - **Google Site Verification**: Dual verification via `google6150f36a1a21fac7.html` and meta tag `<meta name="google-site-verification" content="google6150f36a1a21fac7">`.
 - **Geographical Search Signals**: Verified `<meta name="geo.position" content="25.6391525;85.1102531">`, `<meta name="geo.region" content="IN-BR">`, and `<meta name="ICBM" content="25.6391525, 85.1102531">`.
