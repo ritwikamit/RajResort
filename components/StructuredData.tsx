@@ -19,19 +19,29 @@ export const StructuredData: React.FC = () => {
         url: 'https://rajresortpatna.com',
         logo: 'https://rajresortpatna.com/icon.png',
         image: [
+          'https://rajresortpatna.com/images/og-image.jpg',
           'https://rajresortpatna.com/images/spaces/starlit-celebration-lawn.webp',
-          'https://rajresortpatna.com/images/venue-26.jpg',
-          'https://rajresortpatna.com/images/venue-02.jpg',
-          'https://rajresortpatna.com/images/venue-08.jpg',
+          'https://rajresortpatna.com/images/spaces/shahi-darbar-ac-banquet.webp',
+          'https://rajresortpatna.com/images/spaces/ganga-river-view-dining.webp',
+          'https://rajresortpatna.com/images/spaces/150-foot-floral-walkway.webp',
         ],
         description:
           'Raj Resort Patna is a 3.5-acre wedding and event venue near Kurji Mor, Patliputra featuring open celebration lawns for 400 to 1,200+ guests, an AC banquet hall, Ganga River-view dining, 25+ guest rooms, and parking for 400+ cars.',
         telephone: '+917360800001',
         email: 'Rajresortpatna@gmail.com',
-        priceRange: '₹₹',
+        priceRange: '₹₹₹',
         currenciesAccepted: 'INR',
         paymentAccepted: 'Cash, UPI, Credit Card, Bank Transfer',
         maximumAttendeeCapacity: 1200,
+        contactPoint: [
+          {
+            '@type': 'ContactPoint',
+            telephone: '+917360800001',
+            contactType: 'reservations',
+            areaServed: 'IN',
+            availableLanguage: ['English', 'Hindi'],
+          },
+        ],
         hasMap:
           'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,17z/data=!4m9!3m8!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m2!4m1!1i2!8m2!3d25.6391525!4d85.1102531!16s%2Fg%2F11pvch6p79?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D',
         address: {
@@ -113,7 +123,9 @@ export const StructuredData: React.FC = () => {
         sameAs: [
           'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,17z/data=!4m9!3m8!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m2!4m1!1i2!8m2!3d25.6391525!4d85.1102531!16s%2Fg%2F11pvch6p79?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D',
           'https://www.justdial.com/Patna/Raj-Resort-Near-Kurji-More-Kurji/0612PX612-X612-220718182741-N7B7_BZDET',
-          'https://www.instagram.com/rajresortpatna',
+          'https://www.instagram.com/rajresortpatna/?hl=en',
+          'https://www.facebook.com/rajresortpatna/',
+          'https://www.youtube.com/results?search_query=raj+resort+patna',
         ],
       },
 

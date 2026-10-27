@@ -110,6 +110,15 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'google6150f36a1a21fac7',
+  },
+  formatDetection: {
+    telephone: true,
+    address: true,
+    email: true,
+  },
+  category: 'Wedding & Event Venue',
 };
 
 export default function RootLayout({

@@ -117,7 +117,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ isLandingPage = 
             >
               <Image
                 src={item.image}
-                alt={item.title}
+                alt={`${item.title} - Raj Resort Wedding Patna`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 loading={index < 4 ? 'eager' : 'lazy'}

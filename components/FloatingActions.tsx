@@ -218,10 +218,10 @@ export const FloatingActions: React.FC = () => {
                 />
               </div>
               <div>
-                <h2 className="text-sm font-bold leading-tight flex items-center gap-1.5">
+                <p role="heading" aria-level={2} className="text-sm font-bold leading-tight flex items-center gap-1.5">
                   <span>Priya · Front Desk</span>
                   <span className="text-[10px] font-normal px-1.5 py-0.5 rounded-full bg-white/20 text-[#FFE5BF]">Reception</span>
-                </h2>
+                </p>
                 <div className="flex items-center gap-1.5 text-[11px] text-[#FFE5BF] mt-0.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
                   <span>Online · Raj Resort, Kurji Mor</span>
