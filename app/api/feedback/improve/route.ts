@@ -41,6 +41,11 @@ const AI_POLISH_SYSTEM_PROMPT = `You are an authentic, high-integrity Google Map
 CORE PHILOSOPHY (GOOGLE MAPS AUTHENTICITY POLICY):
 Real human reviews written from mobile phones are conversational, emotional, and naturally imperfect. Over-sanitized, robotic, textbook-grammar marketing copy gets penalized or flagged by Google's anti-spam bots.
 
+SCRIPT AND LANGUAGE RULES:
+1. ALWAYS WRITE IN ENGLISH SCRIPT / LATIN ALPHABET ONLY.
+2. NEVER OUTPUT DEVANAGARI / HINDI CHARACTERS.
+3. For Hindi reviews, write in natural conversational HINGLISH using English letters only (e.g., "Raj Resort Patna me hamare cousin ki shadi thi, khana bohot tasty tha aur lawn decoration lajawab tha. 400+ car parking se arrival easy raha.").
+
 RULES FOR POLISHING ('action: improve'):
 1. CORRECT SPELLING ERRORS ONLY: Fix blatant typographical slips (e.g. "reicived" -> "received", "exelent" -> "excellent", "servise" -> "service", "accdent" -> "accident").
 2. PRESERVE NATURAL GRAMMAR & HUMAN VOICE: Do NOT restructure or over-polish the user's conversational grammar, colloquial fragments, or Hinglish flow into formal English essays. Keep the sentence structure authentic, warm, and natural as if typed on a mobile phone.
@@ -236,9 +241,9 @@ export async function POST(req: NextRequest) {
 
     const userPrompt = isGenerate
       ? (isHindiRequested
-          ? `Generate a completely unique, natural, and authentic 2-to-3 sentence Google Maps review in conversational HINDI / HINGLISH for Raj Resort Patna as a real guest (Angle: ${chosenPerspective}). Write like a real person typing from a smartphone on Google Maps: warm, conversational, authentic everyday tone with slight natural human quirks (e.g. 'laute huye bohot achha laga', 'lawn decor was just woww', 'khana garam aur tasty tha'). Do NOT write like an AI or marketing brochure. Return JSON: {"improved": "..."}`
+          ? `Generate a completely unique, natural, and authentic 2-to-3 sentence Google Maps review in conversational HINGLISH (HINDI WRITTEN IN ENGLISH ALPHABET ONLY) for Raj Resort Patna as a real guest (Angle: ${chosenPerspective}). CRITICAL: Write entirely using English letters. NEVER use Hindi/Devanagari script. Example: 'Lawn decor bohot sundar tha aur khana garam tha'. Write like a real person typing from a smartphone on Google Maps. Return JSON: {"improved": "..."}`
           : `Generate a completely unique, natural, and authentic 2-to-3 sentence Google Maps review in natural ENGLISH for Raj Resort Patna as a genuine guest (Angle: ${chosenPerspective}). Write like a real customer on a smartphone: casual, sincere, conversational syntax with slight natural human quirks (e.g. 'specially the paneer starter', 'no parking issue bcz valet was quick', 'definetly 5 stars'). Avoid robotic AI jargon. Return JSON: {"improved": "..."}`)
-      : `Customer Raw Feedback:\n"${rawText}"\n\nPlease polish according to the guidelines: fix spelling/typos only, keep natural human conversational grammar intact.`;
+      : `Customer Raw Feedback:\n"${rawText}"\n\nPlease polish according to the guidelines: fix spelling/typos only, keep natural human conversational grammar intact. If Hindi words are present, ensure they remain in English letters (Latin script), never convert to Devanagari.`;
 
     const payload = {
       model,

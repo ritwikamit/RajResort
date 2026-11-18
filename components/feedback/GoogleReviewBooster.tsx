@@ -477,9 +477,7 @@ export const GoogleReviewBooster: React.FC = () => {
           Review Raj Resort Patna
         </h1>
         <p className="mt-1 text-xs sm:text-sm text-stone-600 dark:text-stone-300 font-sans max-w-sm mx-auto">
-          {selectedLang === 'hi' 
-            ? 'राज रिसॉर्ट पटना — अपना 5-Star अनुभव Google पर शेयर करें।'
-            : 'Share your 5-star experience on our official Google Business Profile.'}
+          Share your 5-star experience on our official Google Business Profile.
         </p>
       </div>
 
@@ -514,7 +512,7 @@ export const GoogleReviewBooster: React.FC = () => {
             </span>
           </div>
           <div className="text-xs font-semibold text-[#F62440] dark:text-[#FFE5BF] mt-1.5">
-            {overallRating === 5 ? (selectedLang === 'hi' ? '5.0 — उत्कृष्ट अनुभव' : '5.0 — Exceptional Stay & Hospitality') : `${overallRating}.0 Star Rating`}
+            {overallRating === 5 ? '5.0 — Exceptional Hospitality & Stay' : `${overallRating}.0 Star Rating`}
           </div>
         </div>
 
@@ -534,7 +532,7 @@ export const GoogleReviewBooster: React.FC = () => {
             </div>
             
             <div className="flex items-center gap-1.5 flex-wrap">
-              {/* Language Switcher (हिन्दी | English) - Defaults to Hindi */}
+              {/* Language Switcher (Hindi in English / Hinglish | English) - Defaults to Hindi in English */}
               <div className="inline-flex items-center p-0.5 rounded-lg bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
                 <button
                   type="button"
@@ -544,9 +542,9 @@ export const GoogleReviewBooster: React.FC = () => {
                       ? 'bg-[#F62440] text-white shadow-xs'
                       : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white'
                   }`}
-                  title="हिन्दी रिव्यूज"
+                  title="Hindi reviews written in English letters (Hinglish)"
                 >
-                  हिन्दी
+                  Hindi (Hinglish)
                 </button>
                 <button
                   type="button"
@@ -581,10 +579,10 @@ export const GoogleReviewBooster: React.FC = () => {
                 )}
                 <span>
                   {isGenerating || isTypingEffect
-                    ? (selectedLang === 'hi' ? 'लिखा जा रहा है...' : 'Writing...')
+                    ? 'Writing...'
                     : !reviewText.trim()
-                    ? (selectedLang === 'hi' ? 'रिव्यू जनरेट करें' : 'Generate Review')
-                    : (selectedLang === 'hi' ? 'नया रिव्यू' : 'New Review')}
+                    ? 'Generate Review'
+                    : 'New Review'}
                 </span>
               </button>
 
@@ -627,8 +625,8 @@ export const GoogleReviewBooster: React.FC = () => {
                 baseTextRef.current = e.target.value;
               }}
               placeholder={selectedLang === 'hi' 
-                ? "अपना रिव्यू यहाँ खुद टाइप करें, बोलने के लिए माइक 🎙️ दबाएं, या ऊपर 'रिव्यू जनरेट करें' दबाकर AI से लिखवाएं..." 
-                : "Type your review here, tap the mic 🎙️ to speak, or tap 'Generate Review' above to generate automatically..."}
+                ? "Type your review here in Hindi (using English letters), tap mic to speak, or tap 'Generate Review' above..." 
+                : "Type your review here, tap the mic to speak, or tap 'Generate Review' above..."}
               rows={5}
               className="w-full p-4 pr-12 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#F62440]/30 resize-none transition-all placeholder:text-stone-400 leading-relaxed"
             />
@@ -656,7 +654,7 @@ export const GoogleReviewBooster: React.FC = () => {
           {isListening && (
             <div className="flex items-center gap-2 text-xs text-[#F62440] font-medium pl-1">
               <span className="w-2 h-2 rounded-full bg-[#F62440] animate-ping" />
-              <span>Listening ({voiceLang === 'en-IN' ? 'English / Hinglish' : 'हिन्दी'})... Speak clearly into the microphone.</span>
+              <span>Listening ({voiceLang === 'hi-IN' ? 'Hindi / Hinglish' : 'English'})... Speak clearly into the microphone.</span>
             </div>
           )}
 
@@ -669,13 +667,13 @@ export const GoogleReviewBooster: React.FC = () => {
 
           {!reviewText.trim() && !isListening && (
             <div className="flex items-center justify-between text-[11px] text-stone-500 dark:text-stone-400 pl-1">
-              <span>💡 {selectedLang === 'hi' ? 'सुझाव: आप बोल सकते हैं, टाइप कर सकते हैं या' : 'Tip: You can speak, write or'}</span>
+              <span>💡 Tip: You can speak, write, or generate automatically.</span>
               <button
                 type="button"
                 onClick={() => handleGenerateReview()}
                 className="font-bold text-[#F62440] hover:underline cursor-pointer"
               >
-                {selectedLang === 'hi' ? '✨ ऑटो-जनरेट करें' : '✨ Auto-generate'}
+                ✨ Generate Review
               </button>
             </div>
           )}
@@ -830,7 +828,7 @@ export const GoogleReviewBooster: React.FC = () => {
                 Loved Your Experience With Us?
               </h4>
               <p className="text-xs text-[#F62440] font-semibold standee-ruby-text">
-                आपकी समीक्षा हमारे लिए अनमोल है • Share Your 5-Star Review
+                Your Feedback Matters To Us • Share Your 5-Star Review
               </p>
             </div>
 
