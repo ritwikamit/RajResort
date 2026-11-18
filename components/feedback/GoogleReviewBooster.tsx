@@ -50,8 +50,8 @@ declare global {
   }
 }
 
-// Authentic Indian human review building blocks for Raj Resort Patna (hundreds of unique permutations)
-const REVIEW_OPENERS = [
+// Authentic human review building blocks for Raj Resort Patna (English & Hindi)
+const ENGLISH_OPENERS = [
   "Attended a cousin's wedding reception at Raj Resort Patna last week.",
   "Had an unforgettable experience celebrating a family function at Raj Resort.",
   "Recently attended my friend's marriage ceremony here near Kurji Mor.",
@@ -62,7 +62,7 @@ const REVIEW_OPENERS = [
   "Such a beautiful and well-maintained resort for grand celebrations.",
 ];
 
-const REVIEW_HIGHLIGHTS = [
+const ENGLISH_HIGHLIGHTS = [
   "The 3.5-acre open lawn was decorated beautifully and the illuminated couple walkway was breathtaking.",
   "The banquet hall AC was cooling perfectly and the open lawn with the Ganga breeze created a royal ambience.",
   "The lawn lighting, floral stage decor, and spacious guest seating made the evening magical.",
@@ -70,51 +70,74 @@ const REVIEW_HIGHLIGHTS = [
   "From the majestic grand entry gate to the themed Varmala stage, every arrangement looked royal.",
 ];
 
-const REVIEW_FOOD_SERVICE = [
-  "Food was hot, flavorful, and the live chaat and starter counters were a huge hit with all guests.",
+const ENGLISH_FOOD_SERVICE = [
+  "Food was hot, flavorful, specially the live chaat counter and paneer starter were top notch.",
   "The dinner buffet had great variety with authentic taste, and the service staff was polite and humble.",
   "Delicious catering with fresh ingredients, and the banquet team ensured prompt refills throughout.",
   "Starters and main course were delicious, and the management team was cooperative at every step.",
 ];
 
-const REVIEW_CLOSINGS = [
+const ENGLISH_CLOSINGS = [
   "Spacious parking for 400+ cars made arrival hassle-free. Full 5 stars well deserved!",
   "Courteous management, clean AC rooms, and smooth parking assistance. Highly recommended in Patna!",
   "Reliable power backup, humble staff, and great hospitality throughout. Must visit for weddings!",
   "Thank you to the whole team for making our family event so memorable and special!",
 ];
 
-const HINGLISH_REVIEWS = [
-  "Bahut hi shandar resort hai Patna me. Family wedding attend kiya tha, lawn decoration aur catering dono lajawab the. Parking ki koi dikkat nahi hui aur staff ka behaviour bahut humble tha.",
-  "Raj Resort Patna me hamare cousin ki shadi thi. Venue bohot bada aur sundar hai, especially Ganga view aur night lighting. Khana bahut tasty tha aur sabhi arrangements smooth the.",
-  "Patna ka one of the best wedding venues! Open lawn bahut spacious hai, decoration aur bride-groom entry ka setup bohot attractive laga. Management team full supportive hai.",
-  "Hamne yaha engagement function organize kiya tha. Banquet hall ka AC, dinner buffet aur seating arrangements sab kuch first class tha. Sabhi guests ne venue aur khane ki tareef ki.",
-  "Kurji Mor ke paas best location hai via Ganga Marine Drive. Rooms clean the aur car parking 400+ gaadiyo ke liye kaafi badi hai. Staff ka service quick aur helpful raha.",
-  "Shaadi aur reception ke liye perfect place hai Raj Resort. Khane ka taste authentic aur fresh tha. Lawn ka ambience night me bohot royal lagta hai. 5 star experience!",
+const HINDI_OPENERS = [
+  "Raj Resort Patna me hamare cousin ki shadi attend kiya tha.",
+  "Family wedding ke liye Raj Resort Patna book kiya tha, bohot shandar anubhav raha.",
+  "Pichhle hafte dost ki engagement ceremony attend ki yaha Kurji Mor ke paas.",
+  "Patna ka one of the best wedding venues laga hum sabhi family members ko.",
+  "Bhai ke reception function ke liye venue bohot sundar aur royal saabit hua.",
+  "Ganga kinare ka resort hai, shaam ka mahaul bohot peaceful aur grand rehta hai.",
+];
+
+const HINDI_HIGHLIGHTS = [
+  "3.5 acre ka open lawn bohot sundar sajaya gaya tha aur bride-groom entry ka walkway lajawab laga.",
+  "Banquet hall ka AC cooling first-class tha aur night lighting me lawn royal lag raha tha.",
+  "Stage decoration aur seating arrangement bohot spacious tha, 700+ guests aaram se aa gaye.",
+  "Ganga Marine Drive se aana bohot aasan raha aur venue ka grand look dil jeet leta hai.",
+];
+
+const HINDI_FOOD_SERVICE = [
+  "Khana bilkul fresh, garam aur authentic taste ka tha. Live chaat aur starters sabko pasand aaye.",
+  "Dinner buffet me kaafi variety thi, taste lajawab tha aur serving staff bohot humble tha.",
+  "Catering arrangements lajawab the, garam khana aur prompt service continuously chali.",
+];
+
+const HINDI_CLOSINGS = [
+  "400+ gaadiyo ki parking aur security guard ki wajah se koi dikkat nahi hui. 5 star experience!",
+  "Management full supportive raha aur AC rooms bhi clean the. Patna me highly recommended!",
+  "Continuous power backup aur humble staff. Bahut hi pyara resort hai weddings ke liye!",
 ];
 
 function getRandomElement<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function generateRandomHumanReview(): string {
-  // 25% chance of realistic Hinglish review for authentic local variety
-  if (Math.random() < 0.25) {
-    return getRandomElement(HINGLISH_REVIEWS);
+function generateRandomHumanReview(lang: 'en' | 'hi' = 'en'): string {
+  if (lang === 'hi') {
+    const o = getRandomElement(HINDI_OPENERS);
+    const h = getRandomElement(HINDI_HIGHLIGHTS);
+    const f = getRandomElement(HINDI_FOOD_SERVICE);
+    const c = getRandomElement(HINDI_CLOSINGS);
+    return `${o} ${h} ${f} ${c}`;
   }
-  const opener = getRandomElement(REVIEW_OPENERS);
-  const highlight = getRandomElement(REVIEW_HIGHLIGHTS);
-  const food = getRandomElement(REVIEW_FOOD_SERVICE);
-  const closing = getRandomElement(REVIEW_CLOSINGS);
-  return `${opener} ${highlight} ${food} ${closing}`;
+  const o = getRandomElement(ENGLISH_OPENERS);
+  const h = getRandomElement(ENGLISH_HIGHLIGHTS);
+  const f = getRandomElement(ENGLISH_FOOD_SERVICE);
+  const c = getRandomElement(ENGLISH_CLOSINGS);
+  return `${o} ${h} ${f} ${c}`;
 }
 
 export const GoogleReviewBooster: React.FC = () => {
   // Overall Rating only (1-5 stars)
   const [overallRating, setOverallRating] = useState<number>(5);
 
-  // Lazy initializer ensures random human review is generated on initial mount with zero cascading render
-  const [reviewText, setReviewText] = useState<string>(() => generateRandomHumanReview());
+  const [selectedLang, setSelectedLang] = useState<'en' | 'hi'>('en');
+  // Lazy initializer ensures random human review is generated on initial mount
+  const [reviewText, setReviewText] = useState<string>(() => generateRandomHumanReview('en'));
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [isListening, setIsListening] = useState<boolean>(false);
   const [isPolishing, setIsPolishing] = useState<boolean>(false);
@@ -123,9 +146,42 @@ export const GoogleReviewBooster: React.FC = () => {
   const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
   const [micError, setMicError] = useState<string | null>(null);
 
+  // ChatGPT-like streaming typewriter effect
+  const [isTypingEffect, setIsTypingEffect] = useState<boolean>(false);
+  const typingTimerRef = useRef<NodeJS.Timeout | null>(null);
+
   const [voiceLang, setVoiceLang] = useState<'en-IN' | 'hi-IN'>('en-IN');
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
   const baseTextRef = useRef<string>('');
+
+  const cancelTypewriter = useCallback(() => {
+    if (typingTimerRef.current) {
+      clearInterval(typingTimerRef.current);
+      typingTimerRef.current = null;
+    }
+    setIsTypingEffect(false);
+  }, []);
+
+  const applyTypewriterEffect = useCallback((targetText: string) => {
+    if (typingTimerRef.current) {
+      clearInterval(typingTimerRef.current);
+      typingTimerRef.current = null;
+    }
+    setIsTypingEffect(true);
+    setReviewText('');
+    let idx = 0;
+    const total = targetText.length;
+    // Step 2-3 characters every 12ms for a responsive, natural ChatGPT typing sensation
+    typingTimerRef.current = setInterval(() => {
+      idx += Math.min(2, total - idx);
+      setReviewText(targetText.slice(0, idx));
+      if (idx >= total) {
+        if (typingTimerRef.current) clearInterval(typingTimerRef.current);
+        typingTimerRef.current = null;
+        setIsTypingEffect(false);
+      }
+    }, 12);
+  }, []);
 
   // Generate QR on mount
   useEffect(() => {
@@ -141,11 +197,15 @@ export const GoogleReviewBooster: React.FC = () => {
       if (recognitionRef.current) {
         recognitionRef.current.abort();
       }
+      if (typingTimerRef.current) {
+        clearInterval(typingTimerRef.current);
+      }
     };
   }, []);
 
-  // Generate another unique review (Client combinatorial + API support)
-  const handleGenerateAnother = useCallback(async () => {
+  // Generate unique review (Hybrid: instant AI API with high diversity + procedural fallback + ChatGPT typing effect)
+  const handleGenerateReview = useCallback(async (langToUse?: 'en' | 'hi') => {
+    cancelTypewriter();
     if (recognitionRef.current) {
       try {
         recognitionRef.current.abort();
@@ -155,35 +215,45 @@ export const GoogleReviewBooster: React.FC = () => {
     }
     baseTextRef.current = '';
 
+    const lang = langToUse || selectedLang;
     setIsGenerating(true);
+
     try {
-      // Try AI endpoint with fast timeout, fallback instantly to diverse local generator
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 2000);
+      const timeoutId = setTimeout(() => controller.abort(), 2800);
 
       const res = await fetch('/api/feedback/improve', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'generate' }),
+        body: JSON.stringify({ action: 'generate', language: lang }),
         signal: controller.signal,
       }).finally(() => clearTimeout(timeoutId));
 
       if (res.ok) {
         const data = await res.json();
         if (data.improved) {
-          setReviewText(data.improved);
+          applyTypewriterEffect(data.improved);
           setIsGenerating(false);
           return;
         }
       }
     } catch {
-      // Fallback
+      // Fallback to instant procedural generator
     }
 
-    // Instant unique combinatorial generator (hundreds of variations)
-    setReviewText(generateRandomHumanReview());
+    // Instant unique combinatorial generator (hundreds of variations) with ChatGPT typing effect
+    const proceduralReview = generateRandomHumanReview(lang);
+    applyTypewriterEffect(proceduralReview);
     setIsGenerating(false);
-  }, []);
+  }, [selectedLang, cancelTypewriter, applyTypewriterEffect]);
+
+  // Handle switching language: automatically generates fresh review in that language
+  const handleSelectLanguage = (newLang: 'en' | 'hi') => {
+    if (newLang === selectedLang) return;
+    setSelectedLang(newLang);
+    setVoiceLang(newLang === 'hi' ? 'hi-IN' : 'en-IN');
+    handleGenerateReview(newLang);
+  };
 
   // Voice Typing toggle (Hindi / English speech recognition)
   const toggleVoiceTyping = () => {
@@ -252,8 +322,9 @@ export const GoogleReviewBooster: React.FC = () => {
     }
   };
 
-  // Full reset: cleanly tears down active speech recognition and clears text & baseline
+  // Full reset: cleanly tears down active speech recognition, cancels typewriter, clears text & baseline
   const handleReset = () => {
+    cancelTypewriter();
     if (recognitionRef.current) {
       try {
         recognitionRef.current.abort();
@@ -266,20 +337,21 @@ export const GoogleReviewBooster: React.FC = () => {
     setMicError(null);
   };
 
-  // AI Polish with rate-limited API
+  // AI Polish with rate-limited API (fixes spelling errors while preserving natural human grammar)
   const handleAIPolish = async () => {
     if (!reviewText.trim()) return;
+    cancelTypewriter();
     setIsPolishing(true);
 
     try {
       const res = await fetch('/api/feedback/improve', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: reviewText }),
+        body: JSON.stringify({ text: reviewText, language: selectedLang }),
       });
       const data = await res.json();
       if (data.success && data.improved) {
-        setReviewText(data.improved);
+        applyTypewriterEffect(data.improved);
       }
     } catch (err) {
       console.warn('AI polish error:', err);
@@ -378,20 +450,56 @@ export const GoogleReviewBooster: React.FC = () => {
         {/* 2. Review Text Area with Auto-Generation, Manual Typing & Voice Typing */}
         <div className="space-y-2.5">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <label className="text-xs uppercase font-bold tracking-wider text-stone-500 dark:text-stone-400">
-              Your Review (Ready to Post)
-            </label>
+            <div className="flex items-center gap-2">
+              <label className="text-xs uppercase font-bold tracking-wider text-stone-500 dark:text-stone-400">
+                Your Review (Ready to Post)
+              </label>
+              {isTypingEffect && (
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#FFE5BF] dark:bg-[#352520] text-[#F62440] dark:text-[#FFE5BF] animate-pulse">
+                  <Sparkles className="w-2.5 h-2.5" />
+                  AI writing...
+                </span>
+              )}
+            </div>
             
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              {/* Language Switcher (English | हिन्दी) - Tapping automatically regenerates review */}
+              <div className="inline-flex items-center p-0.5 rounded-lg bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
+                <button
+                  type="button"
+                  onClick={() => handleSelectLanguage('en')}
+                  className={`px-2 py-0.5 rounded-md text-[11px] font-bold transition-all cursor-pointer ${
+                    selectedLang === 'en'
+                      ? 'bg-[#F62440] text-white shadow-xs'
+                      : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white'
+                  }`}
+                  title="Switch to English reviews"
+                >
+                  English
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSelectLanguage('hi')}
+                  className={`px-2 py-0.5 rounded-md text-[11px] font-bold transition-all cursor-pointer ${
+                    selectedLang === 'hi'
+                      ? 'bg-[#F62440] text-white shadow-xs'
+                      : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white'
+                  }`}
+                  title="हिन्दी रिव्यूज पर स्विच करें"
+                >
+                  हिन्दी
+                </button>
+              </div>
+
               {/* Generate Another Button */}
               <button
                 type="button"
-                onClick={handleGenerateAnother}
-                disabled={isGenerating}
+                onClick={() => handleGenerateReview()}
+                disabled={isGenerating || isTypingEffect}
                 className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-[#FFE5BF]/70 text-[11px] font-semibold text-stone-700 dark:text-stone-200 hover:text-[#F62440] transition-colors cursor-pointer border border-stone-200 dark:border-stone-700"
                 title="Generate another unique natural review"
               >
-                <RefreshCw className={`w-3 h-3 ${isGenerating ? 'animate-spin' : ''}`} />
+                <RefreshCw className={`w-3 h-3 ${isGenerating || isTypingEffect ? 'animate-spin' : ''}`} />
                 <span>New Review</span>
               </button>
 
@@ -408,23 +516,14 @@ export const GoogleReviewBooster: React.FC = () => {
                 </button>
               )}
 
-              {/* Voice Language Switcher */}
-              <button
-                type="button"
-                onClick={() => setVoiceLang((prev) => (prev === 'en-IN' ? 'hi-IN' : 'en-IN'))}
-                className="text-[10px] font-semibold px-2 py-1 rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-[#F62440] transition-colors cursor-pointer"
-                title="Switch speech language between English/Hinglish and Hindi"
-              >
-                {voiceLang === 'en-IN' ? '🇮🇳 EN' : '🇮🇳 हिन्दी'}
-              </button>
-
               {/* AI Polish Button */}
               {reviewText.trim().length > 6 && (
                 <button
                   type="button"
                   onClick={handleAIPolish}
-                  disabled={isPolishing}
+                  disabled={isPolishing || isTypingEffect}
                   className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FFE5BF]/60 dark:bg-[#352520] hover:bg-[#FFE5BF] text-[11px] font-semibold text-[#F62440] dark:text-[#FFE5BF] transition-colors cursor-pointer"
+                  title="Fix typos and spelling errors while preserving natural human grammar"
                 >
                   <Sparkles className={`w-3 h-3 ${isPolishing ? 'animate-spin' : ''}`} />
                   <span>{isPolishing ? 'Polishing...' : 'Polish'}</span>
@@ -436,8 +535,14 @@ export const GoogleReviewBooster: React.FC = () => {
           <div className="relative">
             <textarea
               value={reviewText}
-              onChange={(e) => setReviewText(e.target.value)}
-              placeholder="Your review is generated here automatically. Tap 'Reset' to write manually from scratch, or tap the microphone to speak."
+              onFocus={cancelTypewriter}
+              onChange={(e) => {
+                cancelTypewriter();
+                setReviewText(e.target.value);
+              }}
+              placeholder={selectedLang === 'hi' 
+                ? "आपका रिव्यू यहाँ अपने आप लिख रहा है। खुद से लिखने के लिए 'Reset' दबाएं, या बोलने के लिए माइक छुएं।" 
+                : "Your review is generated here automatically. Tap 'Reset' to write manually, or tap the microphone to speak."}
               rows={5}
               className="w-full p-4 pr-12 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#F62440]/30 resize-none transition-all placeholder:text-stone-400 leading-relaxed"
             />

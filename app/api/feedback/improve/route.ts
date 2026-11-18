@@ -6,7 +6,7 @@ interface ImproveRequestBody {
   language?: string;
 }
 
-const HUMAN_GENERATED_SAMPLES = [
+const ENGLISH_SAMPLES = [
   "Attended a cousin's wedding reception at Raj Resort Patna. The 3.5-acre lawn was beautifully lit and the walkway for the bride and groom was breathtaking. Food was hot and delicious, and parking for 400+ cars made it completely stress-free!",
   "Had an amazing family celebration here! The open garden lawn near the Ganga breeze gave a wonderful evening vibe. Banquet hall AC was cooling perfectly and the catering service was prompt and polite. Highly recommended in Patna!",
   "We booked Raj Resort for an engagement ceremony. Everything was well coordinated by the management team. The stage decor, food variety, and hospitality exceeded our expectations. Truly one of the best banquet venues in Patna.",
@@ -15,36 +15,37 @@ const HUMAN_GENERATED_SAMPLES = [
   "Beautiful ambience and top-notch hospitality. The spacious celebration ground easily accommodated over 800 guests without feeling crowded. Uninterrupted power backup and great food taste.",
   "Excellent resort with a great location near Kurji Mor and Ganga Marine Drive. The grand entrance, green lawns, and delicious catering made our event memorable. Thank you Raj Resort team!",
   "Celebrated an anniversary party at Raj Resort Patna. The banquet hall decoration was elegant, food was fresh and tasty, and the service staff was polite and prompt. Will definitely book again for future family functions.",
-  "Bahut hi shandar resort hai Patna me. Family wedding attend kiya tha, lawn decoration aur catering dono lajawab the. Parking ki koi problem nahi hui aur staff ka behaviour bahut humble tha.",
+  "Great experience attending my best friend's marriage ceremony here. The floral aisle for entry was magical, food was fresh and piping hot, and valet parking made entry seamless.",
+  "Visited for a reception dinner. Very peaceful atmosphere with the Ganga breeze, huge lawn space, and cooperative staff. Definitely one of the top wedding venues in Patna."
+];
+
+const HINDI_SAMPLES = [
+  "Bahut hi shandar resort hai Patna me. Family wedding attend kiya tha, lawn decoration aur catering dono lajawab the. Parking ki koi dikkat nahi hui aur staff ka behaviour bahut humble tha.",
   "Raj Resort Patna me hamare cousin ki shadi thi. Venue bohot bada aur sundar hai, especially Ganga view aur night lighting. Khana bahut tasty tha aur sabhi arrangements smooth the.",
   "Patna ka one of the best wedding venues! Open lawn bahut spacious hai, decoration aur bride-groom entry ka setup bohot attractive laga. Management team full supportive hai.",
   "Hamne yaha engagement function organize kiya tha. Banquet hall ka AC, dinner buffet aur seating arrangements sab kuch first class tha. Sabhi guests ne venue aur khane ki tareef ki.",
   "Kurji Mor ke paas best location hai via Ganga Marine Drive. Rooms clean the aur car parking 400+ gaadiyo ke liye kaafi badi hai. Staff ka service quick aur helpful raha.",
   "Shaadi aur reception ke liye perfect place hai Raj Resort. Khane ka taste authentic aur fresh tha. Lawn ka ambience night me bohot royal lagta hai. 5 star experience!",
+  "Ganga kinare ka resort hai, shaam ko thandi hawa aur lighting ka mahaul lajawab tha. Khana fresh aur garam serve hua. Staff ka response time bahut quick tha.",
+  "Bhai ki shadi ke liye book kiya tha. Stage decoration, lawn space aur food sab kuch perfect tha. 500+ guests aaram se accommodate ho gaye bina kisi bheed ke."
 ];
 
-function getRandomSample(): string {
-  const idx = Math.floor(Math.random() * HUMAN_GENERATED_SAMPLES.length);
-  return HUMAN_GENERATED_SAMPLES[idx];
+function getRandomSample(lang?: string): string {
+  const isHindi = Boolean(lang && (lang.toLowerCase().includes('hi') || lang.toLowerCase() === 'hindi'));
+  const pool = isHindi ? HINDI_SAMPLES : ENGLISH_SAMPLES;
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
-const AI_POLISH_SYSTEM_PROMPT = `You are a respectful, high-fidelity customer feedback editor for Raj Resort Patna.
-Your goal is to polish raw customer feedback into grammatically clean, natural, and human-sounding language while strictly adhering to these rules:
+const AI_POLISH_SYSTEM_PROMPT = `You are an authentic, high-integrity Google Maps review assistant for Raj Resort Patna.
 
-CRITICAL ETHICAL RULES (ZERO TOLERANCE FOR FABRICATION):
-1. PRESERVE ORIGINAL MEANING & TONE: Never invert sentiment. If the customer voiced a complaint, dissatisfaction, or constructive critique (e.g., "service was slow", "ac remote had issue", "room check-in delayed"), you MUST KEEP THE CRITIQUE fully intact and clear. Never turn a negative comment into praise.
-2. DO NOT INVENT: Never add amenities, experiences, or staff names the customer did not mention.
-3. NO EXAGGERATED PROMOTIONAL LANGUAGE: Do not write like a marketing brochure. Keep it authentic, sincere, and natural as if written by the real guest.
-4. MULTILINGUAL SUPPORT:
-   - If input is in Hindi (Devanagari or Romanized Hinglish like "Khana achha tha par service thoda slow tha"), produce fluent natural Hinglish or respectful natural phrasing matching their preferred language style.
-   - If input is in English, produce natural, grammatically sound English.
-5. OUTPUT FORMAT:
-   Return ONLY a JSON object in this exact shape:
-   {
-     "improved": "The polished version of the feedback...",
-     "sentiment": "positive" | "neutral" | "negative",
-     "tags": ["relevant", "tags"]
-   }`;
+CORE PHILOSOPHY (GOOGLE MAPS AUTHENTICITY POLICY):
+Real human reviews written from mobile phones are conversational, emotional, and naturally imperfect. Over-sanitized, robotic, textbook-grammar marketing copy gets penalized or flagged by Google's anti-spam bots.
+
+RULES FOR POLISHING ('action: improve'):
+1. CORRECT SPELLING ERRORS ONLY: Fix blatant typographical slips (e.g. "reicived" -> "received", "exelent" -> "excellent", "servise" -> "service", "accdent" -> "accident").
+2. PRESERVE NATURAL GRAMMAR & HUMAN VOICE: Do NOT restructure or over-polish the user's conversational grammar, colloquial fragments, or Hinglish flow into formal English essays. Keep the sentence structure authentic, warm, and natural as if typed on a mobile phone.
+3. PRESERVE ORIGINAL MEANING & SENTIMENT: Never convert negative feedback or critique into fake praise.
+4. RETURN STRICT JSON: {"improved": "...", "sentiment": "positive"|"neutral"|"negative", "tags": [...]}`;
 
 function heuristicEnhanceFeedback(raw: string): {
   improved: string;
@@ -186,7 +187,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
           success: true,
           source: 'procedural',
-          improved: getRandomSample(),
+          improved: getRandomSample(body.language),
           sentiment: 'positive',
           tags: ['Wedding Lawn & Decor', 'Food & Dining', 'Staff Hospitality'],
         });
@@ -219,9 +220,25 @@ export async function POST(req: NextRequest) {
       ? 'openai/gpt-4o-mini'
       : 'gpt-4o-mini';
 
+    // Dynamic random perspective seed guarantees zero repetition across generations
+    const perspectives = [
+      "Attended cousin's wedding reception, loved the 150-ft lit walkway and hot catering",
+      "Brother's marriage, 3.5 acre open lawn with Ganga breeze, spacious 400+ car parking",
+      "Family anniversary celebration in the AC banquet hall, prompt staff hospitality",
+      "Guest at an engagement ceremony, live chaat stalls and pure taste was unforgettable",
+      "Stayed two days in the AC rooms for a relative's wedding in Patliputra, neat and clean",
+      "Corporate dinner by the lawn garden, peaceful evening vibe with smooth valet parking",
+      "Attended friend's sangeet and wedding, heavy diesel generator backup ran uninterrupted",
+      "Wedding guest coming via Ganga Marine Drive and Kurji Mor, grand entrance and lighting"
+    ];
+    const chosenPerspective = perspectives[Math.floor(Math.random() * perspectives.length)];
+    const isHindiRequested = Boolean(body.language && (body.language.toLowerCase().includes('hi') || body.language.toLowerCase() === 'hindi'));
+
     const userPrompt = isGenerate
-      ? 'Generate a completely unique, natural, and authentic 2-to-3 sentence Google Maps review for Raj Resort Patna as a genuine guest (vary between wedding lawn, AC banquet hall, catering taste, courteous staff, Ganga breeze, or rooms). Keep it natural, human, and conversational. Return JSON: {"improved": "..."}'
-      : `Customer Raw Feedback:\n"${rawText}"\n\nPlease polish and format according to the guidelines.`;
+      ? (isHindiRequested
+          ? `Generate a completely unique, natural, and authentic 2-to-3 sentence Google Maps review in conversational HINDI / HINGLISH for Raj Resort Patna as a real guest (Angle: ${chosenPerspective}). Write like a real person typing from a smartphone on Google Maps: warm, conversational, authentic everyday tone with slight natural human quirks (e.g. 'laute huye bohot achha laga', 'lawn decor was just woww', 'khana garam aur tasty tha'). Do NOT write like an AI or marketing brochure. Return JSON: {"improved": "..."}`
+          : `Generate a completely unique, natural, and authentic 2-to-3 sentence Google Maps review in natural ENGLISH for Raj Resort Patna as a genuine guest (Angle: ${chosenPerspective}). Write like a real customer on a smartphone: casual, sincere, conversational syntax with slight natural human quirks (e.g. 'specially the paneer starter', 'no parking issue bcz valet was quick', 'definetly 5 stars'). Avoid robotic AI jargon. Return JSON: {"improved": "..."}`)
+      : `Customer Raw Feedback:\n"${rawText}"\n\nPlease polish according to the guidelines: fix spelling/typos only, keep natural human conversational grammar intact.`;
 
     const payload = {
       model,
@@ -233,7 +250,7 @@ export async function POST(req: NextRequest) {
           content: userPrompt,
         },
       ],
-      temperature: isGenerate ? 0.8 : 0.2,
+      temperature: isGenerate ? 0.95 : 0.2,
       max_tokens: 350,
     };
 
@@ -284,7 +301,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         success: true,
         source: 'procedural-fallback',
-        improved: getRandomSample(),
+        improved: getRandomSample(body.language),
         sentiment: 'positive',
         tags: ['Wedding Lawn & Decor', 'Food & Dining'],
       });

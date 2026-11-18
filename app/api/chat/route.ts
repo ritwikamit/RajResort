@@ -37,7 +37,7 @@ function generateFallbackResponse(query: string, isGreetingQuery: boolean): stri
   const lower = query.toLowerCase();
 
   // Check if completely unrelated
-  const isRelated = 
+  const isRelated =
     lower.includes('resort') ||
     lower.includes('lawn') ||
     lower.includes('wedding') ||
@@ -200,18 +200,18 @@ export async function POST(req: NextRequest) {
 
     const trimmedQuery = query.trim();
     const lowerQuery = trimmedQuery.toLowerCase();
-    const isExplicitGreeting = 
+    const isExplicitGreeting =
       lowerQuery.startsWith('hi') ||
       lowerQuery.startsWith('hello') ||
       lowerQuery.startsWith('namaste') ||
       lowerQuery.startsWith('hey');
 
     // Support all casing variants of the OpenRouter API key
-    const rawApiKey = 
+    const rawApiKey =
       process.env.ReviewBotRajResort ||
-      process.env.Openrouter_API || 
-      process.env.OPENROUTER_API || 
-      process.env.OPENROUTER_API_KEY || 
+      process.env.Openrouter_API ||
+      process.env.OPENROUTER_API ||
+      process.env.OPENROUTER_API_KEY ||
       process.env.openrouter_api ||
       process.env.NEXT_PUBLIC_OPENROUTER_API;
 
@@ -280,8 +280,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ reply: formattedReply });
   } catch (err) {
     console.error('Chatbot POST handler error:', err);
-    return NextResponse.json({ 
-      reply: 'We are here to assist with all your wedding queries at Raj Resort Patna. Please contact our reception desk at +91 7360800001 or email Rajresortpatna@gmail.com for immediate help.' 
+    return NextResponse.json({
+      reply: 'We are here to assist with all your wedding queries at Raj Resort Patna. Please contact our reception desk at +91 7360800001 or email Rajresortpatna@gmail.com for immediate help.'
     });
   }
 }
