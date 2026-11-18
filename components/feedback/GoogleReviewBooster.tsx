@@ -132,6 +132,94 @@ function generateRandomHumanReview(lang: 'en' | 'hi' = 'en'): string {
   return `${o} ${h} ${f} ${c}`;
 }
 
+// Transliterates Devanagari script to Latin characters (Hinglish) so voice typing outputs English letters only
+function devanagariToLatin(str: string): string {
+  if (!str || !/[\u0900-\u097F]/.test(str)) return str;
+
+  const VOWELS: Record<string, string> = {
+    'अ':'a','आ':'aa','इ':'i','ई':'ee','उ':'u','ऊ':'oo','ऋ':'ri',
+    'ए':'e','ऐ':'ai','ओ':'o','औ':'au','अं':'an','अः':'ah'
+  };
+
+  const MATRAS: Record<string, string> = {
+    'ा':'a','ि':'i','ी':'i','ु':'u','ू':'u','ृ':'ri',
+    'े':'e','ै':'ai','ो':'o','ौ':'au'
+  };
+
+  const CONSONANTS: Record<string, string> = {
+    'क':'k','ख':'kh','ग':'g','घ':'gh','ङ':'ng',
+    'च':'ch','छ':'chh','ज':'j','झ':'jh','ञ':'ny',
+    'ट':'t','ठ':'th','ड':'d','ढ':'dh','ण':'n',
+    'त':'t','थ':'th','द':'d','ध':'dh','न':'n',
+    'प':'p','फ':'f','ब':'b','भ':'bh','म':'m',
+    'य':'y','र':'r','ल':'l','व':'v',
+    'श':'sh','ष':'sh','स':'s','ह':'h'
+  };
+
+  const text = str
+    .replace(/क़/g, 'q').replace(/ख़/g, 'kh').replace(/ग़/g, 'g')
+    .replace(/ज़/g, 'z').replace(/ड़/g, 'd').replace(/ढ़/g, 'dh').replace(/फ़/g, 'f')
+    .replace(/क्ष/g, 'ksh').replace(/त्र/g, 'tr').replace(/ज्ञ/g, 'gya')
+    .replace(/ऑ/g, 'o').replace(/ॉ/g, 'o');
+
+  let out = '';
+  const len = text.length;
+
+  for (let i = 0; i < len; i++) {
+    const ch = text[i];
+    const next = text[i + 1] || '';
+
+    if (VOWELS[ch]) {
+      out += VOWELS[ch];
+      continue;
+    }
+
+    if (CONSONANTS[ch]) {
+      const c = CONSONANTS[ch];
+      if (next === '्') {
+        out += c;
+        i++;
+      } else if (MATRAS[next]) {
+        out += c + MATRAS[next];
+        i++;
+      } else if (next === 'ं' || next === 'ँ') {
+        out += c + 'an';
+        i++;
+      } else if (!next || /[\s\.,!?:;\-–—\(\)\[\]"']/.test(next)) {
+        out += c;
+      } else if (CONSONANTS[next]) {
+        out += c + 'a';
+      } else {
+        out += c;
+      }
+      continue;
+    }
+
+    if (MATRAS[ch]) {
+      out += MATRAS[ch];
+      continue;
+    }
+
+    if (ch === 'ं' || ch === 'ँ') {
+      out += 'n';
+      continue;
+    }
+
+    if (ch === 'ः') {
+      out += 'h';
+      continue;
+    }
+
+    if (ch === '्') {
+      continue;
+    }
+
+    out += ch;
+  }
+
+  return out.replace(/\s+/g, ' ');
+}
+
 // Merges speech recognition transcripts preventing Android/Chromium duplication bugs.
 function mergeSpeechChunks(existing: string, incoming: string): string {
   const a = existing.trim();
@@ -325,8 +413,9 @@ export const GoogleReviewBooster: React.FC = () => {
 
         for (let i = 0; i < event.results.length; i++) {
           const item = event.results[i];
-          const transcript = item[0]?.transcript?.trim() || '';
-          if (!transcript) continue;
+          const rawTranscript = item[0]?.transcript?.trim() || '';
+          if (!rawTranscript) continue;
+          const transcript = devanagariToLatin(rawTranscript);
 
           if (item.isFinal) {
             finalChunk = mergeSpeechChunks(finalChunk, transcript);
@@ -665,18 +754,6 @@ export const GoogleReviewBooster: React.FC = () => {
             </div>
           )}
 
-          {!reviewText.trim() && !isListening && (
-            <div className="flex items-center justify-between text-[11px] text-stone-500 dark:text-stone-400 pl-1">
-              <span>💡 Tip: You can speak, write, or generate automatically.</span>
-              <button
-                type="button"
-                onClick={() => handleGenerateReview()}
-                className="font-bold text-[#F62440] hover:underline cursor-pointer"
-              >
-                ✨ Generate Review
-              </button>
-            </div>
-          )}
         </div>
 
         {/* 2-Step Simple Guide for Guest */}
