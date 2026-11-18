@@ -194,6 +194,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                   Contact Reception & Dates
                 </Link>
               </li>
+              <li>
+                <Link href="/feedback" className="hover:text-[#F62440] transition-colors font-medium text-[#F62440]">
+                  Guest Feedback &amp; Reviews
+                </Link>
+              </li>
             </ul>
           </div>
 

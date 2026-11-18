@@ -15,16 +15,16 @@ const COOKIE_STORAGE_KEY = 'raj_resort_cookies_accepted';
 export default function CookiesPage() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const [cookieOpen, setCookieOpen] = useState(false);
-  const [preference, setPreference] = useState<string | null>(null);
+  const [preference, setPreference] = useState<string | null>(() => {
+    try {
+      return typeof window !== 'undefined' ? localStorage.getItem(COOKIE_STORAGE_KEY) : null;
+    } catch {
+      return null;
+    }
+  });
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    try {
-      setPreference(localStorage.getItem(COOKIE_STORAGE_KEY));
-    } catch {
-      // Ignore
-    }
-
     const handleSync = () => {
       try {
         setPreference(localStorage.getItem(COOKIE_STORAGE_KEY));

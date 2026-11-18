@@ -208,6 +208,7 @@ export async function POST(req: NextRequest) {
 
     // Support all casing variants of the OpenRouter API key
     const rawApiKey = 
+      process.env.ReviewBotRajResort ||
       process.env.Openrouter_API || 
       process.env.OPENROUTER_API || 
       process.env.OPENROUTER_API_KEY || 
@@ -235,12 +236,11 @@ export async function POST(req: NextRequest) {
 
     messagesPayload.push({ role: 'user', content: trimmedQuery });
 
-    // Models to attempt: primary Google Gemini 2.0 Flash, followed by free/auto fallbacks
+    // Models to attempt: primary OpenAI GPT-4o-mini, followed by fallbacks
     const candidateModels = [
-      'google/gemini-2.0-flash-001',
-      'google/gemini-2.0-flash-lite-preview-02-05:free',
-      'meta-llama/llama-3.3-70b-instruct:free',
+      'openai/gpt-4o-mini',
       'openrouter/auto',
+      'meta-llama/llama-3.3-70b-instruct',
     ];
 
     let replyText = '';

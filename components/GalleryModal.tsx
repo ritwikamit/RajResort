@@ -22,35 +22,24 @@ export const GalleryModal: React.FC<GalleryModalProps> = ({
   onNext,
   onPrev,
 }) => {
-  const [internalIndex, setInternalIndex] = useState<number>(
-    currentIndex ?? initialIndex ?? 0
-  );
+  const [internalIndex, setInternalIndex] = useState<number>(initialIndex ?? 0);
+  const activeIdx = currentIndex !== undefined && currentIndex !== null ? currentIndex : internalIndex;
 
-  useEffect(() => {
-    if (currentIndex !== undefined && currentIndex !== null) {
-      setInternalIndex(currentIndex);
-    } else if (initialIndex !== undefined && initialIndex !== null) {
-      setInternalIndex(initialIndex);
-    }
-  }, [currentIndex, initialIndex]);
-
-  const activeIdx = internalIndex;
-
-  const handleNext = () => {
+  const handleNext = React.useCallback(() => {
     if (onNext) {
       onNext();
     } else {
       setInternalIndex((prev) => (prev + 1) % items.length);
     }
-  };
+  }, [onNext, items.length]);
 
-  const handlePrev = () => {
+  const handlePrev = React.useCallback(() => {
     if (onPrev) {
       onPrev();
     } else {
       setInternalIndex((prev) => (prev - 1 + items.length) % items.length);
     }
-  };
+  }, [onPrev, items.length]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

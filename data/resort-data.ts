@@ -87,29 +87,6 @@ export const RESORT_DATA = {
     },
   ],
 
-  directoryListings: [
-    {
-      title: 'Justdial Verified',
-      category: 'directory' as const,
-      url: 'https://www.justdial.com/Patna/Raj-Resort-Near-Kurji-More-Kurji/0612PX612-X612-220718182741-N7B7_BZDET',
-      badge: 'Verified Venue',
-      description: 'Local reviews, guest capacity details, and verified front desk telephone listings.',
-    },
-    {
-      title: 'Google Business Profile',
-      category: 'directory' as const,
-      url: 'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,17z/data=!4m9!3m8!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m2!4m1!1i2!8m2!3d25.6391525!4d85.1102531!16s%2Fg%2F11pvch6p79?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D',
-      badge: 'Official Map Listing',
-      description: 'Customer reviews, driving directions via Marine Drive, verified photos, and reception hours.',
-    },
-    {
-      title: 'Weddingz / Local Listings',
-      category: 'directory' as const,
-      url: 'https://www.google.com/search?q=raj+resort+patna+weddings',
-      badge: 'Wedding Network',
-      description: 'Patna event venue directory profile and wedding date inquiry platform.',
-    },
-  ],
   directoryLinks: [
     {
       title: 'Justdial Verified',
@@ -133,6 +110,9 @@ export const RESORT_DATA = {
       description: 'Patna event venue directory profile and wedding date inquiry platform.',
     },
   ],
+  get directoryListings() {
+    return this.directoryLinks;
+  },
 
   transitDistances: [
     { destination: 'Kurji Mor / Gate No. 62 (Main Entrance)', distance: '150 m', duration: '1 min' },

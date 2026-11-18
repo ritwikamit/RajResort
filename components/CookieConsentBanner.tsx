@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useSyncExternalStore } from 'react';
 import { Cookie, ShieldCheck, ChevronRight, Check } from 'lucide-react';
 
 interface CookieConsentBannerProps {
@@ -9,37 +9,29 @@ interface CookieConsentBannerProps {
 
 const COOKIE_STORAGE_KEY = 'raj_resort_cookies_accepted';
 
+const subscribeConsent = (callback: () => void) => {
+  window.addEventListener('cookie_consent_updated', callback);
+  window.addEventListener('storage', callback);
+  return () => {
+    window.removeEventListener('cookie_consent_updated', callback);
+    window.removeEventListener('storage', callback);
+  };
+};
+
+const getConsentSnapshot = () => {
+  try {
+    return localStorage.getItem(COOKIE_STORAGE_KEY);
+  } catch {
+    return 'all';
+  }
+};
+
+const getServerSnapshot = () => 'all';
+
 export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpenPolicy }) => {
-  const [mounted, setMounted] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const consent = useSyncExternalStore(subscribeConsent, getConsentSnapshot, getServerSnapshot);
 
-  useEffect(() => {
-    setMounted(true);
-
-    const checkConsent = () => {
-      try {
-        const stored = localStorage.getItem(COOKIE_STORAGE_KEY);
-        // If not set, it's a new user -> show the banner!
-        setVisible(!stored);
-      } catch {
-        setVisible(false);
-      }
-    };
-
-    checkConsent();
-
-    // Listen for cross-component consent updates (e.g. from modal or cookies page)
-    const handleSync = () => checkConsent();
-    window.addEventListener('cookie_consent_updated', handleSync);
-    window.addEventListener('storage', handleSync);
-
-    return () => {
-      window.removeEventListener('cookie_consent_updated', handleSync);
-      window.removeEventListener('storage', handleSync);
-    };
-  }, []);
-
-  if (!mounted || !visible) {
+  if (consent) {
     return null;
   }
 
@@ -51,7 +43,6 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
     } catch {
       // Ignore
     }
-    setVisible(false);
   };
 
   const handleEssentialOnly = () => {
@@ -62,7 +53,6 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
     } catch {
       // Ignore
     }
-    setVisible(false);
   };
 
   return (
@@ -73,7 +63,7 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
       className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-xs p-3 sm:p-6 animate-in fade-in duration-300 pointer-events-auto"
     >
       <div className="relative max-w-lg w-full bg-[#FFFAF3] dark:bg-[#1E1714] border border-[#FFE5BF] dark:border-[#352520] p-5 sm:p-7 rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(246,36,64,0.18)] text-stone-900 dark:text-stone-100 flex flex-col items-center text-center">
-        
+
         {/* Ornate Cookie Emblem Badge */}
         <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#FFF2DB] dark:bg-[#2C1F1B] border border-[#FFE5BF] dark:border-[#3E2C26] flex items-center justify-center text-[#F62440] mb-3 sm:mb-4 shadow-xs">
           <Cookie className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -84,7 +74,7 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onOpen
         </h3>
 
         <p className="mt-2 text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-relaxed font-sans max-w-md">
-          Welcome to <strong className="text-[#F62440] font-semibold">Raj Resort Patna</strong>. 
+          Welcome to <strong className="text-[#F62440] font-semibold">Raj Resort Patna</strong>.
           We use functional cookies to preserve your theme preference (Light/Dark mode), optimize page load speeds, and enable WhatsApp concierge assistance.
         </p>
 

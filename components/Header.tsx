@@ -40,6 +40,7 @@ export const Header: React.FC = () => {
 
   // Secondary links in "More" dropdown
   const moreLinks = [
+    { label: 'Guest Feedback', href: '/feedback' },
     { label: 'Location & Map', href: '/location' },
     { label: 'Contact Reception', href: '/contact' },
   ];

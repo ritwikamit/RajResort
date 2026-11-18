@@ -71,13 +71,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico?v=2', sizes: 'any' },
-      { url: '/favicon.png?v=2', type: 'image/png', sizes: '512x512' },
-      { url: '/icon.png?v=2', type: 'image/png', sizes: '192x192' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png', sizes: '512x512' },
+      { url: '/icon.png', type: 'image/png', sizes: '192x192' },
     ],
-    shortcut: '/favicon.ico?v=2',
+    shortcut: '/favicon.ico',
     apple: [
-      { url: '/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   openGraph: {

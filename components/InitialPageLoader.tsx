@@ -20,11 +20,15 @@ export const InitialPageLoader: React.FC = () => {
       }
     };
 
-    // Minimum display time (1.5s) so the big logo presentation is visible and smooth
+    const isRepeat = typeof window !== 'undefined' && sessionStorage.getItem('raj_loader_seen') === 'true';
+    const displayDelay = isRepeat ? 100 : 1200;
+
+    // Minimum display time for first-time brand presentation, instant for internal navigation
     const timer = setTimeout(() => {
       minTimeElapsed = true;
       tryDismiss();
-    }, 1500);
+      try { sessionStorage.setItem('raj_loader_seen', 'true'); } catch {}
+    }, displayDelay);
 
     const onLoad = () => {
       isWindowLoaded = true;

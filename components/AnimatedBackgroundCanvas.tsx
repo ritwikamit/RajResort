@@ -43,9 +43,17 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
       createPaperPattern();
     };
 
+    const handleVisibility = () => {
+      if (!document.hidden) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
+
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('visibilitychange', handleVisibility);
 
     // Pre-render a seamless luxury handcrafted paper texture on an offscreen canvas
     let paperPattern: CanvasPattern | null = null;
@@ -133,6 +141,7 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
 
     // Animation Loop
     const render = () => {
+      if (document.hidden) return;
       ctx.clearRect(0, 0, width, height);
 
       // Draw paper texture background
@@ -218,6 +227,7 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('visibilitychange', handleVisibility);
     };
   }, [theme]);
 

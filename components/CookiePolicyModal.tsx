@@ -16,17 +16,17 @@ export const CookiePolicyModal: React.FC<CookiePolicyModalProps> = ({
   onClose,
   onAcceptAll,
 }) => {
-  const [currentPreference, setCurrentPreference] = useState<string | null>(null);
+  const [currentPreference, setCurrentPreference] = useState<string | null>(() => {
+    try {
+      return typeof window !== 'undefined' ? localStorage.getItem(COOKIE_STORAGE_KEY) : null;
+    } catch {
+      return null;
+    }
+  });
   const [savedMessage, setSavedMessage] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isOpen) return;
-    try {
-      const stored = localStorage.getItem(COOKIE_STORAGE_KEY);
-      setCurrentPreference(stored);
-    } catch {
-      // Ignore
-    }
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
