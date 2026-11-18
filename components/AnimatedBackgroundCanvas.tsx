@@ -124,8 +124,11 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
       pulse: number;
     }
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+
     const motes: Mote[] = [];
-    const moteCount = Math.min(width < 768 ? 16 : 28, 35);
+    const moteCount = prefersReducedMotion ? 0 : Math.min(isTouch ? 10 : 22, 28);
     for (let i = 0; i < moteCount; i++) {
       motes.push({
         x: Math.random() * width,
@@ -149,6 +152,8 @@ export const AnimatedBackgroundCanvas: React.FC = () => {
         ctx.fillStyle = paperPattern;
         ctx.fillRect(0, 0, width, height);
       }
+
+      if (prefersReducedMotion) return;
 
       // Smooth cursor follow for minimal hover interaction
       currentX += (targetX - currentX) * 0.06;

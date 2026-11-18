@@ -37,6 +37,13 @@ export const StructuredData: React.FC = () => {
         currenciesAccepted: 'INR',
         paymentAccepted: 'Cash, UPI, Credit Card, Bank Transfer',
         maximumAttendeeCapacity: 1200,
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          reviewCount: '428',
+          bestRating: '5',
+          worstRating: '1',
+        },
         contactPoint: [
           {
             '@type': 'ContactPoint',

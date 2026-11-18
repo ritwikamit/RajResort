@@ -118,6 +118,12 @@ export const metadata: Metadata = {
   verification: {
     google: 'google6150f36a1a21fac7',
   },
+  other: {
+    'geo.region': 'IN-BR',
+    'geo.placename': 'Patna',
+    'geo.position': '25.6391525;85.1102531',
+    ICBM: '25.6391525, 85.1102531',
+  },
   formatDetection: {
     telephone: true,
     address: true,
