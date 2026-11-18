@@ -21,7 +21,7 @@ import { RajResortLogo } from '../RajResortLogo';
 
 // Direct Google Write-Review intent dialog for Raj Resort Patna (Place ID: ChIJz6Tf9Y9Z7TkRInVQoECYQLk)
 const GOOGLE_WRITE_REVIEW_URL = 'https://search.google.com/local/writereview?placeid=ChIJz6Tf9Y9Z7TkRInVQoECYQLk';
-const GOOGLE_MAPS_REVIEWS_TAB_URL = 'https://www.google.com/maps/place/RAJ+RESORT/@25.6391525,85.1102531,715m/data=!3m1!1e3!4m12!3m11!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m3!1s2026-11-18!4m1!1i2!8m2!3d25.6391525!4d85.1102531!9m1!1b1!16s%2Fg%2F11pvch6p79?entry=ttu&g_ep=EgoyMDI2MTExMC4wIKXMDSoASAFQAw%3D%3D';
+const GOOGLE_MAPS_REVIEWS_TAB_URL = 'https://www.google.com/maps/place/RAJ+RESORT/@25.6393699,85.1101773,608m/data=!3m1!1e3!4m24!1m13!3m12!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!2sRAJ+RESORT!5m3!1s2026-11-18!4m1!1i2!8m2!3d25.6391525!4d85.1102531!9m1!1b1!16s%2Fg%2F11pvch6p79!3m9!1s0x39ed598ff5dfa4cf:0xb9409840a0507522!5m3!1s2026-11-18!4m1!1i2!8m2!3d25.6391525!4d85.1102531!16s%2Fg%2F11pvch6p79?entry=ttu&g_ep=EgoyMDI2MTExNS4wIKXMDSoASAFQAw%3D%3D';
 
 // Speech Recognition types for browser
 interface SpeechRecognitionEvent extends Event {
@@ -808,13 +808,19 @@ export const GoogleReviewBooster: React.FC = () => {
               Kurji Mor • Ganga Marine Drive • Patliputra
             </p>
 
-            {/* 5-Star Google Rating Banner */}
+            {/* Google Rating Banner */}
             <div className="my-4 py-2 px-4 rounded-xl bg-amber-50/90 dark:bg-amber-950/40 border border-[#D4AF37]/50 inline-flex items-center justify-center gap-1.5 shadow-2xs standee-gold-border">
-              {[1, 2, 3, 4, 5].map((s) => (
+              {[1, 2, 3, 4].map((s) => (
                 <Star key={s} className="w-4 h-4 fill-amber-500 text-amber-500" />
               ))}
+              <div className="relative w-4 h-4">
+                <Star className="w-4 h-4 text-stone-300 dark:text-stone-700 fill-stone-300/40" />
+                <div className="absolute inset-0 overflow-hidden w-1/2">
+                  <Star className="w-4 h-4 fill-amber-500 text-amber-500" />
+                </div>
+              </div>
               <span className="font-bold text-xs text-stone-900 dark:text-stone-100 ml-1.5">
-                4.9 on Google (400+ Reviews)
+                4.5 on Google (1,400+ Reviews)
               </span>
             </div>
 

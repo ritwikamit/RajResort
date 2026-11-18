@@ -39,8 +39,8 @@ export const StructuredData: React.FC = () => {
         maximumAttendeeCapacity: 1200,
         aggregateRating: {
           '@type': 'AggregateRating',
-          ratingValue: '4.9',
-          reviewCount: '428',
+          ratingValue: '4.5',
+          reviewCount: '1400',
           bestRating: '5',
           worstRating: '1',
         },
