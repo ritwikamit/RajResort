@@ -185,3 +185,59 @@
 .animate-marquee-left:hover {
   animation-play-state: paused;
 }
+
+/* Luxury Reception Standee Print Layout */
+@media print {
+  @page {
+    size: auto;
+    margin: 8mm auto;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #181210 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Completely eliminate website navigation, footers, headers, floating widgets, and screen panels */
+  header,
+  footer,
+  nav,
+  aside,
+  .no-print,
+  [role="dialog"] {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Exclusively render and center the reception counter standee card */
+  #reception-qr-standee {
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+    margin: 10px auto !important;
+    width: 380px !important;
+    max-width: 95% !important;
+    padding: 24px 20px !important;
+    border: 3px double #d4af37 !important;
+    border-radius: 20px !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  #reception-qr-standee * {
+    visibility: visible !important;
+  }
+}
+

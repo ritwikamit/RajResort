@@ -10,6 +10,7 @@ import {
   Check, 
   QrCode, 
   Printer, 
+  Download,
   AlertCircle,
   Copy,
   RefreshCw,
@@ -131,13 +132,37 @@ function generateRandomHumanReview(lang: 'en' | 'hi' = 'en'): string {
   return `${o} ${h} ${f} ${c}`;
 }
 
+// Merges speech recognition transcripts preventing Android/Chromium duplication bugs.
+function mergeSpeechChunks(existing: string, incoming: string): string {
+  const a = existing.trim();
+  const b = incoming.trim();
+  if (!a) return b;
+  if (!b) return a;
+  if (a === b || a.endsWith(b)) return a;
+  if (b.startsWith(a)) return b;
+  if (a.toLowerCase().includes(b.toLowerCase())) return a;
+
+  const aWords = a.split(/\s+/);
+  const bWords = b.split(/\s+/);
+  const maxOverlap = Math.min(aWords.length, bWords.length);
+  for (let overlap = maxOverlap; overlap > 0; overlap--) {
+    const aTail = aWords.slice(aWords.length - overlap).join(' ').toLowerCase();
+    const bHead = bWords.slice(0, overlap).join(' ').toLowerCase();
+    if (aTail === bHead) {
+      return `${aWords.slice(0, aWords.length - overlap).join(' ')} ${b}`.trim();
+    }
+  }
+
+  return `${a} ${b}`.trim();
+}
+
 export const GoogleReviewBooster: React.FC = () => {
   // Overall Rating only (1-5 stars)
   const [overallRating, setOverallRating] = useState<number>(5);
 
-  const [selectedLang, setSelectedLang] = useState<'en' | 'hi'>('en');
-  // Lazy initializer ensures random human review is generated on initial mount
-  const [reviewText, setReviewText] = useState<string>(() => generateRandomHumanReview('en'));
+  const [selectedLang, setSelectedLang] = useState<'en' | 'hi'>('hi');
+  // Starts empty so the user can type manually, voice-type, or tap Generate Review
+  const [reviewText, setReviewText] = useState<string>('');
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [isListening, setIsListening] = useState<boolean>(false);
   const [isPolishing, setIsPolishing] = useState<boolean>(false);
@@ -150,7 +175,7 @@ export const GoogleReviewBooster: React.FC = () => {
   const [isTypingEffect, setIsTypingEffect] = useState<boolean>(false);
   const typingTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const [voiceLang, setVoiceLang] = useState<'en-IN' | 'hi-IN'>('en-IN');
+  const [voiceLang, setVoiceLang] = useState<'en-IN' | 'hi-IN'>('hi-IN');
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
   const baseTextRef = useRef<string>('');
 
@@ -183,10 +208,10 @@ export const GoogleReviewBooster: React.FC = () => {
     }, 12);
   }, []);
 
-  // Generate QR on mount
+  // Generate QR on mount (Canonical URL with high resolution for sharp physical printing)
   useEffect(() => {
-    QRCode.toDataURL('https://rajresortpatna.com/feedback', {
-      width: 320,
+    QRCode.toDataURL('https://www.rajresortpatna.com/feedback', {
+      width: 500,
       margin: 1.5,
       color: { dark: '#181210', light: '#FFFFFF' },
     })
@@ -247,12 +272,14 @@ export const GoogleReviewBooster: React.FC = () => {
     setIsGenerating(false);
   }, [selectedLang, cancelTypewriter, applyTypewriterEffect]);
 
-  // Handle switching language: automatically generates fresh review in that language
+  // Handle switching language: if review already exists, regenerate in new language; otherwise update preference
   const handleSelectLanguage = (newLang: 'en' | 'hi') => {
     if (newLang === selectedLang) return;
     setSelectedLang(newLang);
     setVoiceLang(newLang === 'hi' ? 'hi-IN' : 'en-IN');
-    handleGenerateReview(newLang);
+    if (reviewText.trim().length > 0) {
+      handleGenerateReview(newLang);
+    }
   };
 
   // Voice Typing toggle (Hindi / English speech recognition)
@@ -293,23 +320,39 @@ export const GoogleReviewBooster: React.FC = () => {
       recognition.lang = voiceLang;
 
       recognition.onresult = (event: SpeechRecognitionEvent) => {
-        let sessionTranscript = '';
+        let finalChunk = '';
+        let interimChunk = '';
+
         for (let i = 0; i < event.results.length; i++) {
-          sessionTranscript += event.results[i][0].transcript;
+          const item = event.results[i];
+          const transcript = item[0]?.transcript?.trim() || '';
+          if (!transcript) continue;
+
+          if (item.isFinal) {
+            finalChunk = mergeSpeechChunks(finalChunk, transcript);
+          } else {
+            interimChunk = mergeSpeechChunks(interimChunk, transcript);
+          }
         }
-        const clean = sessionTranscript.trim();
-        const base = baseTextRef.current;
-        setReviewText(base ? `${base} ${clean}` : clean);
+
+        const sessionSpeech = mergeSpeechChunks(finalChunk, interimChunk);
+        const mergedTotal = mergeSpeechChunks(baseTextRef.current, sessionSpeech);
+        setReviewText(mergedTotal);
       };
 
       recognition.onerror = () => {
         setIsListening(false);
         recognitionRef.current = null;
+        baseTextRef.current = reviewText.trim();
       };
 
       recognition.onend = () => {
         setIsListening(false);
         recognitionRef.current = null;
+        setReviewText((current) => {
+          baseTextRef.current = current.trim();
+          return current;
+        });
       };
 
       recognition.start();
@@ -383,24 +426,50 @@ export const GoogleReviewBooster: React.FC = () => {
 
   // Copy review to clipboard synchronously during user click
   const handlePostToGoogle = () => {
-    const textToCopy = reviewText.trim() || generateRandomHumanReview();
+    let textToCopy = reviewText.trim();
+    if (!textToCopy) {
+      textToCopy = generateRandomHumanReview(selectedLang);
+      setReviewText(textToCopy);
+    }
     copyToClipboardRobust(textToCopy);
     setCopiedSuccess(true);
     setTimeout(() => setCopiedSuccess(false), 5000);
   };
 
   const copyOnlyText = () => {
-    const textToCopy = reviewText.trim() || generateRandomHumanReview();
+    let textToCopy = reviewText.trim();
+    if (!textToCopy) {
+      textToCopy = generateRandomHumanReview(selectedLang);
+      setReviewText(textToCopy);
+    }
     copyToClipboardRobust(textToCopy);
     setCopiedSuccess(true);
     setTimeout(() => setCopiedSuccess(false), 3000);
+  };
+
+  // Reception Desk QR Standee Handlers
+  const handlePrintStandee = () => {
+    setShowStandee(true);
+    setTimeout(() => {
+      window.print();
+    }, 150);
+  };
+
+  const handleDownloadQr = () => {
+    if (!qrCodeUrl) return;
+    const link = document.createElement('a');
+    link.href = qrCodeUrl;
+    link.download = 'raj-resort-patna-reception-qr.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
     <div className="max-w-xl mx-auto px-4 py-6 sm:py-10">
       
       {/* Brand Header */}
-      <div className="text-center mb-6">
+      <div className="text-center mb-6 no-print">
         <div className="flex justify-center mb-2.5">
           <RajResortLogo variant="full-circle" size={54} />
         </div>
@@ -408,12 +477,14 @@ export const GoogleReviewBooster: React.FC = () => {
           Review Raj Resort Patna
         </h1>
         <p className="mt-1 text-xs sm:text-sm text-stone-600 dark:text-stone-300 font-sans max-w-sm mx-auto">
-          Share your experience on our official Google Business Profile.
+          {selectedLang === 'hi' 
+            ? 'राज रिसॉर्ट पटना — अपना 5-Star अनुभव Google पर शेयर करें।'
+            : 'Share your 5-star experience on our official Google Business Profile.'}
         </p>
       </div>
 
       {/* Main Review Card */}
-      <div className="rounded-3xl bg-white dark:bg-stone-900 border border-[#FFE5BF] dark:border-[#352520] p-5 sm:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] space-y-6">
+      <div className="rounded-3xl bg-white dark:bg-stone-900 border border-[#FFE5BF] dark:border-[#352520] p-5 sm:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] space-y-6 no-print">
         
         {/* 1. Overall Star Rating */}
         <div className="text-center pb-4 border-b border-stone-100 dark:border-stone-800">
@@ -443,7 +514,7 @@ export const GoogleReviewBooster: React.FC = () => {
             </span>
           </div>
           <div className="text-xs font-semibold text-[#F62440] dark:text-[#FFE5BF] mt-1.5">
-            {overallRating === 5 ? 'Exceptional Stay & Hospitality' : `${overallRating}.0 Star Rating`}
+            {overallRating === 5 ? (selectedLang === 'hi' ? '5.0 — उत्कृष्ट अनुभव' : '5.0 — Exceptional Stay & Hospitality') : `${overallRating}.0 Star Rating`}
           </div>
         </div>
 
@@ -452,7 +523,7 @@ export const GoogleReviewBooster: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-2">
               <label className="text-xs uppercase font-bold tracking-wider text-stone-500 dark:text-stone-400">
-                Your Review (Ready to Post)
+                Your Review
               </label>
               {isTypingEffect && (
                 <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#FFE5BF] dark:bg-[#352520] text-[#F62440] dark:text-[#FFE5BF] animate-pulse">
@@ -463,20 +534,8 @@ export const GoogleReviewBooster: React.FC = () => {
             </div>
             
             <div className="flex items-center gap-1.5 flex-wrap">
-              {/* Language Switcher (English | हिन्दी) - Tapping automatically regenerates review */}
+              {/* Language Switcher (हिन्दी | English) - Defaults to Hindi */}
               <div className="inline-flex items-center p-0.5 rounded-lg bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
-                <button
-                  type="button"
-                  onClick={() => handleSelectLanguage('en')}
-                  className={`px-2 py-0.5 rounded-md text-[11px] font-bold transition-all cursor-pointer ${
-                    selectedLang === 'en'
-                      ? 'bg-[#F62440] text-white shadow-xs'
-                      : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white'
-                  }`}
-                  title="Switch to English reviews"
-                >
-                  English
-                </button>
                 <button
                   type="button"
                   onClick={() => handleSelectLanguage('hi')}
@@ -485,25 +544,51 @@ export const GoogleReviewBooster: React.FC = () => {
                       ? 'bg-[#F62440] text-white shadow-xs'
                       : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white'
                   }`}
-                  title="हिन्दी रिव्यूज पर स्विच करें"
+                  title="हिन्दी रिव्यूज"
                 >
                   हिन्दी
                 </button>
+                <button
+                  type="button"
+                  onClick={() => handleSelectLanguage('en')}
+                  className={`px-2 py-0.5 rounded-md text-[11px] font-bold transition-all cursor-pointer ${
+                    selectedLang === 'en'
+                      ? 'bg-[#F62440] text-white shadow-xs'
+                      : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white'
+                  }`}
+                  title="English reviews"
+                >
+                  English
+                </button>
               </div>
 
-              {/* Generate Another Button */}
+              {/* Generate Review Button (prominent when empty, New Review when text present) */}
               <button
                 type="button"
                 onClick={() => handleGenerateReview()}
                 disabled={isGenerating || isTypingEffect}
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-[#FFE5BF]/70 text-[11px] font-semibold text-stone-700 dark:text-stone-200 hover:text-[#F62440] transition-colors cursor-pointer border border-stone-200 dark:border-stone-700"
-                title="Generate another unique natural review"
+                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer border ${
+                  !reviewText.trim()
+                    ? 'bg-[#F62440] text-white border-[#F62440] shadow-xs hover:bg-[#d61b34]'
+                    : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 border-stone-200 dark:border-stone-700 hover:text-[#F62440] hover:bg-[#FFE5BF]/70'
+                }`}
+                title={reviewText.trim() ? "Generate another unique review" : "Generate a natural review automatically"}
               >
-                <RefreshCw className={`w-3 h-3 ${isGenerating || isTypingEffect ? 'animate-spin' : ''}`} />
-                <span>New Review</span>
+                {reviewText.trim() ? (
+                  <RefreshCw className={`w-3 h-3 ${isGenerating || isTypingEffect ? 'animate-spin' : ''}`} />
+                ) : (
+                  <Sparkles className={`w-3.5 h-3.5 ${isGenerating || isTypingEffect ? 'animate-spin' : ''}`} />
+                )}
+                <span>
+                  {isGenerating || isTypingEffect
+                    ? (selectedLang === 'hi' ? 'लिखा जा रहा है...' : 'Writing...')
+                    : !reviewText.trim()
+                    ? (selectedLang === 'hi' ? 'रिव्यू जनरेट करें' : 'Generate Review')
+                    : (selectedLang === 'hi' ? 'नया रिव्यू' : 'New Review')}
+                </span>
               </button>
 
-              {/* Reset / Clear for Manual Typing */}
+              {/* Reset Button - Only appears when text is present */}
               {reviewText.trim().length > 0 && (
                 <button
                   type="button"
@@ -516,7 +601,7 @@ export const GoogleReviewBooster: React.FC = () => {
                 </button>
               )}
 
-              {/* AI Polish Button */}
+              {/* AI Polish Button - Appears when meaningful text is present */}
               {reviewText.trim().length > 6 && (
                 <button
                   type="button"
@@ -539,10 +624,11 @@ export const GoogleReviewBooster: React.FC = () => {
               onChange={(e) => {
                 cancelTypewriter();
                 setReviewText(e.target.value);
+                baseTextRef.current = e.target.value;
               }}
               placeholder={selectedLang === 'hi' 
-                ? "आपका रिव्यू यहाँ अपने आप लिख रहा है। खुद से लिखने के लिए 'Reset' दबाएं, या बोलने के लिए माइक छुएं।" 
-                : "Your review is generated here automatically. Tap 'Reset' to write manually, or tap the microphone to speak."}
+                ? "अपना रिव्यू यहाँ खुद टाइप करें, बोलने के लिए माइक 🎙️ दबाएं, या ऊपर 'रिव्यू जनरेट करें' दबाकर AI से लिखवाएं..." 
+                : "Type your review here, tap the mic 🎙️ to speak, or tap 'Generate Review' above to generate automatically..."}
               rows={5}
               className="w-full p-4 pr-12 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#F62440]/30 resize-none transition-all placeholder:text-stone-400 leading-relaxed"
             />
@@ -578,6 +664,19 @@ export const GoogleReviewBooster: React.FC = () => {
             <div className="flex items-center gap-1.5 text-xs text-rose-600 dark:text-rose-400 pl-1">
               <AlertCircle className="w-3.5 h-3.5 shrink-0" />
               <span>{micError}</span>
+            </div>
+          )}
+
+          {!reviewText.trim() && !isListening && (
+            <div className="flex items-center justify-between text-[11px] text-stone-500 dark:text-stone-400 pl-1">
+              <span>💡 {selectedLang === 'hi' ? 'सुझाव: आप बोल सकते हैं, टाइप कर सकते हैं या' : 'Tip: You can speak, write or'}</span>
+              <button
+                type="button"
+                onClick={() => handleGenerateReview()}
+                className="font-bold text-[#F62440] hover:underline cursor-pointer"
+              >
+                {selectedLang === 'hi' ? '✨ ऑटो-जनरेट करें' : '✨ Auto-generate'}
+              </button>
             </div>
           )}
         </div>
@@ -624,14 +723,14 @@ export const GoogleReviewBooster: React.FC = () => {
 
       {/* Copy & Redirect Floating Toast */}
       {copiedSuccess && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-2xl bg-stone-900 text-white shadow-2xl flex items-center gap-2.5 text-xs font-semibold animate-in fade-in slide-in-from-bottom-4 duration-200 max-w-sm text-center">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-2xl bg-stone-900 text-white shadow-2xl flex items-center gap-2.5 text-xs font-semibold animate-in fade-in slide-in-from-bottom-4 duration-200 max-w-sm text-center no-print">
           <Check className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>Review copied to clipboard! Tap 5 stars &amp; tap <b>Paste</b> inside Google&apos;s review box.</span>
         </div>
       )}
 
       {/* Alternative Direct Link Backup */}
-      <div className="mt-4 text-center">
+      <div className="mt-4 text-center no-print">
         <a
           href={GOOGLE_MAPS_REVIEWS_TAB_URL}
           target="_blank"
@@ -644,50 +743,154 @@ export const GoogleReviewBooster: React.FC = () => {
 
       {/* 4. Reception Desk QR Standee Section */}
       <div className="mt-8 pt-8 border-t border-stone-200 dark:border-stone-800 text-center">
-        <button
-          type="button"
-          onClick={() => setShowStandee(!showStandee)}
-          className="inline-flex items-center gap-2 text-xs font-semibold text-[#F62440] hover:underline cursor-pointer"
-        >
-          <QrCode className="w-4 h-4" />
-          <span>{showStandee ? 'Hide Counter Desk QR Standee' : 'View / Print Counter Desk QR Standee'}</span>
-        </button>
+        <div className="flex flex-col items-center gap-2 mb-4 no-print">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 text-xs font-semibold">
+            <QrCode className="w-3.5 h-3.5" />
+            <span>Reception Desk Counter Standee</span>
+          </div>
+          <p className="text-xs text-stone-500 max-w-sm">
+            Print and place on the reception counter so arriving &amp; departing guests can scan and leave 5-star reviews.
+          </p>
+          <div className="flex items-center gap-2 mt-1">
+            <button
+              type="button"
+              onClick={handlePrintStandee}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#F62440] hover:bg-[#d61b34] text-white text-xs font-bold shadow-xs transition-all cursor-pointer"
+            >
+              <Printer className="w-3.5 h-3.5" />
+              <span>Print Standee</span>
+            </button>
+            <button
+              type="button"
+              onClick={handleDownloadQr}
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 hover:bg-stone-50 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 text-xs font-semibold shadow-xs transition-all cursor-pointer"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download PNG</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowStandee(!showStandee)}
+              className="text-xs text-stone-500 hover:text-stone-700 dark:hover:text-stone-300 underline cursor-pointer ml-1"
+            >
+              {showStandee ? 'Hide Preview' : 'Show Preview'}
+            </button>
+          </div>
+        </div>
 
-        {showStandee && (
-          <div className="mt-4 p-6 rounded-3xl bg-white dark:bg-stone-900 border border-[#FFE5BF] dark:border-[#352520] shadow-md max-w-sm mx-auto text-center space-y-3">
-            <div className="flex justify-center">
-              <RajResortLogo variant="full-circle" size={48} />
+        {/* Counter Standee Card (Always rendered for @media print, toggleable preview on screen) */}
+        <div className={showStandee ? 'block' : 'hidden print:block'}>
+          <div
+            id="reception-qr-standee"
+            className="p-7 sm:p-9 rounded-3xl bg-[#FFFDF9] dark:bg-stone-900 border-2 border-[#D4AF37] shadow-xl max-w-md mx-auto text-center relative overflow-hidden my-4"
+          >
+            {/* Ornate Corner Accents */}
+            <div className="absolute top-2.5 left-3 text-[#D4AF37] text-xs font-serif select-none">❖</div>
+            <div className="absolute top-2.5 right-3 text-[#D4AF37] text-xs font-serif select-none">❖</div>
+            <div className="absolute bottom-2.5 left-3 text-[#D4AF37] text-xs font-serif select-none">❖</div>
+            <div className="absolute bottom-2.5 right-3 text-[#D4AF37] text-xs font-serif select-none">❖</div>
+
+            {/* Top Brand Seal */}
+            <div className="flex justify-center mb-3">
+              <div className="p-1 rounded-full border-2 border-[#D4AF37] bg-white shadow-2xs">
+                <RajResortLogo variant="full-circle" size={58} />
+              </div>
             </div>
-            <h4 className="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">
+
+            {/* Resort Name & Luxury Subtitle */}
+            <h3 className="font-serif text-2xl font-bold tracking-wide text-stone-900 dark:text-stone-50 uppercase standee-ruby-text">
               Raj Resort Patna
-            </h4>
-            <p className="text-[11px] font-semibold text-[#F62440] uppercase tracking-wider">
-              Scan to Review on Google
+            </h3>
+            <p className="text-xs font-serif italic text-amber-800 dark:text-amber-300 mt-0.5 tracking-wider standee-gold-text">
+              Grand Celebrations &amp; Royal Hospitality
+            </p>
+            <p className="text-[10px] uppercase font-semibold text-stone-500 tracking-widest mt-1">
+              Kurji Mor • Ganga Marine Drive • Patliputra
             </p>
 
-            <div className="p-3 bg-white border border-stone-200 rounded-2xl inline-block shadow-inner">
-              {qrCodeUrl && (
+            {/* 5-Star Google Rating Banner */}
+            <div className="my-4 py-2 px-4 rounded-xl bg-amber-50/90 dark:bg-amber-950/40 border border-[#D4AF37]/50 inline-flex items-center justify-center gap-1.5 shadow-2xs standee-gold-border">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <Star key={s} className="w-4 h-4 fill-amber-500 text-amber-500" />
+              ))}
+              <span className="font-bold text-xs text-stone-900 dark:text-stone-100 ml-1.5">
+                4.9 on Google (400+ Reviews)
+              </span>
+            </div>
+
+            {/* Counter Callout */}
+            <div className="space-y-1 mb-4">
+              <h4 className="font-serif text-base font-bold text-stone-900 dark:text-stone-100">
+                Loved Your Experience With Us?
+              </h4>
+              <p className="text-xs text-[#F62440] font-semibold standee-ruby-text">
+                आपकी समीक्षा हमारे लिए अनमोल है • Share Your 5-Star Review
+              </p>
+            </div>
+
+            {/* Big High-Res QR Code Frame */}
+            <div className="p-3.5 bg-white border-2 border-[#D4AF37] rounded-2xl inline-block shadow-md standee-gold-border">
+              {qrCodeUrl ? (
                 /* eslint-disable-next-line @next/next/no-img-element */
-                <img src={qrCodeUrl} alt="Raj Resort Review QR Code" className="w-48 h-48 rounded-xl" />
+                <img
+                  src={qrCodeUrl}
+                  alt="Raj Resort Reception Google Review QR Code"
+                  className="w-52 h-52 sm:w-56 sm:h-56 mx-auto rounded-xl"
+                />
+              ) : (
+                <div className="w-52 h-52 flex items-center justify-center bg-stone-100 text-stone-400 text-xs">
+                  Generating QR...
+                </div>
               )}
             </div>
 
-            <p className="text-[11px] text-stone-500">
-              Point phone camera to review our hospitality on Google.
-            </p>
+            {/* Friendly 3-Step Guide */}
+            <div className="mt-4 pt-3 border-t border-stone-200 dark:border-stone-800 grid grid-cols-3 gap-2 text-center text-[10px] text-stone-700 dark:text-stone-300">
+              <div className="p-1.5 rounded-lg bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700">
+                <span className="block font-bold text-stone-900 dark:text-stone-100 text-xs">1. Scan</span>
+                <span>Open Camera</span>
+              </div>
+              <div className="p-1.5 rounded-lg bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700">
+                <span className="block font-bold text-[#F62440] text-xs">2. Rate</span>
+                <span>Tap 5 Stars</span>
+              </div>
+              <div className="p-1.5 rounded-lg bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700">
+                <span className="block font-bold text-stone-900 dark:text-stone-100 text-xs">3. Share</span>
+                <span>Type or Speak</span>
+              </div>
+            </div>
 
-            <div className="flex justify-center gap-2 pt-2">
+            {/* Footer of the standee */}
+            <div className="mt-4 pt-2 text-[10px] text-stone-500 tracking-wider">
+              <p className="font-semibold text-stone-700 dark:text-stone-300">
+                rajresortpatna.com/feedback
+              </p>
+              <p className="text-[9px] text-stone-400 mt-0.5">
+                Front Desk Counter Standee • Raj Resort Patna
+              </p>
+            </div>
+
+            {/* Screen-only action buttons inside preview */}
+            <div className="no-print pt-4 flex flex-wrap justify-center gap-2">
               <button
                 type="button"
-                onClick={() => window.print()}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-stone-300 dark:border-stone-700 text-xs font-semibold text-stone-700 dark:text-stone-300 hover:text-[#F62440] cursor-pointer"
+                onClick={handlePrintStandee}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#F62440] text-white text-xs font-bold hover:bg-[#d61b34] shadow-xs cursor-pointer"
               >
                 <Printer className="w-3.5 h-3.5" />
                 <span>Print Standee</span>
               </button>
+              <button
+                type="button"
+                onClick={handleDownloadQr}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold hover:text-[#F62440] shadow-2xs cursor-pointer"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download PNG</span>
+              </button>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
     </div>

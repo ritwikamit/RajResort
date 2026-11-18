@@ -28,8 +28,10 @@ export default function FeedbackPage() {
 
       <PrivacyPolicyModal isOpen={privacyOpen} onClose={() => setPrivacyOpen(false)} />
       <CookiePolicyModal isOpen={cookieOpen} onClose={() => setCookieOpen(false)} />
-      <FloatingActions />
-      <MobileStickyBar />
+      <div className="no-print">
+        <FloatingActions />
+        <MobileStickyBar />
+      </div>
     </div>
   );
 }
