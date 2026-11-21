@@ -21,6 +21,7 @@ interface TickerEntry {
 const TICKER_ITEMS: TickerEntry[] = [
   { text: '3.5-ACRE CELEBRATION VENUE IN PATNA', icon: Sparkles },
   { text: 'DEDICATED PARKING FOR 400+ CARS', icon: Car },
+  { text: 'SISTER BRAND: SHEESH MAHAL RESORTS (SHEESHMAHALRESORTS.COM)', icon: Sparkles },
   { text: 'GANGA RIVER-VIEW DINING AREA', icon: UtensilsCrossed },
   { text: '25+ AC GUEST ROOMS & SUITES', icon: BedDouble },
   { text: 'EXPERIENCE HOSTING 400+ CELEBRATIONS', icon: Award },

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { ExternalLink } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { MovingTextTicker } from '@/components/MovingTextTicker';
@@ -53,6 +54,34 @@ export default function Home() {
         {/* Venue Facilities & Infrastructure */}
         <ScrollReveal>
           <FacilitiesSection />
+        </ScrollReveal>
+
+        {/* Sister Brand Spotlight */}
+        <ScrollReveal>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#FFF2DB] via-[#FFE5BF]/60 to-[#FFF2DB] dark:from-[#201714] dark:via-[#2A1D19] dark:to-[#201714] border border-[#FFE5BF] dark:border-[#352520] shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 transition-colors">
+              <div className="space-y-1.5 text-center md:text-left">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#F62440] block">
+                  Hospitality Group Sister Brand
+                </span>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-stone-900 dark:text-stone-100">
+                  Sheesh Mahal Resorts
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-300 max-w-xl leading-relaxed font-sans">
+                  Proud sister brand of Raj Resort Patna. Experience our signature royal hospitality, luxury banquet lawns, and bespoke wedding celebrations at sheeshmahalresorts.com.
+                </p>
+              </div>
+              <a
+                href="https://sheeshmahalresorts.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#F62440] to-[#D81B34] hover:from-[#E01A35] hover:to-[#BF132A] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase shadow-md hover:scale-105 active:scale-95 transition-all shrink-0 cursor-pointer border border-white/20"
+              >
+                <span>Visit Sheesh Mahal</span>
+                <ExternalLink className="w-4 h-4 text-white" />
+              </a>
+            </div>
+          </div>
         </ScrollReveal>
 
         {/* Frequently Asked Questions */}

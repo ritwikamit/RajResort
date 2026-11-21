@@ -15,7 +15,8 @@ import {
   PhoneCall,
   Instagram,
   Facebook,
-  Youtube
+  Youtube,
+  ExternalLink
 } from 'lucide-react';
 import { RajResortLogo } from './RajResortLogo';
 import { RESORT_DATA } from '@/data/resort-data';
@@ -161,6 +162,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
               <MapPin className="w-3.5 h-3.5 shrink-0" />
               <span>Gate No. 62, Kurji Mor, Patliputra, Patna, Bihar 800010</span>
             </div>
+
+            <div className="pt-1 flex items-center gap-2 text-xs">
+              <span className="text-stone-500 dark:text-stone-400 font-medium">Sister Brand:</span>
+              <a
+                href="https://sheeshmahalresorts.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-[#F62440] hover:underline inline-flex items-center gap-1"
+                title="Visit our sister brand Sheesh Mahal Resorts"
+              >
+                <span>sheeshmahalresorts.com</span>
+                <ExternalLink className="w-3 h-3 text-[#F62440]" />
+              </a>
+            </div>
           </div>
 
           {/* Direct Navigation Links (3 Cols) */}
@@ -198,6 +213,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
                 <Link href="/feedback" className="hover:text-[#F62440] transition-colors font-medium text-[#F62440]">
                   Guest Feedback &amp; Reviews
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="https://sheeshmahalresorts.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#F62440] transition-colors inline-flex items-center gap-1 font-semibold text-stone-900 dark:text-stone-100"
+                >
+                  <span>Sister Brand: Sheesh Mahal</span>
+                  <ExternalLink className="w-3 h-3 text-[#F62440]" />
+                </a>
               </li>
             </ul>
           </div>

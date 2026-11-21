@@ -192,6 +192,9 @@ export const StructuredData: React.FC = () => {
           'https://www.facebook.com/rajresortpatna/',
           'https://www.youtube.com/results?search_query=raj+resort+patna',
         ],
+        relatedLink: [
+          'https://sheeshmahalresorts.com',
+        ],
       },
 
       // 2. WebSite Entity
