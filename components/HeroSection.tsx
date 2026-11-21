@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Calendar, Users, ShieldCheck, MapPin, Sparkles, UtensilsCrossed, Star } from 'lucide-react';
+import { ArrowRight, Calendar, Users, ShieldCheck, MapPin, Sparkles, UtensilsCrossed, Star, ExternalLink } from 'lucide-react';
 import { RESORT_DATA } from '@/data/resort-data';
 
 export const HeroSection: React.FC = () => {
@@ -124,6 +124,21 @@ export const HeroSection: React.FC = () => {
 
             <span className="text-[11px] sm:text-xs font-bold text-[#FFE5BF]">4.5</span>
             <span className="text-[10px] sm:text-[11px] text-stone-300 font-medium">(1,400+ reviews)</span>
+          </a>
+        </div>
+
+        {/* Sister Brand Pill */}
+        <div className="mt-3 flex items-center justify-center">
+          <a
+            href="https://sheeshmahalresorts.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-[#FFE5BF] hover:text-white bg-black/40 hover:bg-black/60 border border-[#FFE5BF]/30 px-3.5 py-1 rounded-full backdrop-blur-md transition-all group shadow-sm"
+            title="Visit our sister brand Sheesh Mahal Resorts"
+          >
+            <span className="opacity-80 font-medium">Sister Brand:</span>
+            <span className="font-bold underline underline-offset-2">Sheesh Mahal Resorts</span>
+            <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 transition-transform text-[#FFE5BF]" />
           </a>
         </div>
 

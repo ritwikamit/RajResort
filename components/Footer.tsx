@@ -331,22 +331,30 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenCookies }) 
 
           <div className="flex items-center justify-center gap-1.5 text-xs text-stone-600 dark:text-stone-400">
             <span>Designed and Developed by</span>
-            {/* Light Mode: AC and Labs in crisp Black */}
-            <Image
-              src="/images/accustomlabs-logo.png"
-              alt="ACCustomLabs"
-              width={105}
-              height={18}
-              className="h-3.5 sm:h-4 w-auto object-contain inline-block align-middle dark:hidden opacity-90 hover:opacity-100 transition-opacity"
-            />
-            {/* Dark Mode: AC and Labs in White */}
-            <Image
-              src="/images/accustomlabs-logo-dark.png"
-              alt="ACCustomLabs"
-              width={105}
-              height={18}
-              className="h-3.5 sm:h-4 w-auto object-contain hidden dark:inline-block align-middle opacity-90 hover:opacity-100 transition-opacity"
-            />
+            <a
+              href="https://wa.me/917766833773?text=Hello%20AcCustomLabs%2C%20I%20saw%20your%20work%20on%20Raj%20Resort%20and%20would%20like%20to%20connect."
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Connect with AcCustomLabs on WhatsApp"
+              className="inline-flex items-center opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+            >
+              {/* Light Mode: AC and Labs in crisp Black */}
+              <Image
+                src="/images/accustomlabs-logo.png"
+                alt="ACCustomLabs"
+                width={105}
+                height={18}
+                className="h-3.5 sm:h-4 w-auto object-contain inline-block align-middle dark:hidden"
+              />
+              {/* Dark Mode: AC and Labs in White */}
+              <Image
+                src="/images/accustomlabs-logo-dark.png"
+                alt="ACCustomLabs"
+                width={105}
+                height={18}
+                className="h-3.5 sm:h-4 w-auto object-contain hidden dark:inline-block align-middle"
+              />
+            </a>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-stone-700 dark:text-stone-400 pt-3">
