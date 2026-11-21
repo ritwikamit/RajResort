@@ -7,27 +7,33 @@ interface ImproveRequestBody {
 }
 
 const ENGLISH_SAMPLES = [
-  "Attended a cousin's wedding reception at Raj Resort Patna. The 3.5-acre lawn was beautifully lit and the walkway for the bride and groom was breathtaking. Food was hot and delicious, and parking for 400+ cars made it completely stress-free!",
-  "Had an amazing family celebration here! The open garden lawn near the Ganga breeze gave a wonderful evening vibe. Banquet hall AC was cooling perfectly and the catering service was prompt and polite. Highly recommended in Patna!",
-  "We booked Raj Resort for an engagement ceremony. Everything was well coordinated by the management team. The stage decor, food variety, and hospitality exceeded our expectations. Truly one of the best banquet venues in Patna.",
-  "Stayed here for two nights during a family wedding in Patliputra. The AC rooms were neat, clean, and comfortable. Huge parking area for cars with security guard assistance. Very pleasant stay!",
-  "Superb venue for large gatherings! The buffet spread was rich with delicious live chaat and main course counters. Management is courteous and attentive to every detail. 5 stars well deserved!",
-  "Beautiful ambience and top-notch hospitality. The spacious celebration ground easily accommodated over 800 guests without feeling crowded. Uninterrupted power backup and great food taste.",
-  "Excellent resort with a great location near Kurji Mor and Ganga Marine Drive. The grand entrance, green lawns, and delicious catering made our event memorable. Thank you Raj Resort team!",
-  "Celebrated an anniversary party at Raj Resort Patna. The banquet hall decoration was elegant, food was fresh and tasty, and the service staff was polite and prompt. Will definitely book again for future family functions.",
-  "Great experience attending my best friend's marriage ceremony here. The floral aisle for entry was magical, food was fresh and piping hot, and valet parking made entry seamless.",
-  "Visited for a reception dinner. Very peaceful atmosphere with the Ganga breeze, huge lawn space, and cooperative staff. Definitely one of the top wedding venues in Patna."
+  "attended cousin wedding here, food was great and lawn is huge",
+  "really loved the open lawn and food.. staff was very polite",
+  "superb place for marriage function, decoration and food was v good",
+  "went for a family wedding reception last week. open lawn is massive with nice ganga breeze and food was fresh and hot. definetly recommend for weddings in patna.",
+  "food was to good and lawn decoration was really nice",
+  "attended my friends reception here yesterday. peaceful vibe, tasty buffet and parking was totally hassle free",
+  "huge lawn and delicious food.. definetly 5 stars",
+  "best resort in patna for weddings.. lawn decor was osm and ganga breeze in evening was peaceful",
+  "we had a family anniversary party here. banquet hall ac was cooling properly and staff was polite.",
+  "400+ car parking made arrival so easy, no rush at all bcz huge ground. good catering too",
+  "spacious banquet and lawn, cooperative staff and tasty catering. had a great time with family..",
+  "stage decor and lighting was beautiful, food was fresh and hot. 5star service throughout"
 ];
 
 const HINDI_SAMPLES = [
-  "Bahut hi shandar resort hai Patna me. Family wedding attend kiya tha, lawn decoration aur catering dono lajawab the. Parking ki koi dikkat nahi hui aur staff ka behaviour bahut humble tha.",
-  "Raj Resort Patna me hamare cousin ki shadi thi. Venue bohot bada aur sundar hai, especially Ganga view aur night lighting. Khana bahut tasty tha aur sabhi arrangements smooth the.",
-  "Patna ka one of the best wedding venues! Open lawn bahut spacious hai, decoration aur bride-groom entry ka setup bohot attractive laga. Management team full supportive hai.",
-  "Hamne yaha engagement function organize kiya tha. Banquet hall ka AC, dinner buffet aur seating arrangements sab kuch first class tha. Sabhi guests ne venue aur khane ki tareef ki.",
-  "Kurji Mor ke paas best location hai via Ganga Marine Drive. Rooms clean the aur car parking 400+ gaadiyo ke liye kaafi badi hai. Staff ka service quick aur helpful raha.",
-  "Shaadi aur reception ke liye perfect place hai Raj Resort. Khane ka taste authentic aur fresh tha. Lawn ka ambience night me bohot royal lagta hai. 5 star experience!",
-  "Ganga kinare ka resort hai, shaam ko thandi hawa aur lighting ka mahaul lajawab tha. Khana fresh aur garam serve hua. Staff ka response time bahut quick tha.",
-  "Bhai ki shadi ke liye book kiya tha. Stage decoration, lawn space aur food sab kuch perfect tha. 500+ guests aaram se accommodate ho gaye bina kisi bheed ke."
+  "bohot badiya resort hai weddings ke liye, lawn space kafi bada h",
+  "raj resort me cousin ki shadi thi, khana aur lawn dono lajawab the. parking bhi smooth thi",
+  "patna me shadi ke liye best jagah lagi.. open ground bada hai aur peaceful vibe",
+  "khana to good tha aur lawn bhi bohot sundar sajaya tha.. staff was humble",
+  "bhai ke reception ke liye venue perfect raha, staff v helpful tha",
+  "ganga kinare mast hawa aur shandar lawn.. 5 star experience",
+  "pichhle hafte dost ki shadi attend ki thi raj resort me. stage decoration bohot pyara tha aur khana bilkul garam aur fresh mila.",
+  "400+ car parking hai to gaadi lagane me koi dikkat ni hui. all arrangements were smooth",
+  "patna ka best resort laga weddings ke liye.. lawn kafi spacious hai aur food mast tha",
+  "marine drive se aana bohot easy raha, clean rooms and humble staff.. highly recommended",
+  "khana bilkul garam aur fresh tha, specially live chaat counter. sabhi relatives ne tareef ki",
+  "lawn decoration mast tha specially walkway.. dinner buffet me kaafi variety thi"
 ];
 
 function getRandomSample(lang?: string): string {
@@ -36,21 +42,27 @@ function getRandomSample(lang?: string): string {
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
-const AI_POLISH_SYSTEM_PROMPT = `You are an authentic, high-integrity Google Maps review assistant for Raj Resort Patna.
+const AI_POLISH_SYSTEM_PROMPT = `You are an authentic Google Maps review assistant for Raj Resort Patna.
 
-CORE PHILOSOPHY (GOOGLE MAPS AUTHENTICITY POLICY):
-Real human reviews written from mobile phones are conversational, emotional, and naturally imperfect. Over-sanitized, robotic, textbook-grammar marketing copy gets penalized or flagged by Google's anti-spam bots.
+CORE PHILOSOPHY & CASUAL MOBILE STYLE:
+Real reviews written on smartphones are informal, candid, and naturally imperfect. Google's algorithms detect and penalize polished, essay-like PR copy.
 
-SCRIPT AND LANGUAGE RULES:
-1. ALWAYS WRITE IN ENGLISH SCRIPT / LATIN ALPHABET ONLY.
-2. NEVER OUTPUT DEVANAGARI / HINDI CHARACTERS.
-3. For Hindi reviews, write in natural conversational HINGLISH using English letters only (e.g., "Raj Resort Patna me hamare cousin ki shadi thi, khana bohot tasty tha aur lawn decoration lajawab tha. 400+ car parking se arrival easy raha.").
-
-RULES FOR POLISHING ('action: improve'):
-1. CORRECT SPELLING ERRORS ONLY: Fix blatant typographical slips (e.g. "reicived" -> "received", "exelent" -> "excellent", "servise" -> "service", "accdent" -> "accident").
-2. PRESERVE NATURAL GRAMMAR & HUMAN VOICE: Do NOT restructure or over-polish the user's conversational grammar, colloquial fragments, or Hinglish flow into formal English essays. Keep the sentence structure authentic, warm, and natural as if typed on a mobile phone.
-3. PRESERVE ORIGINAL MEANING & SENTIMENT: Never convert negative feedback or critique into fake praise.
-4. RETURN STRICT JSON: {"improved": "...", "sentiment": "positive"|"neutral"|"negative", "tags": [...]}`;
+STRICT STYLING & FORMAT RULES:
+1. PREDOMINANTLY SMALL LETTERS (LOWERCASE): Write mostly or entirely in lowercase / small letters (e.g. 'attended cousin wedding here, food was really good and staff was helpful..'). Avoid stiff, capitalized sentence-case essays.
+2. UNPREDICTABLE FORMAT & LENGTH: NEVER follow a rigid formula or fixed order. Randomly alternate between:
+   - A short, punchy 1-line note
+   - A relaxed 2-sentence thought (e.g. food + parking, or lawn + vibe)
+   - A casual 3-part note with dots (..) or commas
+3. SIMPLE WORDS & NATURAL HUMAN QUIRKS: Use simple everyday vocabulary. Naturally include realistic human texting quirks or minor typos/slang (e.g. 'v good', 'to good', 'definetly', 'alot', 'bcz', 'staaf', 'osm', '5star').
+4. SCRIPT AND LANGUAGE RULES:
+   - ALWAYS write using English script / Latin alphabet only.
+   - NEVER output Devanagari / Hindi script.
+   - For Hindi reviews, write in natural conversational HINGLISH using small English letters (e.g. 'khana bohot badiya tha aur lawn kafi bada h.. parking me koi problem ni hui').
+5. POLISHING RULES ('action: improve'):
+   - Keep the original wording, lowercase tone, and natural imperfections intact.
+   - Do NOT sanitize or upgrade casual slang into stiff corporate English.
+   - Preserve original sentiment faithfully.
+   - Return strict JSON: {"improved": "...", "sentiment": "positive"|"neutral"|"negative", "tags": [...]}`;
 
 function heuristicEnhanceFeedback(raw: string): {
   improved: string;
@@ -117,14 +129,6 @@ function heuristicEnhanceFeedback(raw: string): {
 
   for (const [pattern, repl] of replacements) {
     polished = polished.replace(pattern, repl);
-  }
-
-  // Capitalize first letter of sentences
-  polished = polished.replace(/(^\s*|\.\s+)([a-z])/g, (_, prefix, letter) => prefix + letter.toUpperCase());
-
-  // Ensure trailing punctuation
-  if (!/[.!?]$/.test(polished)) {
-    polished += '.';
   }
 
   return {
@@ -239,11 +243,19 @@ export async function POST(req: NextRequest) {
     const chosenPerspective = perspectives[Math.floor(Math.random() * perspectives.length)];
     const isHindiRequested = Boolean(body.language && (body.language.toLowerCase().includes('hi') || body.language.toLowerCase() === 'hindi'));
 
+    const formatStyles = [
+      "a punchy 1-line quick note",
+      "a relaxed 2-part comment mentioning food or parking or lawn",
+      "a 2-to-3 sentence casual review with natural punctuation like dots (..)",
+      "a short conversational note focusing on evening vibe and arrangements"
+    ];
+    const chosenFormat = formatStyles[Math.floor(Math.random() * formatStyles.length)];
+
     const userPrompt = isGenerate
       ? (isHindiRequested
-          ? `Generate a completely unique, natural, and authentic 2-to-3 sentence Google Maps review in conversational HINGLISH (HINDI WRITTEN IN ENGLISH ALPHABET ONLY) for Raj Resort Patna as a real guest (Angle: ${chosenPerspective}). CRITICAL: Write entirely using English letters. NEVER use Hindi/Devanagari script. Example: 'Lawn decor bohot sundar tha aur khana garam tha'. Write like a real person typing from a smartphone on Google Maps. Return JSON: {"improved": "..."}`
-          : `Generate a completely unique, natural, and authentic 2-to-3 sentence Google Maps review in natural ENGLISH for Raj Resort Patna as a genuine guest (Angle: ${chosenPerspective}). Write like a real customer on a smartphone: casual, sincere, conversational syntax with slight natural human quirks (e.g. 'specially the paneer starter', 'no parking issue bcz valet was quick', 'definetly 5 stars'). Avoid robotic AI jargon. Return JSON: {"improved": "..."}`)
-      : `Customer Raw Feedback:\n"${rawText}"\n\nPlease polish according to the guidelines: fix spelling/typos only, keep natural human conversational grammar intact. If Hindi words are present, ensure they remain in English letters (Latin script), never convert to Devanagari.`;
+          ? `Write a Google Maps review for Raj Resort Patna as a genuine guest in conversational HINGLISH (HINDI WRITTEN IN SMALL ENGLISH LETTERS ONLY). Perspective: ${chosenPerspective}. Format: ${chosenFormat}. RULES: Write mostly or entirely in small letters (lowercase). Use natural everyday words and casual texting quirks (e.g. 'bohot', 'mast', 'badiya', 'v helpful', 'ni hui', '5star'). NEVER use Devanagari/Hindi script. Avoid stiff marketing language. Return JSON: {"improved": "..."}`
+          : `Write a Google Maps review for Raj Resort Patna as a genuine guest in natural ENGLISH. Perspective: ${chosenPerspective}. Format: ${chosenFormat}. RULES: Write mostly or entirely in small letters (lowercase) like someone quickly typing on a phone keyboard. Include natural human texting quirks or slight slips (e.g. 'v good', 'to good', 'definetly', 'alot', 'bcz', 'superb place..'). Do NOT follow a rigid template or PR marketing tone. Return JSON: {"improved": "..."}`)
+      : `Customer Raw Feedback:\n"${rawText}"\n\nPlease polish according to the guidelines: keep lowercase style intact, preserve natural conversational human grammar and colloquial flow. If Hindi words are present, ensure they remain in English letters (Latin script), never convert to Devanagari.`;
 
     const payload = {
       model,

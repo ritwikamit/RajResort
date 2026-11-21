@@ -291,6 +291,11 @@ export const RESORT_DATA = {
 
   faqs: [
     {
+      question: 'Which is the best resort in Patna for weddings and events?',
+      answer: 'Raj Resort Patna is widely regarded as the best resort in Patna for weddings and luxury celebrations. The 3.5-acre property offers open starlit celebration lawns accommodating up to 1,200+ guests, the Shahi Darbar AC banquet hall, Ganga river-view dining, 25+ guest rooms, and on-site parking for 400+ cars near Kurji Mor, Patliputra.',
+      category: 'Overview',
+    },
+    {
       question: 'What types of events can be hosted at Raj Resort Patna?',
       answer: 'Raj Resort hosts a wide variety of family and formal gatherings, including weddings, receptions, engagements (Sagai), Sangeet and Haldi functions, anniversary celebrations, birthday parties, corporate conferences, and cultural events.',
       category: 'Events',

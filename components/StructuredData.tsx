@@ -7,11 +7,13 @@ export const StructuredData: React.FC = () => {
     '@graph': [
       // 1. Primary Event Venue & Lodging Business Entity
       {
-        '@type': ['EventVenue', 'LodgingBusiness'],
+        '@type': ['Resort', 'EventVenue', 'LodgingBusiness', 'Hotel'],
         '@id': 'https://rajresortpatna.com/#venue',
-        name: 'Raj Resort Patna',
+        name: 'Raj Resort - Best Resort in Patna',
         alternateName: [
+          'Raj Resort Patna',
           'Raj Resort',
+          'Best Resort in Patna',
           'Raj Resort Patliputra',
           'Raj Resort Wedding Lawn Patna',
           'Raj Resort Banquet Hall Patna',
@@ -19,7 +21,7 @@ export const StructuredData: React.FC = () => {
           'Raj Resort Marriage Hall Patna',
         ],
         keywords:
-          'Raj Resort Patna, best resort in Patna, wedding venue in Patna, best wedding venue in Patna, wedding resort in Patna, marriage hall in Patna, banquet hall in Patna, resort for marriage in Patna, wedding lawn in Patna, resort in Patna Bihar, resort near Kurjee Mor Patna, resort near P&M Mall Patna',
+          'best resort in Patna, best resort in patna for wedding, best wedding resort in patna, Raj Resort Patna, wedding venue in Patna, best wedding venue in Patna, wedding resort in Patna, marriage hall in Patna, banquet hall in Patna, resort for marriage in Patna, wedding lawn in Patna, resort in Patna Bihar, resort near Kurjee Mor Patna, resort near P&M Mall Patna',
         url: 'https://rajresortpatna.com',
         logo: 'https://rajresortpatna.com/icon.png',
         image: [
@@ -30,7 +32,7 @@ export const StructuredData: React.FC = () => {
           'https://rajresortpatna.com/images/spaces/150-foot-floral-walkway.webp',
         ],
         description:
-          'Raj Resort Patna is a 3.5-acre wedding and event venue near Kurji Mor, Patliputra featuring open celebration lawns for 400 to 1,200+ guests, an AC banquet hall, Ganga River-view dining, 25+ guest rooms, and parking for 400+ cars.',
+          'Raj Resort is rated the best resort in Patna for weddings, receptions, and luxury celebrations. A 3.5-acre property near Kurji Mor, Patliputra featuring open celebration lawns for 400 to 1,200+ guests, an AC banquet hall, Ganga River-view dining, 25+ guest rooms, and parking for 400+ cars.',
         telephone: '+917360800001',
         email: 'Rajresortpatna@gmail.com',
         priceRange: '₹₹₹',

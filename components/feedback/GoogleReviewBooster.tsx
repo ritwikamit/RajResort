@@ -51,85 +51,142 @@ declare global {
   }
 }
 
-// Authentic human review building blocks for Raj Resort Patna (English & Hindi)
-const ENGLISH_OPENERS = [
-  "Attended a cousin's wedding reception at Raj Resort Patna last week.",
-  "Had an unforgettable experience celebrating a family function at Raj Resort.",
-  "Recently attended my friend's marriage ceremony here near Kurji Mor.",
-  "We booked Raj Resort for our family anniversary celebration and it was fantastic.",
-  "Visited Raj Resort Patna for an engagement function and was genuinely impressed.",
-  "Stayed and attended a grand wedding here in Patliputra.",
-  "One of the best celebration venues we have experienced in Patna.",
-  "Such a beautiful and well-maintained resort for grand celebrations.",
+// Authentic, un-templated human review generator with varied formats, lowercase letters, and natural typing quirks
+const EN_QUICK_REVIEWS = [
+  "attended cousin wedding here, food was great and lawn is huge",
+  "really loved the open lawn and food.. staff was very polite",
+  "superb place for marriage function, decoration and food was v good",
+  "great wedding venue in patna with huge open lawn and easy parking",
+  "food was to good and lawn decoration was really nice",
+  "attended my friends reception here, peaceful vibe and great arrangements",
+  "huge lawn and delicious food.. definetly 5 stars",
+  "very spacious resort near kurji mor, parking was totally hassle free",
+  "best resort in patna for weddings.. peaceful ganga breeze in evening and osm decor",
+  "stage decor and lighting was beautiful, food was fresh and hot",
+  "attended reception party yesterday, arrangements were smooth and staff was humble",
+  "spacious banquet and lawn, cooperative staff and tasty catering. had a great time",
+  "400+ car parking made arrival so easy, no rush at all. good food too",
+  "went for friends sangeet here, loved the garden vibe and chaat counter"
 ];
 
-const ENGLISH_HIGHLIGHTS = [
-  "The 3.5-acre open lawn was decorated beautifully and the illuminated couple walkway was breathtaking.",
-  "The banquet hall AC was cooling perfectly and the open lawn with the Ganga breeze created a royal ambience.",
-  "The lawn lighting, floral stage decor, and spacious guest seating made the evening magical.",
-  "The outdoor garden is huge, perfectly maintained, and easily accommodated all guests without any crowd.",
-  "From the majestic grand entry gate to the themed Varmala stage, every arrangement looked royal.",
+const EN_OPENERS = [
+  "went for a family wedding reception last week.",
+  "attended friend marriage ceremony here near kurji mor.",
+  "we had a family anniversary party here.",
+  "visited raj resort patna for cousins wedding.",
+  "celebrated a grand family reception at raj resort.",
+  "attended brother wedding here few days back.",
+  "came from delhi for a relative wedding in patliputra."
 ];
 
-const ENGLISH_FOOD_SERVICE = [
-  "Food was hot, flavorful, specially the live chaat counter and paneer starter were top notch.",
-  "The dinner buffet had great variety with authentic taste, and the service staff was polite and humble.",
-  "Delicious catering with fresh ingredients, and the banquet team ensured prompt refills throughout.",
-  "Starters and main course were delicious, and the management team was cooperative at every step.",
+const EN_DETAILS = [
+  "open lawn is massive with nice ganga breeze and food was fresh and hot.",
+  "stage decoration was beautiful and dinner buffet had alot of variety.",
+  "banquet hall ac was cooling properly and staff was polite.",
+  "car parking was huge for 400+ cars so zero rush while arriving.",
+  "live chaat counter and starters were delicious, specially paneer tikka.",
+  "lawn lighting and floral walkway looked magical at night.",
+  "rooms were clean and management was supportive throughout the night.",
+  "food taste was authentic and served piping hot without delay."
 ];
 
-const ENGLISH_CLOSINGS = [
-  "Spacious parking for 400+ cars made arrival hassle-free. Full 5 stars well deserved!",
-  "Courteous management, clean AC rooms, and smooth parking assistance. Highly recommended in Patna!",
-  "Reliable power backup, humble staff, and great hospitality throughout. Must visit for weddings!",
-  "Thank you to the whole team for making our family event so memorable and special!",
+const EN_CLOSINGS = [
+  "really good experience.",
+  "definetly recommend for weddings in patna.",
+  "5star service throughout..",
+  "happy with the arrangements.",
+  "management was cooperative.",
+  "best resort in patna for grand functions.",
+  "all guests enjoyed alot, thank you team.",
+  "no parking issue bcz huge ground."
 ];
 
-const HINDI_OPENERS = [
-  "Raj Resort Patna me hamare cousin ki shadi attend kiya tha.",
-  "Family wedding ke liye Raj Resort Patna book kiya tha, bohot shandar anubhav raha.",
-  "Pichhle hafte dost ki engagement ceremony attend ki yaha Kurji Mor ke paas.",
-  "Patna ka one of the best wedding venues laga hum sabhi family members ko.",
-  "Bhai ke reception function ke liye venue bohot sundar aur royal saabit hua.",
-  "Ganga kinare ka resort hai, shaam ka mahaul bohot peaceful aur grand rehta hai.",
+const HI_QUICK_REVIEWS = [
+  "bohot badiya resort hai weddings ke liye, lawn space kafi bada h",
+  "raj resort me cousin ki shadi thi, khana aur lawn dono lajawab the",
+  "patna me shadi ke liye best jagah lagi.. parking bhi smooth thi",
+  "khana to good tha aur lawn bhi bohot sundar sajaya tha",
+  "bhai ke reception ke liye venue perfect raha, staff v helpful tha",
+  "ganga kinare mast hawa aur shandar lawn.. 5 star experience",
+  "decoration aur khana dono top class tha, all guests were happy",
+  "400+ car parking hai to gaadi lagane me koi dikkat ni hui",
+  "patna ka best resort laga weddings ke liye.. open ground bada hai aur peaceful vibe",
+  "attended dost ki engagement yaha, arrangements bohot badiya the",
+  "khana bilkul garam aur fresh tha, specially live counters. staff was polite",
+  "stage decor and lighting royal thi, guests ko venue bohot pasand aaya",
+  "marine drive se aana bohot easy raha, clean rooms and humble staff",
+  "lawn kafi spacious hai aur ganga breeze se evening mast rahi"
 ];
 
-const HINDI_HIGHLIGHTS = [
-  "3.5 acre ka open lawn bohot sundar sajaya gaya tha aur bride-groom entry ka walkway lajawab laga.",
-  "Banquet hall ka AC cooling first-class tha aur night lighting me lawn royal lag raha tha.",
-  "Stage decoration aur seating arrangement bohot spacious tha, 700+ guests aaram se aa gaye.",
-  "Ganga Marine Drive se aana bohot aasan raha aur venue ka grand look dil jeet leta hai.",
+const HI_OPENERS = [
+  "pichhle hafte dost ki shadi attend ki thi raj resort me.",
+  "cousin ke marriage function ke liye yaha gaye the.",
+  "family wedding ke liye book kiya tha raj resort patna.",
+  "reception party attend kiya tha kurji mor ke paas.",
+  "bhai ki engagement ceremony thi yaha patliputra me.",
+  "hamare family function ke liye venue bohot shandar laga."
 ];
 
-const HINDI_FOOD_SERVICE = [
-  "Khana bilkul fresh, garam aur authentic taste ka tha. Live chaat aur starters sabko pasand aaye.",
-  "Dinner buffet me kaafi variety thi, taste lajawab tha aur serving staff bohot humble tha.",
-  "Catering arrangements lajawab the, garam khana aur prompt service continuously chali.",
+const HI_DETAILS = [
+  "lawn kafi bada hai aur ganga river ki thandi hawa se evening mast rahi.",
+  "stage decoration bohot pyara tha aur khana bilkul garam aur fresh mila.",
+  "dinner buffet me kaafi variety thi, live chaat sabko pasand aayi.",
+  "ac banquet hall aur rooms clean the, staff ka nature bhi polite tha.",
+  "parking space bohot bada hai to bina kisi jhanjhat ke arrival ho gaya.",
+  "lighting aur bridal entry walkway lajawab lag raha tha.",
+  "continuous power backup aur clean washrooms the, zero issues."
 ];
 
-const HINDI_CLOSINGS = [
-  "400+ gaadiyo ki parking aur security guard ki wajah se koi dikkat nahi hui. 5 star experience!",
-  "Management full supportive raha aur AC rooms bhi clean the. Patna me highly recommended!",
-  "Continuous power backup aur humble staff. Bahut hi pyara resort hai weddings ke liye!",
+const HI_CLOSINGS = [
+  "patna me wedding ke liye highly recommended.",
+  "management full supportive raha.. 5star!",
+  "sabhi relatives ne venue ki tareef ki.",
+  "overall bohot accha anubhav raha.",
+  "shandar resort hai patna me.",
+  "all arrangements were smooth.",
+  "khana aur service dono mast tha."
 ];
 
-function getRandomElement<T>(arr: T[]): T {
+function getRandomItem<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+// Generates unpredictable, natural, lowercase reviews with varying structures & human quirks
 function generateRandomHumanReview(lang: 'en' | 'hi' = 'en'): string {
-  if (lang === 'hi') {
-    const o = getRandomElement(HINDI_OPENERS);
-    const h = getRandomElement(HINDI_HIGHLIGHTS);
-    const f = getRandomElement(HINDI_FOOD_SERVICE);
-    const c = getRandomElement(HINDI_CLOSINGS);
-    return `${o} ${h} ${f} ${c}`;
+  const isHindi = lang === 'hi';
+  const format = Math.floor(Math.random() * 4);
+
+  if (isHindi) {
+    if (format === 0) {
+      // 1-liner punchy review
+      return getRandomItem(HI_QUICK_REVIEWS);
+    }
+    if (format === 1) {
+      // 2 thoughts (opener + detail)
+      return `${getRandomItem(HI_OPENERS)} ${getRandomItem(HI_DETAILS)}`;
+    }
+    if (format === 2) {
+      // 2 thoughts (detail + closing with casual punctuation)
+      return `${getRandomItem(HI_DETAILS)}.. ${getRandomItem(HI_CLOSINGS)}`;
+    }
+    // 3 thoughts (opener + detail + closing)
+    return `${getRandomItem(HI_OPENERS)} ${getRandomItem(HI_DETAILS)} ${getRandomItem(HI_CLOSINGS)}`;
   }
-  const o = getRandomElement(ENGLISH_OPENERS);
-  const h = getRandomElement(ENGLISH_HIGHLIGHTS);
-  const f = getRandomElement(ENGLISH_FOOD_SERVICE);
-  const c = getRandomElement(ENGLISH_CLOSINGS);
-  return `${o} ${h} ${f} ${c}`;
+
+  if (format === 0) {
+    // 1-liner punchy review
+    return getRandomItem(EN_QUICK_REVIEWS);
+  }
+  if (format === 1) {
+    // 2 thoughts (opener + detail)
+    return `${getRandomItem(EN_OPENERS)} ${getRandomItem(EN_DETAILS)}`;
+  }
+  if (format === 2) {
+    // 2 thoughts (detail + closing with casual punctuation)
+    return `${getRandomItem(EN_DETAILS)}.. ${getRandomItem(EN_CLOSINGS)}`;
+  }
+  // 3 thoughts (opener + detail + closing)
+  return `${getRandomItem(EN_OPENERS)} ${getRandomItem(EN_DETAILS)} ${getRandomItem(EN_CLOSINGS)}`;
 }
 
 // Transliterates Devanagari script to Latin characters (Hinglish) so voice typing outputs English letters only
@@ -714,8 +771,8 @@ export const GoogleReviewBooster: React.FC = () => {
                 baseTextRef.current = e.target.value;
               }}
               placeholder={selectedLang === 'hi' 
-                ? "Type your review here in Hindi (using English letters), tap mic to speak, or tap 'Generate Review' above..." 
-                : "Type your review here, tap the mic to speak, or tap 'Generate Review' above..."}
+                ? "type your review here in hindi (english letters), tap mic to speak, or tap 'Generate Review' above..." 
+                : "type your review here, tap the mic to speak, or tap 'Generate Review' above..."}
               rows={5}
               className="w-full p-4 pr-12 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#F62440]/30 resize-none transition-all placeholder:text-stone-400 leading-relaxed"
             />

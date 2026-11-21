@@ -53,15 +53,15 @@ export const HeroSection: React.FC = () => {
 
         {/* Clear, Factual Headline */}
         <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white max-w-4xl leading-[1.14] drop-shadow-lg">
-          Wedding & Event Venue in Patna
+          Best Resort in Patna for Weddings & Events
           <span className="block text-lg sm:text-2xl md:text-3xl font-normal text-[#FFE5BF] mt-2 font-serif italic">
-            3.5 Acres of Open Lawns, Ganga River-View Dining & Parking for 400+ Cars
+            3.5 Acres of Open Lawns, AC Banquet Hall, Ganga River-View Dining & Parking for 400+ Cars
           </span>
         </h1>
 
         {/* Clear, Informative Narrative */}
         <p className="mt-3 sm:mt-4 text-stone-200 text-xs sm:text-base max-w-2xl leading-relaxed font-sans font-normal drop-shadow-md">
-          Located near Gate No. 62 at Kurji Mor, Patliputra, <strong className="text-white font-semibold">Raj Resort</strong> offers spacious outdoor lawns for 400 to 1,200+ guests, an air-conditioned banquet hall, and 25+ rooms for visiting relatives. With experience hosting over 400 celebrations, our team assists your family with custom stage setups, lighting, and dedicated catering.
+          Widely rated among the best resorts in Patna, <strong className="text-white font-semibold">Raj Resort</strong> near Gate No. 62 at Kurji Mor, Patliputra offers expansive outdoor celebration lawns for 400 to 1,200+ guests, a luxury air-conditioned banquet hall, and 25+ rooms for visiting relatives. With experience hosting over 400 celebrations, our team assists your family with custom stage setups, lighting, and dedicated catering.
         </p>
 
         {/* Action Buttons in Color Hunt Palette */}

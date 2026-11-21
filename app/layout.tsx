@@ -41,14 +41,20 @@ const greatVibes = Great_Vibes({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rajresortpatna.com'),
   title: {
-    default: 'Raj Resort Patna | Wedding Venue & Luxury Event Resort in Patna, Bihar',
-    template: '%s | Raj Resort Patna',
+    default: 'Raj Resort - Best Resort in Patna | Wedding Venue & Luxury Lawns',
+    template: '%s | Raj Resort - Best Resort in Patna',
   },
   description:
-    'Raj Resort Patna is a premier 3.5-acre wedding resort and event venue in Patna, Bihar near Kurjee Mor & P&M Mall, Patliputra. Features starlit celebration lawns, an AC banquet hall, Ganga River-view dining, 25+ rooms, and 400+ car parking.',
+    'Raj Resort is rated the best resort in Patna for weddings, receptions, and luxury celebrations. A premier 3.5-acre resort near Kurji Mor & P&M Mall, Patliputra with starlit lawns, AC banquet hall, Ganga view dining, 25+ rooms, and 400+ car parking.',
   keywords: [
-    'Raj Resort Patna',
     'best resort in Patna',
+    'best resort in patna for wedding',
+    'best wedding resort in patna',
+    'top resort in patna',
+    'best luxury resort in patna',
+    'best marriage resort in patna',
+    'resort in Patna',
+    'Raj Resort Patna',
     'wedding venue in Patna',
     'best wedding venue in Patna',
     'wedding resort in Patna',
@@ -81,9 +87,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: 'Raj Resort Patna | Wedding Venue & Luxury Event Resort in Patna, Bihar',
+    title: 'Raj Resort - Best Resort in Patna | Weddings & Luxury Events',
     description:
-      '3.5-acre premier wedding resort and celebration venue in Patna, Bihar near Kurjee Mor & P&M Mall. Starlit celebration lawns for 400 to 1,200+ guests, AC banquet hall, Ganga River-view dining, and 400+ car parking.',
+      'Discover the best resort in Patna for weddings and grand celebrations. 3.5-acre premier resort near Kurji Mor & P&M Mall with starlit celebration lawns for 400 to 1,200+ guests, AC banquet hall, Ganga River-view dining, and 400+ car parking.',
     url: 'https://rajresortpatna.com',
     siteName: 'Raj Resort Patna',
     images: [
@@ -91,7 +97,7 @@ export const metadata: Metadata = {
         url: 'https://rajresortpatna.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Raj Resort Patna - Premier Wedding Resort and Event Venue in Patna Bihar',
+        alt: 'Raj Resort Patna - Best Resort in Patna for Weddings and Events',
       },
     ],
     locale: 'en_IN',
@@ -99,9 +105,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Raj Resort Patna | Wedding Venue & Luxury Event Resort in Patna, Bihar',
+    title: 'Raj Resort - Best Resort in Patna | Weddings & Luxury Events',
     description:
-      '3.5-acre premier wedding resort and celebration venue in Patna, Bihar near Kurjee Mor & P&M Mall. Starlit celebration lawns for 400 to 1,200+ guests, AC banquet hall, Ganga River-view dining, and 400+ car parking.',
+      'Discover the best resort in Patna for weddings and celebrations. 3.5 acres of starlit lawns, AC banquet hall, Ganga River-view dining, and 400+ car parking.',
     images: ['https://rajresortpatna.com/images/og-image.jpg'],
   },
   robots: {
